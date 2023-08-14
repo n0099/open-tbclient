@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class lpb<TResult> implements bpb<TResult> {
+public final class lpb<TResult> implements cpb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dpb a;
+    public dpb<TResult> a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class lpb<TResult> implements bpb<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fpb a;
+        public final /* synthetic */ gpb a;
         public final /* synthetic */ lpb b;
 
-        public a(lpb lpbVar, fpb fpbVar) {
+        public a(lpb lpbVar, gpb gpbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lpbVar, fpbVar};
+                Object[] objArr = {lpbVar, gpbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class lpb<TResult> implements bpb<TResult> {
                 }
             }
             this.b = lpbVar;
-            this.a = fpbVar;
+            this.a = gpbVar;
         }
 
         @Override // java.lang.Runnable
@@ -46,14 +46,14 @@ public final class lpb<TResult> implements bpb<TResult> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
+                        this.b.a.onComplete(this.a);
                     }
                 }
             }
         }
     }
 
-    public lpb(Executor executor, dpb dpbVar) {
+    public lpb(Executor executor, dpb<TResult> dpbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public final class lpb<TResult> implements bpb<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.bpb
+    @Override // com.baidu.tieba.cpb
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,12 +83,11 @@ public final class lpb<TResult> implements bpb<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.bpb
-    public final void onComplete(fpb<TResult> fpbVar) {
+    @Override // com.baidu.tieba.cpb
+    public final void onComplete(gpb<TResult> gpbVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fpbVar) == null) || fpbVar.h() || fpbVar.f()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gpbVar) == null) {
+            this.b.execute(new a(this, gpbVar));
         }
-        this.b.execute(new a(this, fpbVar));
     }
 }

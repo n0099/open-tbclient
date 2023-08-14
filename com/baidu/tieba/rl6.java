@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.webkit.sdk.WebView;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface rl6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewDebug");
 
-    void a();
+    JSONObject a();
 
-    @NonNull
-    android.webkit.WebView b(Context context, String str);
+    void b();
 
-    void c(String str, android.webkit.WebView webView);
+    void c();
 }

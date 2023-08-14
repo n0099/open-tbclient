@@ -31,10 +31,10 @@ import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an5;
-import com.baidu.tieba.aw5;
-import com.baidu.tieba.cw5;
+import com.baidu.tieba.bw5;
 import com.baidu.tieba.d05;
-import com.baidu.tieba.gj8;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.hj8;
 import com.baidu.tieba.hn5;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
@@ -46,21 +46,21 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.in5;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.ln5;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.ob8;
 import com.baidu.tieba.on5;
-import com.baidu.tieba.ov5;
-import com.baidu.tieba.ri8;
-import com.baidu.tieba.sl8;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.pb8;
+import com.baidu.tieba.pv5;
+import com.baidu.tieba.si8;
 import com.baidu.tieba.sn5;
 import com.baidu.tieba.tl8;
+import com.baidu.tieba.ul8;
 import com.baidu.tieba.w85;
-import com.baidu.tieba.wm8;
-import com.baidu.tieba.ym8;
+import com.baidu.tieba.xm8;
 import com.baidu.tieba.zm5;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ public class GroupChatRepo implements LifecycleObserver {
     @Nullable
     public u<TreeSet<ChatMsg>> l;
     @NonNull
-    public final aw5<String> m;
+    public final bw5<String> m;
     @NonNull
     public final w85<List<? extends ChatMsg>> n;
     public boolean o;
@@ -500,7 +500,7 @@ public class GroupChatRepo implements LifecycleObserver {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    cw5.b(this.a.c.h);
+                    dw5.b(this.a.c.h);
                     q qVar = this.a;
                     qVar.b.e(qVar.c.h);
                     this.a.c.p.j();
@@ -1031,13 +1031,13 @@ public class GroupChatRepo implements LifecycleObserver {
         public void a(long j, int i, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-                ri8.h(j, i, str);
+                si8.h(j, i, str);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class m extends jw5<GroupChatRoomPojo> {
+    public class m extends kw5<GroupChatRoomPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatRepo a;
@@ -1061,20 +1061,20 @@ public class GroupChatRepo implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         /* renamed from: a */
         public GroupChatRoomPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ob8.j().f(gj8.b(), this.a.c);
+                return pb8.j().f(hj8.b(), this.a.c);
             }
             return (GroupChatRoomPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class n implements ov5<GroupChatRoomPojo> {
+    public class n implements pv5<GroupChatRoomPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FastRequest.b a;
@@ -1104,7 +1104,7 @@ public class GroupChatRepo implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(GroupChatRoomPojo groupChatRoomPojo) {
             long j;
@@ -1430,13 +1430,13 @@ public class GroupChatRepo implements LifecycleObserver {
         this.i = true;
         this.j = false;
         this.k = new k(this);
-        this.m = aw5.c();
+        this.m = bw5.c();
         this.b = tbPageContext;
         this.a = tbPageContext.getPageActivity();
         this.c = j2;
-        w85<List<? extends ChatMsg>> w85Var = new w85<>(new sl8());
+        w85<List<? extends ChatMsg>> w85Var = new w85<>(new tl8());
         this.n = w85Var;
-        w85Var.g(new tl8(tbPageContext, w85Var));
+        w85Var.g(new ul8(tbPageContext, w85Var));
         this.p = new Counter(j2);
     }
 
@@ -1560,7 +1560,7 @@ public class GroupChatRepo implements LifecycleObserver {
     public void U(@Nullable FastRequest.b<ChatRoomDetail> bVar, @Nullable hn5 hn5Var, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048587, this, bVar, hn5Var, i2) == null) {
-            nw5.c(new m(this), new n(this, bVar, hn5Var, i2));
+            ow5.c(new m(this), new n(this, bVar, hn5Var, i2));
         }
     }
 
@@ -1695,8 +1695,8 @@ public class GroupChatRepo implements LifecycleObserver {
             this.e.l(this.a, this.c, new q(this, hn5Var, bVar));
             ChatRoomDetail chatRoomDetail = this.h;
             if (chatRoomDetail != null && chatRoomDetail.getBasicInfo() != null) {
-                ym8.c("c15089", TbadkCoreApplication.getCurrentAccount(), this.h.getBasicInfo().getForumId(), this.c, i2);
-                wm8.b(this.h.getBasicInfo().getForumId());
+                zm8.c("c15089", TbadkCoreApplication.getCurrentAccount(), this.h.getBasicInfo().getForumId(), this.c, i2);
+                xm8.b(this.h.getBasicInfo().getForumId());
             }
         }
     }
@@ -1781,8 +1781,8 @@ public class GroupChatRepo implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, t2) == null) {
             d05 t3 = d05.t();
-            cw5.d(t3.C());
-            cw5.b(this.h);
+            dw5.d(t3.C());
+            dw5.b(this.h);
             ChatRoomDetail.UserInfo userInfo = this.h.getUserInfo();
             ChatRoomDetail.BasicInfo basicInfo = this.h.getBasicInfo();
             CommonMsgField commonMsgFieldNullable = t2.getCommonMsgFieldNullable();

@@ -161,7 +161,7 @@ public class PictureCropView extends PictureView {
     private void g(Context context) {
         this.m.setColor(this.l);
         this.m.setStyle(Paint.Style.FILL);
-        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081410);
+        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081413);
         ZoomImageView zoomImageView = (ZoomImageView) getImageView();
         zoomImageView.setDoubleTapEnabled(true);
         zoomImageView.setCalcBaseMatrix(false);

@@ -44,13 +44,13 @@ import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.model.AddressListModel;
 import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.tieba.addresslist.view.AssortView;
-import com.baidu.tieba.c66;
+import com.baidu.tieba.d66;
 import com.baidu.tieba.i95;
 import com.baidu.tieba.j95;
-import com.baidu.tieba.r56;
 import com.baidu.tieba.s56;
+import com.baidu.tieba.t56;
 import com.baidu.tieba.we5;
-import com.baidu.tieba.y56;
+import com.baidu.tieba.z56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class AddressListFragment extends BaseFragment implements s56.a, i95.g, AssortView.a {
+public class AddressListFragment extends BaseFragment implements t56.a, i95.g, AssortView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AddressListModel a;
@@ -74,7 +74,7 @@ public class AddressListFragment extends BaseFragment implements s56.a, i95.g, A
     public LinearLayout j;
     public j95 k;
     public BdListView l;
-    public r56 m;
+    public s56 m;
     public TextView n;
     public ImageView o;
     public int p;
@@ -164,14 +164,14 @@ public class AddressListFragment extends BaseFragment implements s56.a, i95.g, A
             if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
                 this.a.l.z(0L);
                 if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                    y56 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                    z56 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
                     ArrayList arrayList = new ArrayList();
                     if (addressListData != null) {
-                        for (c66 c66Var : addressListData.a()) {
-                            List<we5> a = c66Var.a();
+                        for (d66 d66Var : addressListData.a()) {
+                            List<we5> a = d66Var.a();
                             if (a.size() > 0) {
                                 we5 we5Var = new we5();
-                                we5Var.j(c66Var.b());
+                                we5Var.j(d66Var.b());
                                 arrayList.add(we5Var);
                             }
                             for (we5 we5Var2 : a) {
@@ -433,7 +433,7 @@ public class AddressListFragment extends BaseFragment implements s56.a, i95.g, A
         }
     }
 
-    @Override // com.baidu.tieba.s56.a
+    @Override // com.baidu.tieba.t56.a
     public void x(List<we5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
@@ -447,7 +447,7 @@ public class AddressListFragment extends BaseFragment implements s56.a, i95.g, A
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutInflater)) == null) {
             this.h = LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0080, (ViewGroup) null);
             this.k = new j95(this.q.getPageContext());
-            this.m = new r56(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
+            this.m = new s56(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0084, (ViewGroup) null, false);
             this.j = linearLayout;
             linearLayout.setOnClickListener(this);

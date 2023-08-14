@@ -45,12 +45,12 @@ public class cv {
 
             /* renamed from: com.baidu.tieba.cv$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0263a implements Runnable {
+            public class RunnableC0265a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0263a(a aVar) {
+                public RunnableC0265a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class cv {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    et.c(new RunnableC0263a(this));
+                    et.c(new RunnableC0265a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -358,12 +358,12 @@ public class cv {
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f16)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f1c)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(hv.a.a(str3, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f15);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f1b);
             GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.sdk_toast_btn_bg);
             gradientDrawable2.setColor(hv.a.a(str4, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             textView2.setBackground(gradientDrawable2);

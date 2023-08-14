@@ -40,7 +40,7 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.m45;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.q25;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -59,7 +59,7 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class ConcernFragment extends BaseFragment implements mg7 {
+public class ConcernFragment extends BaseFragment implements ng7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -74,14 +74,14 @@ public class ConcernFragment extends BaseFragment implements mg7 {
     public final CustomMessageListener j;
     public final NetMessageListener k;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -578,7 +578,7 @@ public class ConcernFragment extends BaseFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -603,7 +603,7 @@ public class ConcernFragment extends BaseFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

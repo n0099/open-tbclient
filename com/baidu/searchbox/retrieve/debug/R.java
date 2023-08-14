@@ -13,8 +13,8 @@ public final class R {
         public static final int retrieve_info_test_size = 0x7f07079d;
         public static final int space_config_padding_horizontal = 0x7f0707d8;
         public static final int space_config_size_width = 0x7f0707d9;
-        public static final int title_text_size = 0x7f070b28;
-        public static final int voyager_biz_width = 0x7f070b55;
+        public static final int title_text_size = 0x7f070b29;
+        public static final int voyager_biz_width = 0x7f070b56;
     }
 
     /* loaded from: classes4.dex */
@@ -94,13 +94,13 @@ public final class R {
         public static final int et_voyager_config_total_max_count = 0x7f090a80;
         public static final int et_voyager_config_total_max_size = 0x7f090a81;
         public static final int et_voyager_config_upload_interval = 0x7f090a82;
-        public static final int tv_clear_intro = 0x7f0926d6;
-        public static final int tv_log_flush_intro = 0x7f092720;
-        public static final int tv_log_query_result = 0x7f092721;
-        public static final int tv_retrieve_plat_intro = 0x7f092765;
-        public static final int tv_total_switch_intro = 0x7f09278a;
-        public static final int tv_voyager_clear_intro = 0x7f092796;
-        public static final int tv_voyager_total_switch_intro = 0x7f092797;
+        public static final int tv_clear_intro = 0x7f0926dc;
+        public static final int tv_log_flush_intro = 0x7f092726;
+        public static final int tv_log_query_result = 0x7f092727;
+        public static final int tv_retrieve_plat_intro = 0x7f09276b;
+        public static final int tv_total_switch_intro = 0x7f092790;
+        public static final int tv_voyager_clear_intro = 0x7f09279c;
+        public static final int tv_voyager_total_switch_intro = 0x7f09279d;
     }
 
     /* loaded from: classes4.dex */

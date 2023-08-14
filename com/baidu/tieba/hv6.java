@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ public class hv6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardHot a;
+    public gm7 a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,13 +47,13 @@ public class hv6 extends BaseCardInfo {
         }
     }
 
-    public FeatureCardHot c() {
+    public gm7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (FeatureCardHot) invokeV.objValue;
+        return (gm7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
@@ -67,10 +66,10 @@ public class hv6 extends BaseCardInfo {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(FeatureCardHot featureCardHot) {
+    public void d(gm7 gm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardHot) == null) {
-            this.a = featureCardHot;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gm7Var) == null) {
+            this.a = gm7Var;
         }
     }
 }

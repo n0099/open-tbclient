@@ -1,15 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class nv9 implements ck1 {
+public final class nv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public final gk1<mv9> a;
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ek1 b = ek1.b();
+            this.a = b;
+            b.a(new ov9());
+        }
+    }
 
     public nv9() {
         Interceptable interceptable = $ic;
@@ -21,32 +33,18 @@ public class nv9 implements ck1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    @Override // com.baidu.tieba.ck1
-    public Object get() {
+    public final gk1<mv9> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new lp7());
-            arrayList.add(new mp7());
-            arrayList.add(new c58());
-            arrayList.add(new ep8());
-            arrayList.add(new fp8());
-            arrayList.add(new gp8());
-            arrayList.add(new hp8());
-            arrayList.add(new jp8());
-            arrayList.add(new rk9());
-            arrayList.add(new tk9());
-            arrayList.add(new uk9());
-            arrayList.add(new vk9());
-            arrayList.add(new vxa());
-            arrayList.add(new wxa());
-            return arrayList;
+            return this.a;
         }
-        return invokeV.objValue;
+        return (gk1) invokeV.objValue;
     }
 }

@@ -36,25 +36,25 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax8;
 import com.baidu.tieba.az8;
-import com.baidu.tieba.dy8;
-import com.baidu.tieba.gx8;
+import com.baidu.tieba.bx8;
+import com.baidu.tieba.bz8;
+import com.baidu.tieba.ey8;
 import com.baidu.tieba.hx8;
-import com.baidu.tieba.iy8;
+import com.baidu.tieba.ix8;
+import com.baidu.tieba.jy8;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.lego.LegoListView;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.mw6;
-import com.baidu.tieba.my8;
+import com.baidu.tieba.nw6;
 import com.baidu.tieba.ny8;
 import com.baidu.tieba.om5;
-import com.baidu.tieba.ox8;
-import com.baidu.tieba.ry8;
+import com.baidu.tieba.oy8;
+import com.baidu.tieba.px8;
 import com.baidu.tieba.sy8;
 import com.baidu.tieba.ty8;
-import com.baidu.tieba.vx8;
-import com.baidu.tieba.yy8;
+import com.baidu.tieba.uy8;
+import com.baidu.tieba.wx8;
 import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,35 +80,35 @@ public class LegoListFragment extends BaseFragment {
     public boolean G;
     public int H;
     public View I;
-    public hx8 J;
-    public my8 K;
-    public ax8 L;
+    public ix8 J;
+    public ny8 K;
+    public bx8 L;
     public View.OnLayoutChangeListener M;
     public View.OnTouchListener N;
-    public mw6.b O;
+    public nw6.b O;
     public AbsListView.OnScrollListener P;
     public Runnable Q;
     public LinearLayout a;
     public NoNetworkView b;
     public LegoListView c;
-    public iy8 d;
-    public ny8 e;
-    public mw6 f;
+    public jy8 d;
+    public oy8 e;
+    public nw6 f;
     public long g;
     public String h;
-    public ty8 i;
-    public ry8 j;
-    public zy8 k;
+    public uy8 i;
+    public sy8 j;
+    public az8 k;
     public om5 l;
     public LoadingView m;
     public boolean n;
-    public gx8 o;
+    public hx8 o;
     public RelativeLayout p;
     public ImageView q;
     public ImageView r;
     public TbImageView s;
     public TbImageView t;
-    public vx8 u;
+    public wx8 u;
     public Rect v;
     public int w;
     public int x;
@@ -308,7 +308,7 @@ public class LegoListFragment extends BaseFragment {
                                     this.c = true;
                                     this.d = i8;
                                     this.e = 0;
-                                    dy8.a = i7;
+                                    ey8.a = i7;
                                     this.f.c.getListView().post(new b(this));
                                 }
                             }
@@ -352,7 +352,7 @@ public class LegoListFragment extends BaseFragment {
                                         this.d = i12;
                                         this.e = 0;
                                     }
-                                    dy8.a = i4;
+                                    ey8.a = i4;
                                     this.f.c.getListView().post(new c(this));
                                 }
                             }
@@ -404,7 +404,7 @@ public class LegoListFragment extends BaseFragment {
                     LegoListFragment legoListFragment = this.f;
                     legoListFragment.x2(1, legoListFragment.G);
                     if (this.c) {
-                        this.f.d.I0(dy8.a);
+                        this.f.d.I0(ey8.a);
                         this.f.c.getListView().setSelectionFromTop(this.d, this.e);
                         this.f.d.O();
                         this.f.c.getListView().post(new a(this));
@@ -530,15 +530,15 @@ public class LegoListFragment extends BaseFragment {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy8 a;
+        public final /* synthetic */ ty8 a;
         public final /* synthetic */ LegoListFragment b;
 
-        public c(LegoListFragment legoListFragment, sy8 sy8Var) {
+        public c(LegoListFragment legoListFragment, ty8 ty8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {legoListFragment, sy8Var};
+                Object[] objArr = {legoListFragment, ty8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -549,7 +549,7 @@ public class LegoListFragment extends BaseFragment {
                 }
             }
             this.b = legoListFragment;
-            this.a = sy8Var;
+            this.a = ty8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -566,12 +566,12 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements az8 {
+    public class d implements bz8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void c(long j, String str, Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
@@ -596,7 +596,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
@@ -633,7 +633,7 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void b(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) {
@@ -686,7 +686,7 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements my8 {
+    public class f implements ny8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
@@ -709,7 +709,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // com.baidu.tieba.my8
+        @Override // com.baidu.tieba.ny8
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.e != null) {
@@ -719,7 +719,7 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements ax8 {
+    public class g implements bx8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
@@ -742,7 +742,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // com.baidu.tieba.ax8
+        @Override // com.baidu.tieba.bx8
         public void a(int i, long j, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) {
@@ -750,7 +750,7 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.ax8
+        @Override // com.baidu.tieba.bx8
         public void b(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
@@ -838,19 +838,19 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements mw6.b {
+    public class j implements nw6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
 
-        @Override // com.baidu.tieba.mw6.b
+        @Override // com.baidu.tieba.nw6.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.mw6.b
+        @Override // com.baidu.tieba.nw6.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -875,7 +875,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // com.baidu.tieba.mw6.b
+        @Override // com.baidu.tieba.nw6.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeII(1048576, this, i, i2) != null) {
@@ -884,7 +884,7 @@ public class LegoListFragment extends BaseFragment {
             this.a.G = false;
         }
 
-        @Override // com.baidu.tieba.mw6.b
+        @Override // com.baidu.tieba.nw6.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) {
@@ -1114,17 +1114,17 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public void F2(gx8 gx8Var) {
+    public void F2(hx8 hx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gx8Var) == null) {
-            this.o = gx8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hx8Var) == null) {
+            this.o = hx8Var;
         }
     }
 
-    public void G2(hx8 hx8Var) {
+    public void G2(ix8 ix8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hx8Var) == null) {
-            this.J = hx8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ix8Var) == null) {
+            this.J = ix8Var;
         }
     }
 
@@ -1182,18 +1182,18 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public void z2(iy8 iy8Var) {
+    public void z2(jy8 jy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, iy8Var) == null) {
-            this.d = iy8Var;
-            iy8Var.w0(this.K);
+        if (interceptable == null || interceptable.invokeL(1048612, this, jy8Var) == null) {
+            this.d = jy8Var;
+            jy8Var.w0(this.K);
         }
     }
 
     public void y2(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048611, this, str, str2) == null) {
-            vx8 a2 = vx8.a(str);
+            wx8 a2 = wx8.a(str);
             this.u = a2;
             a2.d(str2);
         }
@@ -1249,9 +1249,9 @@ public class LegoListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
             this.c.t();
-            ny8 ny8Var = this.e;
-            if (ny8Var != null) {
-                ny8Var.c();
+            oy8 oy8Var = this.e;
+            if (oy8Var != null) {
+                oy8Var.c();
             }
             SafeHandler.getInst().removeCallbacks(this.Q);
         }
@@ -1263,9 +1263,9 @@ public class LegoListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onPause();
             this.c.setViewBackGround();
-            ny8 ny8Var = this.e;
-            if (ny8Var != null) {
-                ny8Var.n(false);
+            oy8 oy8Var = this.e;
+            if (oy8Var != null) {
+                oy8Var.n(false);
                 this.e.t();
             }
             SafeHandler.getInst().removeCallbacks(this.Q);
@@ -1278,9 +1278,9 @@ public class LegoListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
             this.c.setViewForeground();
-            ny8 ny8Var = this.e;
-            if (ny8Var != null) {
-                ny8Var.n(true);
+            oy8 oy8Var = this.e;
+            if (oy8Var != null) {
+                oy8Var.n(true);
                 SafeHandler.getInst().postDelayed(this.Q, 200L);
             }
         }
@@ -1306,13 +1306,13 @@ public class LegoListFragment extends BaseFragment {
         return invokeV.intValue;
     }
 
-    public ny8 r2() {
+    public oy8 r2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.e;
         }
-        return (ny8) invokeV.objValue;
+        return (oy8) invokeV.objValue;
     }
 
     public final void t2() {
@@ -1327,7 +1327,7 @@ public class LegoListFragment extends BaseFragment {
     public final void v2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            zy8 c2 = yy8.d().c(getPageContext(), getUniqueId());
+            az8 c2 = zy8.d().c(getPageContext(), getUniqueId());
             this.k = c2;
             c2.b(new d(this));
         }
@@ -1415,7 +1415,7 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final void l2(List<sy8> list) {
+    public final void l2(List<ty8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048589, this, list) != null) || this.r == null) {
             return;
@@ -1426,10 +1426,10 @@ public class LegoListFragment extends BaseFragment {
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
             if (list.get(i2).d == 2) {
-                sy8 sy8Var = list.get(i2);
+                ty8 ty8Var = list.get(i2);
                 if (!TextUtils.isEmpty(list.get(i2).c)) {
                     this.r.setVisibility(0);
-                    this.r.setOnClickListener(new c(this, sy8Var));
+                    this.r.setOnClickListener(new c(this, ty8Var));
                 }
             }
         }
@@ -1449,17 +1449,17 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final LegoListView w2(ax8 ax8Var) {
+    public final LegoListView w2(bx8 bx8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, ax8Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, bx8Var)) == null) {
             LegoListView legoListView = new LegoListView(getPageContext().getPageActivity(), this.y);
             legoListView.d.E(this.B);
             if (this.A) {
                 legoListView.setFriction(ViewConfiguration.getScrollFriction() * 12.0f);
             }
             legoListView.v(getUniqueId());
-            legoListView.setCallback(ax8Var);
+            legoListView.setCallback(bx8Var);
             return legoListView;
         }
         return (LegoListView) invokeL.objValue;
@@ -1468,7 +1468,7 @@ public class LegoListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
-        vx8 vx8Var;
+        wx8 wx8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) {
             this.w = BdUtilHelper.getEquipmentWidth(getActivity());
@@ -1490,20 +1490,20 @@ public class LegoListFragment extends BaseFragment {
             LegoListView w2 = w2(this.L);
             this.c = w2;
             w2.setDrawingCacheEnabled(false);
-            ty8 ty8Var = new ty8();
-            this.i = ty8Var;
-            ty8Var.a = this.g;
-            ty8Var.b = this.h;
-            ry8 ry8Var = new ry8(ty8Var);
-            this.j = ry8Var;
-            this.c.u(ry8Var, true);
+            uy8 uy8Var = new uy8();
+            this.i = uy8Var;
+            uy8Var.a = this.g;
+            uy8Var.b = this.h;
+            sy8 sy8Var = new sy8(uy8Var);
+            this.j = sy8Var;
+            this.c.u(sy8Var, true);
             this.a.addView(this.c);
             this.c.getListView().setOnScrollListener(this.P);
             this.c.getListView().addOnLayoutChangeListener(this.M);
             this.c.getListView().setOnTouchListener(this.N);
-            mw6 mw6Var = new mw6();
-            this.f = mw6Var;
-            mw6Var.d(this.O);
+            nw6 nw6Var = new nw6();
+            this.f = nw6Var;
+            nw6Var.d(this.O);
             this.e = this.c.getPlaySwitchController();
             frameLayout.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
             if (this.A) {
@@ -1515,7 +1515,7 @@ public class LegoListFragment extends BaseFragment {
                 BdUtilHelper.addToParentArea(getActivity(), this.q, 20, 20, 20, 20);
                 this.q.setOnClickListener(new m(this));
                 getBaseFragmentActivity().setSwipeBackEnabled(false);
-                if (this.z && (vx8Var = this.u) != null && vx8Var.c()) {
+                if (this.z && (wx8Var = this.u) != null && wx8Var.c()) {
                     frameLayout.setBackgroundColor(getActivity().getResources().getColor(R.color.black_alpha100));
                     int statusBarHeight = BdUtilHelper.getStatusBarHeight(getActivity());
                     this.x = statusBarHeight;
@@ -1571,9 +1571,9 @@ public class LegoListFragment extends BaseFragment {
 
     public final void x2(int i2, boolean z) {
         LegoListView legoListView;
-        ox8 ox8Var;
+        px8 px8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && this.e != null && (legoListView = this.c) != null && legoListView.getListView() != null && (ox8Var = this.c.d) != null && ox8Var.getCount() != 0) {
+        if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && this.e != null && (legoListView = this.c) != null && legoListView.getListView() != null && (px8Var = this.c.d) != null && px8Var.getCount() != 0) {
             this.e.j(this.F, this.E, z, i2);
         }
     }

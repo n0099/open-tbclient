@@ -98,6 +98,6 @@ public abstract class y extends LinearLayout {
     public Bitmap getSdkLogo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BitmapFactory.decodeResource(getContext().getResources(), R.drawable.obfuscated_res_0x7f080e8f) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BitmapFactory.decodeResource(getContext().getResources(), R.drawable.obfuscated_res_0x7f080e92) : (Bitmap) invokeV.objValue;
     }
 }

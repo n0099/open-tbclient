@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gaa;
+import com.baidu.tieba.haa;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.tieba.x95;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,23 +77,23 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void b(gaa gaaVar) {
+    public void b(haa haaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gaaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, haaVar) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.startLoad(gaaVar.a, 10, false);
+                barImageView.startLoad(haaVar.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(gaaVar.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0774));
+                symbolEMTextView.setText(haaVar.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0774));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(gaaVar.c);
+                textView.setText(haaVar.c);
             }
             if (this.e != null) {
-                if (gaaVar.d) {
+                if (haaVar.d) {
                     x95 x95Var = new x95();
                     x95Var.s(R.color.CAM_X0903, R.color.CAM_X0109);
                     this.e.setConfig(x95Var);
@@ -113,7 +113,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                     }
                 }
                 x95 x95Var2 = new x95();
-                x95Var2.v(x9a.f(str));
+                x95Var2.v(y9a.f(str));
                 this.e.setConfig(x95Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
                 tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0840));

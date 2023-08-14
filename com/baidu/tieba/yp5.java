@@ -53,7 +53,7 @@ public class yp5 implements uo5<SyncDataEvent> {
                 SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
             }
             TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            su5.d().f(syncDataEvent.abtestExtraData);
+            tu5.d().f(syncDataEvent.abtestExtraData);
             UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
             TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
             ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);

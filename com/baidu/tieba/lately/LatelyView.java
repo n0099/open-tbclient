@@ -19,8 +19,8 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.h26;
-import com.baidu.tieba.ly6;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.my6;
 import com.baidu.tieba.om5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class LatelyView extends FrameLayout implements h26<String> {
+public class LatelyView extends FrameLayout implements i26<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class LatelyView extends FrameLayout implements h26<String> {
     public LoadingView e;
     public om5 f;
 
-    @Override // com.baidu.tieba.h26
+    @Override // com.baidu.tieba.i26
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -146,7 +146,7 @@ public class LatelyView extends FrameLayout implements h26<String> {
         f();
     }
 
-    @Override // com.baidu.tieba.h26
+    @Override // com.baidu.tieba.i26
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class LatelyView extends FrameLayout implements h26<String> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.h26
+    @Override // com.baidu.tieba.i26
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class LatelyView extends FrameLayout implements h26<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h26
+    @Override // com.baidu.tieba.i26
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -221,7 +221,7 @@ public class LatelyView extends FrameLayout implements h26<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092144);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09214a);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.s(1);
@@ -233,12 +233,12 @@ public class LatelyView extends FrameLayout implements h26<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.h26
+    @Override // com.baidu.tieba.i26
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = ly6.n().j();
+            RecentlyVisitedForumData j = my6.n().j();
             if (j == null) {
                 i(false, false);
                 return;

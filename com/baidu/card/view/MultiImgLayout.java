@@ -24,10 +24,10 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.b05;
-import com.baidu.tieba.bn6;
-import com.baidu.tieba.fz5;
+import com.baidu.tieba.cn6;
+import com.baidu.tieba.gz5;
 import com.baidu.tieba.im;
-import com.baidu.tieba.iz5;
+import com.baidu.tieba.jz5;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
@@ -51,7 +51,7 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
     public ConstrainImageGroup d;
     public String e;
     public boolean f;
-    public bn6<q05> g;
+    public cn6<q05> g;
     public q05 h;
     public boolean i;
 
@@ -81,7 +81,7 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bn6<q05> subClickListener;
+            cn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -91,7 +91,7 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements iz5 {
+    public class b implements jz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -116,14 +116,14 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
             this.a = linkedList;
         }
 
-        @Override // com.baidu.tieba.iz5
+        @Override // com.baidu.tieba.jz5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (this.b.g != null && this.b.g.c(view2, this.b.h, "")) {
                     return;
                 }
-                bn6<q05> subClickListener = this.b.getSubClickListener();
+                cn6<q05> subClickListener = this.b.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.b.h.objType = 2;
@@ -265,10 +265,10 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bn6Var) == null) {
-            this.g = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cn6Var) == null) {
+            this.g = cn6Var;
         }
     }
 
@@ -368,19 +368,19 @@ public class MultiImgLayout extends LinearLayout implements qx<q05> {
             playVoiceBntNew.setAfterClickListener(new a(this));
             this.d = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
             this.d.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-            fz5 fz5Var = new fz5(3);
-            fz5Var.d(1.0d);
-            this.d.setImageProcessor(fz5Var);
+            gz5 gz5Var = new gz5(3);
+            gz5Var.d(1.0d);
+            this.d.setImageProcessor(gz5Var);
         }
     }
 
-    public bn6<q05> getSubClickListener() {
+    public cn6<q05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     public void setMarginsTop(View view2, int i) {

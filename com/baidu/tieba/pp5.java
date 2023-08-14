@@ -66,8 +66,8 @@ public class pp5 implements uo5<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.Q(locationData);
-                pca.a().f(System.currentTimeMillis());
-                pca.a().d(locationEvent.locationData);
+                qca.a().f(System.currentTimeMillis());
+                qca.a().d(locationEvent.locationData);
             }
             MutiProcessManager.publishEvent(locationEvent);
         }
@@ -113,7 +113,7 @@ public class pp5 implements uo5<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                pca.a().d(locationEvent.locationData);
+                qca.a().d(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

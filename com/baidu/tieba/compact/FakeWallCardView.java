@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.i37;
-import com.baidu.tieba.ix7;
-import com.baidu.tieba.n97;
-import com.baidu.tieba.wy7;
+import com.baidu.tieba.j37;
+import com.baidu.tieba.jx7;
+import com.baidu.tieba.o97;
+import com.baidu.tieba.xy7;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\f\u001a\u00020\rH\u0016J\u000e\u0010\u000e\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0010R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/compact/FakeWallCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "adapterManager", "Lcom/baidu/tieba/homepage/concern/ConcernAdapterManager;", "mRecyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/card/uistate/OtherTemplateUiState;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class FakeWallCardView extends LinearLayout implements n97 {
+public final class FakeWallCardView extends LinearLayout implements o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdTypeRecyclerView a;
-    public ix7 b;
+    public jx7 b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -79,7 +79,7 @@ public final class FakeWallCardView extends LinearLayout implements n97 {
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         this.a.setFadingEdgeLength(0);
         this.a.setOverScrollMode(2);
-        this.b = new ix7(context, this.a);
+        this.b = new jx7(context, this.a);
         addView(this.a, new LinearLayout.LayoutParams(-1, -2));
     }
 
@@ -87,7 +87,7 @@ public final class FakeWallCardView extends LinearLayout implements n97 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.n97
+    @Override // com.baidu.tieba.o97
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -95,13 +95,13 @@ public final class FakeWallCardView extends LinearLayout implements n97 {
         }
     }
 
-    public final void update(i37 state) {
+    public final void update(j37 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             Object obj = state.a().a;
             if (obj instanceof ThreadData) {
-                List<ym> f = new wy7().f((ThreadData) obj, 0, null);
+                List<ym> f = new xy7().f((ThreadData) obj, 0, null);
                 Intrinsics.checkNotNullExpressionValue(f, "ConcernListGenerate().spliteThread(data, 0, null)");
                 this.b.j(f);
             }

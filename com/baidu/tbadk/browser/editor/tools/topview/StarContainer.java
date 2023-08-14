@@ -26,7 +26,7 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.tieba.lh5;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.rk6;
 import com.baidu.tieba.yh5;
 import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -246,7 +246,7 @@ public final class StarContainer extends FrameLayout implements yh5, zj5 {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("newValue", this.j.getStarCount());
                 jSONObject.put("playerName", this.c);
-                qk6.a().h("gameCard.playerInfoStar", jSONObject);
+                rk6.a().h("gameCard.playerInfoStar", jSONObject);
             } catch (Exception unused) {
             }
         }

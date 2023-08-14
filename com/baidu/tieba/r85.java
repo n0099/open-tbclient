@@ -94,7 +94,7 @@ public class r85 {
                 }
             }
             if (context != null) {
-                fr5.b(context, param);
+                gr5.b(context, param);
             }
             TiebaStatic.log(param);
         }

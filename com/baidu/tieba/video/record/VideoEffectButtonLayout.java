@@ -9,13 +9,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ana;
+import com.baidu.tieba.bna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, ana.b {
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, bna.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -133,14 +133,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // com.baidu.tieba.ana.b
+    @Override // com.baidu.tieba.bna.b
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d31);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d34);
             } else {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d32);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d35);
             }
         }
     }

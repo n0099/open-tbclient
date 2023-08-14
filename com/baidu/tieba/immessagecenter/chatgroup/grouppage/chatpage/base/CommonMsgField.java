@@ -12,7 +12,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.AbilityEf
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ExcellentInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.UserExtraInfo;
-import com.baidu.tieba.kv5;
+import com.baidu.tieba.lv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     public static final String FROM_ANDROID = "android";
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @kv5(deserialize = false, serialize = false)
+    @lv5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
     @Nullable
     @SerializedName("bubble_info")
@@ -51,13 +51,13 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     public boolean isLocalEmojiReply;
     public boolean isLocalMsgId;
     public int level;
-    @kv5(serialize = false)
     @SerializedName("msg_id")
+    @lv5(serialize = false)
     public long msgId;
-    @kv5(serialize = false)
     @SerializedName("msg_key")
+    @lv5(serialize = false)
     public String msgKey;
-    @kv5(serialize = false)
+    @lv5(serialize = false)
     public String portrait;
     @Nullable
     @SerializedName("quick_operate")
@@ -65,25 +65,25 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     @SerializedName("robot_role")
     public int robotRole;
     public int role;
-    @kv5(serialize = false)
     @SerializedName("room_id")
+    @lv5(serialize = false)
     public long roomId;
     @Nullable
     @SerializedName("second_data")
     public List<EnableDegradeUserData> secondDegradeUserDataList;
     @Nullable
-    @kv5(serialize = false)
     @SerializedName("task_info")
+    @lv5(serialize = false)
     public TaskInfo taskInfo;
     public int type;
     @Nullable
     @SerializedName("user_extra_info")
     public UserExtraInfo userExtraInfo;
-    @kv5(serialize = false)
     @SerializedName("user_id")
+    @lv5(serialize = false)
     public long userId;
-    @kv5(serialize = false)
     @SerializedName("user_name")
+    @lv5(serialize = false)
     public String userName;
     @Nullable
     public String version;

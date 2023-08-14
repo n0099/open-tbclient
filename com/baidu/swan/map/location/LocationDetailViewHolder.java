@@ -26,8 +26,8 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
 
     public final void b(View view2) {
         this.a = (TextView) view2.findViewById(R.id.main_title);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922cf);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09213b);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d5);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092141);
         this.c = findViewById;
         findViewById.setVisibility(8);
         this.itemView.setOnClickListener(this);

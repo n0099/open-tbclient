@@ -2,7 +2,9 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gob;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +12,145 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public final class zob {
+public class zob extends dob {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, vob> b;
-    public static Map<Class<?>, Object> c;
+    public static List<wob> c;
+    public static final Object d;
+    public static final Map<String, dob> e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, vob> a;
+    public final eob a;
+    public final apb b;
+
+    /* loaded from: classes8.dex */
+    public static class a implements gob.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gob.a
+        public String a(eob eobVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eobVar)) == null) {
+                if (eobVar.b().equals(bob.c)) {
+                    str = "/agcgw_all/CN";
+                } else if (eobVar.b().equals(bob.e)) {
+                    str = "/agcgw_all/RU";
+                } else if (eobVar.b().equals(bob.d)) {
+                    str = "/agcgw_all/DE";
+                } else if (!eobVar.b().equals(bob.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG";
+                }
+                return eobVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements gob.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gob.a
+        public String a(eob eobVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eobVar)) == null) {
+                if (eobVar.b().equals(bob.c)) {
+                    str = "/agcgw_all/CN_back";
+                } else if (eobVar.b().equals(bob.e)) {
+                    str = "/agcgw_all/RU_back";
+                } else if (eobVar.b().equals(bob.d)) {
+                    str = "/agcgw_all/DE_back";
+                } else if (!eobVar.b().equals(bob.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG_back";
+                }
+                return eobVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements gob.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gob.a
+        public String a(eob eobVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eobVar)) == null) {
+                if (eobVar.b().equals(bob.c)) {
+                    str = "/service/analytics/collector_url_cn";
+                } else if (eobVar.b().equals(bob.e)) {
+                    str = "/service/analytics/collector_url_ru";
+                } else if (eobVar.b().equals(bob.d)) {
+                    str = "/service/analytics/collector_url_de";
+                } else if (!eobVar.b().equals(bob.f)) {
+                    return null;
+                } else {
+                    str = "/service/analytics/collector_url_sg";
+                }
+                return eobVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,16 +165,16 @@ public final class zob {
                 return;
             }
         }
-        b = new HashMap();
-        c = new HashMap();
+        d = new Object();
+        e = new HashMap();
     }
 
-    public zob(List<vob> list, Context context) {
+    public zob(eob eobVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
+            Object[] objArr = {eobVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,87 +184,144 @@ public final class zob {
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
-    }
-
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
+        this.a = eobVar;
+        if (c == null) {
+            Log.e("AGConnectInstance", "please call `initialize()` first");
         }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public final void b(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
+        new apb(c, eobVar.getContext());
+        apb apbVar = new apb(null, eobVar.getContext());
+        this.b = apbVar;
+        if (eobVar instanceof mob) {
+            apbVar.c(((mob) eobVar).d(), eobVar.getContext());
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<vob> list, Context context) {
-        Map<Class<?>, vob> map;
-        String str;
+    public static dob e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f;
+            if (str == null) {
+                str = "DEFAULT_INSTANCE";
+            }
+            return h(str);
         }
-        for (vob vobVar : list) {
-            if (vobVar.c()) {
-                if (!b.containsKey(vobVar.a())) {
-                    map = b;
+        return (dob) invokeV.objValue;
+    }
+
+    public static dob f(eob eobVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eobVar)) == null) ? g(eobVar, false) : (dob) invokeL.objValue;
+    }
+
+    public static dob g(eob eobVar, boolean z) {
+        InterceptResult invokeLZ;
+        dob dobVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, eobVar, z)) == null) {
+            synchronized (d) {
+                dobVar = e.get(eobVar.getIdentifier());
+                if (dobVar == null || z) {
+                    dobVar = new zob(eobVar);
+                    e.put(eobVar.getIdentifier(), dobVar);
                 }
-                if (vobVar.b() && vobVar.getType() != null && !c.containsKey(vobVar.a())) {
-                    try {
-                        Constructor a = a(vobVar.getType(), Context.class);
-                        c.put(vobVar.a(), a == null ? a.newInstance(context) : vobVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
+            }
+            return dobVar;
+        }
+        return (dob) invokeLZ.objValue;
+    }
+
+    public static dob h(String str) {
+        InterceptResult invokeL;
+        dob dobVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (d) {
+                dobVar = e.get(str);
+                if (dobVar == null) {
+                    if ("DEFAULT_INSTANCE".equals(str)) {
+                        Log.w("AGC_Instance", "please call `initialize()` first");
+                    } else {
+                        Log.w("AGC_Instance", "not find instance for : " + str);
                     }
                 }
-            } else {
-                map = this.a;
             }
-            map.put(vobVar.a(), vobVar);
-            if (vobVar.b()) {
-                Constructor a2 = a(vobVar.getType(), Context.class);
-                c.put(vobVar.a(), a2 == null ? a2.newInstance(context) : vobVar.getType().newInstance());
+            return dobVar;
+        }
+        return (dob) invokeL.objValue;
+    }
+
+    public static synchronized void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (zob.class) {
+                if (e.size() > 0) {
+                    Log.w("AGC_Instance", "Repeated invoking initialize");
+                } else {
+                    j(context, hob.c(context));
+                }
             }
         }
+    }
+
+    public static synchronized void j(Context context, eob eobVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, eobVar) == null) {
+            synchronized (zob.class) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.w("AGC_Instance", "context.getApplicationContext null");
+                } else {
+                    context = applicationContext;
+                }
+                k();
+                l();
+                lob.a(context);
+                if (c == null) {
+                    c = new com.huawei.agconnect.core.a.c(context).b();
+                }
+                g(eobVar, true);
+                f = eobVar.getIdentifier();
+                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + eobVar.b().a());
+                yob.a();
+            }
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            gob.b("/agcgw/url", new a());
+            gob.b("/agcgw/backurl", new b());
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            gob.b("/service/analytics/collector_url", new c());
+        }
+    }
+
+    @Override // com.baidu.tieba.dob
+    public eob c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (eob) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dob
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dob
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIdentifier() : (String) invokeV.objValue;
     }
 }

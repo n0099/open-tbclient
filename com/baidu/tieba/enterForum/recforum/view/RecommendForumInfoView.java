@@ -135,7 +135,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091e5e);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091e64);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
@@ -144,9 +144,9 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091e5f);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091e65);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ef);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924fa);
             this.e = (FollowUserButton) findViewById(R.id.like_button);
             e();
         }

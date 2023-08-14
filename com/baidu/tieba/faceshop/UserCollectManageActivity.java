@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c27;
-import com.baidu.tieba.c99;
-import com.baidu.tieba.i27;
+import com.baidu.tieba.d27;
+import com.baidu.tieba.d99;
+import com.baidu.tieba.j27;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.rl5;
-import com.baidu.tieba.t17;
-import com.baidu.tieba.y17;
+import com.baidu.tieba.u17;
+import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,13 +46,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class UserCollectManageActivity extends BaseActivity<UserCollectManageActivity> implements i27.l, t17.e, t17.d, c27.c {
+public class UserCollectManageActivity extends BaseActivity<UserCollectManageActivity> implements j27.l, u17.e, u17.d, d27.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
     public TextView b;
     public GridView c;
-    public t17 d;
+    public u17 d;
     public RelativeLayout e;
     public TextView f;
     public TextView g;
@@ -61,7 +61,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
     public View j;
     public boolean k;
     public m45 l;
-    public c27 m;
+    public d27 m;
     public BlueCircleProgressDialog n;
     public DialogInterface.OnCancelListener o;
     public PermissionJudgePolicy p;
@@ -109,7 +109,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = y17.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = z17.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q != null && q.size() >= 1) {
                     ArrayList arrayList = new ArrayList();
                     for (CollectEmotionData collectEmotionData : q) {
@@ -227,7 +227,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (c99.o().p()) {
+                if (d99.o().p()) {
                     BdUtilHelper.showToast(view2.getContext(), (int) R.string.obfuscated_res_0x7f0f06ef);
                     return;
                 }
@@ -288,7 +288,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
                 return;
             }
             if (view2 == this.a.f) {
-                i27.t().u(arrayList, true, this.a);
+                j27.t().u(arrayList, true, this.a);
             } else if (view2 == this.a.g) {
                 Activity pageActivity = this.a.getPageContext().getPageActivity();
                 if (this.a.p == null) {
@@ -299,7 +299,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
                 if (this.a.p.startRequestPermission(pageActivity)) {
                     return;
                 }
-                i27.t().w(arrayList, this.a);
+                j27.t().w(arrayList, this.a);
             }
             this.a.d.e();
         }
@@ -333,7 +333,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
-                i27.t().m(new ArrayList(this.a.d.g()), true, this.a);
+                j27.t().m(new ArrayList(this.a.d.g()), true, this.a);
                 m45Var.dismiss();
                 this.a.d.e();
                 this.a.h.setText(R.string.obfuscated_res_0x7f0f0546);
@@ -398,7 +398,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         }
     }
 
-    @Override // com.baidu.tieba.t17.d
+    @Override // com.baidu.tieba.u17.d
     public void d1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -423,7 +423,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         }
     }
 
-    @Override // com.baidu.tieba.c27.c
+    @Override // com.baidu.tieba.d27.c
     public void v0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -431,12 +431,12 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         }
     }
 
-    @Override // com.baidu.tieba.c27.c
+    @Override // com.baidu.tieba.d27.c
     public void T(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             if (!ListUtils.isEmpty(list)) {
-                i27.t().k(list, this);
+                j27.t().k(list, this);
             } else {
                 closeLoadingDialog();
             }
@@ -449,7 +449,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d020c);
-            this.m = new c27();
+            this.m = new d27();
             I1();
             initData();
         }
@@ -483,10 +483,10 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a0);
             this.f = textView;
             textView.setOnClickListener(this.q);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b5);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bb);
             this.g = textView2;
             textView2.setOnClickListener(this.q);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092876);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09287c);
             this.j = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
             TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f090876);
@@ -494,9 +494,9 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             textView3.setOnClickListener(this.q);
             this.i = findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.c = (GridView) findViewById(R.id.obfuscated_res_0x7f09074d);
-            t17 t17Var = new t17(this);
-            this.d = t17Var;
-            t17Var.h(this);
+            u17 u17Var = new u17(this);
+            this.d = u17Var;
+            u17Var.h(this);
             this.d.notifyDataSetChanged();
             this.c.setAdapter((ListAdapter) this.d);
             this.n = new BlueCircleProgressDialog(getPageContext());
@@ -569,7 +569,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         }
     }
 
-    @Override // com.baidu.tieba.t17.e
+    @Override // com.baidu.tieba.u17.e
     public void z(List<CollectEmotionData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048590, this, list) != null) || list == null) {
@@ -584,7 +584,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         this.h.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0477), Integer.valueOf(list.size())));
     }
 
-    @Override // com.baidu.tieba.i27.l
+    @Override // com.baidu.tieba.j27.l
     public void onResult(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {

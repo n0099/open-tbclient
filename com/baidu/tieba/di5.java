@@ -63,12 +63,12 @@ public class di5 implements pl5 {
                 BdLog.e(th);
             }
             try {
-                Class.forName("com.baidu.tieba.jx6");
+                Class.forName("com.baidu.tieba.kx6");
             } catch (Throwable th2) {
                 BdLog.e(th2);
             }
             try {
-                Class.forName("com.baidu.tieba.lx6");
+                Class.forName("com.baidu.tieba.mx6");
             } catch (Throwable th3) {
                 BdLog.e(th3);
             }

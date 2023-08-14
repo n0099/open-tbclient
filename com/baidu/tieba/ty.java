@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ty extends ww<q05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public om6 f;
+    public pm6 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ty(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class ty extends ww<q05> {
                 return;
             }
         }
-        this.f = new om6(tbPageContext, bdUniqueId);
+        this.f = new pm6(tbPageContext, bdUniqueId);
     }
 
     @Override // com.baidu.tieba.ww
@@ -52,8 +52,8 @@ public class ty extends ww<q05> {
     /* renamed from: t */
     public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) && (q05Var instanceof tn6)) {
-            this.f.onBindDataToView((tn6) q05Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) && (q05Var instanceof un6)) {
+            this.f.onBindDataToView((un6) q05Var);
         }
     }
 

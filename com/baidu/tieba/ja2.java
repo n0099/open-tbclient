@@ -361,7 +361,7 @@ public class ja2 extends ea2 implements fa3.a {
         if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || ya3.b0() == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa1);
         textView.setTextIsSelectable(true);
         StringBuilder sb = new StringBuilder();
         sb.append(rn3.l(this.c0));

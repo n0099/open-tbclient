@@ -28,7 +28,7 @@ public class gm5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
             ha5.a(downloadData, 400);
-            cy9.o().i(downloadData.getUrl(), downloadData.getId());
+            dy9.o().i(downloadData.getUrl(), downloadData.getId());
         }
     }
 
@@ -36,7 +36,7 @@ public class gm5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return cy9.o().u(str);
+            return dy9.o().u(str);
         }
         return invokeL.booleanValue;
     }
@@ -62,7 +62,7 @@ public class gm5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int l = cy9.o().l(downloadData.getId(), downloadData.getName());
+            int l = dy9.o().l(downloadData.getId(), downloadData.getName());
             if (l >= 0 && l <= 100) {
                 return l;
             }
@@ -89,7 +89,7 @@ public class gm5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
             if (BdUtilHelper.isNetOk()) {
-                return new fc7().h(downloadData);
+                return new gc7().h(downloadData);
             }
             dh5.b(downloadData);
             return false;
@@ -101,13 +101,13 @@ public class gm5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (cy9.o().s(downloadData.getId())) {
+            if (dy9.o().s(downloadData.getId())) {
                 return 5;
             }
-            if (cy9.o().v(downloadData.getId())) {
+            if (dy9.o().v(downloadData.getId())) {
                 return 1;
             }
-            if (cy9.o().r(downloadData.getId(), downloadData.getName())) {
+            if (dy9.o().r(downloadData.getId(), downloadData.getName())) {
                 return 7;
             }
             return 6;
@@ -188,7 +188,7 @@ public class gm5 {
             downloadData.setName(itemData.mTitle);
             downloadData.setUniqueId(String.valueOf(itemData.itemId));
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(cy9.p(str).intValue());
+            downloadData.setNotifyId(dy9.p(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());

@@ -38,8 +38,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.sz7;
 import com.baidu.tieba.tc5;
+import com.baidu.tieba.tz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public RectF S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1102T;
+    public int f1104T;
     public c U;
     public Context V;
     public boolean W;
@@ -210,7 +210,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.currentPosition = parcel.readInt();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, sz7 sz7Var) {
+        public /* synthetic */ SavedState(Parcel parcel, tz7 tz7Var) {
             this(parcel);
         }
 
@@ -325,7 +325,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.a = pagerSlidingTabStrip;
         }
 
-        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, sz7 sz7Var) {
+        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, tz7 tz7Var) {
             this(pagerSlidingTabStrip);
         }
 
@@ -771,7 +771,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             int i4 = this.E;
             this.H = (this.F * 1.0f) / i4;
             this.I = (dimens * 1.0f) / i4;
-            this.f1102T = -BdUtilHelper.getDimens(getContext(), R.dimen.tbds11);
+            this.f1104T = -BdUtilHelper.getDimens(getContext(), R.dimen.tbds11);
             this.y = i3;
             this.r = z;
             Paint paint = new Paint();
@@ -1084,7 +1084,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_unfold16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
                 linearLayout.addView(textView);
                 linearLayout.addView(imageView);
-                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.f1102T;
+                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.f1104T;
                 linearLayout.setGravity(16);
                 q(i, linearLayout);
             } else {

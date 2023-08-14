@@ -143,16 +143,16 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d5, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbc);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbe);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bc4);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc2);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc4);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bca);
             this.d = roundLinearLayout;
             roundLinearLayout.setRadius(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a5));
             this.d.setRoundCount(8);
             EMManager.from(this.d).setCorner(R.string.J_X03);
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bc5);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc6);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbf);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bcb);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bcc);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc5);
         }
     }
 

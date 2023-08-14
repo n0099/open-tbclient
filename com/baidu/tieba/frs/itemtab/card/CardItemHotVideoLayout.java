@@ -44,8 +44,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co7;
 import com.baidu.tieba.d95;
+import com.baidu.tieba.do7;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.rx;
@@ -558,10 +558,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements rx {
         c();
     }
 
-    public void setData(co7 co7Var) {
+    public void setData(do7 do7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, co7Var) == null) {
-            this.d = co7Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, do7Var) == null) {
+            this.d = do7Var.c();
             this.c.notifyDataSetChanged();
         }
     }

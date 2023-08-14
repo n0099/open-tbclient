@@ -231,7 +231,7 @@ public class uj5 extends nh5 {
                 p.l = 1;
             }
             if (!this.c) {
-                if (mda.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
+                if (nda.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
                     xh5Var.l = 2;
                     b.d(xh5Var);
                 }

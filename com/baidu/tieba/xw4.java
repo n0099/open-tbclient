@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xw4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gca a;
+    public hca a;
 
     public xw4() {
         Interceptable interceptable = $ic;
@@ -41,26 +41,26 @@ public class xw4 extends WebChromeClient {
         }
     }
 
-    public void b(gca gcaVar) {
+    public void b(hca hcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcaVar) == null) {
-            this.a = gcaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hcaVar) == null) {
+            this.a = hcaVar;
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        gca gcaVar;
+        hca hcaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!vc5.a(str) && str2.startsWith("tiebaapp")) {
-                jca jcaVar = new jca();
-                jcaVar.w(nca.b(str2));
-                jcaVar.y(301);
-                a(webView, jcaVar.c(), jcaVar.d());
+                kca kcaVar = new kca();
+                kcaVar.w(oca.b(str2));
+                kcaVar.y(301);
+                a(webView, kcaVar.c(), kcaVar.d());
             }
-            if ((!vc5.a(str) || (gcaVar = this.a) == null || !gcaVar.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
+            if ((!vc5.a(str) || (hcaVar = this.a) == null || !hcaVar.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
                 jsPromptResult.cancel();
             }
             return true;

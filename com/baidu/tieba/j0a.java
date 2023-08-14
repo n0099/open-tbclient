@@ -1,39 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.j97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j0a extends m0a implements w97 {
+public final class j0a implements j97.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final z97 a;
+    public final BdUniqueId b;
 
-    @Override // com.baidu.tieba.w97
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TiebaStatic.Params.OBJ_FLOOR : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "common_click" : (String) invokeV.objValue;
-    }
-
-    public j0a() {
+    public j0a(z97 statStrategy, BdUniqueId pageId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy, pageId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,31 +33,57 @@ public final class j0a extends m0a implements w97 {
                 return;
             }
         }
-        this.a = "0";
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        Intrinsics.checkNotNullParameter(pageId, "pageId");
+        this.a = statStrategy;
+        this.b = pageId;
     }
 
-    @Override // com.baidu.tieba.m0a, com.baidu.tieba.y97
-    public Map<String, String> a(l57 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.j97.b
+    public void a(v97<?> data, int i) {
+        Map<String, String> hashMap;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.putAll(super.a(businessInfo));
-            hashMap.put("obj_locate", this.a);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            f97 f97Var = (f97) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            int i2 = i + 1;
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
+            m57 m57Var = new m57();
+            m57 m57Var2 = f97Var.b;
+            if (m57Var2 != null) {
+                m57Var = m57Var2;
+            }
+            if (f97Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(m57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
+            }
+            t67 t67Var = f97Var.a;
+            if (t67Var != null && (a = t67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            u9a.g().c(this.b, statisticItem);
+            t67 t67Var2 = f97Var.a;
+            if (t67Var2 == null || (hashMap = t67Var2.a()) == null) {
+                hashMap = new HashMap<>();
+            }
+            m57Var.a().put("position_from_1", String.valueOf(i2));
+            if (Intrinsics.areEqual(m57Var.a().get("is_video_card"), "1")) {
+                h1a h1aVar = new h1a();
+                ba7.a.a(new d77(h1aVar.getKey(), h1aVar.a(m57Var), hashMap, null, null, 24, null));
+            } else if (Intrinsics.areEqual(m57Var.a().get("is_live_card"), "1")) {
+                q0a q0aVar = new q0a();
+                ba7.a.a(new d77(q0aVar.getKey(), q0aVar.a(m57Var), hashMap, null, null, 24, null));
+            } else {
+                z0a z0aVar = new z0a();
+                ba7.a.a(new d77(z0aVar.getKey(), z0aVar.a(m57Var), hashMap, null, null, 24, null));
+            }
+            c1a c1aVar = new c1a();
+            ba7.a.a(new d77(c1aVar.getKey(), c1aVar.a(m57Var), hashMap, c1aVar.b(), c1aVar.d()));
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public final j0a d(String objLocate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objLocate)) == null) {
-            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
-            this.a = objLocate;
-            return this;
-        }
-        return (j0a) invokeL.objValue;
     }
 }

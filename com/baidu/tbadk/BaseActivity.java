@@ -84,21 +84,21 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar5;
+import com.baidu.tieba.br5;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.dr5;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
 import com.baidu.tieba.er5;
 import com.baidu.tieba.f95;
 import com.baidu.tieba.fr5;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hw5;
+import com.baidu.tieba.gr5;
+import com.baidu.tieba.iw5;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.l56;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.lw5;
 import com.baidu.tieba.m45;
+import com.baidu.tieba.m56;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.om5;
@@ -121,7 +121,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, IPageStayDuration, IVideoNeedPreload, qt4, Object, dr5 {
+public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, IPageStayDuration, IVideoNeedPreload, qt4, Object, er5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHOW_SOFT_KEYBOARD_DELAY = 150;
     public static final String TAG = "BaseActivity";
@@ -160,10 +160,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public ContinuousAnimationView mProgressBar;
     public om5 mRefreshView;
     public final Handler mSafeHandler;
-    public hw5 mScreenShotListenManager;
+    public iw5 mScreenShotListenManager;
     public int mSkinType;
     public SwipeBackLayout mSwipeBackLayout;
-    public ar5 mTbPageExtra;
+    public br5 mTbPageExtra;
     public TbPageTag mTbPageTag;
     public boolean mUseStyleImmersiveSticky;
     public BlueCircleProgressDialog mWaitingDialog;
@@ -421,10 +421,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void startScreenShotListen() {
-        hw5 hw5Var;
+        iw5 iw5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && !this.mIsHasScreenShotListener && (hw5Var = this.mScreenShotListenManager) != null) {
-            hw5Var.m(new hw5.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
+        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && !this.mIsHasScreenShotListener && (iw5Var = this.mScreenShotListenManager) != null) {
+            iw5Var.m(new iw5.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseActivity this$0;
@@ -447,7 +447,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.hw5.b
+                @Override // com.baidu.tieba.iw5.b
                 public void onShot(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -464,10 +464,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void stopScreenShotListen() {
-        hw5 hw5Var;
+        iw5 iw5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (hw5Var = this.mScreenShotListenManager) != null) {
-            hw5Var.o();
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (iw5Var = this.mScreenShotListenManager) != null) {
+            iw5Var.o();
             this.mIsHasScreenShotListener = false;
         }
     }
@@ -676,7 +676,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            ar5 tbPageExtra = getTbPageExtra();
+            br5 tbPageExtra = getTbPageExtra();
             if (tbPageExtra != null) {
                 return tbPageExtra.e();
             }
@@ -689,7 +689,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return fr5.m(getIntent());
+            return gr5.m(getIntent());
         }
         return (TbPageTag) invokeV.objValue;
     }
@@ -715,26 +715,26 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return (Handler) invokeV.objValue;
     }
 
-    public ar5 getTbPageExtra() {
+    public br5 getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             if (this.mTbPageExtra == null) {
-                this.mTbPageExtra = new ar5(getUniqueId(), getCurrentExtraPageKey(), "", getIntent());
+                this.mTbPageExtra = new br5(getUniqueId(), getCurrentExtraPageKey(), "", getIntent());
             }
             return this.mTbPageExtra;
         }
-        return (ar5) invokeV.objValue;
+        return (br5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dr5
-    public final er5 getTbPageInfo() {
+    @Override // com.baidu.tieba.er5
+    public final fr5 getTbPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return new er5(getUniqueId(), getTbPageTag(), getIntent());
+            return new fr5(getUniqueId(), getTbPageTag(), getIntent());
         }
-        return (er5) invokeV.objValue;
+        return (fr5) invokeV.objValue;
     }
 
     public TbPageTag getTbPageTag() {
@@ -859,7 +859,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
             super.onAttachedToWindow();
-            l56.K().Q();
+            m56.K().Q();
         }
     }
 
@@ -1115,7 +1115,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.isFinishing()) {
-                    kw5.a(this.this$0);
+                    lw5.a(this.this$0);
                 }
             }
         };
@@ -1196,7 +1196,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     z = false;
                 }
                 UtilHelper.changeStatusBarIconAndTextColor(z, this.this$0);
-                l56.K().R(TbadkCoreApplication.getInst().getSkinType());
+                m56.K().R(TbadkCoreApplication.getInst().getSkinType());
                 EdgeFloatLifecycle.getInstance().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         };
@@ -1967,7 +1967,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             YunDialogManager.markIsBackFromYunDialog(false);
             MutiProcessMissionHelper.behaviorTiebaMotionEvent(motionEvent, getPageId(), getMissionTid());
             CrabSdkManager.getInstance().behaviorRecordEvent(motionEvent, this);
-            l56.K().H();
+            m56.K().H();
             EdgeFloatLifecycle.getInstance().dispatchTouchEvent(motionEvent);
             try {
                 if (this.mProgressBar != null && this.mProgressBar.isShown()) {
@@ -2324,7 +2324,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             registerListener(this.skinTypeChangeListener);
             enterExitAnimation();
             this.mIsLogin = TbadkCoreApplication.isLogin();
-            this.mScreenShotListenManager = new hw5(this);
+            this.mScreenShotListenManager = new iw5(this);
             SpeedStats.getInstance().onBaseActivityCreate(this);
         }
     }
@@ -2520,9 +2520,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             }
             if (this.isAddSwipeBackLayout) {
                 SafeHandler.getInst().removeCallbacks(this.setNoTranslucentRunnable);
-                kw5.b(this);
+                lw5.b(this);
             }
-            l56.K().c0(this);
+            m56.K().c0(this);
             EdgeFloatLifecycle.getInstance().switchActivity(this);
         }
     }

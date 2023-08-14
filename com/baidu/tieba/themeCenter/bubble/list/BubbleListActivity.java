@@ -5,10 +5,10 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.cia;
-import com.baidu.tieba.hia;
+import com.baidu.tieba.dia;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.qia;
+import com.baidu.tieba.iia;
+import com.baidu.tieba.ria;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +22,8 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel a;
-    public hia b;
-    public cia c;
+    public iia b;
+    public dia c;
     public BubbleListModel.c d;
     public BdListView.p e;
     public final i95.g f;
@@ -60,9 +60,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
-        public void a(int i, String str, qia qiaVar, List<DressItemData> list) {
+        public void a(int i, String str, ria riaVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qiaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, riaVar, list}) == null) {
                 this.a.b.j();
                 BubbleListActivity bubbleListActivity = this.a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.b.c());
@@ -71,7 +71,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     this.a.b.h();
                     return;
                 }
-                this.a.b.i(qiaVar, list, this.a.a.c0());
+                this.a.b.i(riaVar, list, this.a.a.c0());
             }
         }
     }
@@ -165,9 +165,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            hia hiaVar = this.b;
-            if (hiaVar != null) {
-                hiaVar.d();
+            iia iiaVar = this.b;
+            if (iiaVar != null) {
+                iiaVar.d();
             }
         }
     }
@@ -196,10 +196,10 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hia hiaVar;
+        iia iiaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (hiaVar = this.b) != null) {
-            showLoadingView(hiaVar.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (iiaVar = this.b) != null) {
+            showLoadingView(iiaVar.c());
             this.a.loadData();
         }
     }
@@ -212,11 +212,11 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             BubbleListModel bubbleListModel = new BubbleListModel(this);
             this.a = bubbleListModel;
             bubbleListModel.e0(this.d);
-            cia ciaVar = new cia(getPageContext());
-            this.c = ciaVar;
-            hia hiaVar = new hia(this, ciaVar);
-            this.b = hiaVar;
-            hiaVar.g(this.e, this.f);
+            dia diaVar = new dia(getPageContext());
+            this.c = diaVar;
+            iia iiaVar = new iia(this, diaVar);
+            this.b = iiaVar;
+            iiaVar.g(this.e, this.f);
             showLoadingView(this.b.c());
             this.a.loadData();
         }

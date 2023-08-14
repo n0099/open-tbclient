@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.hm7;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.pg7;
+import com.baidu.tieba.im7;
+import com.baidu.tieba.qg7;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements pg7 {
+public class FrsGameRecommendFragment extends BaseFragment implements qg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hm7 a;
+    public im7 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements pg7 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        hm7 hm7Var;
+        im7 im7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (hm7Var = this.a) != null) {
-            hm7Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (im7Var = this.a) != null) {
+            im7Var.i(i);
         }
     }
 
@@ -269,7 +269,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pg7 {
         }
     }
 
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.qg7
     public NavigationBar o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,9 +284,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pg7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            hm7 hm7Var = this.a;
-            if (hm7Var != null) {
-                hm7Var.j();
+            im7 im7Var = this.a;
+            if (im7Var != null) {
+                im7Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pg7 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            hm7 hm7Var = new hm7(getPageContext(), this.c, this.d);
-            this.a = hm7Var;
-            hm7Var.l(this.g);
+            im7 im7Var = new im7(getPageContext(), this.c, this.d);
+            this.a = im7Var;
+            im7Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

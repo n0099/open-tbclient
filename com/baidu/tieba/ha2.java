@@ -98,12 +98,12 @@ public final class ha2 {
 
         /* renamed from: com.baidu.tieba.ha2$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0330b implements Runnable {
+        public class RunnableC0321b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ea2 a;
 
-            public RunnableC0330b(b bVar, ea2 ea2Var) {
+            public RunnableC0321b(b bVar, ea2 ea2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class ha2 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0330b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0321b(this, this.c.m()));
             }
         }
 

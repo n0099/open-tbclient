@@ -15,14 +15,14 @@ import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.pg7;
+import com.baidu.tieba.qg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pg7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -221,7 +221,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pg7 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.qg7
     public NavigationBar o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

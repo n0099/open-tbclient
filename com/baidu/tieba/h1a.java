@@ -11,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class h1a implements y97 {
+public final class h1a implements z97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.y97
+    @Override // com.baidu.tieba.z97
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10709" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10734" : (String) invokeV.objValue;
     }
 
     public h1a() {
@@ -36,36 +36,20 @@ public final class h1a implements y97 {
         }
     }
 
-    @Override // com.baidu.tieba.y97
-    public Map<String, String> a(l57 businessInfo) {
+    @Override // com.baidu.tieba.z97
+    public Map<String, String> a(m57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            hashMap.putAll(x0a.a.a(businessInfo));
-            String str = a.get("has_concerned");
-            String str2 = "0";
+            hashMap.putAll(y0a.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
             if (str == null) {
                 str = "0";
             }
-            hashMap.put(TiebaStatic.Params.AB_TYPE, str);
-            String str3 = a.get("author_is_living");
-            if (str3 == null) {
-                str3 = "1";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
-            String str4 = a.get("live_type");
-            if (str4 == null) {
-                str4 = "5";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM8, str4);
-            String str5 = a.get("is_vertical_video");
-            if (str5 != null) {
-                str2 = str5;
-            }
-            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str2);
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

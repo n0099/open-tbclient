@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.x16;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,12 +70,12 @@ public class YoungsterVerifyUtils {
         }
     }
 
-    public static String getVerifyByYoungsterPasswordData(x16 x16Var) {
+    public static String getVerifyByYoungsterPasswordData(y16 y16Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x16Var)) == null) {
-            if (x16Var != null && !StringUtils.isNull(x16Var.c()) && !StringUtils.isNull(x16Var.b()) && !StringUtils.isNull(x16Var.a())) {
-                return x16Var.c() + "," + x16Var.b() + "," + x16Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, y16Var)) == null) {
+            if (y16Var != null && !StringUtils.isNull(y16Var.c()) && !StringUtils.isNull(y16Var.b()) && !StringUtils.isNull(y16Var.a())) {
+                return y16Var.c() + "," + y16Var.b() + "," + y16Var.a();
             }
             return "";
         }
@@ -100,7 +100,7 @@ public class YoungsterVerifyUtils {
         }
     }
 
-    public static x16 getYoungsterPasswordDataByVerify(String str) {
+    public static y16 getYoungsterPasswordDataByVerify(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -111,9 +111,9 @@ public class YoungsterVerifyUtils {
             if (split.length <= 2) {
                 return null;
             }
-            return new x16(split[0], split[1], split[2]);
+            return new y16(split[0], split[1], split[2]);
         }
-        return (x16) invokeL.objValue;
+        return (y16) invokeL.objValue;
     }
 
     public static boolean passwordVerified(String str) {
@@ -128,7 +128,7 @@ public class YoungsterVerifyUtils {
                 clearYoungsterVerify();
                 return false;
             }
-            x16 youngsterPasswordDataByVerify = getYoungsterPasswordDataByVerify(string);
+            y16 youngsterPasswordDataByVerify = getYoungsterPasswordDataByVerify(string);
             if (youngsterPasswordDataByVerify == null) {
                 return false;
             }
@@ -141,7 +141,7 @@ public class YoungsterVerifyUtils {
         AccountData currentAccountInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && !StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-            SharedPrefHelper.getInstance().putString("key_youngster_verify", getVerifyByYoungsterPasswordData(new x16(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+            SharedPrefHelper.getInstance().putString("key_youngster_verify", getVerifyByYoungsterPasswordData(new y16(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
         }
     }
 }

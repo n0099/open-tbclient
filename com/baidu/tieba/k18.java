@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface k18 {
-    void a(int i);
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    void b();
+    boolean b(int i, v18 v18Var);
 
-    void onChangeSkinType(int i);
+    boolean c(int i);
 
     void setData(List<ym> list);
 }

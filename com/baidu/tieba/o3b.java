@@ -1,36 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Base64OutputStream;
+import android.util.Base64InputStream;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class o3b extends Base64OutputStream {
+public class o3b extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public long c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o3b(OutputStream outputStream, int i) {
-        super(outputStream, i);
+    public o3b(InputStream inputStream, int i) {
+        super(inputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, Integer.valueOf(i)};
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,54 +38,40 @@ public class o3b extends Base64OutputStream {
         }
         this.a = false;
         this.b = false;
-        this.c = 0L;
     }
 
-    public long a() {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (!this.a) {
-                super.write(117);
+            int read = super.read();
+            if (!this.a && read == 117) {
                 this.a = true;
-            } else if (!this.b) {
-                super.write(123);
+                return 31;
+            } else if (!this.b && read == 123) {
                 this.b = true;
+                return Cea708Decoder.COMMAND_TGW;
             } else {
-                super.write(i);
+                return read;
             }
         }
+        return invokeV.intValue;
     }
 
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
-            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
-                bArr[i] = 123;
-                this.b = true;
-            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
-                bArr[i] = 117;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
                 this.a = true;
-            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
-                bArr[i] = 117;
-                this.a = true;
-                bArr[i + 1] = 123;
-                this.b = true;
             }
-            if (i2 > 0) {
-                this.c += i2;
-            }
-            super.write(bArr, i, i2);
+            return read;
         }
+        return invokeLII.intValue;
     }
 }

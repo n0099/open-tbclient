@@ -29,7 +29,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.s45;
 import com.baidu.tieba.u45;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -207,7 +207,7 @@ public class WriteVideoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return !TextUtils.isEmpty(uaa.D());
+            return !TextUtils.isEmpty(vaa.D());
         }
         return invokeV.booleanValue;
     }
@@ -326,7 +326,7 @@ public class WriteVideoUtil {
                 if (z2) {
                     i2 = 2;
                 } else {
-                    uaa.y("");
+                    vaa.y("");
                     i2 = 1;
                 }
             } else {

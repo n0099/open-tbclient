@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,10 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class vc6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final BdUniqueId c;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,8 +28,7 @@ public class vc6 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
-        c = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public vc6() {
@@ -54,11 +50,7 @@ public class vc6 extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadAlaInfo() != null && this.a.getThreadAlaInfo().live_type == 1) {
-                return c;
-            }
-            return b;
+            return a;
         }
         return (BdUniqueId) invokeV.objValue;
     }

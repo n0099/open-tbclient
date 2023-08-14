@@ -24,6 +24,11 @@ public class rg5 {
     public String h;
     public String i;
     public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
 
     public rg5() {
         Interceptable interceptable = $ic;
@@ -61,7 +66,7 @@ public class rg5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.o;
         }
         return (String) invokeV.objValue;
     }
@@ -70,7 +75,7 @@ public class rg5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            return this.n;
         }
         return (String) invokeV.objValue;
     }
@@ -79,24 +84,42 @@ public class rg5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public long f() {
+    public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
         return invokeV.longValue;
     }
 
-    public int g() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i = 0;
             while (Pattern.compile("\\n").matcher(this.j).find()) {
                 i++;
@@ -106,19 +129,46 @@ public class rg5 {
         return invokeV.intValue;
     }
 
-    public boolean h() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return "1".equals(this.e);
         }
         return invokeV.booleanValue;
     }
 
-    public boolean i() {
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
                 return false;
             }
@@ -127,9 +177,9 @@ public class rg5 {
         return invokeV.booleanValue;
     }
 
-    public void j(NovelInfo novelInfo) {
+    public void o(NovelInfo novelInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, novelInfo) == null) {
             this.a = novelInfo.novel_id.longValue();
             String str = novelInfo.img;
             this.b = novelInfo.name;
@@ -143,19 +193,24 @@ public class rg5 {
             this.g = novelInfo.member_text;
             this.h = novelInfo.member_img;
             this.i = novelInfo.buy_url;
+            this.k = novelInfo.story_channel_text;
+            this.l = novelInfo.story_channel_url;
+            this.m = novelInfo.reader_text;
+            this.n = novelInfo.from;
+            this.o = novelInfo.bottom_text;
         }
     }
 
-    public void k(String str) {
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.j = str;
         }
     }
 
-    public void l(boolean z) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             if (z) {
                 this.e = "1";
             } else {

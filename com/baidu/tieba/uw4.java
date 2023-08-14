@@ -195,7 +195,7 @@ public class uw4 {
                             str5 = strArr[1];
                         }
                         if (!StringHelper.equals(queryParameter3, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                            zv5.f(tbPageContext, queryParameter, queryParameter2);
+                            aw5.f(tbPageContext, queryParameter, queryParameter2);
                         } else {
                             new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, queryParameter3, str5).start();
                         }
@@ -218,7 +218,7 @@ public class uw4 {
                         BrowserHelper.startExternWebActivity(tbPageContext.getPageActivity(), str4);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str4)) {
-                        mx9.a(tbPageContext.getPageActivity(), str4, null, null, null);
+                        nx9.a(tbPageContext.getPageActivity(), str4, null, null, null);
                         return 1;
                     } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -458,14 +458,14 @@ public class uw4 {
                         String queryParameter9 = parse.getQueryParameter("is_video_topic");
                         if (queryParameter7 != null && queryParameter8 != null) {
                             if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                zv5.f(tbPageContext, queryParameter7, queryParameter8);
+                                aw5.f(tbPageContext, queryParameter7, queryParameter8);
                             } else {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
                             }
                             return 1;
                         } else if (queryParameter7 != null) {
                             if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                zv5.f(tbPageContext, queryParameter7, null);
+                                aw5.f(tbPageContext, queryParameter7, null);
                             } else {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
                             }

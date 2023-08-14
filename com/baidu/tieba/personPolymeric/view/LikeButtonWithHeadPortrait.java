@@ -210,8 +210,8 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements ya5 {
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0904cd);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092929);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091f18);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09292f);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091f1e);
         }
     }
 

@@ -77,13 +77,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public final void e() {
         View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0933, (ViewGroup) null, false);
         this.c = inflate;
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092315);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09230e);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922fd);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922fe);
-        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f09231d);
-        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09231c);
-        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09231e);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09231b);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092314);
+        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092303);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092304);
+        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f092323);
+        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092322);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092324);
         h(TipState.NORMAL);
     }
 
@@ -91,7 +91,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Resources resources = this.a.getResources();
         TipState tipState = this.h;
         if (tipState == TipState.ERROR) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f081498);
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08149b);
             this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f158c));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
@@ -102,7 +102,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
             this.e.setVisibility(0);
             this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b1d));
             this.g.setText(R.string.obfuscated_res_0x7f0f1581);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08148f);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081492);
         } else if (tipState == TipState.NO_NETWORK) {
             this.c.setVisibility(0);
             this.d.setVisibility(8);
@@ -110,9 +110,9 @@ public class MediaTipStateLayer implements View.OnClickListener {
             this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b1c));
             this.g.setText(R.string.obfuscated_res_0x7f0f1583);
             this.f.setText(R.string.obfuscated_res_0x7f0f157e);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08148e);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081491);
         } else if (tipState == TipState.END) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f081499);
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08149c);
             this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f158d));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
@@ -128,8 +128,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void onClick(View view2) {
         SwanVideoView swanVideoView;
         int id = view2.getId();
-        if (id != R.id.obfuscated_res_0x7f0922fd && id != R.id.obfuscated_res_0x7f09231d) {
-            if (id == R.id.obfuscated_res_0x7f09230e && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
+        if (id != R.id.obfuscated_res_0x7f092303 && id != R.id.obfuscated_res_0x7f092323) {
+            if (id == R.id.obfuscated_res_0x7f092314 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
                 this.b.getVideoPlayerCallback().d(!this.l);
                 return;
             }

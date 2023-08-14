@@ -126,14 +126,14 @@ public class nf5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                s8a s8aVar = new s8a();
+                t8a t8aVar = new t8a();
                 PostWriteCallBackData postWriteCallBackData = this.a;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    s8aVar.f(iconStampData.stampType);
-                    s8aVar.h(iconStampData.stampTitle);
+                    t8aVar.f(iconStampData.stampType);
+                    t8aVar.h(iconStampData.stampTitle);
                 }
-                new r8a(this.b.getPageActivity(), s8aVar).a();
+                new s8a(this.b.getPageActivity(), t8aVar).a();
                 nf5.f();
             }
         }

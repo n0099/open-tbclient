@@ -1,65 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
 /* loaded from: classes8.dex */
-public class x66 extends sk1<bl0> {
+public class x66 extends sk1<zi1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements bl0 {
+    public class a implements zi1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.bl0
-        public boolean a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.bl0
-        public ViewGroup b(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-                return null;
-            }
-            return (ViewGroup) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.bl0
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.bl0
-        public void e(Activity activity, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.bl0
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
-        }
 
         public a(x66 x66Var) {
             Interceptable interceptable = $ic;
@@ -77,33 +36,22 @@ public class x66 extends sk1<bl0> {
             }
         }
 
-        @Override // com.baidu.tieba.bl0
-        public fm0 c() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.zi1
+        public boolean a(String str, tj1 tj1Var) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                fm0 fm0Var = new fm0();
-                fm0Var.a = R.layout.obfuscated_res_0x7f0d006f;
-                fm0Var.b = R.id.obfuscated_res_0x7f0900f6;
-                fm0Var.c = R.id.obfuscated_res_0x7f0900f4;
-                fm0Var.d = R.id.obfuscated_res_0x7f0900f7;
-                fm0Var.e = R.id.obfuscated_res_0x7f0900f5;
-                return fm0Var;
-            }
-            return (fm0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.bl0
-        public boolean isMainActivity(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
-                    return false;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, tj1Var)) == null) {
+                if (a76.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
                 }
-                return true;
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + ij1.a));
+                    return true;
+                }
+                return false;
             }
-            return invokeL.booleanValue;
+            return invokeLL.booleanValue;
         }
     }
 
@@ -124,12 +72,12 @@ public class x66 extends sk1<bl0> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sk1
     /* renamed from: a */
-    public bl0 createService() throws ServiceNotFoundException {
+    public zi1 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (bl0) invokeV.objValue;
+        return (zi1) invokeV.objValue;
     }
 }

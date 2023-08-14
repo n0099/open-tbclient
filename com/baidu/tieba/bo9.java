@@ -6,14 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BubbleInfo;
+import tbclient.CustomGrid;
 /* loaded from: classes5.dex */
 public class bo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
-    public String c;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
 
     public bo9() {
         Interceptable interceptable = $ic;
@@ -29,40 +34,37 @@ public class bo9 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(CustomGrid customGrid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
         }
-        return invokeV.intValue;
     }
 
-    public String b() {
+    public ko9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            ko9 ko9Var = new ko9();
+            ko9Var.e = this.a;
+            ko9Var.m = true;
+            ko9Var.k = this.d;
+            ko9Var.f = this.b;
+            ko9Var.a = this.e;
+            ko9Var.l = this.c;
+            mo9 mo9Var = new mo9();
+            mo9Var.b = this.g;
+            mo9Var.i = this.h;
+            ko9Var.h = mo9Var;
+            return ko9Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(BubbleInfo bubbleInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bubbleInfo) != null) || bubbleInfo == null) {
-            return;
-        }
-        this.a = bubbleInfo.bubble_id.intValue();
-        this.b = bubbleInfo.bubble_text;
-        this.c = bubbleInfo.bubble_pic;
+        return (ko9) invokeV.objValue;
     }
 }

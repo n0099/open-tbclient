@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.w98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FloatNewRecordView extends RelativeLayout implements v98 {
+public class FloatNewRecordView extends RelativeLayout implements w98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -171,7 +171,7 @@ public class FloatNewRecordView extends RelativeLayout implements v98 {
         }
     }
 
-    @Override // com.baidu.tieba.v98
+    @Override // com.baidu.tieba.w98
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -247,7 +247,7 @@ public class FloatNewRecordView extends RelativeLayout implements v98 {
             this.b.setVisibility(0);
             this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc7));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b54, R.color.CAM_X0310, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b56, R.color.CAM_X0310, null);
             this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
             WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
             this.f = true;
@@ -278,7 +278,7 @@ public class FloatNewRecordView extends RelativeLayout implements v98 {
             this.b.setVisibility(0);
             this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc8));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b55, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b57, R.color.CAM_X0319, null);
             this.g = false;
         }
     }

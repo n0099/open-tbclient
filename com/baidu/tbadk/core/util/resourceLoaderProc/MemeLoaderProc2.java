@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.b05;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements eg<BdImage> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                sv5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = sv5.d(str);
+                tv5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = tv5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                sv5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                tv5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();

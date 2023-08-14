@@ -12,13 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.klb;
-import com.baidu.tieba.mlb;
-import com.baidu.tieba.olb;
+import com.baidu.tieba.llb;
+import com.baidu.tieba.nlb;
 import com.baidu.tieba.plb;
 import com.baidu.tieba.qlb;
 import com.baidu.tieba.rlb;
-import com.baidu.tieba.tlb;
+import com.baidu.tieba.slb;
+import com.baidu.tieba.ulb;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
@@ -58,20 +58,20 @@ public class InstallActivity extends Activity {
     public final void n() {
         this.f = true;
         this.d = p.CANCELLED;
-        mlb.d().e(this).c(this, new tlb(this));
+        nlb.d().e(this).c(this, new ulb(this));
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         if (!this.e) {
-            mlb.d().g();
+            nlb.d().g();
         }
         super.onDestroy();
     }
 
     public final void j(Exception exc) {
-        mlb.d().a = exc;
-        mlb.d().g();
+        nlb.d().a = exc;
+        nlb.d().g();
         this.e = true;
         super.finish();
     }
@@ -92,8 +92,8 @@ public class InstallActivity extends Activity {
         getWindow().getDecorView().setMinimumWidth(i);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
-        ofFloat.addUpdateListener(new qlb(this, width, i, height));
-        ofFloat.addListener(new rlb(this));
+        ofFloat.addUpdateListener(new rlb(this, width, i, height));
+        ofFloat.addListener(new slb(this));
         ofFloat.start();
     }
 
@@ -123,11 +123,11 @@ public class InstallActivity extends Activity {
 
     public final void l() {
         setContentView(R.layout.__arcore_education);
-        findViewById(R.id.__arcore_cancelButton).setOnClickListener(new olb(this));
+        findViewById(R.id.__arcore_cancelButton).setOnClickListener(new plb(this));
         if (!k()) {
             findViewById(R.id.__arcore_cancelButton).setVisibility(8);
         }
-        findViewById(R.id.__arcore_continueButton).setOnClickListener(new plb(this));
+        findViewById(R.id.__arcore_continueButton).setOnClickListener(new qlb(this));
         TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
         if (this.b.ordinal() != 1) {
             textView.setText(R.string.__arcore_install_app);
@@ -165,7 +165,7 @@ public class InstallActivity extends Activity {
                     return;
                 }
                 AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                mlb.d().e(this).e(this, new klb(atomicReference));
+                nlb.d().e(this).e(this, new llb(atomicReference));
                 int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                 if (ordinal != 0) {
                     if (ordinal == 3) {
@@ -199,7 +199,7 @@ public class InstallActivity extends Activity {
                 } else if (this.d == p.ACCEPTED) {
                     this.g = true;
                 } else {
-                    j(mlb.d().a);
+                    j(nlb.d().a);
                 }
             }
         }

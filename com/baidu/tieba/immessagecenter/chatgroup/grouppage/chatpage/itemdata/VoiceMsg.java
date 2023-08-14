@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fb5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.kv5;
+import com.baidu.tieba.lv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,8 +31,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public static final long serialVersionUID = -8477601556340635939L;
     public transient /* synthetic */ FieldHolder $fh;
     public final String VOICE_THUMBNAIL_TEXT;
-    @kv5(serialize = false)
     @SerializedName("during_time")
+    @lv5(serialize = false)
     public String during;
     public boolean isLocal;
     public String path;
@@ -41,8 +41,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public String vid;
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
-    @kv5(serialize = false)
     @SerializedName("voice_url")
+    @lv5(serialize = false)
     public String voiceUrl;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg

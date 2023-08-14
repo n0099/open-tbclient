@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qc8;
+import com.baidu.tieba.rc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,7 +67,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
         b();
     }
 
-    public void setData(qc8.a aVar, boolean z) {
+    public void setData(rc8.a aVar, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {

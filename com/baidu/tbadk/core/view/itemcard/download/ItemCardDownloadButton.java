@@ -37,7 +37,7 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw6;
+import com.baidu.tieba.bw6;
 import com.baidu.tieba.filedownloader.data.ApkDownloadData;
 import com.baidu.tieba.ga5;
 import com.baidu.tieba.gm5;
@@ -894,11 +894,11 @@ public class ItemCardDownloadButton extends View {
                 case 1:
                 case 2:
                     DownloadData downloadData = this.x;
-                    if (downloadData == null || !aw6.e(downloadData.getSource())) {
-                        aw6 aw6Var = new aw6();
-                        aw6Var.a = this.w;
-                        aw6Var.b = 1;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2921627, aw6Var));
+                    if (downloadData == null || !bw6.e(downloadData.getSource())) {
+                        bw6 bw6Var = new bw6();
+                        bw6Var.a = this.w;
+                        bw6Var.b = 1;
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2921627, bw6Var));
                     }
                     l();
                     return;

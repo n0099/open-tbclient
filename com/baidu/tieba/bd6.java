@@ -37,7 +37,7 @@ public class bd6 implements View.OnClickListener {
     public b c;
     public View d;
     public ThreadData e;
-    public e96 f;
+    public f96 f;
     public View.OnClickListener g;
 
     public void f(String str) {
@@ -81,7 +81,7 @@ public class bd6 implements View.OnClickListener {
                 } else {
                     z = false;
                 }
-                d96.b().c();
+                e96.b().c();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.b.getPageActivity()).createNormalConfig(j, z, this.a.e.getAuthor().isBigV())));
             }
         }
@@ -124,13 +124,13 @@ public class bd6 implements View.OnClickListener {
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b0);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926a9);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926a8);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f31);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926af);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ae);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f37);
             this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b1);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f33);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b1);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926bb);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f39);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b7);
             this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915f9);
             this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b2);
             this.l = view2.findViewById(R.id.obfuscated_res_0x7f0915ee);
@@ -143,13 +143,13 @@ public class bd6 implements View.OnClickListener {
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             layoutParams.width = (BdUtilHelper.getEquipmentWidth(view2.getContext()) - view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be)) / 2;
-            this.o.leftMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
-            this.o.rightMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
+            this.o.leftMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
+            this.o.rightMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
             this.n.bottomMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
             this.n.topMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be);
-            this.j.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b3));
-            layoutParams.height = layoutParams.width;
-            this.i.setVisibility(8);
+            this.j.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
+            layoutParams.height = (layoutParams.width * 9) / 16;
+            this.i.setVisibility(0);
             this.k.setLayoutParams(this.o);
             this.j.setLayoutParams(this.n);
             this.e.setLayoutParams(layoutParams);
@@ -181,10 +181,10 @@ public class bd6 implements View.OnClickListener {
         this.b.getPageActivity().getResources().getString(R.string.ala_live_entry_name_yanzhi);
     }
 
-    public void g(e96 e96Var) {
+    public void g(f96 f96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e96Var) == null) {
-            this.f = e96Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, f96Var) == null) {
+            this.f = f96Var;
         }
     }
 
@@ -217,8 +217,8 @@ public class bd6 implements View.OnClickListener {
             this.c.j.setText(this.e.getTitle());
             if (this.e.getAuthor() != null) {
                 String name_show = this.e.getAuthor().getName_show();
-                if (qw5.e(name_show) > 10) {
-                    name_show = qw5.m(name_show, 10) + "...";
+                if (rw5.e(name_show) > 10) {
+                    name_show = rw5.m(name_show, 10) + "...";
                 }
                 this.c.g.setText(name_show);
             }
@@ -260,11 +260,11 @@ public class bd6 implements View.OnClickListener {
             }
             ThreadData threadData = this.e;
             if (threadData != null && threadData.getThreadAlaInfo() != null) {
-                e96 e96Var = this.f;
-                if (e96Var != null) {
-                    e96Var.a(this.e);
+                f96 f96Var = this.f;
+                if (f96Var != null) {
+                    f96Var.a(this.e);
                 }
-                d96.b().c();
+                e96.b().c();
                 TiebaStatic.log(new StatisticItem("c12116").param("obj_id", this.e.getThreadAlaInfo().live_id));
             }
         }

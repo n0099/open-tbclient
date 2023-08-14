@@ -116,7 +116,7 @@ public class z95 extends TBSpecificationButtonConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
             int color = SkinManager.getColor(this.s, this.d);
-            int[] iArr = {x9a.c(color), color};
+            int[] iArr = {y9a.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(this.t);

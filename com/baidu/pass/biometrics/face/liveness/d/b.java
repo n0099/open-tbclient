@@ -52,12 +52,12 @@ public class b extends Dialog {
     private void a() {
         setContentView(R.layout.obfuscated_res_0x7f0d0535);
         setCanceledOnTouchOutside(false);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a3c);
-        this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092958);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09258c);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092587);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a42);
+        this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f09295e);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092592);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09258d);
         this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0917f3);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce7);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ced);
         this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ee);
         this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091903);
     }
@@ -92,25 +92,25 @@ public class b extends Dialog {
 
     public void a(boolean z) {
         if (z) {
-            this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110c));
+            this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110f));
             this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060920));
             this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060914));
             this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060918));
             this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091c));
             this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060918));
-            this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081106));
-            this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081108));
-            this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081106));
+            this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081109));
+            this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110b));
+            this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081109));
             return;
         }
-        this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110b));
+        this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110e));
         this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091f));
         this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060913));
         this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060917));
         this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060917));
         this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06091b));
-        this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081105));
-        this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081107));
-        this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081105));
+        this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081108));
+        this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110a));
+        this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081108));
     }
 }

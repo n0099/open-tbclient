@@ -78,7 +78,7 @@ public class ux extends ww<q05> {
             this.g.b();
             q05 q05Var = this.i;
             if (q05Var != null && q05Var.getThreadData() != null) {
-                nm6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                om6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -92,7 +92,7 @@ public class ux extends ww<q05> {
             if (q05Var != null && q05Var.getThreadData() != null) {
                 this.i = q05Var;
                 ThreadData threadData = q05Var.getThreadData();
-                nm6.j(threadData, this.h);
+                om6.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

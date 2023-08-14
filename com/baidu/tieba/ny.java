@@ -100,13 +100,13 @@ public class ny extends dx {
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bn6Var) == null) {
-            super.p(bn6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, cn6Var) == null) {
+            super.p(cn6Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(bn6Var);
+                bjhArticleLayout.setSubClickListener(cn6Var);
             }
         }
     }

@@ -1109,12 +1109,12 @@ public class v64 extends ea2 implements jb4, fa3.a {
     public final void C3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0925a1);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0925a7);
             this.H0 = findViewById;
             findViewById.post(new e(this));
-            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925a3);
-            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f0925a4);
-            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925a2);
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925a9);
+            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f0925aa);
+            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925a8);
             this.I0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08013e));
             this.K0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080129));
             this.J0.setBackgroundResource(R.color.obfuscated_res_0x7f0603fa);

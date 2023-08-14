@@ -14,8 +14,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a75;
 import com.baidu.tieba.b75;
-import com.baidu.tieba.df7;
-import com.baidu.tieba.mx9;
+import com.baidu.tieba.ef7;
+import com.baidu.tieba.nx9;
 import com.baidu.tieba.u15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -163,7 +163,7 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
                     this.f.get(i);
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof df7) {
+                    if (this.b.get(i) instanceof ef7) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.startLoad(this.b.get(i).getPicUrl(), 10, false);
@@ -171,7 +171,7 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
                     tbImageView.setOnClickListener(this.d);
                     if ((this.b.get(i) instanceof u15) && !((u15) this.b.get(i)).n()) {
                         u15 u15Var = (u15) this.b.get(i);
-                        mx9.k(u15Var.j(), tbImageView2, u15Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                        nx9.k(u15Var.j(), tbImageView2, u15Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }

@@ -35,7 +35,7 @@ public class fp5 implements uo5<BackBaiduBoxViewEvent> {
             if (backBaiduBoxViewEvent == null) {
                 return false;
             }
-            av5.m().u(backBaiduBoxViewEvent.isShow);
+            bv5.m().u(backBaiduBoxViewEvent.isShow);
             return true;
         }
         return invokeL.booleanValue;

@@ -24,9 +24,9 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi5;
-import com.baidu.tieba.l17;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.m17;
+import com.baidu.tieba.n17;
 import com.baidu.tieba.nc5;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.yh5;
@@ -220,7 +220,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
     }
 
     /* loaded from: classes6.dex */
-    public class d implements m17.i {
+    public class d implements n17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetaiInputContainer a;
@@ -243,7 +243,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
             this.a = topicDetaiInputContainer;
         }
 
-        @Override // com.baidu.tieba.m17.i
+        @Override // com.baidu.tieba.n17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -466,7 +466,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
                         if (TextUtils.isEmpty((String) obj2)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            m17.h(getContext(), (String) lh5Var.c, new d(this));
+                            n17.h(getContext(), (String) lh5Var.c, new d(this));
                         }
                     }
                 }
@@ -479,7 +479,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = l17.b.matcher(substring);
+            Matcher matcher = m17.b.matcher(substring);
             if (matcher.find()) {
                 this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
             } else {
@@ -547,10 +547,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
                 return;
             }
             String obj = this.b.getText().toString();
-            if (this.h && l17.a(obj) >= 10 && getContext() != null) {
+            if (this.h && m17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                m17.c(getContext(), nc5Var, this.b);
+                n17.c(getContext(), nc5Var, this.b);
             }
         }
     }
@@ -559,10 +559,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements yh5, View.
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, nc5Var) == null) && nc5Var != null && !TextUtils.isEmpty(nc5Var.d()) && !TextUtils.isEmpty(nc5Var.g())) {
             String obj = this.b.getText().toString();
-            if (this.h && l17.a(obj) >= 10 && getContext() != null) {
+            if (this.h && m17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                m17.d(getContext(), nc5Var, this.b);
+                n17.d(getContext(), nc5Var, this.b);
             }
         }
     }

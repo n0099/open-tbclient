@@ -171,7 +171,7 @@ public class d83 extends qo4 implements View.OnClickListener, ty2<MediaModel> {
             }
             this.b.G0 = z;
             if (z) {
-                this.b.E0.setImageResource(R.drawable.obfuscated_res_0x7f081464);
+                this.b.E0.setImageResource(R.drawable.obfuscated_res_0x7f081467);
                 this.a.post(new a(this));
             }
         }
@@ -459,9 +459,9 @@ public class d83 extends qo4 implements View.OnClickListener, ty2<MediaModel> {
             }
             this.a.F0 = z;
             if (z) {
-                this.a.E0.setImageResource(R.drawable.obfuscated_res_0x7f081466);
+                this.a.E0.setImageResource(R.drawable.obfuscated_res_0x7f081469);
             } else {
-                this.a.E0.setImageResource(R.drawable.obfuscated_res_0x7f081464);
+                this.a.E0.setImageResource(R.drawable.obfuscated_res_0x7f081467);
             }
             w83.onEvent("emoji_clk");
         }
@@ -907,7 +907,7 @@ public class d83 extends qo4 implements View.OnClickListener, ty2<MediaModel> {
             layoutParams.rightMargin = po3.g(9.0f);
             this.u0.addView(this.x0, layoutParams);
             FrameLayout frameLayout = new FrameLayout(this.s0);
-            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081468);
+            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08146b);
             frameLayout.setPadding(1, 1, 1, 1);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1, 17);
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(this.s0);
@@ -927,7 +927,7 @@ public class d83 extends qo4 implements View.OnClickListener, ty2<MediaModel> {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(po3.g(20.0f), po3.g(20.0f));
             layoutParams3.gravity = 8388613;
             this.x0.addView(this.z0, layoutParams3);
-            this.z0.setImageResource(R.drawable.obfuscated_res_0x7f081469);
+            this.z0.setImageResource(R.drawable.obfuscated_res_0x7f08146c);
             this.y0.setOnClickListener(this);
             this.z0.setOnTouchListener(new oo3());
             this.z0.setOnClickListener(this);
@@ -940,11 +940,11 @@ public class d83 extends qo4 implements View.OnClickListener, ty2<MediaModel> {
             this.u0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09112b);
             this.t0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914ee);
-            this.w0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092162);
+            this.w0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092168);
             this.A0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09112d);
             this.E0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909a2);
             this.B0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.panel_root);
-            this.C0 = view2.findViewById(R.id.obfuscated_res_0x7f091c8d);
+            this.C0 = view2.findViewById(R.id.obfuscated_res_0x7f091c93);
         }
     }
 

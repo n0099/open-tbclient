@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qx<q05> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public bn6<q05> m;
+    public cn6<q05> m;
     public q05 n;
     public View.OnClickListener o;
     public az p;
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qx<q05> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    bn6 bn6Var = this.a.m;
+                    cn6 cn6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    bn6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    cn6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -167,10 +167,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements qx<q05> 
         }
     }
 
-    public void setOnCardSubClickListener(bn6<q05> bn6Var) {
+    public void setOnCardSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bn6Var) == null) {
-            this.m = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cn6Var) == null) {
+            this.m = cn6Var;
         }
     }
 

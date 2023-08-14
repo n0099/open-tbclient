@@ -183,23 +183,23 @@ public class ss4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0934, (ViewGroup) null);
             this.c = frameLayout;
             frameLayout.setOnTouchListener(this);
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09230f);
+            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092315);
             this.d = linearLayout;
             linearLayout.setVisibility(8);
-            this.d.findViewById(R.id.obfuscated_res_0x7f092317).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f092318).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f092319).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f09231a).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f09231b).setOnClickListener(this);
-            this.i = R.id.obfuscated_res_0x7f092318;
-            j(R.id.obfuscated_res_0x7f092318, -13399809);
+            this.d.findViewById(R.id.obfuscated_res_0x7f09231d).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f09231e).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f09231f).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092320).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092321).setOnClickListener(this);
+            this.i = R.id.obfuscated_res_0x7f09231e;
+            j(R.id.obfuscated_res_0x7f09231e, -13399809);
             h();
-            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092310);
+            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092316);
             this.e = linearLayout2;
             linearLayout2.setVisibility(8);
             this.e.setOnTouchListener(this);
-            this.f = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f09231f);
-            this.g = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f092320);
+            this.f = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f092325);
+            this.g = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f092326);
             this.f.setOnSeekBarChangeListener(this);
             this.g.setOnSeekBarChangeListener(this);
             this.f.setMax(100);
@@ -216,15 +216,15 @@ public class ss4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             j(this.i, -1);
             if (TextUtils.equals("0.75", str)) {
-                this.i = R.id.obfuscated_res_0x7f092317;
+                this.i = R.id.obfuscated_res_0x7f09231d;
             } else if (TextUtils.equals("1.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f092318;
+                this.i = R.id.obfuscated_res_0x7f09231e;
             } else if (TextUtils.equals("1.25", str)) {
-                this.i = R.id.obfuscated_res_0x7f092319;
+                this.i = R.id.obfuscated_res_0x7f09231f;
             } else if (TextUtils.equals("1.5", str)) {
-                this.i = R.id.obfuscated_res_0x7f09231a;
+                this.i = R.id.obfuscated_res_0x7f092320;
             } else if (TextUtils.equals("2.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f09231b;
+                this.i = R.id.obfuscated_res_0x7f092321;
             } else {
                 this.i = 0;
             }
@@ -255,15 +255,15 @@ public class ss4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
             this.i = id2;
             j(id2, -13399809);
             int i2 = this.i;
-            if (i2 == R.id.obfuscated_res_0x7f092317) {
+            if (i2 == R.id.obfuscated_res_0x7f09231d) {
                 str = "0.75";
-            } else if (i2 == R.id.obfuscated_res_0x7f092318) {
+            } else if (i2 == R.id.obfuscated_res_0x7f09231e) {
                 str = "1.0";
-            } else if (i2 == R.id.obfuscated_res_0x7f092319) {
+            } else if (i2 == R.id.obfuscated_res_0x7f09231f) {
                 str = "1.25";
-            } else if (i2 == R.id.obfuscated_res_0x7f09231a) {
+            } else if (i2 == R.id.obfuscated_res_0x7f092320) {
                 str = "1.5";
-            } else if (i2 == R.id.obfuscated_res_0x7f09231b) {
+            } else if (i2 == R.id.obfuscated_res_0x7f092321) {
                 str = "2.0";
             } else {
                 str = "";
@@ -323,7 +323,7 @@ public class ss4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, view2, motionEvent)) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092310) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092316) {
                 return true;
             }
             e();
@@ -354,9 +354,9 @@ public class ss4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
         if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !z) {
             return;
         }
-        if (seekBar.getId() == R.id.obfuscated_res_0x7f092320) {
+        if (seekBar.getId() == R.id.obfuscated_res_0x7f092326) {
             i(i);
-        } else if (seekBar.getId() == R.id.obfuscated_res_0x7f09231f) {
+        } else if (seekBar.getId() == R.id.obfuscated_res_0x7f092325) {
             k(i);
         }
     }

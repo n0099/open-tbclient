@@ -40,7 +40,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al8;
+import com.baidu.tieba.bl8;
 import com.baidu.tieba.ci5;
 import com.baidu.tieba.hj5;
 import com.baidu.tieba.im.chat.ISendVoiceView;
@@ -58,8 +58,8 @@ import com.baidu.tieba.qi;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.wj5;
 import com.baidu.tieba.write.WriteVideoUtil;
-import com.baidu.tieba.x9a;
 import com.baidu.tieba.xh5;
+import com.baidu.tieba.y9a;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -119,7 +119,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
         public GroupInputViewController n;
         public GroupChatRobotTopHeadView o;
         public GroupChatRobotFloorView p;
-        public al8 q;
+        public bl8 q;
         public GroupChatUserReplyView r;
         public GroupChatUserReplyView s;
         public int t;
@@ -135,12 +135,12 @@ public class GroupInputTool implements LifecycleObserver, qi {
 
             /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputTool$g$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0353a implements Runnable {
+            public class RunnableC0354a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0353a(a aVar) {
+                public RunnableC0354a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +199,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
                             long currentTimeMillis = System.currentTimeMillis();
                             if (this.a.w == 0 || currentTimeMillis - this.a.w > 5000) {
                                 this.a.w = currentTimeMillis;
-                                SafeHandler.getInst().post(new RunnableC0353a(this));
+                                SafeHandler.getInst().post(new RunnableC0354a(this));
                             }
                         }
                         if (!matches) {
@@ -519,7 +519,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
                 g gVar = new g();
                 gVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e95);
-                gVar.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e95);
+                gVar.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9b);
                 gVar.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e90);
                 gVar.f = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906c2);
                 gVar.l = (NoSlidingLinearLayout) view2.findViewById(R.id.mask_view);
@@ -667,9 +667,9 @@ public class GroupInputTool implements LifecycleObserver, qi {
                 this.p = groupChatRobotFloorView;
                 groupChatRobotFloorView.setPageContext(groupChatFragment.getPageContext());
                 this.p.A(TbadkCoreApplication.getInst().getSkinType());
-                al8 al8Var = new al8(groupChatFragment);
-                this.q = al8Var;
-                al8Var.u(this.p);
+                bl8 bl8Var = new bl8(groupChatFragment);
+                this.q = bl8Var;
+                bl8Var.u(this.p);
             }
         }
 
@@ -681,7 +681,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
                 if (i == 0) {
                     this.t = SkinManager.getColor(R.color.CAM_X0212);
                 } else if (i == 1) {
-                    this.t = x9a.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+                    this.t = y9a.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
                 } else {
                     this.t = SkinManager.getColor(R.color.CAM_X0212);
                 }
@@ -849,7 +849,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements al8.e {
+    public class e implements bl8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInputTool a;
@@ -872,7 +872,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
             this.a = groupInputTool;
         }
 
-        @Override // com.baidu.tieba.al8.e
+        @Override // com.baidu.tieba.bl8.e
         public void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -885,7 +885,7 @@ public class GroupInputTool implements LifecycleObserver, qi {
             }
         }
 
-        @Override // com.baidu.tieba.al8.e
+        @Override // com.baidu.tieba.bl8.e
         public void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -1194,11 +1194,11 @@ public class GroupInputTool implements LifecycleObserver, qi {
         return invokeV.booleanValue;
     }
 
-    public al8 N() {
+    public bl8 N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048585, this)) != null) {
-            return (al8) invokeV.objValue;
+            return (bl8) invokeV.objValue;
         }
         return this.b.q;
     }

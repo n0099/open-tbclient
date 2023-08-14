@@ -1,9 +1,22 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: OnWebScrollChangeListener.java */
 /* loaded from: classes5.dex */
-public interface bl6 {
-    void c(int i, int i2, int i3, int i4);
+public final /* synthetic */ class bl6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(int i, int i2, int i3, int i4);
+    public static void a(cl6 cl6Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{cl6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        }
+    }
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    public static void b(cl6 cl6Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{cl6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        }
+    }
 }

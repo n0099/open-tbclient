@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,17 +20,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
+public class pf9 extends lm<sn6, ThreadCardViewHolder<sn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
     public boolean c;
     public en d;
-    public bn6<rn6> e;
+    public cn6<sn6> e;
 
     /* loaded from: classes7.dex */
-    public class a extends bn6<rn6> {
+    public class a extends cn6<sn6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pf9 b;
@@ -55,12 +54,12 @@ public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
-        public void a(View view2, rn6 rn6Var) {
+        public void a(View view2, sn6 sn6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rn6Var) == null) && view2 != null && rn6Var != null && rn6Var.getThreadData() != null && !StringUtils.isNull(rn6Var.getThreadData().getTid())) {
-                this.b.y(view2, rn6Var);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, sn6Var) == null) && view2 != null && sn6Var != null && sn6Var.getThreadData() != null && !StringUtils.isNull(sn6Var.getThreadData().getTid())) {
+                this.b.y(view2, sn6Var);
             }
         }
     }
@@ -92,14 +91,14 @@ public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
         @Override // com.baidu.tieba.in
         public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ymVar instanceof rn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ymVar instanceof sn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                rn6 rn6Var = (rn6) ymVar;
-                rn6Var.f = 1;
+                sn6 sn6Var = (sn6) ymVar;
+                sn6Var.f = 1;
                 if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), rn6Var);
+                    this.a.e.a(threadCardViewHolder.getView(), sn6Var);
                 }
-                ThreadCardUtils.jumpToPB((q05) rn6Var, view2.getContext(), rn6Var.C, false);
+                ThreadCardUtils.jumpToPB((q05) sn6Var, view2.getContext(), sn6Var.C, false);
                 threadCardViewHolder.b().p(new vy.a(1));
             }
         }
@@ -139,19 +138,19 @@ public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: u */
-    public ThreadCardViewHolder<rn6> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<sn6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            yx yxVar = new yx(this.b.getPageActivity());
-            yxVar.setFrom("pb");
-            yxVar.x(this.c);
-            bVar.n(yxVar);
+            wx wxVar = new wx(this.b.getPageActivity());
+            wxVar.setFrom("pb");
+            wxVar.z(this.c);
+            bVar.n(wxVar);
             ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.s(0);
-            ThreadCardViewHolder<rn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            ThreadCardViewHolder<sn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.j(this.a);
             setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
@@ -162,24 +161,17 @@ public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rn6 rn6Var, ThreadCardViewHolder<rn6> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sn6 sn6Var, ThreadCardViewHolder<sn6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rn6Var, threadCardViewHolder})) == null) {
-            if (rn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && rn6Var.a != null) {
-                rn6Var.A(rn6Var.position + 1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sn6Var, threadCardViewHolder})) == null) {
+            if (sn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && sn6Var.a != null) {
+                sn6Var.A(sn6Var.position + 1);
                 threadCardViewHolder.b().r(i);
-                threadCardViewHolder.f(rn6Var);
+                threadCardViewHolder.f(sn6Var);
                 threadCardViewHolder.b().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.b().q(this.e);
-                yx yxVar = (yx) threadCardViewHolder.b().g();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yxVar.f.d.getLayoutParams();
-                layoutParams.width = rn6Var.j;
-                layoutParams.height = rn6Var.k;
-                if (yxVar.f.d.getVisibility() != 8) {
-                    yxVar.f.d.setLayoutParams(layoutParams);
-                }
-                ql9.o(rn6Var, this.b);
+                rl9.q(sn6Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -187,15 +179,15 @@ public class pf9 extends lm<rn6, ThreadCardViewHolder<rn6>> {
         return (View) invokeCommon.objValue;
     }
 
-    public final void y(View view2, rn6 rn6Var) {
+    public final void y(View view2, sn6 sn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, rn6Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, sn6Var) == null) {
             if (view2.getId() == R.id.thread_card_root) {
-                ql9.m(rn6Var, 1, this.b);
+                rl9.o(sn6Var, 1, this.b);
             } else if (view2 instanceof TbImageView) {
-                ql9.m(rn6Var, 3, this.b);
+                rl9.o(sn6Var, 3, this.b);
             } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
-                ql9.m(rn6Var, 1, this.b);
+                rl9.o(sn6Var, 1, this.b);
             }
         }
     }

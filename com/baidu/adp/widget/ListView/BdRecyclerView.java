@@ -19,7 +19,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.an;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.dv5;
+import com.baidu.tieba.ev5;
 import com.baidu.tieba.hk;
 import com.baidu.tieba.k9;
 import com.baidu.tieba.l9;
@@ -766,7 +766,7 @@ public class BdRecyclerView extends RecyclerView implements an<BdRecyclerView> {
             try {
                 super.removeViewAt(i2);
             } catch (NullPointerException e2) {
-                dv5.a(this, i2, e2);
+                ev5.a(this, i2, e2);
                 throw e2;
             }
         }

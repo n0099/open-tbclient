@@ -74,9 +74,9 @@ public class SwanImageMenuView extends FrameLayout implements ia3.g {
 
         public final void c(@NonNull View view2, int i) {
             if (i == 0) {
-                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141d));
+                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081420));
             } else {
-                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141c));
+                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141f));
             }
         }
 
@@ -118,7 +118,7 @@ public class SwanImageMenuView extends FrameLayout implements ia3.g {
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091895)).setText(item.e());
             } else {
                 inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d2, null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092454);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09245a);
                 textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0603ff));
                 textView.setText(item.e());
             }
@@ -181,7 +181,7 @@ public class SwanImageMenuView extends FrameLayout implements ia3.g {
         if (fu2.M().a()) {
             View view2 = new View(this.c);
             this.f = view2;
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08141e);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081421);
             this.f.setVisibility(8);
             addView(this.f);
         }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.bia;
+import com.baidu.tieba.cia;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public bia b;
+    public cia b;
     public int c;
     public int d;
     public int e;
@@ -161,19 +161,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            bia biaVar = this.b;
-            if (biaVar != null) {
-                biaVar.h();
+            cia ciaVar = this.b;
+            if (ciaVar != null) {
+                ciaVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        bia biaVar;
+        cia ciaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (biaVar = this.b) != null) {
-            showLoadingView(biaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (ciaVar = this.b) != null) {
+            showLoadingView(ciaVar.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            bia biaVar = this.b;
-            if (biaVar != null) {
-                biaVar.g();
+            cia ciaVar = this.b;
+            if (ciaVar != null) {
+                ciaVar.g();
             }
         }
     }
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.S(this.f);
-            bia biaVar = new bia(this);
-            this.b = biaVar;
-            showLoadingView(biaVar.f());
+            cia ciaVar = new cia(this);
+            this.b = ciaVar;
+            showLoadingView(ciaVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

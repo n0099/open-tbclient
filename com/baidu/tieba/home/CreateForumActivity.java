@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jd5;
-import com.baidu.tieba.js5;
+import com.baidu.tieba.ks5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -430,7 +430,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f81);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f87);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -442,13 +442,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09098a);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e8f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e95);
             this.k = textView;
             textView.setOnClickListener(this.a);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107a);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09246b);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092471);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
             findViewById(R.id.obfuscated_res_0x7f090413).setOnTouchListener(new b(this));
@@ -461,7 +461,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().onModeChanged(this.e);
-            js5.a(getPageContext(), this.e);
+            ks5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);

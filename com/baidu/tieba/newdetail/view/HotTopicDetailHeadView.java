@@ -30,8 +30,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.q88;
-import com.baidu.tieba.v88;
+import com.baidu.tieba.r88;
+import com.baidu.tieba.w88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public q88 q;
+    public r88 q;
     public ValueAnimator r;
 
     @StringRes
@@ -216,14 +216,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        q88 q88Var;
+        r88 r88Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (q88Var = this.q) != null && q88Var.b != 1) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (r88Var = this.q) != null && r88Var.b != 1) {
             this.o.playAnimation();
             i();
-            q88 q88Var2 = this.q;
-            q88Var2.b = 1;
-            q88Var2.d = j2;
+            r88 r88Var2 = this.q;
+            r88Var2.b = 1;
+            r88Var2.d = j2;
         }
     }
 
@@ -299,9 +299,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-            q88 q88Var = this.q;
-            if (q88Var != null) {
-                f(q88Var.e);
+            r88 r88Var = this.q;
+            if (r88Var != null) {
+                f(r88Var.e);
             }
             this.a = i;
         }
@@ -320,10 +320,10 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             this.d = findViewById(R.id.obfuscated_res_0x7f0903d7);
             this.f = findViewById(R.id.obfuscated_res_0x7f090f1e);
             this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090ff3);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09255e);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09255d);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092369);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092566);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092564);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092563);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09236f);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090884);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090885);
             this.n = findViewById(R.id.obfuscated_res_0x7f090883);
@@ -363,11 +363,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setBlessInfo(q88 q88Var) {
+    public void setBlessInfo(r88 r88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, q88Var) == null) {
-            this.q = q88Var;
-            if (q88Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, r88Var) == null) {
+            this.q = r88Var;
+            if (r88Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -378,15 +378,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(q88Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(q88Var.a)));
-            if (q88Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(r88Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(r88Var.a)));
+            if (r88Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(q88Var.e);
+                f(r88Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -398,30 +398,30 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(v88 v88Var) {
+    public void setTopicInfo(w88 w88Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v88Var) != null) || v88Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w88Var) != null) || w88Var == null) {
             return;
         }
         View view2 = this.e;
-        if (TextUtils.isEmpty(v88Var.f)) {
+        if (TextUtils.isEmpty(w88Var.f)) {
             i = 0;
         } else {
             i = 8;
         }
         view2.setVisibility(i);
-        this.g.startLoad(v88Var.e, 10, false);
-        this.c.startLoad(v88Var.f, 39, false);
-        this.h.setText(v88Var.b);
-        if (v88Var.i > 0) {
+        this.g.startLoad(w88Var.e, 10, false);
+        this.c.startLoad(w88Var.f, 39, false);
+        this.h.setText(w88Var.b);
+        if (w88Var.i > 0) {
             TextView textView = this.l;
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f0a15);
-            textView.setText(String.format(string, "" + v88Var.i));
+            textView.setText(String.format(string, "" + w88Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a13), StringHelper.numberUniformFormatExtraWithRoundInt(v88Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a13), StringHelper.numberUniformFormatExtraWithRoundInt(w88Var.d)));
     }
 }

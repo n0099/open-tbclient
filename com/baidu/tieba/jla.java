@@ -1,10 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface jla {
-    void l1(String str, int i, String str2);
+    void R();
 
-    void setMusicData(List<MusicData> list);
+    void e0(String str);
+
+    void g();
+
+    void k1(Bitmap bitmap);
+
+    void l();
+
+    void l0(String str);
+
+    void onNext();
+
+    void r(List<PendantData> list);
+
+    void x();
 }

@@ -24,14 +24,14 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int shape_permission_window = 0x7f08139d;
+        public static final int shape_permission_window = 0x7f0813a0;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int permission_content = 0x7f091b63;
-        public static final int permission_root = 0x7f091b6a;
-        public static final int permission_title = 0x7f091b6b;
+        public static final int permission_content = 0x7f091b69;
+        public static final int permission_root = 0x7f091b70;
+        public static final int permission_title = 0x7f091b71;
     }
 
     /* loaded from: classes4.dex */

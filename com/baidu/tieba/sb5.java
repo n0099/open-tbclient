@@ -158,9 +158,9 @@ public class sb5 {
         if (optJSONObject4 != null) {
             String optString = optJSONObject4.optString("os_type2_iadex_url");
             this.l = optString;
-            xu5.h(optString);
+            yu5.h(optString);
             return;
         }
-        xu5.h(null);
+        yu5.h(null);
     }
 }

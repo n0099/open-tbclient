@@ -1,37 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes6.dex */
-public class g87 extends ClickableSpan {
+public final class g87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public g87() {
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<v97<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, threadRecommendInfo, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(new r47(b(threadRecommendInfo)));
         }
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setUnderlineText(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
+            threadRecommendInfoData.parseProto(threadRecommendInfo);
+            return threadRecommendInfoData;
         }
+        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

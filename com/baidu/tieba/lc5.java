@@ -213,9 +213,9 @@ public class lc5 {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
             if (optJSONObject2 != null) {
-                yca.c(optJSONObject2.optInt("chunk_size"));
-                yca.b(optJSONObject2.optInt("block_size"));
-                yca.d(optJSONObject2.optInt("data_size"));
+                zca.c(optJSONObject2.optInt("chunk_size"));
+                zca.b(optJSONObject2.optInt("block_size"));
+                zca.d(optJSONObject2.optInt("data_size"));
             }
             PerformanceLoggerHelper.getInstance().setSmallFlowInterval(jSONObject.optLong("small_flow_time_out"));
             JSONArray optJSONArray = jSONObject.optJSONArray("switch");

@@ -1,18 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class ri6 extends qi6 {
+public abstract class ri6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ri6(WebView webView) {
-        super(webView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,30 +31,88 @@ public class ri6 extends qi6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public static void d(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            webView.setHorizontalScrollBarEnabled(false);
-            webView.setHorizontalScrollbarOverlay(false);
-            webView.setVerticalScrollBarEnabled(true);
-            webView.setVerticalScrollbarOverlay(true);
-            new ri6(webView).a();
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            webView.setRendererPriorityPolicy(2, false);
         }
     }
 
-    @Override // com.baidu.tieba.qi6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
+            }
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
+            }
+            String userAgentString = c().getUserAgentString();
+            Pair<Boolean, String> j = yh6.j(userAgentString);
+            if (((Boolean) j.first).booleanValue()) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("WebSetting", "更新UA信息：" + ((String) j.second) + " 原UA：" + userAgentString);
+                c.setUserAgentString((String) j.second);
+            }
+            c.setJavaScriptCanOpenWindowsAutomatically(true);
+            c.setTextZoom(100);
         }
+    }
+
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public WebSettings c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getSettings();
+        }
+        return (WebSettings) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

@@ -53,7 +53,7 @@ public class DomainErrorView extends CommonEmptyView {
         StringBuffer stringBuffer = new StringBuffer();
         boolean d = qo3.d(str, stringBuffer);
         String stringBuffer2 = stringBuffer.toString();
-        setIcon(R.drawable.obfuscated_res_0x7f081452);
+        setIcon(R.drawable.obfuscated_res_0x7f081455);
         setTitle(R.string.obfuscated_res_0x7f0f0185);
         rm3 rm3Var = new rm3();
         rm3Var.k(5L);

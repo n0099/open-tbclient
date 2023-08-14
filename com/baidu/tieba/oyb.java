@@ -1,128 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes7.dex */
 public final class oyb {
     public static /* synthetic */ Interceptable $ic;
-    public static final oyb[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948050001, "Lcom/baidu/tieba/oyb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948050001, "Lcom/baidu/tieba/oyb;");
-                return;
-            }
-        }
-        d = new oyb[]{new oyb("", 0, ""), new oyb("", 0, " "), new oyb(" ", 0, " "), new oyb("", 12, ""), new oyb("", 10, " "), new oyb("", 0, " the "), new oyb(" ", 0, ""), new oyb("s ", 0, " "), new oyb("", 0, " of "), new oyb("", 10, ""), new oyb("", 0, " and "), new oyb("", 13, ""), new oyb("", 1, ""), new oyb(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new oyb("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb(" ", 10, " "), new oyb("", 0, " in "), new oyb("", 0, " to "), new oyb("e ", 0, " "), new oyb("", 0, "\""), new oyb("", 0, "."), new oyb("", 0, "\">"), new oyb("", 0, "\n"), new oyb("", 3, ""), new oyb("", 0, PreferencesUtil.RIGHT_MOUNT), new oyb("", 0, " for "), new oyb("", 14, ""), new oyb("", 2, ""), new oyb("", 0, " a "), new oyb("", 0, " that "), new oyb(" ", 10, ""), new oyb("", 0, ". "), new oyb(".", 0, ""), new oyb(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb("", 15, ""), new oyb("", 0, " with "), new oyb("", 0, "'"), new oyb("", 0, " from "), new oyb("", 0, " by "), new oyb("", 16, ""), new oyb("", 17, ""), new oyb(" the ", 0, ""), new oyb("", 4, ""), new oyb("", 0, ". The "), new oyb("", 11, ""), new oyb("", 0, " on "), new oyb("", 0, " as "), new oyb("", 0, " is "), new oyb("", 7, ""), new oyb("", 1, "ing "), new oyb("", 0, "\n\t"), new oyb("", 0, ":"), new oyb(" ", 0, ". "), new oyb("", 0, "ed "), new oyb("", 20, ""), new oyb("", 18, ""), new oyb("", 6, ""), new oyb("", 0, "("), new oyb("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb("", 8, ""), new oyb("", 0, " at "), new oyb("", 0, "ly "), new oyb(" the ", 0, " of "), new oyb("", 5, ""), new oyb("", 9, ""), new oyb(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb("", 10, "\""), new oyb(".", 0, "("), new oyb("", 11, " "), new oyb("", 10, "\">"), new oyb("", 0, "=\""), new oyb(" ", 0, "."), new oyb(".com/", 0, ""), new oyb(" the ", 0, " of the "), new oyb("", 10, "'"), new oyb("", 0, ". This "), new oyb("", 0, ","), new oyb(".", 0, " "), new oyb("", 10, "("), new oyb("", 10, "."), new oyb("", 0, " not "), new oyb(" ", 0, "=\""), new oyb("", 0, "er "), new oyb(" ", 11, " "), new oyb("", 0, "al "), new oyb(" ", 11, ""), new oyb("", 0, "='"), new oyb("", 11, "\""), new oyb("", 10, ". "), new oyb(" ", 0, "("), new oyb("", 0, "ful "), new oyb(" ", 10, ". "), new oyb("", 0, "ive "), new oyb("", 0, "less "), new oyb("", 11, "'"), new oyb("", 0, "est "), new oyb(" ", 10, "."), new oyb("", 11, "\">"), new oyb(" ", 0, "='"), new oyb("", 10, ","), new oyb("", 0, "ize "), new oyb("", 11, "."), new oyb("Â ", 0, ""), new oyb(" ", 0, ","), new oyb("", 10, "=\""), new oyb("", 11, "=\""), new oyb("", 0, "ous "), new oyb("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb("", 10, "='"), new oyb(" ", 10, ","), new oyb(" ", 11, "=\""), new oyb(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new oyb("", 11, ","), new oyb("", 11, "("), new oyb("", 11, ". "), new oyb(" ", 11, "."), new oyb("", 11, "='"), new oyb(" ", 11, ". "), new oyb(" ", 10, "=\""), new oyb(" ", 11, "='"), new oyb(" ", 10, "='")};
-    }
+    /* renamed from: T  reason: collision with root package name */
+    public int f1141T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final fyb c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final lyb k;
+    public final lyb l;
+    public final lyb m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
 
-    public oyb(String str, int i, String str2) {
+    public oyb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
+        this.a = 0;
+        this.c = new fyb();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new lyb();
+        this.l = new lyb();
+        this.m = new lyb();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.f1141T = 0;
     }
 
-    public static byte[] a(String str) {
+    public static void a(oyb oybVar) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, oybVar) == null) {
+            int i = oybVar.a;
+            if (i != 0) {
+                if (i == 11) {
+                    return;
+                }
+                oybVar.a = 11;
+                fyb.b(oybVar.c);
+                return;
+            }
+            throw new IllegalStateException("State MUST be initialized");
+        }
+    }
+
+    public static int b(fyb fybVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fybVar)) == null) {
+            if (fyb.i(fybVar, 1) == 0) {
+                return 16;
             }
-            return bArr;
+            int i = fyb.i(fybVar, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = fyb.i(fybVar, 3);
+            if (i2 == 0) {
+                return 17;
+            }
+            return i2 + 8;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, oyb oybVar) {
-        InterceptResult invokeCommon;
+    public static void c(oyb oybVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), oybVar})) == null) {
-            int i4 = i;
-            for (byte b : oybVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = oybVar.b;
-            int a = qyb.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - qyb.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
+        if (interceptable == null || interceptable.invokeLL(65539, null, oybVar, inputStream) == null) {
+            if (oybVar.a == 0) {
+                fyb.e(oybVar.c, inputStream);
+                int b = b(oybVar.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    oybVar.P = i;
+                    oybVar.O = i - 16;
+                    oybVar.a = 1;
+                    return;
                 }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
-                    }
-                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
             }
-            for (byte b3 : oybVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+            throw new IllegalStateException("State MUST be uninitialized");
         }
-        return invokeCommon.intValue;
     }
 }

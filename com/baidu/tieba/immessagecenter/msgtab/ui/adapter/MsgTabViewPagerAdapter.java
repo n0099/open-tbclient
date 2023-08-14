@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.bh8;
+import com.baidu.tieba.ch8;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
@@ -18,7 +18,7 @@ import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.np8;
+import com.baidu.tieba.op8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            np8 m = this.b.m(i);
+            op8 m = this.b.m(i);
             if (m != null) {
                 return m.c();
             }
@@ -123,7 +123,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                         sb.append("dataId == null,position=");
                         sb.append(i);
                         sb.append(",item=");
-                        np8 m = this.b.m(i);
+                        op8 m = this.b.m(i);
                         if (m != null) {
                             str2 = m.toString();
                         } else {
@@ -135,7 +135,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                         sb2.append("dataId == null,position=");
                         sb2.append(i);
                         sb2.append(",item=");
-                        np8 m2 = this.b.m(i);
+                        op8 m2 = this.b.m(i);
                         if (m2 != null) {
                             str3 = m2.toString();
                         }
@@ -143,7 +143,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                         BdLog.e(new IllegalStateException(sb2.toString()));
                         msgTabNotifyFragment = new Fragment();
                     } else {
-                        np8 m3 = this.b.m(i);
+                        op8 m3 = this.b.m(i);
                         if (m3 != null) {
                             l = Long.valueOf(m3.c());
                         } else {
@@ -152,14 +152,14 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                         if (l != null) {
                             long longValue = l.longValue();
                             MsgTabForumData e = ForumChannelDataObs.c.a().e(l.longValue());
-                            msgTabNotifyFragment = new GroupChatDialogFragment(longValue, (e == null || (r2 = e.getForumName()) == null) ? "" : "", 0L, null, false, bh8.c, "message_tab");
+                            msgTabNotifyFragment = new GroupChatDialogFragment(longValue, (e == null || (r2 = e.getForumName()) == null) ? "" : "", 0L, null, false, ch8.c, "message_tab");
                         } else {
                             TbLog iMLog2 = IMLog.getInstance();
                             StringBuilder sb3 = new StringBuilder();
                             sb3.append("dataId == null,position=");
                             sb3.append(i);
                             sb3.append(",item=");
-                            np8 m4 = this.b.m(i);
+                            op8 m4 = this.b.m(i);
                             if (m4 != null) {
                                 str = m4.toString();
                             } else {
@@ -171,7 +171,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                             sb4.append("dataId == null,position=");
                             sb4.append(i);
                             sb4.append(",dataType=Channel,item=");
-                            np8 m5 = this.b.m(i);
+                            op8 m5 = this.b.m(i);
                             if (m5 != null) {
                                 str3 = m5.toString();
                             }

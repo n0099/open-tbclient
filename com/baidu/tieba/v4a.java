@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.util.ISwanData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class v4a {
+public class v4a implements ISwanData {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile u4a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized u4a a() {
+    @Override // com.baidu.searchbox.util.ISwanData
+    public String getSwanNativeVersionGroup() {
         InterceptResult invokeV;
-        u4a u4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (v4a.class) {
-                if (a == null) {
-                    a = new u4a();
-                }
-                u4aVar = a;
-            }
-            return u4aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return (u4a) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public v4a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

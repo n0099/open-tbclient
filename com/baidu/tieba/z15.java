@@ -88,8 +88,8 @@ public class z15 {
                 return;
             }
             this.c = jSONObject.optString("text");
-            this.a = uka.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-            this.b = uka.j(jSONObject.optJSONObject("bg_color"));
+            this.a = vka.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = vka.j(jSONObject.optJSONObject("bg_color"));
         }
     }
 

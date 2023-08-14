@@ -8,7 +8,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.n9b;
+import com.baidu.tieba.o9b;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import java.nio.Buffer;
@@ -103,10 +103,10 @@ public class MultiDataSourceUtil {
 
     public static long getMultiMediaDataRealEnd(MediaTrack mediaTrack, int i) {
         MediaSegment mediaSegment;
-        if (i < 0 || mediaTrack == null || n9b.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) n9b.c(mediaTrack.mediaSegments, i)) == null) {
+        if (i < 0 || mediaTrack == null || o9b.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) o9b.c(mediaTrack.mediaSegments, i)) == null) {
             return 0L;
         }
-        MediaTransition mediaTransition = (MediaTransition) n9b.c(mediaTrack.mediaTransitions, i);
+        MediaTransition mediaTransition = (MediaTransition) o9b.c(mediaTrack.mediaTransitions, i);
         return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
     }
 

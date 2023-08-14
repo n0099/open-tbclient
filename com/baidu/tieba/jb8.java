@@ -9,12 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class jb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<MetaData> a;
+    public final ArrayList<MetaData> a;
 
     public jb8() {
         Interceptable interceptable = $ic;
@@ -29,17 +28,17 @@ public class jb8 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new ArrayList<>();
     }
 
     @NonNull
-    public List<MetaData> b() {
+    public ArrayList<MetaData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
     public void a(MetaData metaData) {

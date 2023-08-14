@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bla;
-import com.baidu.tieba.bma;
-import com.baidu.tieba.er6;
+import com.baidu.tieba.cla;
+import com.baidu.tieba.cma;
+import com.baidu.tieba.fr6;
 import com.baidu.tieba.ml;
 import com.baidu.tieba.nl;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<er6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<fr6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof bla)) {
-                    return new CustomResponsedMessage<>(2921466, new bma((bla) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof cla)) {
+                    return new CustomResponsedMessage<>(2921466, new cma((cla) customMessage.getData()));
                 }
                 return null;
             }

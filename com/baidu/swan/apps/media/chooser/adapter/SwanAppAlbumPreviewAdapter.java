@@ -294,9 +294,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         public h(SwanAppAlbumPreviewAdapter swanAppAlbumPreviewAdapter, View view2) {
             this.a = view2;
             this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090269);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091d23);
-            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091d26);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928e5);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091d29);
+            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091d2c);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928eb);
         }
     }
 

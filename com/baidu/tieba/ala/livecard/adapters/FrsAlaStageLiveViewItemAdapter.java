@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.nd6;
-import com.baidu.tieba.rd6;
+import com.baidu.tieba.od6;
+import com.baidu.tieba.sd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<nd6> b;
+    public ArrayList<od6> b;
     public List<ThreadData> c;
     public String d;
     public BdUniqueId e;
@@ -55,13 +55,13 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         this.e = bdUniqueId;
     }
 
-    public final nd6 b() {
+    public final od6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new nd6(this.a, this.e);
+            return new od6(this.a, this.e);
         }
-        return (nd6) invokeV.objValue;
+        return (od6) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -74,10 +74,10 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void c(List<ThreadData> list, rd6 rd6Var) {
-        nd6 nd6Var;
+    public void c(List<ThreadData> list, sd6 sd6Var) {
+        od6 od6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, rd6Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, sd6Var) == null) && list != null && !list.isEmpty()) {
             this.c.clear();
             this.c.addAll(list);
             int size = this.b.size();
@@ -88,25 +88,25 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                     arrayList.add(this.b.get(i));
                 }
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    nd6 nd6Var2 = (nd6) arrayList.get(i2);
-                    if (nd6Var2.c() != null && nd6Var2.c().getParent() != null) {
-                        ((ViewGroup) nd6Var2.c().getParent()).removeView(nd6Var2.c());
+                    od6 od6Var2 = (od6) arrayList.get(i2);
+                    if (od6Var2.c() != null && od6Var2.c().getParent() != null) {
+                        ((ViewGroup) od6Var2.c().getParent()).removeView(od6Var2.c());
                     }
-                    this.b.remove(nd6Var2);
+                    this.b.remove(od6Var2);
                 }
                 arrayList.clear();
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    nd6Var = b();
-                    nd6Var.g(this.a.getUniqueId());
-                    nd6Var.h(rd6Var);
-                    this.b.add(nd6Var);
+                    od6Var = b();
+                    od6Var.g(this.a.getUniqueId());
+                    od6Var.h(sd6Var);
+                    this.b.add(od6Var);
                 } else {
-                    nd6Var = this.b.get(i3);
+                    od6Var = this.b.get(i3);
                 }
-                if (this.c.get(i3) != null && nd6Var != null) {
-                    nd6Var.f(this.c.get(i3), this.d);
+                if (this.c.get(i3) != null && od6Var != null) {
+                    od6Var.f(this.c.get(i3), this.d);
                 }
             }
             notifyDataSetChanged();
@@ -133,20 +133,20 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            ArrayList<nd6> arrayList = this.b;
+            ArrayList<od6> arrayList = this.b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            nd6 nd6Var = (nd6) ListUtils.getItem(arrayList, i);
-            if (nd6Var == null) {
+            od6 od6Var = (od6) ListUtils.getItem(arrayList, i);
+            if (od6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (nd6Var.c().getParent() == null) {
-                viewGroup.addView(nd6Var.c(), new ViewGroup.LayoutParams(-2, -2));
+            if (od6Var.c().getParent() == null) {
+                viewGroup.addView(od6Var.c(), new ViewGroup.LayoutParams(-2, -2));
             }
-            nd6Var.e();
-            nd6Var.c().setTag(Integer.valueOf(i));
-            return nd6Var.c();
+            od6Var.e();
+            od6Var.c().setTag(Integer.valueOf(i));
+            return od6Var.c();
         }
         return invokeLI.objValue;
     }

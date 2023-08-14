@@ -91,9 +91,9 @@ public class fy extends dx {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.j().booleanValue()) {
                     ThreadData threadData = this.a.i.getThreadData();
-                    nm6.a(threadData.getId());
-                    nm6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    nm6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    om6.a(threadData.getId());
+                    om6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    om6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }

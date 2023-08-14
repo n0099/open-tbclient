@@ -13,9 +13,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.hu5;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.rs5;
+import com.baidu.tieba.iu5;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,21 +25,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplateFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rs5 a;
+    public ss5 a;
     public ViewGroup b;
     public final CustomMessageListener c;
 
-    public abstract rs5 J1(ViewGroup viewGroup);
+    public abstract ss5 J1(ViewGroup viewGroup);
 
-    public void K1(jt5 jt5Var) {
+    public void K1(kt5 kt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jt5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kt5Var) == null) {
         }
     }
 
-    public void L1(jt5 jt5Var) {
+    public void L1(kt5 kt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jt5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, kt5Var) == null) {
         }
     }
 
@@ -78,17 +78,17 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof jt5)) {
+            if (!(data instanceof kt5)) {
                 return;
             }
-            jt5 jt5Var = (jt5) data;
-            if (jt5Var.a() != this.a.getUniqueId()) {
+            kt5 kt5Var = (kt5) data;
+            if (kt5Var.a() != this.a.getUniqueId()) {
                 return;
             }
-            if (jt5Var.c()) {
-                this.a.L1(jt5Var);
-            } else if (jt5Var.b()) {
-                this.a.K1(jt5Var);
+            if (kt5Var.c()) {
+                this.a.L1(kt5Var);
+            } else if (kt5Var.b()) {
+                this.a.K1(kt5Var);
             }
         }
     }
@@ -112,10 +112,10 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hu5.b("BaseTemplateFragment-->sendReq----");
-            rs5 rs5Var = this.a;
-            if (rs5Var != null) {
-                rs5Var.n();
+            iu5.b("BaseTemplateFragment-->sendReq----");
+            ss5 ss5Var = this.a;
+            if (ss5Var != null) {
+                ss5Var.n();
             }
         }
     }
@@ -124,11 +124,11 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            hu5.b("BaseTemplateFragment-->onDestroy---- ");
+            iu5.b("BaseTemplateFragment-->onDestroy---- ");
             super.onDestroy();
-            rs5 rs5Var = this.a;
-            if (rs5Var != null) {
-                rs5Var.i();
+            ss5 ss5Var = this.a;
+            if (ss5Var != null) {
+                ss5Var.i();
             }
         }
     }
@@ -137,7 +137,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onDetach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            hu5.b("BaseTemplateFragment-->onDetach---- ");
+            iu5.b("BaseTemplateFragment-->onDetach---- ");
             super.onDetach();
         }
     }
@@ -146,7 +146,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            hu5.b("BaseTemplateFragment-->onLazyLoad---- ");
+            iu5.b("BaseTemplateFragment-->onLazyLoad---- ");
             super.onLazyLoad();
             M1();
         }
@@ -156,7 +156,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            hu5.b("BaseTemplateFragment-->onLazyLoad---- ");
+            iu5.b("BaseTemplateFragment-->onLazyLoad---- ");
             super.onLoad();
         }
     }
@@ -165,11 +165,11 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            hu5.b("BaseTemplateFragment-->onPause---- ");
+            iu5.b("BaseTemplateFragment-->onPause---- ");
             super.onPause();
-            rs5 rs5Var = this.a;
-            if (rs5Var != null) {
-                rs5Var.j();
+            ss5 ss5Var = this.a;
+            if (ss5Var != null) {
+                ss5Var.j();
             }
         }
     }
@@ -190,7 +190,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            hu5.b("BaseTemplateFragment-->onActivityCreated---- ");
+            iu5.b("BaseTemplateFragment-->onActivityCreated---- ");
             super.onActivityCreated(bundle);
             if (isPrimary()) {
                 M1();
@@ -202,7 +202,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onAttach(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            hu5.b("BaseTemplateFragment-->onAttach---- ");
+            iu5.b("BaseTemplateFragment-->onAttach---- ");
             super.onAttach(context);
         }
     }
@@ -211,11 +211,11 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            hu5.b("BaseTemplateFragment-->onChangeSkinType---- ");
+            iu5.b("BaseTemplateFragment-->onChangeSkinType---- ");
             super.onChangeSkinType(i);
-            rs5 rs5Var = this.a;
-            if (rs5Var != null) {
-                rs5Var.h(i);
+            ss5 ss5Var = this.a;
+            if (ss5Var != null) {
+                ss5Var.h(i);
             }
         }
     }
@@ -224,7 +224,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            hu5.b("BaseTemplateFragment-->onCreate---- ");
+            iu5.b("BaseTemplateFragment-->onCreate---- ");
             super.onCreate(bundle);
             getArguments();
         }
@@ -234,7 +234,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onHiddenChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            hu5.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
+            iu5.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
             super.onHiddenChanged(z);
         }
     }
@@ -243,7 +243,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            hu5.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
+            iu5.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
             super.setUserVisibleHint(z);
         }
     }
@@ -252,9 +252,9 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onAttachFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
-            hu5.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + I1(getParentFragment()));
-            hu5.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + I1(this));
-            hu5.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + I1(fragment));
+            iu5.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + I1(getParentFragment()));
+            iu5.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + I1(this));
+            iu5.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + I1(fragment));
             super.onAttachFragment(fragment);
         }
     }
@@ -264,7 +264,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            hu5.b("BaseTemplateFragment-->onCreateView---- ");
+            iu5.b("BaseTemplateFragment-->onCreateView---- ");
             ViewGroup viewGroup2 = this.b;
             if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) this.b.getParent()).removeView(this.b);
@@ -286,19 +286,19 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onPrimary() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            hu5.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
+            iu5.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                rs5 rs5Var = this.a;
-                if (rs5Var != null) {
-                    rs5Var.k();
+                ss5 ss5Var = this.a;
+                if (ss5Var != null) {
+                    ss5Var.k();
                     return;
                 }
                 return;
             }
-            rs5 rs5Var2 = this.a;
-            if (rs5Var2 != null) {
-                rs5Var2.j();
+            ss5 ss5Var2 = this.a;
+            if (ss5Var2 != null) {
+                ss5Var2.j();
             }
         }
     }
@@ -307,7 +307,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, view2, bundle) == null) {
-            hu5.b("BaseTemplateFragment-->onViewCreated---- ");
+            iu5.b("BaseTemplateFragment-->onViewCreated---- ");
             super.onViewCreated(view2, bundle);
         }
     }

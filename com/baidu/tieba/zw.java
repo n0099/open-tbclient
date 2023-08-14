@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zw extends ww<q05> implements jsa {
+public class zw extends ww<q05> implements ksa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
@@ -169,7 +169,7 @@ public class zw extends ww<q05> implements jsa {
         }
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class zw extends ww<q05> implements jsa {
         }
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class zw extends ww<q05> implements jsa {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public void d() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class zw extends ww<q05> implements jsa {
         }
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public void e() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class zw extends ww<q05> implements jsa {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z97;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.aa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g0a implements z97 {
+public final class g0a implements aa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,28 +29,55 @@ public final class g0a implements z97 {
         }
     }
 
-    @Override // com.baidu.tieba.y97
+    @Override // com.baidu.tieba.z97
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return z97.a.b(this);
+            return aa7.a.b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y97
-    public Map<String, String> a(l57 l57Var) {
+    @Override // com.baidu.tieba.z97
+    public Map<String, String> a(m57 m57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l57Var)) == null) {
-            return z97.a.a(this, l57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m57Var)) == null) {
+            return aa7.a.a(this, m57Var);
         }
         return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.z97
-    public String c(l57 businessInfo) {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+        if (r5.equals("video_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+        if (r5.equals("live_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
+        if (r5.equals("live_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+        if (r5.equals("common_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+        return "forum_reco_post_click_for_forum_head";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
+        if (r5.equals("video_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        if (r5.equals("common_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
+        return "forum_reco_post_click_for_user_head";
+     */
+    @Override // com.baidu.tieba.aa7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(m57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
@@ -58,12 +86,27 @@ public final class g0a implements z97 {
             if (str == null) {
                 str = "common_user";
             }
-            int hashCode = str.hashCode();
-            if (hashCode == 448970189 ? str.equals("common_forum") : !(hashCode == 1201356814 ? !str.equals("live_forum") : !(hashCode == 1373469789 && str.equals("video_forum")))) {
-                return "forum_head_rec_forum_click";
+            switch (str.hashCode()) {
+                case -1924729441:
+                    break;
+                case -1617812209:
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (!GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
             }
-            return "";
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
     }
 }

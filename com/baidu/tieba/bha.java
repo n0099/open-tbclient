@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import com.baidu.adp.lib.safe.SafeHandler;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdDimDialog;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tieba.b55;
-import com.baidu.tieba.jw8;
+import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,22 +20,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bha extends b55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity c;
-    public boolean d;
+    public final MainTabActivity c;
+    public final iea d;
+    public IconPopData e;
+    public BdDimDialog f;
 
     /* loaded from: classes5.dex */
-    public class a implements jw8.e {
+    public class a implements SignPopStampDialogUtil.clickCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b55.a a;
-        public final /* synthetic */ bha b;
+        public final /* synthetic */ bha a;
 
-        public a(bha bhaVar, b55.a aVar) {
+        public a(bha bhaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bhaVar, aVar};
+                Object[] objArr = {bhaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,41 +46,36 @@ public class bha extends b55 {
                     return;
                 }
             }
-            this.b = bhaVar;
-            this.a = aVar;
+            this.a = bhaVar;
         }
 
-        @Override // com.baidu.tieba.jw8.e
-        public void a() {
-            b55.a aVar;
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void closeBtn() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-                aVar.callback(false);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
 
-        @Override // com.baidu.tieba.jw8.e
-        public void b() {
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void jumpToIconCenterBtn() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!jw8.n(this.b.c).k(this.b.c.z.intValue(), 2)) {
-                    b55.a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.callback(false);
-                        return;
-                    }
-                    return;
-                }
-                b55.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    aVar2.callback(true);
-                }
+                this.a.c();
+            }
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void shareBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jw8.f {
+    public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bha a;
@@ -99,61 +98,24 @@ public class bha extends b55 {
             this.a = bhaVar;
         }
 
-        @Override // com.baidu.tieba.jw8.f
-        public void dismiss() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                YunDialogManager.unMarkShowingDialogName("insertAd");
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                YunDialogManager.unMarkShowingDialogName("userIcon");
                 this.a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bha a;
-
-        public c(bha bhaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bhaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bhaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!jw8.n(this.a.c).H(this.a.c.z.intValue(), 2)) {
-                    this.a.c();
-                } else {
-                    YunDialogManager.markShowingDialogName("insertAd");
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bha(TbPageContext tbPageContext, hea heaVar, MainTabActivity mainTabActivity, boolean z) {
+    public bha(MainTabActivity mainTabActivity, iea ieaVar) {
         super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, heaVar, mainTabActivity, Boolean.valueOf(z)};
+            Object[] objArr = {mainTabActivity, ieaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,14 +127,38 @@ public class bha extends b55 {
             }
         }
         this.c = mainTabActivity;
-        this.d = z;
+        this.d = ieaVar;
     }
 
     @Override // com.baidu.tieba.b55
     public void b() {
+        BdDimDialog bdDimDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jw8.n(this.c).l();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdDimDialog = this.f) != null) {
+            bdDimDialog.dismiss();
+        }
+    }
+
+    @Override // com.baidu.tieba.b55
+    public void d(b55.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (YunDialogManager.isShowingDialog() && aVar != null) {
+                aVar.callback(false);
+                return;
+            }
+            iea ieaVar = this.d;
+            if ((ieaVar == null || ieaVar.z() == null || (this.d.z().getCurrentTabType() != 2 && this.d.z().getCurrentTabType() != 1 && this.d.z().getCurrentTabType() != 3)) && aVar != null) {
+                aVar.callback(false);
+                return;
+            }
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            this.e = iconPopData;
+            if (iconPopData != null && PollingModel.checkIconPopHadShow() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.K1() && this.c.B && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
+                aVar.callback(true);
+            } else if (aVar != null) {
+                aVar.callback(false);
+            }
         }
     }
 
@@ -180,33 +166,18 @@ public class bha extends b55 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jw8.n(this.c).E(new b(this));
-            SafeHandler.getInst().postDelayed(new c(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tieba.b55
-    public void d(b55.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (YunDialogManager.isShowingDialog() && aVar != null) {
-                aVar.callback(false);
-            } else if (!jw8.m && ((TbSingleton.getInstance().isCanShowHotSplash || jw8.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
-                if (aVar != null) {
-                    aVar.callback(false);
-                }
-            } else {
-                jw8 n = jw8.n(this.c);
-                if (jw8.m) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                if (!n.B(str, this.c.z.intValue(), 2, this.c.I, new a(this, aVar), false) && aVar != null) {
-                    aVar.callback(false);
-                }
+            if (this.e == null) {
+                this.e = TbSingleton.getInstance().getIconPopData();
             }
+            if (!PollingModel.checkIconPopHadShow()) {
+                c();
+                return;
+            }
+            SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
+            signPopStampDialogUtil.setClickCallBack(new a(this));
+            signPopStampDialogUtil.setOnDismissListener(new b(this));
+            this.f = signPopStampDialogUtil.preShowPollingStampDialog(this.e);
+            YunDialogManager.markShowingDialogName("userIcon");
         }
     }
 }

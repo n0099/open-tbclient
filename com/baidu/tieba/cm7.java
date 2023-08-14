@@ -7,7 +7,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.im6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +21,41 @@ public class cm7 extends lm<hv6, CardViewHolder<im6>> {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public im6 b;
-    public String c;
+    public cn6 c;
+    public String d;
+
+    /* loaded from: classes5.dex */
+    public class a implements im6.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cm7 a;
+
+        public a(cm7 cm7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cm7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cm7Var;
+        }
+
+        @Override // com.baidu.tieba.im6.a
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && this.a.c != null) {
+                this.a.c.a(view2, baseCardInfo);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cm7(TbPageContext tbPageContext, String str) {
@@ -41,27 +77,32 @@ public class cm7 extends lm<hv6, CardViewHolder<im6>> {
             }
         }
         this.a = tbPageContext;
-        this.c = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: s */
-    public CardViewHolder<im6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            im6 im6Var = new im6(this.a);
-            this.b = im6Var;
-            im6Var.t(this.c);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: t */
+    public CardViewHolder<im6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new im6(this.a, this.d);
+            return new CardViewHolder<>(this.b);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void x(cn6 cn6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cn6Var) == null) {
+            this.c = cn6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: u */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hv6 hv6Var, CardViewHolder<im6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -71,6 +112,7 @@ public class cm7 extends lm<hv6, CardViewHolder<im6>> {
             }
             cardViewHolder.b().i(hv6Var);
             cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().u(new a(this));
             return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;

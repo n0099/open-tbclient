@@ -44,13 +44,13 @@ public class s02 extends p02 {
 
         /* renamed from: com.baidu.tieba.s02$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0469a implements ne3.e {
+        public class C0471a implements ne3.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ya3 a;
             public final /* synthetic */ a b;
 
-            public C0469a(a aVar, ya3 ya3Var) {
+            public C0471a(a aVar, ya3 ya3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class s02 extends p02 {
                         return;
                     }
                     this.a.a();
-                    ne3.g(M, this.c, "", new C0469a(this, M), this.d);
+                    ne3.g(M, this.c, "", new C0471a(this, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new y22(1001, "swan activity is null"));

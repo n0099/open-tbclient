@@ -22,8 +22,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091da2);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091da1);
+        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091da8);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091da7);
         this.f = textView;
         textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06044b));
         setState(ILoadingLayout$State.RESET);
@@ -63,7 +63,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091da0);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091da6);
         if (findViewById != null) {
             return findViewById.getHeight();
         }

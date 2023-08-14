@@ -3,16 +3,15 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardTitleView;
+import com.baidu.tieba.feed.component.CardSingleLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ra7 extends d97<CardTitleView, t47> {
+public class ra7 extends e97<CardSingleLinkView, t47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,26 +35,26 @@ public class ra7 extends d97<CardTitleView, t47> {
         }
     }
 
-    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @Override // com.baidu.tieba.e97, com.baidu.tieba.u97
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            hb7.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(h37.a, R.dimen.M_H_X001)));
+            ib7.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t97
+    @Override // com.baidu.tieba.u97
     /* renamed from: e */
-    public void b(@NonNull CardTitleView cardTitleView, @NonNull t47 t47Var) {
+    public void b(@NonNull CardSingleLinkView cardSingleLinkView, @NonNull t47 t47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, t47Var) == null) {
-            cardTitleView.f(t47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardSingleLinkView, t47Var) == null) {
+            cardSingleLinkView.a(t47Var);
         }
     }
 }

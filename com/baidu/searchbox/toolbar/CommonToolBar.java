@@ -244,7 +244,7 @@ public class CommonToolBar extends BaseToolBar {
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
             commentInputLayout.setEnabled(false);
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e3, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e6, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b55));
@@ -570,7 +570,7 @@ public class CommonToolBar extends BaseToolBar {
             selectorTextView = null;
         }
         if (selectorTextView == null && (toolBarItemView = getToolBarItemView(22)) != null) {
-            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f0925d1);
+            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f0925d7);
         }
         if (selectorTextView != null) {
             if (TextUtils.isEmpty(this.mDefaultInput)) {
@@ -633,7 +633,7 @@ public class CommonToolBar extends BaseToolBar {
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e4, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e7, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060646));
@@ -643,11 +643,11 @@ public class CommonToolBar extends BaseToolBar {
         }
         View toolBarItemView5 = getToolBarItemView(22);
         if (toolBarItemView5 != null) {
-            View findViewById = toolBarItemView5.findViewById(R.id.obfuscated_res_0x7f0925d1);
+            View findViewById = toolBarItemView5.findViewById(R.id.obfuscated_res_0x7f0925d7);
             if (findViewById instanceof SelectorTextView) {
                 SelectorTextView selectorTextView = (SelectorTextView) findViewById;
                 selectorTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060646));
-                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e4, null));
+                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e7, null));
                 findViewById.setPadding((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0);
                 selectorTextView.setMode(true);
             }
@@ -711,7 +711,7 @@ public class CommonToolBar extends BaseToolBar {
         }
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e6, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e9, null));
             SelectorTextView commentInputView = commentInputLayout.getCommentInputView();
             if (commentInputView != null) {
                 commentInputView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060642));
@@ -720,10 +720,10 @@ public class CommonToolBar extends BaseToolBar {
         }
         View toolBarItemView6 = getToolBarItemView(22);
         if (toolBarItemView6 != null) {
-            View findViewById = toolBarItemView6.findViewById(R.id.obfuscated_res_0x7f0925d1);
+            View findViewById = toolBarItemView6.findViewById(R.id.obfuscated_res_0x7f0925d7);
             if (findViewById instanceof TextView) {
                 ((TextView) findViewById).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060642));
-                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e6, null));
+                findViewById.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e9, null));
                 findViewById.setPadding((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07025c), 0);
             }
         }
@@ -1158,21 +1158,21 @@ public class CommonToolBar extends BaseToolBar {
                 layoutParams12.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025d);
                 frameLayout.setLayoutParams(layoutParams12);
                 SelectorTextView selectorTextView = new SelectorTextView(getContext());
-                selectorTextView.setId(R.id.obfuscated_res_0x7f0925d1);
+                selectorTextView.setId(R.id.obfuscated_res_0x7f0925d7);
                 selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025c), 0, 0, 0);
                 selectorTextView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259));
-                selectorTextView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e6, null));
+                selectorTextView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e9, null));
                 selectorTextView.setText(R.string.obfuscated_res_0x7f0f04a1);
                 selectorTextView.setSingleLine(true);
                 selectorTextView.setEllipsize(TextUtils.TruncateAt.END);
                 selectorTextView.setGravity(16);
                 frameLayout.addView(selectorTextView, new FrameLayout.LayoutParams(-1, -1));
                 SelectorImageView selectorImageView6 = new SelectorImageView(getContext());
-                selectorImageView6.setId(R.id.obfuscated_res_0x7f0925d2);
-                selectorImageView6.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e2, null));
+                selectorImageView6.setId(R.id.obfuscated_res_0x7f0925d8);
+                selectorImageView6.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e5, null));
                 selectorImageView6.setScaleType(ImageView.ScaleType.CENTER);
                 int dimensionPixelOffset3 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070257);
-                int dimensionPixelOffset4 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b2f);
+                int dimensionPixelOffset4 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b30);
                 selectorImageView6.setPadding(dimensionPixelOffset4, dimensionPixelOffset4, dimensionPixelOffset4, dimensionPixelOffset4);
                 selectorImageView6.setVisibility(8);
                 FrameLayout.LayoutParams layoutParams13 = new FrameLayout.LayoutParams(dimensionPixelOffset3, dimensionPixelOffset3);
@@ -1250,7 +1250,7 @@ public class CommonToolBar extends BaseToolBar {
             selectorTextView = null;
         }
         if (selectorTextView == null && (toolBarItemView = getToolBarItemView(22)) != null) {
-            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f0925d1);
+            selectorTextView = (SelectorTextView) toolBarItemView.findViewById(R.id.obfuscated_res_0x7f0925d7);
         }
         if (selectorTextView != null) {
             if (spannableString != null && spannableString.length() != 0 && !this.mIsCloseComment) {
@@ -1318,7 +1318,7 @@ public class CommonToolBar extends BaseToolBar {
         View toolBarItemView = getToolBarItemView(1);
         CommentInputLayout commentInputLayout = (CommentInputLayout) getToolBarItemView(10);
         if (commentInputLayout != null) {
-            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e5, null));
+            commentInputLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0814e8, null));
             selectorTextView = commentInputLayout.getCommentInputView();
         } else {
             selectorTextView = null;

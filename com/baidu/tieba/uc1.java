@@ -66,13 +66,13 @@ public class uc1 extends tc1 {
 
         /* renamed from: com.baidu.tieba.uc1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0490a implements View.OnClickListener {
+        public class View$OnClickListenerC0492a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0490a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0492a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,7 +403,7 @@ public class uc1 extends tc1 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0490a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0492a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -516,7 +516,7 @@ public class uc1 extends tc1 {
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.nad_dialog_message_content);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cee);
             this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091904);
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f8);
@@ -524,7 +524,7 @@ public class uc1 extends tc1 {
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.p = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908af);
             this.r = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
-            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09211e);
+            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092124);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f7);
             this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091752);
             this.u = (LinearLayout) viewGroup.findViewById(R.id.nad_btn_panel);

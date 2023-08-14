@@ -31,12 +31,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ih7;
+import com.baidu.tieba.jh7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tp7;
-import com.baidu.tieba.vp7;
-import com.baidu.tieba.waa;
+import com.baidu.tieba.up7;
+import com.baidu.tieba.wp7;
 import com.baidu.tieba.xaa;
+import com.baidu.tieba.yaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MultiServiceViewController implements tp7 {
+public class MultiServiceViewController implements up7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<xaa> c;
+    public List<yaa> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -62,7 +62,7 @@ public class MultiServiceViewController implements tp7 {
         public TbClipImageView b;
         public TextView c;
         public MessageRedDotView d;
-        public xaa e;
+        public yaa e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -96,7 +96,7 @@ public class MultiServiceViewController implements tp7 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ih7(3));
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new jh7(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
                         customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
@@ -119,9 +119,9 @@ public class MultiServiceViewController implements tp7 {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                     }
                     if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
-                        vp7.b(view2.getContext(), this.a.e);
+                        wp7.b(view2.getContext(), this.a.e);
                     }
-                    vp7.c(this.a.e);
+                    wp7.c(this.a.e);
                 }
             }
         }
@@ -157,7 +157,7 @@ public class MultiServiceViewController implements tp7 {
             int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds62);
             this.b.setDrawerType(1);
             this.b.setIsRound(true);
-            this.b.setId(R.id.obfuscated_res_0x7f09216e);
+            this.b.setId(R.id.obfuscated_res_0x7f092174);
             this.b.setBorderWidth(R.dimen.L_X01);
             this.b.setBorderColor(R.color.CAM_X0401);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -176,40 +176,40 @@ public class MultiServiceViewController implements tp7 {
             layoutParams2.leftMargin = BdUtilHelper.getDimens(context, R.dimen.tbds10);
             layoutParams2.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X008);
             layoutParams2.addRule(15);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f09216e);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092174);
             this.a.addView(this.c, layoutParams2);
             view2.setOnClickListener(this.h);
         }
 
-        public void e(xaa xaaVar) {
+        public void e(yaa yaaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, xaaVar) != null) || xaaVar == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, yaaVar) != null) || yaaVar == null) {
                 return;
             }
-            this.e = xaaVar;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a23), xaaVar.b)) {
+            this.e = yaaVar;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0a23), yaaVar.b)) {
                 this.b.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
                 layoutParams.width = BdUtilHelper.getDimens(this.b.getContext(), R.dimen.tbds62);
                 layoutParams.height = BdUtilHelper.getDimens(this.b.getContext(), R.dimen.tbds62);
             } else {
-                this.b.startLoad(xaaVar.b, 10, false);
+                this.b.startLoad(yaaVar.b, 10, false);
             }
-            if (StringUtils.isNotNull(xaaVar.j)) {
+            if (StringUtils.isNotNull(yaaVar.j)) {
                 if (!SharedPrefHelper.getInstance().getBoolean("key_is_click_game_season_red_dot", false)) {
                     this.d.setVisibility(0);
-                    this.d.refresh(xaaVar.j, false);
+                    this.d.refresh(yaaVar.j, false);
                 } else {
                     this.d.setVisibility(8);
                 }
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(xaaVar.c, 10, ""));
+            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(yaaVar.c, 10, ""));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            if (!this.f.contains(xaaVar.c)) {
-                vp7.d(xaaVar);
-                this.f.add(xaaVar.c);
+            if (!this.f.contains(yaaVar.c)) {
+                wp7.d(yaaVar);
+                this.f.add(yaaVar.c);
             }
         }
     }
@@ -254,7 +254,7 @@ public class MultiServiceViewController implements tp7 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.e((xaa) this.a.c.get(i));
+                serviceViewHolder.e((yaa) this.a.c.get(i));
             }
         }
 
@@ -296,7 +296,7 @@ public class MultiServiceViewController implements tp7 {
         this.b.setAdapter(this.e);
     }
 
-    @Override // com.baidu.tieba.tp7
+    @Override // com.baidu.tieba.up7
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -304,11 +304,11 @@ public class MultiServiceViewController implements tp7 {
         }
     }
 
-    @Override // com.baidu.tieba.tp7
-    public void a(waa waaVar, FrsViewData frsViewData) {
+    @Override // com.baidu.tieba.up7
+    public void a(xaa xaaVar, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, waaVar, frsViewData) == null) && waaVar != null && !ListUtils.isEmpty(waaVar.b)) {
-            this.c = waaVar.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, xaaVar, frsViewData) == null) && xaaVar != null && !ListUtils.isEmpty(xaaVar.b)) {
+            this.c = xaaVar.b;
             this.d = frsViewData;
             this.e.notifyDataSetChanged();
             RecyclerView recyclerView = this.b;
@@ -318,7 +318,7 @@ public class MultiServiceViewController implements tp7 {
         }
     }
 
-    @Override // com.baidu.tieba.tp7
+    @Override // com.baidu.tieba.up7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

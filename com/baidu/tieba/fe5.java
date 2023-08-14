@@ -227,7 +227,7 @@ public class fe5 {
                         updateAttentionData.blockData = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, updateAttentionData.blockUrl) || aka.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, updateAttentionData.blockUrl) || bka.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);

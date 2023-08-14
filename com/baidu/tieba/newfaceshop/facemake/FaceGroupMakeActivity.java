@@ -36,12 +36,12 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.k99;
 import com.baidu.tieba.l99;
 import com.baidu.tieba.m45;
+import com.baidu.tieba.m99;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.qw5;
+import com.baidu.tieba.rw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements l99.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -67,7 +67,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public k99 m;
+    public l99 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -157,7 +157,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                l99 l = l99.l();
+                m99 l = m99.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -267,7 +267,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
                 m45Var.dismiss();
-                l99.l().i();
+                m99.l().i();
                 this.a.finish();
             }
         }
@@ -337,7 +337,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (qw5.c(spanned.toString()) - (i4 - i3)) + qw5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (rw5.c(spanned.toString()) - (i4 - i3)) + rw5.c(charSequence.toString()) > this.a) {
                     this.b.showToast(R.string.obfuscated_res_0x7f0f0f14);
                     return "";
                 }
@@ -414,7 +414,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.k99.c
+    @Override // com.baidu.tieba.l99.c
     public void T0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, faceData) != null) || faceData == null) {
@@ -447,7 +447,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f0701);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = l99.l().k();
+            FaceGroupDraft k = m99.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {
@@ -461,7 +461,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.k99.c
+    @Override // com.baidu.tieba.l99.c
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -483,7 +483,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
     public final void L1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (k = l99.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (k = m99.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -552,7 +552,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = l99.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = m99.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             initView();
@@ -592,17 +592,17 @@ public class FaceGroupMakeActivity extends BaseActivity implements k99.c, BarInf
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09097b);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926b9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926bf);
             N1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090e7e);
-            k99 k99Var = new k99(this.n);
-            this.m = k99Var;
-            k99Var.f(this);
+            l99 l99Var = new l99(this.n);
+            this.m = l99Var;
+            l99Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090357);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09275c);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09275b);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092762);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092761);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);

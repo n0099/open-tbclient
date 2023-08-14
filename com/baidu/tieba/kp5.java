@@ -34,7 +34,7 @@ public class kp5 implements uo5<HistoryEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
             if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                nm6.a(historyEvent.tid);
+                om6.a(historyEvent.tid);
                 return true;
             }
             return false;

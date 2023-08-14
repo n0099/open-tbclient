@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo6;
-import com.baidu.tieba.pg9;
-import com.baidu.tieba.ul9;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.vl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbRecomChildTitleAdapter extends pg9<bo6, ViewHolder> {
+public class PbRecomChildTitleAdapter extends qg9<co6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder g;
@@ -54,10 +54,10 @@ public class PbRecomChildTitleAdapter extends pg9<bo6, ViewHolder> {
             c(view2);
         }
 
-        public void b(bo6 bo6Var) {
+        public void b(co6 co6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bo6Var) == null) {
-                this.b.setText(bo6Var.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, co6Var) == null) {
+                this.b.setText(co6Var.a);
             }
         }
 
@@ -82,19 +82,19 @@ public class PbRecomChildTitleAdapter extends pg9<bo6, ViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbRecomChildTitleAdapter(ul9 ul9Var, BdUniqueId bdUniqueId) {
-        super(ul9Var, bdUniqueId);
+    public PbRecomChildTitleAdapter(vl9 vl9Var, BdUniqueId bdUniqueId) {
+        super(vl9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ul9Var, bdUniqueId};
+            Object[] objArr = {vl9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ul9) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((vl9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,9 +116,9 @@ public class PbRecomChildTitleAdapter extends pg9<bo6, ViewHolder> {
         return (ViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pg9, com.baidu.tieba.lm
+    @Override // com.baidu.tieba.qg9, com.baidu.tieba.lm
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (bo6) obj, (ViewHolder) viewHolder);
+        y(i, view2, viewGroup, (co6) obj, (ViewHolder) viewHolder);
         return view2;
     }
 
@@ -131,12 +131,12 @@ public class PbRecomChildTitleAdapter extends pg9<bo6, ViewHolder> {
         return (ViewHolder) invokeV.objValue;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, bo6 bo6Var, ViewHolder viewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, co6 co6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bo6Var, viewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bo6Var, (bo6) viewHolder);
-            viewHolder.b(bo6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, co6Var, viewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) co6Var, (co6) viewHolder);
+            viewHolder.b(co6Var);
             viewHolder.d();
             return view2;
         }

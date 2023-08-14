@@ -11,20 +11,21 @@ import kotlin.jvm.internal.Intrinsics;
 public final class s57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public final String a;
     public final String b;
-    public final String c;
+    public final int c;
+    public final String d;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof s57) {
                 s57 s57Var = (s57) obj;
-                return this.a == s57Var.a && Intrinsics.areEqual(this.b, s57Var.b) && Intrinsics.areEqual(this.c, s57Var.c);
+                return Intrinsics.areEqual(this.a, s57Var.a) && Intrinsics.areEqual(this.b, s57Var.b) && this.c == s57Var.c && Intrinsics.areEqual(this.d, s57Var.d);
             }
             return false;
         }
@@ -34,12 +35,10 @@ public final class s57 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a * 31;
-            String str = this.b;
-            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
+            String str = this.d;
+            return hashCode + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;
     }
@@ -47,18 +46,18 @@ public final class s57 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public s57(int i, String str, String str2) {
+    public s57(String imgUrl, String bgValue, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
+            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -68,18 +67,21 @@ public final class s57 {
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.c = str2;
+        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
+        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
+        this.a = imgUrl;
+        this.b = bgValue;
+        this.c = i;
+        this.d = str;
     }
 
-    public final String a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public final String b() {
@@ -91,12 +93,21 @@ public final class s57 {
         return (String) invokeV.objValue;
     }
 
-    public final int getType() {
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,35 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.lbs.BdLocationMananger;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rt7 {
+public final class rt7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Long> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133236, "Lcom/baidu/tieba/rt7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133236, "Lcom/baidu/tieba/rt7;");
+                return;
+            }
+        }
+        b = new a(null);
+    }
+
+    @JvmStatic
+    public static final rt7 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (rt7) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
-    public static class a implements m45.e {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,59 +65,108 @@ public class rt7 {
             }
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @JvmStatic
+        public final rt7 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
-                m45Var.dismiss();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (rt7) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final rt7 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-449720266, "Lcom/baidu/tieba/rt7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-449720266, "Lcom/baidu/tieba/rt7$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new rt7();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-    }
 
-    public static void a(TbPageContext tbPageContext, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, tbPageContext, frsViewData) != null) || tbPageContext == null) {
-            return;
+        public final rt7 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (rt7) invokeV.objValue;
         }
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-        BdLocationMananger.getInstance().getAddress(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), frsViewData.getForum().getName(), frsViewData.getForum().getId(), frsViewData.getUserData().getUserId(), frsViewData.getForum().getSpecialForumType())));
     }
 
-    public static void b(FrsViewData frsViewData, TbPageContext tbPageContext) {
+    public rt7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, frsViewData, tbPageContext) == null) {
-            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            if (tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    m45 m45Var = new m45(tbPageContext.getPageActivity());
-                    m45Var.setAutoNight(false);
-                    m45Var.setTitle(R.string.obfuscated_res_0x7f0f115f);
-                    m45Var.setMessage(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v7_0));
-                    m45Var.setTitleShowCenter(true);
-                    m45Var.setMessageShowCenter(true);
-                    m45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b3e, new a());
-                    m45Var.create(tbPageContext).show();
-                } else if (!TbadkCoreApplication.isLogin()) {
-                    if (frsViewData != null && frsViewData.getAnti() != null) {
-                        frsViewData.getAnti().setIfpost(1);
-                    }
-                    ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-                } else {
-                    AntiData anti = frsViewData.getAnti();
-                    if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
-                        anti.setBlock_forum_name(frsViewData.getForum().getName());
-                        anti.setBlock_forum_id(frsViewData.getForum().getId());
-                        anti.setUser_name(frsViewData.getUserData().getUserName());
-                        anti.setUser_id(frsViewData.getUserData().getUserId());
-                        if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
-                            return;
-                        }
-                    }
-                    if (frsViewData.getUserData() != null) {
-                        a(tbPageContext, frsViewData);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public final long a(String fid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fid)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            return l.longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public final void c(String fid, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, j) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            if (j < 0) {
+                return;
+            }
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            if (l.longValue() < j) {
+                this.a.put(fid, Long.valueOf(j));
             }
         }
     }

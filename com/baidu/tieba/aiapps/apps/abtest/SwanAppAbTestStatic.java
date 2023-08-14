@@ -45,11 +45,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.baidu.tieba.bx3;
 import com.baidu.tieba.dk3;
-import com.baidu.tieba.i76;
 import com.baidu.tieba.it4;
 import com.baidu.tieba.j76;
 import com.baidu.tieba.jr1;
 import com.baidu.tieba.k76;
+import com.baidu.tieba.l76;
 import com.baidu.tieba.mj3;
 import com.baidu.tieba.ml;
 import com.baidu.tieba.nl;
@@ -134,7 +134,7 @@ public class SwanAppAbTestStatic {
                     mj3.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
                     mj3.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
                     mj3.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    k76.l().y(getUserInfoResult);
+                    l76.l().y(getUserInfoResult);
                 }
             }
         }
@@ -170,7 +170,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    k76.l().y(null);
+                    l76.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -206,7 +206,7 @@ public class SwanAppAbTestStatic {
                 if (privacyPolicyEvent == null) {
                     return true;
                 }
-                i76.a();
+                j76.a();
                 if (!TextUtils.isEmpty(SwanAppAbTestStatic.a) && TbadkCoreApplication.getInst().isMainProcess(false)) {
                     bx3.a(SwanAppAbTestStatic.a);
                     SwanAppAbTestStatic.a = null;
@@ -248,7 +248,7 @@ public class SwanAppAbTestStatic {
                     }
                     String data = customMessage.getData();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        i76.a();
+                        j76.a();
                         SwanAppAbTestStatic.b(data);
                     }
                 }
@@ -288,7 +288,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity currentActivity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof it4) && (a = j76.a((it4) customResponsedMessage.getData())) != null && (currentActivity = BdActivityStack.getInst().currentActivity()) != null && currentActivity.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof it4) && (a = k76.a((it4) customResponsedMessage.getData())) != null && (currentActivity = BdActivityStack.getInst().currentActivity()) != null && currentActivity.getWindow() != null) {
                 try {
                     a.showAtLocation(currentActivity.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {

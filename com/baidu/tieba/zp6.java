@@ -1,49 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes8.dex */
-public class zp6 implements k77<Message> {
+public final class zp6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public zp6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948367689, "Lcom/baidu/tieba/zp6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948367689, "Lcom/baidu/tieba/zp6;");
+                return;
             }
         }
+        a = new View.OnClickListener() { // from class: com.baidu.tieba.xp6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    zp6.a(view2);
+                }
+            }
+        };
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k77
-    /* renamed from: a */
-    public u97<?> b(Message message) {
-        InterceptResult invokeL;
+    public static final void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
-            }
-            ry7 ry7Var = new ry7();
-            ry7Var.d((UserFollowLive) message);
-            fn6 fn6Var = new fn6(null, ry7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            v67 v67Var = new v67();
-            v67Var.a = fn6Var;
-            return new v97(new i37(v67Var), "ala_live_attention");
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            sr6.b().b(new rd5("recommend_fun_ad", null));
         }
-        return (u97) invokeL.objValue;
     }
 }

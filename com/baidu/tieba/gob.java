@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-@Deprecated
 /* loaded from: classes6.dex */
-public abstract class gob implements dob {
+public final class gob {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, gob> a;
-    public static final Object b;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        String a(eob eobVar);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,56 +32,18 @@ public abstract class gob implements dob {
             }
         }
         a = new HashMap();
-        b = new Object();
     }
 
-    public gob() {
+    public static Map<String, a> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+    }
+
+    public static void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
         }
     }
-
-    public static gob c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
-        }
-        return (gob) invokeL.objValue;
-    }
-
-    public static gob d(Context context, String str) {
-        InterceptResult invokeLL;
-        gob gobVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                gobVar = a.get(str);
-                if (gobVar == null) {
-                    gobVar = new mob(context, str);
-                    a.put(str, gobVar);
-                }
-            }
-            return gobVar;
-        }
-        return (gob) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dob
-    public abstract /* synthetic */ Context getContext();
-
-    @Override // com.baidu.tieba.dob
-    public abstract /* synthetic */ String getIdentifier();
 }

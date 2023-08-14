@@ -6,9 +6,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.jw5;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.ov5;
+import com.baidu.tieba.kw5;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.pv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class PersonalChatUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends jw5<Boolean> {
+    public static class a extends kw5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -45,7 +45,7 @@ public class PersonalChatUtil {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements ov5<Boolean> {
+    public static class b implements pv5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -92,7 +92,7 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class PersonalChatUtil {
     public static void jump2ChatFromPeiwan(Context context, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            nw5.b(new a(j), new b(context, j, str, str2, str3));
+            ow5.b(new a(j), new b(context, j, str, str2, str3));
         }
     }
 }

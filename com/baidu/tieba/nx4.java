@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nx4 implements pk6 {
+public class nx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public nx4() {
@@ -43,7 +43,7 @@ public class nx4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -57,12 +57,12 @@ public class nx4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public jca c(WebView webView) {
+    public kca c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            jca jcaVar = new jca();
-            Activity a = ek6.a(webView.getContext());
+            kca kcaVar = new kca();
+            Activity a = fk6.a(webView.getContext());
             int i = 1;
             if (a instanceof BaseWebViewActivity) {
                 ((BaseWebViewActivity) a).isDisableGoBack = true;
@@ -72,13 +72,13 @@ public class nx4 implements pk6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 }

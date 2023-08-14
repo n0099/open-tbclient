@@ -149,7 +149,7 @@ public class zz4 implements Application.ActivityLifecycleCallbacks {
                 DrawableCompat.setTintList(drawable, colorListByResourceType);
             }
             imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f0920ab);
+            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f0920b1);
             if (relativeLayout == null) {
                 return;
             }

@@ -48,7 +48,7 @@ public class y00 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return c4a.a();
+            return d4a.a();
         }
         return (z00) invokeV.objValue;
     }

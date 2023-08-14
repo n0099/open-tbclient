@@ -57,13 +57,13 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
                 }
             }
             Intrinsics.checkNotNullParameter(view2, "view");
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cdc);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091ce2);
             Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.pop_item_root)");
             this.a = (ViewGroup) findViewById;
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cdb);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091ce1);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "view.findViewById(R.id.pop_item_image)");
             this.b = (ImageView) findViewById2;
-            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091cda);
+            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091ce0);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "view.findViewById(R.id.pop_item_content)");
             this.c = (TextView) findViewById3;
             EMManager.from(this.a).setBackGroundColor(R.color.CAM_X0208);

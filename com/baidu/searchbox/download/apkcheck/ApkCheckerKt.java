@@ -198,7 +198,7 @@ public final class ApkCheckerKt {
     }
 
     public static final Function0<Unit> showCheckingToast(Activity activity) {
-        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080f65);
+        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080f68);
         if (drawable != null) {
             RotateDrawable rotateDrawable = (RotateDrawable) drawable;
             final ObjectAnimator ofInt = ObjectAnimator.ofInt(rotateDrawable, "level", 0, 10000);

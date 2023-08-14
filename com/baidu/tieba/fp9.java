@@ -1,69 +1,44 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
+import com.baidu.tieba.personCenter.view.PersonOftenFuncItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fp9 extends dm6<PersonVipCardData> {
+public class fp9 extends em6<no9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public View j;
-    public View k;
-    public EMTextView l;
-    public EMTextView m;
-    public TBSpecificationBtn n;
-    public TextView o;
-    public TbPageContext p;
-    public String q;
-    public String r;
-    public boolean s;
-    public final e09 t;
-    public final d09 u;
+    public LinearLayout i;
+    public LinearLayout j;
+    public TextView k;
+    public PersonOftenFuncItemView l;
+    public PersonOftenFuncItemView m;
 
-    @Override // com.baidu.tieba.dm6
+    @Override // com.baidu.tieba.em6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d07d0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07c9 : invokeV.intValue;
     }
 
-    public void t() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
@@ -85,135 +60,122 @@ public class fp9 extends dm6<PersonVipCardData> {
                 return;
             }
         }
-        this.t = new e09("my_tab_vip_banner_bubble");
-        this.u = new d09("my_tab_vip_banner_bubble");
-        this.p = tbPageContext;
-        this.i = h();
+        View h = h();
         int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
-        this.i.setPadding(dimens, 0, dimens, 0);
-        this.j = this.i.findViewById(R.id.obfuscated_res_0x7f091c30);
-        this.k = this.i.findViewById(R.id.obfuscated_res_0x7f091c31);
-        this.l = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091c2e);
-        this.m = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091c2f);
-        this.n = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091c2d);
-        this.o = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091e84);
-        this.j.setOnClickListener(this);
-        this.n.setOnClickListener(this);
+        h.setPadding(dimens, 0, dimens, 0);
+        this.i = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0919c6);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b9f);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091ba0);
         j(g(), this.a);
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_SHOW);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.o.setVisibility(8);
-            this.t.i();
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.dm6
+    @Override // com.baidu.tieba.em6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
-            EMManager.from(this.j).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0205);
-            EMManager.from(this.l).setTextColor(R.color.CAM_X0311).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X07);
-            EMManager.from(this.m).setTextColor(R.color.CAM_X0311).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
-            if (this.o.getVisibility() == 0) {
-                EMManager.from(this.o).setTextSize(R.dimen.T_X10).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0205).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0301);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
+            EMManager.from(this.i).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.k).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.j).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            int childCount = this.j.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.j.getChildAt(i2);
+                if (childAt instanceof LinearLayout) {
+                    int i3 = 0;
+                    while (true) {
+                        LinearLayout linearLayout = (LinearLayout) childAt;
+                        if (i3 < linearLayout.getChildCount()) {
+                            View childAt2 = linearLayout.getChildAt(i3);
+                            if (childAt2 instanceof PersonOftenFuncItemView) {
+                                PersonOftenFuncItemView personOftenFuncItemView = (PersonOftenFuncItemView) childAt2;
+                                SkinManager.setBackgroundColor(personOftenFuncItemView, R.color.CAM_X0205);
+                                SkinManager.setViewTextColor(personOftenFuncItemView.b, (int) R.color.CAM_X0105);
+                            }
+                            i3++;
+                        }
+                    }
+                }
             }
-            SkinManager.setBackgroundResource(this.j, R.drawable.bg_pic_wode_members_bg);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            EMManager.from(this.i).setGradientColor(new int[]{R.color.CAM_X0204, R.color.CAM_X0201}, Direction.BOTTOM);
-            w95 w95Var = new w95();
-            w95Var.u(new int[]{x9a.a(SkinManager.getColor(i, (int) R.color.CAM_X0335), w65.b(R.string.A_X06)), SkinManager.getColor(i, (int) R.color.CAM_X0335)});
-            w95Var.s(R.color.CAM_X0117);
-            this.n.setConfig(w95Var);
-            this.n.k();
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onScroll() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2 == null) {
-            return;
-        }
-        if (view2 == this.n) {
-            z();
-            PayPanelUtils.launchPayPanel(this.p, 2001);
-            r();
-        } else if (view2 == this.j) {
-            A();
-            UrlManager.getInstance().dealOneLink(this.p, new String[]{this.q});
-            r();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PersonOftenFuncItemView personOftenFuncItemView = this.l;
+            boolean z2 = true;
+            if (personOftenFuncItemView != null) {
+                if (!personOftenFuncItemView.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                personOftenFuncItemView.d = z;
+                this.l.d();
+            }
+            PersonOftenFuncItemView personOftenFuncItemView2 = this.m;
+            if (personOftenFuncItemView2 != null) {
+                if (!personOftenFuncItemView2.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z2 = false;
+                }
+                personOftenFuncItemView2.d = z2;
+                this.m.d();
+            }
+            TbSingleton.getInstance().setMyTabClicked(false);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dm6
-    /* renamed from: s */
-    public void i(PersonVipCardData personVipCardData) {
+    @Override // com.baidu.tieba.em6
+    /* renamed from: r */
+    public void i(no9 no9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, personVipCardData) == null) && personVipCardData != null) {
-            this.l.setText(personVipCardData.getTitle());
-            this.m.setText(personVipCardData.getSubTitle());
-            this.n.setText(personVipCardData.getButtonLable());
-            String bubble = personVipCardData.getBubble();
-            boolean g = this.t.g(this.u.f(bubble));
-            if (!bi.isEmpty(bubble) && !g) {
-                this.o.setVisibility(0);
-                this.o.setText(StringHelper.subString(bubble, 10));
-                this.u.update(bubble);
-            } else {
-                this.o.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048581, this, no9Var) == null) {
+            if (no9Var != null && no9Var.c() != null && !ListUtils.isEmpty(no9Var.c())) {
+                this.j.removeAllViews();
+                List<ko9> c = no9Var.c();
+                LinearLayout linearLayout = new LinearLayout(getContext());
+                int i = 0;
+                for (ko9 ko9Var : c) {
+                    i++;
+                    if (i % 4 == 1) {
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+                        layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+                        LinearLayout linearLayout2 = new LinearLayout(getContext());
+                        linearLayout2.setOrientation(0);
+                        linearLayout2.setLayoutParams(layoutParams);
+                        this.j.addView(linearLayout2);
+                        linearLayout = linearLayout2;
+                    }
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2, 1.0f);
+                    PersonOftenFuncItemView personOftenFuncItemView = new PersonOftenFuncItemView(getContext());
+                    personOftenFuncItemView.a(ko9Var);
+                    personOftenFuncItemView.setLayoutParams(layoutParams2);
+                    linearLayout.addView(personOftenFuncItemView);
+                    int i2 = ko9Var.a;
+                    if (i2 == 59) {
+                        this.l = personOftenFuncItemView;
+                    } else if (i2 == 63) {
+                        this.m = personOftenFuncItemView;
+                    }
+                }
+                if (c.size() != 0 && c.size() % 4 != 0) {
+                    for (int i3 = 0; i3 < 4 - (c.size() % 4); i3++) {
+                        PersonOftenFuncItemView personOftenFuncItemView2 = new PersonOftenFuncItemView(getContext());
+                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -2);
+                        layoutParams3.weight = 1.0f;
+                        personOftenFuncItemView2.setLayoutParams(layoutParams3);
+                        linearLayout.addView(personOftenFuncItemView2);
+                    }
+                }
+                j(g(), this.a);
+                return;
             }
-            this.q = personVipCardData.getUrl();
-            personVipCardData.getButtonUrl();
-            this.r = personVipCardData.getButtonLable();
-            if (this.s) {
-                this.s = false;
-                B();
-            }
-            j(g(), this.a);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_BUTTON_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (StringHelper.equals(this.r, getContext().getString(R.string.open_now))) {
-                statisticItem.param("obj_type", 1);
-            } else if (StringHelper.equals(this.r, getContext().getString(R.string.renew_now))) {
-                statisticItem.param("obj_type", 2);
-            }
-            TiebaStatic.log(statisticItem);
+            q(8);
         }
     }
 }

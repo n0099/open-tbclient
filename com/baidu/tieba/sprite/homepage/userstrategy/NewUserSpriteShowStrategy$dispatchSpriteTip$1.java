@@ -4,12 +4,12 @@ import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tieba.c55;
-import com.baidu.tieba.kr6;
+import com.baidu.tieba.lr6;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy$dispatchSpriteTip$1;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.uia;
+import com.baidu.tieba.via;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,11 +71,11 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteTip$1 extends Lambda 
     public final void invoke2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c55.g(CollectionsKt__CollectionsJVMKt.listOf(new uia(this.$context, this.$response, this.$spriteTipView, new kr6.e() { // from class: com.baidu.tieba.e7a
+            c55.g(CollectionsKt__CollectionsJVMKt.listOf(new via(this.$context, this.$response, this.$spriteTipView, new lr6.e() { // from class: com.baidu.tieba.f7a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.kr6.e
+                @Override // com.baidu.tieba.lr6.e
                 public final void onDismiss() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aw5;
 import com.baidu.tieba.q05;
-import com.baidu.tieba.x9a;
-import com.baidu.tieba.zv5;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -259,7 +259,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void n(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && k(themeElement)) {
-            this.n.setTextColor(x9a.f(themeElement.common_color));
+            this.n.setTextColor(y9a.f(themeElement.common_color));
         }
     }
 
@@ -369,7 +369,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         if (NewWebHotTopicPageSwitch.isOn() && (tbPageContext = this.w) != null) {
-            zv5.f(tbPageContext, String.valueOf(j), null);
+            aw5.f(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -503,16 +503,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (k(themeElement)) {
-                this.g.setTextColor(x9a.f(themeElement.common_color));
+                this.g.setTextColor(y9a.f(themeElement.common_color));
             }
             if (k(themeElement2)) {
-                this.h.setBackgroundColor(x9a.f(themeElement2.common_color));
+                this.h.setBackgroundColor(y9a.f(themeElement2.common_color));
             }
             if (k(themeElement3)) {
-                this.i.setTextColor(x9a.f(themeElement3.common_color));
+                this.i.setTextColor(y9a.f(themeElement3.common_color));
             }
             if (k(themeElement4)) {
-                this.r.setBackGroundRealColor(x9a.f(themeElement4.common_color));
+                this.r.setBackGroundRealColor(y9a.f(themeElement4.common_color));
             }
         }
     }

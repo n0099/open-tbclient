@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.hca;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.lca;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.mca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class UegTbJsBridge_Proxy extends hca {
+public class UegTbJsBridge_Proxy extends ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UegTbJsBridge mJsBridge;
@@ -45,74 +45,74 @@ public class UegTbJsBridge_Proxy extends hca {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.hca
-    public jca dispatch(lca lcaVar, jca jcaVar) {
+    @Override // com.baidu.tieba.ica
+    public kca dispatch(mca mcaVar, kca kcaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, lcaVar, jcaVar)) == null) {
-            if (jcaVar == null) {
-                jcaVar = new jca();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mcaVar, kcaVar)) == null) {
+            if (kcaVar == null) {
+                kcaVar = new kca();
             }
-            String b = lcaVar.b();
-            JSONObject e = lcaVar.e();
+            String b = mcaVar.b();
+            JSONObject e = mcaVar.e();
             if (b.equals("host/callNativeSMS")) {
-                jcaVar.s(true);
-                jca callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
+                kcaVar.s(true);
+                kca callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
                 if (callNativeSMS != null) {
-                    jcaVar.y(callNativeSMS.f());
-                    jcaVar.u(callNativeSMS.b());
-                    jcaVar.o(callNativeSMS.a());
-                    jcaVar.x(callNativeSMS.e());
+                    kcaVar.y(callNativeSMS.f());
+                    kcaVar.u(callNativeSMS.b());
+                    kcaVar.o(callNativeSMS.a());
+                    kcaVar.x(callNativeSMS.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("device/setBlockPopInfo")) {
-                jcaVar.s(true);
-                jca blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
+                kcaVar.s(true);
+                kca blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
                 if (blockPopInfo != null) {
-                    jcaVar.y(blockPopInfo.f());
-                    jcaVar.u(blockPopInfo.b());
-                    jcaVar.o(blockPopInfo.a());
-                    jcaVar.x(blockPopInfo.e());
+                    kcaVar.y(blockPopInfo.f());
+                    kcaVar.u(blockPopInfo.b());
+                    kcaVar.o(blockPopInfo.a());
+                    kcaVar.x(blockPopInfo.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("account/bindMobileNumber")) {
-                jcaVar.s(true);
-                jca bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
+                kcaVar.s(true);
+                kca bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
                 if (bindingMobileNumber != null) {
-                    jcaVar.y(bindingMobileNumber.f());
-                    jcaVar.u(bindingMobileNumber.b());
-                    jcaVar.o(bindingMobileNumber.a());
-                    jcaVar.x(bindingMobileNumber.e());
+                    kcaVar.y(bindingMobileNumber.f());
+                    kcaVar.u(bindingMobileNumber.b());
+                    kcaVar.o(bindingMobileNumber.a());
+                    kcaVar.x(bindingMobileNumber.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("host/recordNovelInfo")) {
-                jcaVar.s(true);
-                jca recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
+                kcaVar.s(true);
+                kca recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
                 if (recordNovelInfo != null) {
-                    jcaVar.y(recordNovelInfo.f());
-                    jcaVar.u(recordNovelInfo.b());
-                    jcaVar.o(recordNovelInfo.a());
-                    jcaVar.x(recordNovelInfo.e());
+                    kcaVar.y(recordNovelInfo.f());
+                    kcaVar.u(recordNovelInfo.b());
+                    kcaVar.o(recordNovelInfo.a());
+                    kcaVar.x(recordNovelInfo.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("host/novelPayResultToClient")) {
-                jcaVar.s(true);
-                jca novelPayResultToClient = this.mJsBridge.novelPayResultToClient(e.optBoolean("isPaySuccess"));
+                kcaVar.s(true);
+                kca novelPayResultToClient = this.mJsBridge.novelPayResultToClient(e.optBoolean("isPaySuccess"));
                 if (novelPayResultToClient != null) {
-                    jcaVar.y(novelPayResultToClient.f());
-                    jcaVar.u(novelPayResultToClient.b());
-                    jcaVar.o(novelPayResultToClient.a());
-                    jcaVar.x(novelPayResultToClient.e());
+                    kcaVar.y(novelPayResultToClient.f());
+                    kcaVar.u(novelPayResultToClient.b());
+                    kcaVar.o(novelPayResultToClient.a());
+                    kcaVar.x(novelPayResultToClient.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public List<jca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.ica
+    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {

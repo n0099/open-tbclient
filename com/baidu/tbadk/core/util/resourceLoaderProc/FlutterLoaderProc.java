@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dg;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.yf;
@@ -183,8 +183,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i3, i4);
             }
-            sv5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = sv5.d(urlbyClientServerAddr);
+            tv5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = tv5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;

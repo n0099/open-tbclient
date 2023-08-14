@@ -36,13 +36,13 @@ public class fa4 extends ea4 {
 
         /* renamed from: com.baidu.tieba.fa4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0285a implements Runnable {
+        public class RunnableC0287a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ka4 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0285a(a aVar, ka4 ka4Var) {
+            public RunnableC0287a(a aVar, ka4 ka4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class fa4 extends ea4 {
                 if (ea4.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0285a(this, ka4Var));
+                this.c.b.post(new RunnableC0287a(this, ka4Var));
             }
         }
 

@@ -60,7 +60,7 @@ import java.util.Map;
 public class ee5 implements ae5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j16 a;
+    public k16 a;
     public boolean b;
     public int c;
     public int d;
@@ -85,7 +85,7 @@ public class ee5 implements ae5 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a16 {
+    public class d implements b16 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -233,7 +233,7 @@ public class ee5 implements ae5 {
             this.b = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.a16
+        @Override // com.baidu.tieba.b16
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -243,7 +243,7 @@ public class ee5 implements ae5 {
                 SkinManager.setBackgroundResource(findViewById2, R.color.CAM_X0208);
                 SkinManager.setBackgroundResource(findViewById3, R.drawable.sign_remind_pic);
                 View findViewById4 = view2.findViewById(R.id.layout_content);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092782);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092788);
                 TextView textView2 = (TextView) view2.findViewById(R.id.sign_remind_timer);
                 TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.push_permission_dialog_confirm_button1);
                 this.c.q(tBSpecificationBtn);
@@ -251,7 +251,7 @@ public class ee5 implements ae5 {
                 EMManager.from((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f090fd8)).setBackGroundColor(R.color.CAM_X0208);
                 EMManager.from((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091760)).setBackGroundColor(R.color.CAM_X0208);
                 SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0208);
-                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09252b), R.color.CAM_X0306);
+                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092531), R.color.CAM_X0306);
                 EMManager.from(textView).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X02);
                 EMManager.from(textView2).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01);
                 EMManager.from(textView3).setTextColor(R.color.CAM_X0110).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
@@ -589,21 +589,21 @@ public class ee5 implements ae5 {
             } else {
                 calendar.setTimeInMillis(System.currentTimeMillis() + 60000);
             }
-            y06 y06Var = new y06(pageActivity, onTimeSelectListener);
-            y06Var.g(calendar);
-            y06Var.k(R.layout.dialog_sign_remind, new d(this, i, tbPageContext));
-            y06Var.f(18);
-            y06Var.p(new boolean[]{false, false, false, true, true, false});
-            y06Var.j("年", "月", "日", "", "", "秒");
-            y06Var.l(2.0f);
-            y06Var.o(0, 0, 0, 0, 0, 0);
-            y06Var.b(false);
-            y06Var.i(SkinManager.getColor(R.color.CAM_X0204));
-            y06Var.m(SkinManager.getColor(R.color.CAM_X0105));
-            y06Var.n(SkinManager.getColor(R.color.CAM_X0109));
-            y06Var.d(SkinManager.getColor(R.color.black_alpha30));
-            y06Var.e(SkinManager.getColor(R.color.CAM_X0211));
-            j16 a2 = y06Var.a();
+            z06 z06Var = new z06(pageActivity, onTimeSelectListener);
+            z06Var.g(calendar);
+            z06Var.k(R.layout.dialog_sign_remind, new d(this, i, tbPageContext));
+            z06Var.f(18);
+            z06Var.p(new boolean[]{false, false, false, true, true, false});
+            z06Var.j("年", "月", "日", "", "", "秒");
+            z06Var.l(2.0f);
+            z06Var.o(0, 0, 0, 0, 0, 0);
+            z06Var.b(false);
+            z06Var.i(SkinManager.getColor(R.color.CAM_X0204));
+            z06Var.m(SkinManager.getColor(R.color.CAM_X0105));
+            z06Var.n(SkinManager.getColor(R.color.CAM_X0109));
+            z06Var.d(SkinManager.getColor(R.color.black_alpha30));
+            z06Var.e(SkinManager.getColor(R.color.CAM_X0211));
+            k16 a2 = z06Var.a();
             this.a = a2;
             if (z) {
                 SafeHandler.getInst().postDelayed(this.e, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn6;
-import com.baidu.tieba.nm6;
+import com.baidu.tieba.cn6;
+import com.baidu.tieba.om6;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.rx;
@@ -42,7 +42,7 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
     public float f;
     public float g;
     public float h;
-    public bn6<q05> i;
+    public cn6<q05> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -99,7 +99,7 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.bjh_article_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
             this.a = textView;
             EMManager.from(textView).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X06);
             this.a.setOnClickListener(this);
@@ -160,7 +160,7 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            nm6.l(textView, id, i, R.color.CAM_X0109);
+            om6.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -190,9 +190,9 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            bn6<q05> bn6Var = this.i;
-            if (bn6Var != null) {
-                bn6Var.a(view2, this.e);
+            cn6<q05> cn6Var = this.i;
+            if (cn6Var != null) {
+                cn6Var.a(view2, this.e);
             }
         }
     }
@@ -204,10 +204,10 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bn6Var) == null) {
-            this.i = bn6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cn6Var) == null) {
+            this.i = cn6Var;
         }
     }
 
@@ -225,7 +225,7 @@ public class BjhArticleLayout extends RelativeLayout implements qx<q05>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                nm6.l(textView, id, i2, R.color.CAM_X0109);
+                om6.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);

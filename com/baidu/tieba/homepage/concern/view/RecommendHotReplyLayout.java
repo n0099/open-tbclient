@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.qba;
+import com.baidu.tieba.rba;
 import com.baidu.tieba.rx;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.vka;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -276,7 +276,7 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements rx 
         getMHeadPhotoView().setIsRound(true);
         getMRichTextView().setMaxWidth(BdUtilHelper.getEquipmentWidth(context) - BdUtilHelper.getDimens(context, R.dimen.tbds390));
         int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds72);
-        getMAgreeView().setAgreeClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.az7
+        getMAgreeView().setAgreeClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bz7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -357,27 +357,27 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements rx 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, tbPageContext, i) == null) && this.c != i) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0301);
-            int a = x9a.a(color, 0.06f);
-            int a2 = x9a.a(color, 0.04f);
+            int a = y9a.a(color, 0.06f);
+            int a2 = y9a.a(color, 0.04f);
             ThemeColorInfo themeColorInfo = this.b;
             if (themeColorInfo != null) {
-                String f = uka.f(themeColorInfo);
+                String f = vka.f(themeColorInfo);
                 if (f.length() > 0) {
                     z = true;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    a2 = x9a.f(f);
+                    a2 = y9a.f(f);
                 }
-                String d = uka.d(themeColorInfo);
+                String d = vka.d(themeColorInfo);
                 if (d.length() > 0) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    a = x9a.f(d);
+                    a = y9a.f(d);
                 }
             }
             EMManager.from(getMRootLayout()).setCorner(R.string.J_X18).setGradientColorValue(new int[]{a, a2}, Direction.LEFT);
@@ -386,16 +386,16 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements rx 
         }
     }
 
-    public final void setData(qba qbaVar, ThemeColorInfo themeColorInfo) {
+    public final void setData(rba rbaVar, ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qbaVar, themeColorInfo) != null) || qbaVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rbaVar, themeColorInfo) != null) || rbaVar == null) {
             return;
         }
-        getMHeadPhotoView().startLoad(qbaVar.r().getAvater(), 28, false);
+        getMHeadPhotoView().startLoad(rbaVar.r().getAvater(), 28, false);
         this.b = themeColorInfo;
-        getMRichTextView().setText(qbaVar.e0().toString());
+        getMRichTextView().setText(rbaVar.e0().toString());
         getMAgreeView().setAgreeAlone(true);
-        getMAgreeView().setData(qbaVar.o());
+        getMAgreeView().setData(rbaVar.o());
         onChangeSkinType(TbadkCoreApplication.getInst().getCurrentPageContext(getContext()), TbadkCoreApplication.getInst().getSkinType());
     }
 

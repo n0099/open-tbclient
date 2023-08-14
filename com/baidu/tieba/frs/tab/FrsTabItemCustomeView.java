@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wy5;
+import com.baidu.tieba.xy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -171,12 +171,12 @@ public class FrsTabItemCustomeView extends RelativeLayout {
             layoutParams.addRule(13);
             this.a.setLayoutParams(layoutParams);
             this.a.setVisibility(4);
-            this.a.setPlaceHolderDrawable(wy5.a.a());
+            this.a.setPlaceHolderDrawable(xy5.a.a());
             addView(this.a);
             this.b = new TbImage(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
-            this.b.setPlaceHolderDrawable(wy5.a.a());
+            this.b.setPlaceHolderDrawable(xy5.a.a());
             this.b.setLayoutParams(layoutParams2);
             addView(this.b);
         }

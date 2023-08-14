@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.widget.ScaleVideoView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.fna;
 import com.baidu.tieba.gna;
-import com.baidu.tieba.jna;
+import com.baidu.tieba.hna;
 import com.baidu.tieba.kna;
+import com.baidu.tieba.lna;
 import com.baidu.tieba.m45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements gna {
+public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements hna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -44,13 +44,13 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public View d;
     public TextView e;
     public TextView f;
-    public jna g;
+    public kna g;
     public BlueCircleProgressDialog h;
     public int i;
     public int j;
     public boolean k;
     public boolean l;
-    public fna m;
+    public gna m;
     public boolean n;
     public Runnable o;
     public MediaPlayer.OnInfoListener p;
@@ -556,7 +556,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09072f);
             this.a = imageView;
             imageView.setOnClickListener(new g(this));
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f092189);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09218f);
             this.b = imageView2;
             imageView2.setOnClickListener(new h(this));
         }
@@ -575,7 +575,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.baidu.tieba.gna
+    @Override // com.baidu.tieba.hna
     public void D0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -587,7 +587,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.baidu.tieba.gna
+    @Override // com.baidu.tieba.hna
     public void p0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
@@ -598,7 +598,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.baidu.tieba.gna
+    @Override // com.baidu.tieba.hna
     public void B0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !bi.isEmpty(str) && !this.c.isPlaying() && !this.n) {
@@ -632,13 +632,13 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    public final fna F1(String str, String str2) {
+    public final gna F1(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            fna fnaVar = new fna(this);
-            this.m = fnaVar;
-            fnaVar.e(str2);
+            gna gnaVar = new gna(this);
+            this.m = gnaVar;
+            gnaVar.e(str2);
             if (bi.isEmpty(str)) {
                 str = getResources().getString(R.string.obfuscated_res_0x7f0f060d);
             }
@@ -650,7 +650,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.m.create(getPageContext());
             return this.m;
         }
-        return (fna) invokeLL.objValue;
+        return (gna) invokeLL.objValue;
     }
 
     public final void G1() {
@@ -660,7 +660,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091629);
             this.e = textView;
             textView.setText(R.string.loading_error);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c9d);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca3);
             this.f = textView2;
             textView2.setText(R.string.continues_play);
             this.f.setOnClickListener(new m(this));
@@ -671,7 +671,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f0920bb);
+            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f0920c1);
             this.c = scaleVideoView;
             scaleVideoView.setOnErrorListener(new i(this));
             this.c.setOnCompletionListener(new j(this));
@@ -707,7 +707,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.baidu.tieba.gna
+    @Override // com.baidu.tieba.hna
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -729,9 +729,9 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
-            jna jnaVar = this.g;
-            if (jnaVar != null) {
-                jnaVar.onDestroy();
+            kna knaVar = this.g;
+            if (knaVar != null) {
+                knaVar.onDestroy();
             }
         }
     }
@@ -742,9 +742,9 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onPause();
             L1();
-            jna jnaVar = this.g;
-            if (jnaVar != null) {
-                jnaVar.onPause();
+            kna knaVar = this.g;
+            if (knaVar != null) {
+                knaVar.onPause();
             }
         }
     }
@@ -754,14 +754,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
-            jna jnaVar = this.g;
-            if (jnaVar != null) {
-                jnaVar.onResume();
+            kna knaVar = this.g;
+            if (knaVar != null) {
+                knaVar.onResume();
             }
         }
     }
 
-    @Override // com.baidu.tieba.gna
+    @Override // com.baidu.tieba.hna
     public void showErrorView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -792,7 +792,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onCreate(bundle);
             UtilHelper.useNavigationBarStyleImmersiveSticky(this, true);
-            this.g = new kna(getPageContext(), this, getIntent());
+            this.g = new lna(getPageContext(), this, getIntent());
             J1();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
         }

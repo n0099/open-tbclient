@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hb9;
 import com.baidu.tieba.ib9;
 import com.baidu.tieba.jb9;
+import com.baidu.tieba.kb9;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.ls5;
+import com.baidu.tieba.ms5;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,11 +43,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes7.dex */
-public class LoginDialogActivity extends SuspendedActivity implements ls5 {
+public class LoginDialogActivity extends SuspendedActivity implements ms5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public hb9 l;
+    public ib9 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -62,7 +62,7 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
     public String x;
     public final AccountLoginCoreHelper.IReLoginCallback y;
 
-    @Override // com.baidu.tieba.ls5
+    @Override // com.baidu.tieba.ms5
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
         }
     }
 
-    @Override // com.baidu.tieba.ls5
+    @Override // com.baidu.tieba.ms5
     public boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,14 +270,14 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
         }
     }
 
-    @Override // com.baidu.tieba.ls5
+    @Override // com.baidu.tieba.ms5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            hb9 hb9Var = this.l;
-            if (hb9Var != null) {
-                return hb9Var.getResultIntent();
+            ib9 ib9Var = this.l;
+            if (ib9Var != null) {
+                return ib9Var.getResultIntent();
             }
             return null;
         }
@@ -292,14 +292,14 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
         }
     }
 
-    @Override // com.baidu.tieba.ls5
+    @Override // com.baidu.tieba.ms5
     public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            hb9 hb9Var = this.l;
-            if (hb9Var != null) {
-                hb9Var.r(i);
+            ib9 ib9Var = this.l;
+            if (ib9Var != null) {
+                ib9Var.r(i);
             }
         }
     }
@@ -412,7 +412,7 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ls5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ms5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, linearLayout, navigationBar)) == null) {
@@ -424,13 +424,13 @@ public class LoginDialogActivity extends SuspendedActivity implements ls5 {
             }
             N1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new ib9(this.o, this.p, this.q);
+                this.l = new jb9(this.o, this.p, this.q);
             } else {
-                this.l = new jb9(this.n);
+                this.l = new kb9(this.n);
             }
             this.l.a(this, linearLayout);
             return this;
         }
-        return (ls5) invokeLL.objValue;
+        return (ms5) invokeLL.objValue;
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.card;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bt9;
+import com.baidu.tieba.ct9;
 import com.baidu.tieba.ky;
 import com.baidu.tieba.q05;
-import com.baidu.tieba.st9;
 import com.baidu.tieba.sy;
+import com.baidu.tieba.tt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder<T> implements bt9 {
+public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder<T> implements ct9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sy k;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public void startPlay() {
         sy syVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public void stopPlay() {
         sy syVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends q05> extends ThreadCardViewHolder
         return (sy) invokeV.objValue;
     }
 
-    public void y(st9 st9Var) {
+    public void y(tt9 tt9Var) {
         sy syVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, st9Var) == null) && (syVar = this.k) != null) {
-            syVar.D(st9Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, tt9Var) == null) && (syVar = this.k) != null) {
+            syVar.D(tt9Var);
         }
     }
 }

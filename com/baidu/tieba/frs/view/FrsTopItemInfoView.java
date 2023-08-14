@@ -40,7 +40,7 @@ import java.util.Locale;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsTopItemInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final String u;
@@ -77,13 +77,13 @@ public class FrsTopItemInfoView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTopItemInfoView a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements m45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class FrsTopItemInfoView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -296,14 +296,14 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.e = imageView;
             imageView.setOnClickListener(this.t);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0903ee);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b5b);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b61);
             this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f0911d1);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092527);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09252d);
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a84);
             this.k = (HeadImageView) findViewById(R.id.user_head);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090725);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f09229f);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f0f);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0922a5);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f15);
             this.o = findViewById(R.id.bottom_line);
             this.b.setText(R.string.obfuscated_res_0x7f0f07f9);
             this.l.setText(R.string.obfuscated_res_0x7f0f07f7);

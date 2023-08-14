@@ -33,7 +33,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ea5;
-import com.baidu.tieba.eo7;
+import com.baidu.tieba.fo7;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.rx;
@@ -386,10 +386,10 @@ public class CardItemRecommendLayout extends LinearLayout implements rx {
 
     public void setData(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) && (q05Var instanceof eo7)) {
-            eo7 eo7Var = (eo7) q05Var;
-            if (eo7Var.c() != null) {
-                this.d = eo7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) && (q05Var instanceof fo7)) {
+            fo7 fo7Var = (fo7) q05Var;
+            if (fo7Var.c() != null) {
+                this.d = fo7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }

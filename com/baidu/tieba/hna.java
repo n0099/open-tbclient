@@ -1,26 +1,13 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public interface hna {
-    String a();
+    void B0(String str);
 
-    void b(Intent intent);
+    void D0(String str);
 
-    String c();
+    void finishActivity();
 
-    String d();
+    void p0(String str, String str2);
 
-    void e(BdUniqueId bdUniqueId);
-
-    String f();
-
-    String g();
-
-    String getVideoUrl();
-
-    String h();
-
-    String i();
+    void showErrorView();
 }

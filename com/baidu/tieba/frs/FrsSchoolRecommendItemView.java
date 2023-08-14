@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah7;
+import com.baidu.tieba.bh7;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.l88;
+import com.baidu.tieba.m88;
 import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public EntelechyUserLikeButton e;
     public za5 f;
     public BdUniqueId g;
-    public ah7 h;
+    public bh7 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -96,13 +96,13 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e26);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e2c);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e23);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091e24);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e2b);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e29);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091e2a);
         this.e = entelechyUserLikeButton;
         za5 za5Var = new za5(tbPageContext, entelechyUserLikeButton);
         this.f = za5Var;
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(l88 l88Var) {
+    public void b(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, l88Var) != null) || !(l88Var instanceof ah7)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, m88Var) != null) || !(m88Var instanceof bh7)) {
             return;
         }
-        ah7 ah7Var = (ah7) l88Var;
-        this.h = ah7Var;
-        if (StringUtils.isNull(ah7Var.a.getUserId())) {
+        bh7 bh7Var = (bh7) m88Var;
+        this.h = bh7Var;
+        if (StringUtils.isNull(bh7Var.a.getUserId())) {
             return;
         }
         this.b.startLoad(this.h.a.getPortrait(), 28, false);

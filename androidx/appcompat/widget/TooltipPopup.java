@@ -51,12 +51,12 @@ public class TooltipPopup {
         int i4;
         int i5;
         layoutParams.token = view2.getApplicationWindowToken();
-        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b34);
+        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b35);
         if (view2.getWidth() < dimensionPixelOffset) {
             i = view2.getWidth() / 2;
         }
         if (view2.getHeight() >= dimensionPixelOffset) {
-            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b33);
+            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b34);
             height = i2 + dimensionPixelOffset2;
             i3 = i2 - dimensionPixelOffset2;
         } else {
@@ -66,9 +66,9 @@ public class TooltipPopup {
         layoutParams.gravity = 49;
         Resources resources = this.mContext.getResources();
         if (z) {
-            i4 = R.dimen.obfuscated_res_0x7f070b37;
+            i4 = R.dimen.obfuscated_res_0x7f070b38;
         } else {
-            i4 = R.dimen.obfuscated_res_0x7f070b36;
+            i4 = R.dimen.obfuscated_res_0x7f070b37;
         }
         int dimensionPixelOffset3 = resources.getDimensionPixelOffset(i4);
         View appRootView = getAppRootView(view2);

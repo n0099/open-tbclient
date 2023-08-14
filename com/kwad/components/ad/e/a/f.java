@@ -11,7 +11,7 @@ import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public ImageView cw;
     public TextView cx;

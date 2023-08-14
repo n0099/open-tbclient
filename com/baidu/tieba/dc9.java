@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.pb.bot.menu.BotSkillMenuAdapter;
-import com.baidu.tieba.pb.bot.menu.BotSkillMenuView;
-import com.baidu.tieba.xc9;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidTplData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,20 +14,94 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.CallRobotEntrance;
 /* loaded from: classes5.dex */
-public final class dc9 {
+public class dc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(CallRobotEntrance callRobotEntrance);
+        void a(ForbidTplData forbidTplData);
+
+        void b(ForbidTplData forbidTplData);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public b c;
+
+        public a(String str, String str2, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = bVar;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidTplData doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(dc9.a);
+                netWork.addPostData("forum_id", this.a);
+                netWork.addPostData("user_id", this.b);
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidTplData forbidTplData = new ForbidTplData();
+                        forbidTplData.error.errno = -1000;
+                        return forbidTplData;
+                    }
+                }
+                ForbidTplData forbidTplData2 = new ForbidTplData();
+                forbidTplData2.error.errno = netWork.getServerErrorCode();
+                forbidTplData2.error.errMsg = netWork.getErrorString();
+                return forbidTplData2;
+            }
+            return (ForbidTplData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidTplData forbidTplData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
+                super.onPostExecute(forbidTplData);
+                if (this.c != null) {
+                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
+                    if (errorInfo.errno == 0 && bi.isEmpty(errorInfo.errMsg)) {
+                        this.c.b(forbidTplData);
+                    } else {
+                        this.c.a(forbidTplData);
+                    }
+                }
+            }
+        }
     }
 
     static {
@@ -47,119 +117,13 @@ public final class dc9 {
                 return;
             }
         }
-        a = new a(null);
+        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    @JvmStatic
-    public static final void a(View view2, List<CallRobotEntrance> list, b bVar, yc9 yc9Var) {
+    public static void b(String str, String str2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, list, bVar, yc9Var) == null) {
-            a.b(view2, list, bVar, yc9Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        /* renamed from: com.baidu.tieba.dc9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static final class C0268a implements BotSkillMenuAdapter.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-            public final /* synthetic */ xc9 b;
-
-            public C0268a(b bVar, xc9 xc9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, xc9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-                this.b = xc9Var;
-            }
-
-            @Override // com.baidu.tieba.pb.bot.menu.BotSkillMenuAdapter.a
-            public void a(View view2, CallRobotEntrance data) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, view2, data) == null) {
-                    Intrinsics.checkNotNullParameter(view2, "view");
-                    Intrinsics.checkNotNullParameter(data, "data");
-                    if (data.ability_conf != null) {
-                        b bVar = this.a;
-                        xc9 xc9Var = this.b;
-                        bVar.a(data);
-                        xc9Var.a();
-                    }
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void a(View view2, xc9.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, aVar) == null) {
-                Context context = view2.getContext();
-                int equipmentWidth = BdUtilHelper.getEquipmentWidth(context);
-                int screenHeight = UtilHelper.getScreenHeight(TbadkApplication.getInst());
-                int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds62);
-                int dimens2 = BdUtilHelper.getDimens(context, R.dimen.M_H_X001);
-                int dimens3 = BdUtilHelper.getDimens(context, R.dimen.tbds19);
-                Rect rect = new Rect();
-                view2.getGlobalVisibleRect(rect);
-                aVar.i((equipmentWidth - rect.centerX()) - dimens);
-                aVar.j(((screenHeight - rect.top) + dimens2) - dimens3);
-            }
-        }
-
-        @JvmStatic
-        public final void b(View view2, List<CallRobotEntrance> dataList, b listener, yc9 yc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dataList, listener, yc9Var) == null) {
-                Intrinsics.checkNotNullParameter(dataList, "dataList");
-                Intrinsics.checkNotNullParameter(listener, "listener");
-                if (view2 != null && !ListUtils.isEmpty(dataList)) {
-                    Context context = view2.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context, "context");
-                    BotSkillMenuView botSkillMenuView = new BotSkillMenuView(context);
-                    xc9.a aVar = new xc9.a(botSkillMenuView);
-                    aVar.g(85);
-                    aVar.h(yc9Var);
-                    a(view2, aVar);
-                    xc9 a = aVar.a();
-                    botSkillMenuView.setOnItemClickListener(new C0268a(listener, a));
-                    a.b();
-                    botSkillMenuView.setData(dataList);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
+            new a(str, str2, bVar).execute(new String[0]);
         }
     }
 }

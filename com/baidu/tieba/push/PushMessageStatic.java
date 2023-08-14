@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.iv9;
 import com.baidu.tieba.jv9;
 import com.baidu.tieba.kv9;
 import com.baidu.tieba.l85;
-import com.baidu.tieba.vv9;
+import com.baidu.tieba.lv9;
 import com.baidu.tieba.wd5;
+import com.baidu.tieba.wv9;
 import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,18 +46,18 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0445a implements wd5.h {
+        public class C0447a implements wd5.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ kv9 b;
+            public final /* synthetic */ lv9 b;
 
-            public C0445a(a aVar, Ringtone ringtone, kv9 kv9Var) {
+            public C0447a(a aVar, Ringtone ringtone, lv9 lv9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, kv9Var};
+                    Object[] objArr = {aVar, ringtone, lv9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = kv9Var;
+                this.b = lv9Var;
             }
 
             @Override // com.baidu.tieba.wd5.h
@@ -79,16 +79,16 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    kv9 kv9Var = this.b;
-                    if (kv9Var != null) {
-                        kv9Var.l();
+                    lv9 lv9Var = this.b;
+                    if (lv9Var != null) {
+                        lv9Var.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements kv9.e {
+        public class b implements lv9.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wd5 a;
@@ -111,7 +111,7 @@ public class PushMessageStatic {
                 this.a = wd5Var;
             }
 
-            @Override // com.baidu.tieba.kv9.e
+            @Override // com.baidu.tieba.lv9.e
             public void a(View view2) {
                 wd5 wd5Var;
                 Interceptable interceptable = $ic;
@@ -157,9 +157,9 @@ public class PushMessageStatic {
                         return;
                     }
                     if (currentActivity != null) {
-                        new iv9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
+                        new jv9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
                     } else {
-                        jv9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
+                        kv9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
                     }
                 }
             }
@@ -238,12 +238,12 @@ public class PushMessageStatic {
                         SafeHandler.getInst().post(new c(this, type, pushGeneralData));
                     }
                 } else {
-                    kv9 kv9Var = new kv9(currentPageContext);
-                    kv9Var.o(pushGeneralData);
-                    Ringtone f = vv9.f();
-                    wd5 f2 = xd5.f(kv9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                    f2.x(new C0445a(this, f, kv9Var));
-                    kv9Var.p(new b(this, f2));
+                    lv9 lv9Var = new lv9(currentPageContext);
+                    lv9Var.o(pushGeneralData);
+                    Ringtone f = wv9.f();
+                    wd5 f2 = xd5.f(lv9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                    f2.x(new C0447a(this, f, lv9Var));
+                    lv9Var.p(new b(this, f2));
                 }
                 IdleHandlerManager.getInstance().addOrRunTask("processLiveData", new d(this, isLiveData, remindInfo, extData));
             }
@@ -277,19 +277,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        vv9.e(tbPageContext.getContext(), str, true);
+                        wv9.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        vv9.a(tbPageContext.getContext(), str);
+                        wv9.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        vv9.d(tbPageContext.getContext(), str);
+                        wv9.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        vv9.b(tbPageContext.getContext(), str);
+                        wv9.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        vv9.c(tbPageContext.getContext(), str);
+                        wv9.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);

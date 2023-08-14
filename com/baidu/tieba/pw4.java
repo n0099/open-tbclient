@@ -13,14 +13,14 @@ import java.util.HashMap;
 public class pw4 implements ItemCardHelper.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qh6<WebView> a;
+    public final rh6<WebView> a;
 
-    public pw4(@NonNull qh6<WebView> qh6Var) {
+    public pw4(@NonNull rh6<WebView> rh6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qh6Var};
+            Object[] objArr = {rh6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class pw4 implements ItemCardHelper.c {
                 return;
             }
         }
-        this.a = qh6Var;
+        this.a = rh6Var;
     }
 
     @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
@@ -56,7 +56,7 @@ public class pw4 implements ItemCardHelper.c {
             hashMap.put("id", str);
             hashMap.put("resultCode", Integer.valueOf(i));
             hashMap.put("name", null);
-            qk6.a().d(webView, "orderGameApkResult", hashMap);
+            rk6.a().d(webView, "orderGameApkResult", hashMap);
         }
     }
 }

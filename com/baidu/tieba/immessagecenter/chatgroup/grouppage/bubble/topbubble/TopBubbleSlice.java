@@ -38,16 +38,16 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn8;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.ExcellentAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.u45;
-import com.baidu.tieba.v3b;
-import com.baidu.tieba.vi8;
+import com.baidu.tieba.w3b;
 import com.baidu.tieba.w45;
+import com.baidu.tieba.wi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -256,7 +256,7 @@ public class TopBubbleSlice extends Slice {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.t != null && this.a.t.isNotice()) {
                 boolean z = true;
-                vi8.b(this.a.t.getVersionKey(), true);
+                wi8.b(this.a.t.getVersionKey(), true);
                 this.a.m.remove(this.a.t);
                 if (this.a.m.size() > 0) {
                     TopBubbleSlice topBubbleSlice = this.a;
@@ -419,7 +419,7 @@ public class TopBubbleSlice extends Slice {
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (topBubbleData = this.a.n.get(i)) == null) {
                 return;
             }
-            vi8.b(topBubbleData.getVersionKey(), true);
+            wi8.b(topBubbleData.getVersionKey(), true);
             this.a.l.j1(topBubbleData);
             this.a.l.b1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
             this.a.u.dismiss();
@@ -498,7 +498,7 @@ public class TopBubbleSlice extends Slice {
                     this.b.S0();
                     this.a.dismiss();
                 } else if (!StringUtils.isNull(this.b.p) && !StringUtils.isNull(this.b.s)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.L0(v3b.a(v3b.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.L0(w3b.a(w3b.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
                     this.a.dismiss();
                 }
             }
@@ -536,7 +536,7 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             this.a.I0();
-            bn8.a(this.a.j.getPageActivity());
+            cn8.a(this.a.j.getPageActivity());
         }
     }
 
@@ -572,7 +572,7 @@ public class TopBubbleSlice extends Slice {
                 jVar.a = view2;
                 jVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f09198a);
                 jVar.c = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b9);
-                jVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922e7);
+                jVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922ed);
                 jVar.e = (ImageView) view2.findViewById(R.id.bg_view);
                 return jVar;
             }
@@ -612,13 +612,13 @@ public class TopBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 k kVar = new k();
                 kVar.a = view2;
-                kVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ce0);
+                kVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ce6);
                 RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
                 kVar.c = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
                 kVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a86);
                 kVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a87);
-                kVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a18);
+                kVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a1e);
                 kVar.b();
                 return kVar;
             }
@@ -814,7 +814,7 @@ public class TopBubbleSlice extends Slice {
                 if (topBubbleData != null) {
                     boolean isNotice = topBubbleData.isNotice();
                     this.v = isNotice;
-                    if (isNotice && vi8.a(this.t.getVersionKey())) {
+                    if (isNotice && wi8.a(this.t.getVersionKey())) {
                         this.m.remove(this.t);
                         if (this.m.size() > 0) {
                             this.v = false;
@@ -882,8 +882,8 @@ public class TopBubbleSlice extends Slice {
             this.o.b.setExcellentRead();
             TopBubbleData topBubbleData2 = this.t;
             if (topBubbleData2 != null) {
-                if (!vi8.a(topBubbleData2.getVersionKey())) {
-                    vi8.b(this.t.getVersionKey(), true);
+                if (!wi8.a(topBubbleData2.getVersionKey())) {
+                    wi8.b(this.t.getVersionKey(), true);
                 }
                 this.l.b1(this.t.getMsgId(), this.t.getMsgKey());
             }

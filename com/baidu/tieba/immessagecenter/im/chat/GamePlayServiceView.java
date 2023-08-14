@@ -92,7 +92,7 @@ public class GamePlayServiceView extends RelativeLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fa, (ViewGroup) this, true);
             this.b = findViewById(R.id.obfuscated_res_0x7f0915f8);
             findViewById(R.id.obfuscated_res_0x7f091612).setOnClickListener(this.d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092705);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09270b);
             d();
         }
     }

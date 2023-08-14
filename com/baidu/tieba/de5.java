@@ -136,7 +136,7 @@ public class de5 {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            rca.r();
+            sca.r();
         }
     }
 
@@ -274,7 +274,7 @@ public class de5 {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            rca.n();
+            sca.n();
         }
     }
 

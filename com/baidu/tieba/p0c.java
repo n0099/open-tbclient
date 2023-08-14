@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface p0c {
-    p0c a();
+public interface p0c extends j0c, o0c {
+    void c(String str);
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    void h(short s);
 }

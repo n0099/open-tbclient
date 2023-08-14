@@ -1,107 +1,65 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.mv6;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.io.CloseableKt;
+import java.util.Iterator;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__IndentKt;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class ov6 {
+public final class ov6 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Map<String, q7a>> c(mv6.a aVar, List<String> list) {
-        InterceptResult invokeLL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, list)) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            String replace$default = StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(list.toString(), PreferencesUtil.LEFT_MOUNT, "(", false, 4, (Object) null), PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX, false, 4, (Object) null);
-            Cursor b = aVar.b(StringsKt__IndentKt.trimIndent("\n            SELECT * FROM forum_visited_info \n            WHERE fid IN " + replace$default + " \n            ORDER BY fid, date \n            DESC"), new String[0]);
-            try {
-                if (b.moveToFirst()) {
-                    do {
-                        String fid = b.getString(0);
-                        String date = b.getString(1);
-                        long j = b.getLong(2);
-                        long j2 = b.getLong(3);
-                        q7a q7aVar = new q7a();
-                        q7aVar.g(fid);
-                        q7aVar.f(date);
-                        q7aVar.e(j);
-                        q7aVar.h(j2);
-                        if (linkedHashMap.get(fid) == null) {
-                            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                            linkedHashMap.put(fid, new LinkedHashMap());
-                        }
-                        Map map = (Map) linkedHashMap.get(fid);
-                        if (map != null) {
-                            Intrinsics.checkNotNullExpressionValue(date, "date");
-                            map.put(date, q7aVar);
-                        }
-                        g41.i(b, new Column[]{mv6.a.d(0), mv6.a.d(1), mv6.a.c(2), mv6.a.c(3)});
-                    } while (b.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(b, null);
-                    return linkedHashMap;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(b, null);
-                return linkedHashMap;
-            } finally {
-            }
-        } else {
-            return (Map) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final List<String> d(mv6.a aVar, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ov6(String name) {
+        super(TbadkCoreApplication.getInst(), name, (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
-            String curDate = FrsVisitedInfoManager.d.b().format(new Date());
-            String fifteenAgoDate = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-14));
-            Intrinsics.checkNotNullExpressionValue(fifteenAgoDate, "fifteenAgoDate");
-            Intrinsics.checkNotNullExpressionValue(curDate, "curDate");
-            Cursor b = aVar.b("SELECT fid, sum(custom_count) as sum_counts \nFROM forum_visited_info \nWHERE date BETWEEN ? AND ? \nGROUP BY fid \nORDER BY sum_counts \nDESC \nLIMIT ?", fifteenAgoDate, curDate, String.valueOf(i));
-            try {
-                ArrayList arrayList = new ArrayList();
-                if (b.moveToFirst()) {
-                    do {
-                        String fid = b.getString(0);
-                        Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                        arrayList.add(fid);
-                        g41.i(b, new Column[]{mv6.a.d(0), mv6.a.b(1)});
-                    } while (b.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(b, null);
-                    return arrayList;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(b, null);
-                return arrayList;
-            } finally {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        } else {
-            return (List) invokeLI.objValue;
+        }
+        Intrinsics.checkNotNullParameter(name, "name");
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
+            i41 b = new r7a().b();
+            String b2 = f41.b(b);
+            Intrinsics.checkNotNullExpressionValue(b2, "createTable(table)");
+            sQLiteDatabase.execSQL(b2);
+            ArrayList<String> a = f41.a(b);
+            Intrinsics.checkNotNullExpressionValue(a, "createIndices(table)");
+            Iterator<String> it = a.iterator();
+            while (it.hasNext()) {
+                sQLiteDatabase.execSQL(it.next());
+            }
         }
     }
 }

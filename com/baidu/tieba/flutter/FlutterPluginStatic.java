@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.bs5;
+import com.baidu.tieba.cs5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.pk;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
@@ -84,8 +84,8 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof bs5) {
-                        FlutterPluginManager.getInstance().init((bs5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof cs5) {
+                        FlutterPluginManager.getInstance().init((cs5) customResponsedMessage.getData());
                     } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                         FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {

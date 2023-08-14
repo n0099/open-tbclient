@@ -21,9 +21,9 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.titletags.TitleTagsView;
-import com.baidu.tieba.en7;
 import com.baidu.tieba.fn7;
-import com.baidu.tieba.ns6;
+import com.baidu.tieba.gn7;
+import com.baidu.tieba.os6;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,7 +37,7 @@ import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.TagLabelInfo;
 /* loaded from: classes5.dex */
-public class HeaderComponentSingleView extends FrameLayout implements fn7 {
+public class HeaderComponentSingleView extends FrameLayout implements gn7 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,12 +52,12 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public en7 j;
+    public fn7 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.fn7
+    @Override // com.baidu.tieba.gn7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,13 +79,13 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0298a implements View.OnClickListener {
+        public class View$OnClickListenerC0303a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0298a(a aVar, int i) {
+            public View$OnClickListenerC0303a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.startLoad((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0298a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0303a(this, i));
             }
         }
 
@@ -328,16 +328,16 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
         }
     }
 
-    @Override // com.baidu.tieba.fn7
-    public void a(List<LiveFuseForumData> list, en7 en7Var) {
+    @Override // com.baidu.tieba.gn7
+    public void a(List<LiveFuseForumData> list, fn7 fn7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, en7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, fn7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = en7Var;
+        this.j = fn7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -372,13 +372,13 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
         }
         c();
         setOnClickListener(new b(this));
-        en7 en7Var2 = this.j;
-        if (en7Var2 != null) {
-            en7Var2.a(1, this.k);
+        fn7 fn7Var2 = this.j;
+        if (fn7Var2 != null) {
+            fn7Var2.a(1, this.k);
         }
     }
 
-    @Override // com.baidu.tieba.fn7
+    @Override // com.baidu.tieba.gn7
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -411,7 +411,7 @@ public class HeaderComponentSingleView extends FrameLayout implements fn7 {
                     if (tagLabelInfo != null && !ListUtils.isEmpty(tagLabelInfo.labels)) {
                         arrayList = tagLabelInfo.labels;
                     }
-                    titleTagsView.c(new ns6(str, arrayList, true));
+                    titleTagsView.c(new os6(str, arrayList, true));
                     this.d.addView(titleTagsView, new ViewGroup.LayoutParams(-2, -1));
                 }
                 if (size > 1) {

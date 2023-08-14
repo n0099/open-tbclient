@@ -1,11 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface xva {
-    void i(String str);
-
-    void k(String str);
-
-    void u(String str);
-
-    void v(String str);
+    void onUpdate(Object obj);
 }

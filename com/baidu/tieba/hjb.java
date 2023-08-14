@@ -9,10 +9,8 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class hjb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -41,31 +39,15 @@ public class hjb extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        Object obj2;
-        List<AdInfo> list;
-        AdInfo adInfo;
+        Object findField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                akb akbVar = (akb) obj;
-                if (akbVar != null) {
-                    Object obj3 = akbVar.a;
-                    String[] strArr = {"mAdTemplate"};
-                    Field field = null;
-                    for (int i = 0; i < 1; i++) {
-                        try {
-                            field = obj3.getClass().getDeclaredField(strArr[i]);
-                            field.setAccessible(true);
-                            break;
-                        } catch (NoSuchFieldException unused) {
-                        }
-                    }
-                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return njb.a(adInfo);
+                bkb bkbVar = (bkb) obj;
+                if (bkbVar == null || (findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", bkbVar.a)) == null) {
+                    return null;
                 }
-                return null;
+                return ojb.a((AdInfo) findField);
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

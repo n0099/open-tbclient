@@ -175,9 +175,9 @@ public class tb5 {
             int i = SharedPrefHelper.getInstance().getInt("pref_key_fun_ad_first_floor_min", 2);
             int i2 = SharedPrefHelper.getInstance().getInt("pref_key_fun_ad_first_floor_max", 3);
             if (i < i2) {
-                a = e88.a(i, i2);
+                a = f88.a(i, i2);
             } else {
-                a = e88.a(i2, i);
+                a = f88.a(i2, i);
             }
             if (a < 0) {
                 a = 2;

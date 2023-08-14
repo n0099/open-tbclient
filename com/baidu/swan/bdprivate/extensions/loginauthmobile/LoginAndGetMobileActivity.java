@@ -73,7 +73,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     }
 
     public final void t1() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6b);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f71);
         this.a = linearLayout;
         linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b92));
         this.a.getBackground().mutate().setAlpha(0);

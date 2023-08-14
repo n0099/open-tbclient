@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface a79 {
-    void a(long j, long j2, long j3);
+    void a(int i, String str);
 
-    void b(boolean z);
+    void b(int i, String str);
 
-    void c(boolean z, boolean z2);
+    void c();
 
-    boolean d(String str, String str2);
+    void d();
 
-    String e(String str, String str2);
+    void e(String str);
 
-    void f();
+    void f(int i, int i2, String str);
 
-    void g(long j, int i);
+    void g();
 
-    void h(int i);
+    void h(int i, String str);
 
-    void i(int i);
+    void i(int i, String str);
 
     void j();
 
-    void k(String str, String str2);
-
-    void l(int i);
+    void k(String str);
 }

@@ -36,13 +36,13 @@ public class da3 extends x93 {
 
         /* renamed from: com.baidu.tieba.da3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0267a implements View.OnClickListener {
+        public class View$OnClickListenerC0272a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0267a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0272a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +226,7 @@ public class da3 extends x93 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0267a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0272a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -288,12 +288,12 @@ public class da3 extends x93 {
             }
             this.l = viewGroup;
             this.j = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c0);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09257d);
-            this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092583);
+            this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cee);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908af);
-            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09211e);
+            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092124);
             this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904dc);
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.i = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c0);

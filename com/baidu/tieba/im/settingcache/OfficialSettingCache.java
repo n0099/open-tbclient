@@ -5,13 +5,13 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.id8;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.l45;
 import com.baidu.tieba.ne;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.ov5;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.pv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class OfficialSettingCache extends id8 {
+public class OfficialSettingCache extends jd8 {
     public static /* synthetic */ Interceptable $ic;
     public static OfficialSettingCache mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends jw5<Void> {
+    public class a extends kw5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialSettingItemData a;
@@ -56,7 +56,7 @@ public class OfficialSettingCache extends id8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
@@ -70,7 +70,7 @@ public class OfficialSettingCache extends id8 {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends jw5<Void> {
+    public class b extends kw5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -96,7 +96,7 @@ public class OfficialSettingCache extends id8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
@@ -148,7 +148,7 @@ public class OfficialSettingCache extends id8 {
         return (OfficialSettingCache) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.id8
+    @Override // com.baidu.tieba.jd8
     public ne<String> getSettingCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,14 +175,14 @@ public class OfficialSettingCache extends id8 {
                     Map.Entry<String, ChatSetting> next = it.next();
                     if (next.getValue() instanceof OfficialSettingItemData) {
                         it.remove();
-                        nw5.c(new b(this, str + "@" + ((OfficialSettingItemData) next.getValue()).getToUid()), null);
+                        ow5.c(new b(this, str + "@" + ((OfficialSettingItemData) next.getValue()).getToUid()), null);
                     }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.id8
+    @Override // com.baidu.tieba.jd8
     public void saveSetting(ChatSetting chatSetting) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
@@ -205,7 +205,7 @@ public class OfficialSettingCache extends id8 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.id8
+    @Override // com.baidu.tieba.jd8
     public OfficialSettingItemData getSetting(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -233,10 +233,10 @@ public class OfficialSettingCache extends id8 {
         return (OfficialSettingItemData) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.id8
-    public void saveSettingAsync(ChatSetting chatSetting, ov5<Void> ov5Var) {
+    @Override // com.baidu.tieba.jd8
+    public void saveSettingAsync(ChatSetting chatSetting, pv5<Void> pv5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, chatSetting, ov5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, chatSetting, pv5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
             String toUid = officialSettingItemData.getToUid();
@@ -245,7 +245,7 @@ public class OfficialSettingCache extends id8 {
                 synchronized (this.memoryCachedSettings) {
                     this.memoryCachedSettings.put(str, officialSettingItemData);
                 }
-                nw5.c(new a(this, officialSettingItemData, str), ov5Var);
+                ow5.c(new a(this, officialSettingItemData, str), pv5Var);
             } else if (!TbConfig.getDebugSwitch()) {
             } else {
                 throw new RuntimeException("key param is null");

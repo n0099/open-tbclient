@@ -162,13 +162,13 @@ public class CoinClickDialog extends Activity {
     }
 
     public final void h(GameGuideConfigInfo gameGuideConfigInfo) {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e0);
-        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e1);
-        TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f092709);
-        TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f09270a);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e6);
+        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e7);
+        TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09270f);
+        TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f092710);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090522);
         ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f09071b);
-        ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0925f0)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+        ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0925f6)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
         if (this.a) {
             textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
         } else {

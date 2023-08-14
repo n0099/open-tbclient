@@ -1,153 +1,137 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.internal.ManufacturerUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public class vub {
+public final class vub {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vub c;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicLong a;
+    public ConcurrentLinkedQueueX<MediaSample> b;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (h() && Build.MODEL.equals("MI 8")) {
-                TLog.m("extraDelta", "from MI 8 extraDelta= 45");
-                return 60;
-            }
-            if (c()) {
-                String str = Build.MODEL;
-                if (str.equals("SEA-AL10")) {
-                    TLog.m("extraDelta", "from huawei nova 5 pro extraDelta= 100");
-                    return 20;
-                } else if (str.equals("ELE-AL00")) {
-                    TLog.m("extraDelta", "from huawei p30 extraDelta= 80");
-                    return 80;
-                }
-            }
-            if (g()) {
-                if (Build.MODEL.equals("vivo X21A")) {
-                    TLog.m("extraDelta", "from vivo X21A extraDelta= 110");
-                    return 100;
-                }
-                TLog.m("extraDelta", "from VIVO extraDelta= 150");
-                return 150;
-            } else if (e()) {
-                String str2 = Build.MODEL;
-                if (str2.equals("OPPO A37m")) {
-                    TLog.m("extraDelta", "from OPPO A37m extraDelta= 150");
-                    return 150;
-                } else if (str2.equals("PBEM00")) {
-                    TLog.m("extraDelta", "from oppo r17 extraDelta= 300");
-                    return 300;
-                } else {
-                    TLog.m("extraDelta", "from oppo extraDelta= 100");
-                    return 100;
-                }
-            } else if (b()) {
-                TLog.m("extraDelta", "from EMUI extraDelta= 150");
-                return 150;
-            } else if (d()) {
-                TLog.m("extraDelta", "from MIUI extraDelta= 150");
-                return 150;
-            } else if (f()) {
-                TLog.m("extraDelta", "from SAMSUNG extraDelta= 50");
-                return 50;
-            } else {
-                TLog.m("extraDelta", "from default extraDelta= 100");
-                return 100;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948254694, "Lcom/baidu/tieba/vub;")) == null) {
+            return;
         }
-        return invokeV.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948254694, "Lcom/baidu/tieba/vub;");
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public vub() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = new AtomicLong(0L);
+        this.b = new ConcurrentLinkedQueueX<>();
+        c(512L);
     }
 
-    public static boolean c() {
+    public static vub f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+            if (c == null) {
+                synchronized (vub.class) {
+                    if (c == null) {
+                        c = new vub();
+                    }
+                }
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (vub) invokeV.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public MediaSample a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            MediaSample poll = this.b.poll();
+            if (poll == null) {
+                if (this.a.get() < 1024) {
+                    c(1024 - this.a.get());
+                    poll = this.b.poll();
+                } else {
+                    poll = MediaSample.a(this.a.getAndIncrement());
+                }
             }
-            return false;
+            poll.d();
+            poll.a = str;
+            return poll;
         }
-        return invokeV.booleanValue;
+        return (MediaSample) invokeL.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public MediaSample b(String str, ByteBuffer byteBuffer) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if ("OPPO".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, byteBuffer)) == null) {
+            MediaSample a = a(str);
+            a.i.k = byteBuffer;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (MediaSample) invokeLL.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public final void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (ManufacturerUtils.SAMSUNG.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            for (int i = 0; i < j; i++) {
+                this.b.add(MediaSample.a(this.a.getAndIncrement()));
             }
-            return false;
+            d();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if ("vivo".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int elementCount = this.b.getElementCount();
+            int i = (int) this.a.get();
+            TLog.g(this, String.format("MediaAllocator check capacity:%d, realCapacity:%d, sizeInQueue:%d, lostSize:%d", 1024L, Integer.valueOf(i), Integer.valueOf(elementCount), Integer.valueOf(i - elementCount)));
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    public void e(MediaSample mediaSample) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaSample) == null) {
+            mediaSample.d();
+            if (this.b.size() <= 1536.0d) {
+                if (!this.b.contains(mediaSample)) {
+                    this.b.add(mediaSample);
+                    return;
+                }
+                return;
             }
-            return false;
+            this.a.decrementAndGet();
         }
-        return invokeV.booleanValue;
     }
 }

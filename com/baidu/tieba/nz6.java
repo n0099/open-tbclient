@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -27,10 +28,10 @@ public class nz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
     public TbPageContext<?> c;
     public boolean d;
     public en e;
-    public bn6<ThreadData> f;
+    public cn6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a extends bn6<ThreadData> {
+    public class a extends cn6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nz6 b;
@@ -54,13 +55,13 @@ public class nz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                um6.b().d(true);
-                sx6.a(view2, threadData, this.b.b);
+                vm6.b().d(true);
+                tx6.a(view2, threadData, this.b.b);
             }
         }
     }
@@ -131,9 +132,16 @@ public class nz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         this.b = str;
     }
 
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.d = z;
+        }
+    }
+
     public void y(en enVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, enVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, enVar) == null) {
             this.e = enVar;
         }
     }
@@ -144,12 +152,12 @@ public class nz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
     public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.c.getPageActivity(), false);
-            zx zxVar = new zx(this.c.getPageActivity());
-            zxVar.setFrom("index");
-            zxVar.y(this.d);
-            bVar.n(zxVar);
+            yx yxVar = new yx(this.c.getPageActivity());
+            yxVar.setFrom("index");
+            yxVar.x(this.d);
+            bVar.n(yxVar);
             ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -167,14 +175,21 @@ public class nz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w35Var, threadCardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w35Var, threadCardViewHolder})) == null) {
             if (w35Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = w35Var.t) != null) {
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.b().r(i);
                 threadCardViewHolder.f(w35Var.t);
                 threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.b().q(this.f);
-                sx6.b(w35Var, this.b);
+                tx6.b(w35Var, this.b);
+                yx yxVar = (yx) threadCardViewHolder.b().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yxVar.f.d.getLayoutParams();
+                layoutParams.width = w35Var.u;
+                layoutParams.height = w35Var.v;
+                if (yxVar.f.d.getVisibility() != 8) {
+                    yxVar.f.d.setLayoutParams(layoutParams);
+                }
                 return threadCardViewHolder.getView();
             }
             return null;

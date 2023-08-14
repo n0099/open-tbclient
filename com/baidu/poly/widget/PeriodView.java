@@ -230,7 +230,7 @@ public class PeriodView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b9, (ViewGroup) this, true);
             this.c = (PolyFrameLayout) findViewById(R.id.root_layout);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091b5e);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091b64);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f0906fa);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
@@ -238,7 +238,7 @@ public class PeriodView extends FrameLayout {
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090323);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b5f);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b65);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091143);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09076d);
             pi1 pi1Var = new pi1(getContext());

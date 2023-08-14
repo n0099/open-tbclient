@@ -41,23 +41,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lx4 implements pk6 {
+public class lx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final uy4 a;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     /* loaded from: classes6.dex */
-    public class a extends jw5<String> {
+    public class a extends kw5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -81,12 +81,12 @@ public class lx4 implements pk6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                rca.h(this.a);
+                sca.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -94,7 +94,7 @@ public class lx4 implements pk6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ov5<String> {
+    public class b implements pv5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +115,7 @@ public class lx4 implements pk6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class lx4 implements pk6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends jw5 {
+    public class c extends kw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,12 +146,12 @@ public class lx4 implements pk6 {
             }
         }
 
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                rca.b();
+                sca.b();
                 return null;
             }
             return invokeV.objValue;
@@ -159,7 +159,7 @@ public class lx4 implements pk6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements ov5 {
+    public class d implements pv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,7 +179,7 @@ public class lx4 implements pk6 {
             }
         }
 
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -190,7 +190,7 @@ public class lx4 implements pk6 {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends jw5<List<String>> {
+    public class e extends kw5<List<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -211,19 +211,19 @@ public class lx4 implements pk6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public List<String> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return rca.k();
+                return sca.k();
             }
             return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements ov5<List<String>> {
+    public class f implements pv5<List<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebView a;
@@ -247,7 +247,7 @@ public class lx4 implements pk6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(List<String> list) {
             Interceptable interceptable = $ic;
@@ -261,7 +261,7 @@ public class lx4 implements pk6 {
                 linkedHashMap.put("result", jSONArray.toString());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
                 if (this.a != null) {
-                    qk6.a().d(this.a, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, linkedHashMap);
+                    rk6.a().d(this.a, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, linkedHashMap);
                 }
             }
         }
@@ -356,7 +356,7 @@ public class lx4 implements pk6 {
                 linkedHashMap.put("result", str);
                 linkedHashMap.put("NotificationKey", this.a + this.g);
                 if (this.d.get() != null) {
-                    qk6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
+                    rk6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
                 }
             }
         }
@@ -378,7 +378,7 @@ public class lx4 implements pk6 {
         this.a = new uy4();
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -436,86 +436,86 @@ public class lx4 implements pk6 {
         }
     }
 
-    public jca d(WebView webView) {
+    public kca d(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            jca jcaVar = new jca();
-            nw5.b(new c(this), new d(this));
-            return jcaVar;
+            kca kcaVar = new kca();
+            ow5.b(new c(this), new d(this));
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca f(WebView webView) {
+    public kca f(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
-            jca jcaVar = new jca();
-            jcaVar.o(j());
-            return jcaVar;
+            kca kcaVar = new kca();
+            kcaVar.o(j());
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca i(WebView webView) {
+    public kca i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            jca jcaVar = new jca();
-            nw5.b(new e(this), new f(this, webView));
-            return jcaVar;
+            kca kcaVar = new kca();
+            ow5.b(new e(this), new f(this, webView));
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca e(WebView webView, String str) {
+    public kca e(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            jca jcaVar = new jca();
-            nw5.b(new a(this, str), new b(this));
-            return jcaVar;
+            kca kcaVar = new kca();
+            ow5.b(new a(this, str), new b(this));
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca h(WebView webView, HashMap<String, String> hashMap) {
+    public kca h(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (hashMap != null && hashMap.get("result") != null) {
-                jcaVar.o(hashMap.get("result"));
+                kcaVar.o(hashMap.get("result"));
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
     public /* synthetic */ void k(WebView webView, OfflineBridgeData offlineBridgeData) {
         this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
     }
 
-    public jca g(WebView webView) {
+    public kca g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             List<String> b2 = bz4.c().b();
             int count = ListUtils.getCount(b2);
             if (count == 0) {
-                jcaVar.o("");
+                kcaVar.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(b2.get(i));
             }
-            jcaVar.o(jSONArray.toString());
+            kcaVar.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
     public final String j() {
@@ -555,11 +555,11 @@ public class lx4 implements pk6 {
         return (String) invokeV.objValue;
     }
 
-    public jca l(WebView webView, String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
+    public kca l(WebView webView, String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, str, str2, str3, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             HashMap hashMap = new HashMap();
             if (jSONObject != null) {
                 Iterator<String> keys = jSONObject.keys();
@@ -570,62 +570,62 @@ public class lx4 implements pk6 {
             }
             long currentTimeMillis = System.currentTimeMillis();
             new g(str + str2, str3, i, i2, currentTimeMillis, hashMap, webView).execute(new Object[0]);
-            jcaVar.x(str + str2 + currentTimeMillis);
-            return jcaVar;
+            kcaVar.x(str + str2 + currentTimeMillis);
+            return kcaVar;
         }
-        return (jca) invokeCommon.objValue;
+        return (kca) invokeCommon.objValue;
     }
 
-    public jca m(WebView webView, HashMap<String, String> hashMap) {
+    public kca m(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (hashMap != null && hashMap.get("result") != null) {
-                jcaVar.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
-                jcaVar.x(hashMap.get("NotificationKey"));
+                kcaVar.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
+                kcaVar.x(hashMap.get("NotificationKey"));
             }
-            jcaVar.A(true);
-            return jcaVar;
+            kcaVar.A(true);
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca p(WebView webView, HashMap<String, String> hashMap) {
+    public kca p(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (hashMap != null && hashMap.get("result") != null) {
-                jcaVar.o(hashMap.get("result"));
-                jcaVar.x(hashMap.get("NotificationKey"));
+                kcaVar.o(hashMap.get("result"));
+                kcaVar.x(hashMap.get("NotificationKey"));
             }
-            jcaVar.A(true);
-            return jcaVar;
+            kcaVar.A(true);
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca q(WebView webView, HashMap hashMap) {
+    public kca q(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
-                jcaVar.o(new JSONArray(hashMap.get("data").toString()).toString());
+                kcaVar.o(new JSONArray(hashMap.get("data").toString()).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca n(WebView webView, String str, int i) {
+    public kca n(WebView webView, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, webView, str, i)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -634,16 +634,16 @@ public class lx4 implements pk6 {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLLI.objValue;
+        return (kca) invokeLLI.objValue;
     }
 
-    public jca o(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+    public kca o(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048590, this, webView, str, str2, str3, jSONObject)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
             offlineBridgeData.url = str;
             offlineBridgeData.type = str2;
@@ -670,9 +670,9 @@ public class lx4 implements pk6 {
                     }
                 }
             });
-            jcaVar.x(str);
-            return jcaVar;
+            kcaVar.x(str);
+            return kcaVar;
         }
-        return (jca) invokeLLLLL.objValue;
+        return (kca) invokeLLLLL.objValue;
     }
 }

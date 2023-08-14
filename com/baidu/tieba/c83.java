@@ -723,7 +723,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
             u83.d(this.G0, this.I0);
             ImageView imageView = this.K0;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08147e);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081481);
             }
         }
     }
@@ -741,7 +741,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
     public final void t3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08147d);
+            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081480);
             this.K0.setClickable(false);
         }
     }
@@ -749,7 +749,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
     public final void u3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081477);
+            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f08147a);
             this.M0.setClickable(false);
         }
     }
@@ -757,7 +757,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
     public final void v3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08147e);
+            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081481);
             this.K0.setClickable(true);
         }
     }
@@ -765,7 +765,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
     public final void w3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081462);
+            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081465);
             this.M0.setClickable(true);
         }
     }
@@ -902,9 +902,9 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             if (z) {
-                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08147b);
-            } else {
                 this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08147e);
+            } else {
+                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081481);
             }
         }
     }
@@ -1029,15 +1029,15 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
             if (b1) {
                 Log.d("SwanAppPublisher", "init view");
             }
-            this.H0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091d0a);
+            this.H0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091d10);
             if (this.R0.supportTitle().booleanValue()) {
-                view2.findViewById(R.id.obfuscated_res_0x7f091d0b).setVisibility(0);
+                view2.findViewById(R.id.obfuscated_res_0x7f091d11).setVisibility(0);
                 this.H0.setHint(this.R0.getTitleHint());
                 this.H0.setListener(this.Z0);
                 this.H0.setMaxSize(20);
                 this.H0.setOnFocusChangeListener(new f(this));
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091d0b).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f091d11).setVisibility(8);
             }
             this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090125);
             if (this.R0.supportEmoji().booleanValue() && !TextUtils.isEmpty(this.R0.getEmojiPath().trim())) {
@@ -1047,21 +1047,21 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
             }
             this.G0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09099c);
             view2.findViewById(R.id.obfuscated_res_0x7f0918a0).setBackgroundColor(this.R0.getNavBarBgColor());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d92);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d98);
             textView.setText(this.R0.getNavBarTitle());
             textView.setTextColor(this.R0.getNavBarTextColor());
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090722);
             this.P0 = imageView;
             imageView.setOnClickListener(this);
-            this.J0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d06);
+            this.J0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0c);
             if (this.R0.supportTarget().booleanValue() && !TextUtils.isEmpty(this.R0.getTarget().trim())) {
                 TextView textView2 = this.J0;
                 textView2.setText("发布到 " + this.R0.getTarget());
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091d07).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f091d0d).setVisibility(8);
             }
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09247f);
-            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091cec);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092485);
+            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091cf2);
             this.I0 = emojiEditText;
             emojiEditText.setOnKeyListener(new g(this));
             this.I0.setHint(this.R0.getContentHint());
@@ -1069,7 +1069,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
             this.I0.setMaxSize(4999);
             this.I0.setOnFocusChangeListener(new h(this));
             view2.findViewById(R.id.obfuscated_res_0x7f0907d5).setOnTouchListener(new i(this));
-            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d84);
+            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d8a);
             this.O0 = textView3;
             textView3.setText(this.R0.getPublishText());
             this.O0.setOnClickListener(this);
@@ -1080,7 +1080,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
             textView4.setOnClickListener(this);
             textView4.setOnTouchListener(new j(this));
             this.M0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09013b);
-            this.L0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f091c6c);
+            this.L0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f091c72);
             if (this.R0.supportImage().booleanValue()) {
                 this.M0.setVisibility(0);
                 this.M0.setOnClickListener(this);
@@ -1152,7 +1152,7 @@ public class c83 extends ea2 implements View.OnClickListener, ty2<MediaModel>, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091d84) {
+            if (id == R.id.obfuscated_res_0x7f091d8a) {
                 v83.onEvent("pub_clk");
                 z3();
             } else if (id == R.id.obfuscated_res_0x7f09053b) {

@@ -1,89 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import androidx.annotation.CallSuper;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface xs8 {
+public final class xs8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @CallSuper
-        public static void a(xs8 xs8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65536, null, xs8Var) == null) {
+    public xs8(String tag) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tag};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.a = tag;
+    }
 
-        @CallSuper
-        public static void b(xs8 xs8Var, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{xs8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
-            }
-        }
+    public /* synthetic */ xs8(String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "LogAbility" : str);
+    }
 
-        @CallSuper
-        public static void c(xs8 xs8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65538, null, xs8Var, z) == null) {
-            }
-        }
-
-        @CallSuper
-        public static void d(xs8 xs8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65539, null, xs8Var, i) == null) {
-            }
-        }
-
-        @CallSuper
-        public static boolean e(xs8 xs8Var, int i, KeyEvent event) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, xs8Var, i, event)) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-
-        @CallSuper
-        public static void f(xs8 xs8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65541, null, xs8Var, z) == null) {
-            }
-        }
-
-        @CallSuper
-        public static void g(xs8 xs8Var, int i, String[] permissions, int[] grantResults) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(65542, null, xs8Var, i, permissions, grantResults) == null) {
-                Intrinsics.checkNotNullParameter(permissions, "permissions");
-                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            }
-        }
-
-        public static void h(xs8 xs8Var, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65543, null, xs8Var, outState) == null) {
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @CallSuper
-        public static void i(xs8 xs8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65544, null, xs8Var, z) == null) {
-            }
+    public void a(String log) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, log) == null) {
+            Intrinsics.checkNotNullParameter(log, "log");
+            Log.d(this.a, log);
         }
     }
 }

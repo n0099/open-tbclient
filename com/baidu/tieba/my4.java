@@ -88,12 +88,12 @@ public final class my4 extends AbsJsInterface {
             try {
                 if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
                     str = ((TbWebView) this.mWebView.getParent()).getUrl();
-                    Map<String, qh6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
-                    if (!el6.b(bizData)) {
+                    Map<String, rh6<Object>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
+                    if (!fl6.b(bizData)) {
                         JSONObject jSONObject2 = new JSONObject();
-                        for (Map.Entry<String, qh6<Object>> entry : bizData.entrySet()) {
+                        for (Map.Entry<String, rh6<Object>> entry : bizData.entrySet()) {
                             try {
-                                qh6<Object> value = entry.getValue();
+                                rh6<Object> value = entry.getValue();
                                 if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
                                     jSONObject2.put(entry.getKey(), value.call());
                                 }
@@ -133,7 +133,7 @@ public final class my4 extends AbsJsInterface {
                     jSONObject3.put("webviewId", this.mWebView.toString());
                 }
                 Map<String, String> baseData = ((TbWebView) this.mWebView.getParent()).getBaseData();
-                if (!el6.b(baseData)) {
+                if (!fl6.b(baseData)) {
                     for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
                         if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
                             jSONObject3.put(entry2.getKey(), entry2.getValue());

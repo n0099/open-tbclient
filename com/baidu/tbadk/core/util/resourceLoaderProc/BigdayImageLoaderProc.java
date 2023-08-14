@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements eg<BdImage> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            sv5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            tv5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (dgVar != null) {
                 dgVar.a = webClient;

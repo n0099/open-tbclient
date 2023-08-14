@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.bv9;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.cv9;
 import com.baidu.tieba.cz4;
 import com.baidu.tieba.e05;
-import com.baidu.tieba.jk6;
-import com.baidu.tieba.lk6;
+import com.baidu.tieba.kk6;
+import com.baidu.tieba.mk6;
 import com.baidu.tieba.ow4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -93,7 +93,7 @@ public class BrowserHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return lk6.e(str);
+            return mk6.e(str);
         }
         return invokeL.booleanValue;
     }
@@ -233,7 +233,7 @@ public class BrowserHelper {
             if (!allowedUseNewWebContainer(str2) && !z4) {
                 return new TbWebViewActivityConfig(context2, str, str2, z, z2, z3);
             }
-            jk6.c(str2);
+            kk6.c(str2);
             return new TbWebContainerActivityConfig(context2, str, str2, z, z2, z3);
         }
         return (TbWebViewActivityConfig) invokeCommon.objValue;
@@ -331,13 +331,13 @@ public class BrowserHelper {
             sb2.append(ParamableElem.DIVIDE_PARAM);
             ow4Var.setCookie(".baidu.com", sb2.toString());
             ow4Var.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
-            if (bv9.b()) {
+            if (cv9.b()) {
                 ow4Var.setCookie(".baidu.com", "TBBRAND=" + DeviceInfoHelper.getModel() + ParamableElem.DIVIDE_PARAM);
             } else {
-                ow4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + bv9.c() + ParamableElem.DIVIDE_PARAM);
-                String d = bv9.d("TBBRAND");
+                ow4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + cv9.c() + ParamableElem.DIVIDE_PARAM);
+                String d = cv9.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    ow4Var.setCookie(".baidu.com", d + "=" + bv9.e() + ParamableElem.DIVIDE_PARAM);
+                    ow4Var.setCookie(".baidu.com", d + "=" + cv9.e() + ParamableElem.DIVIDE_PARAM);
                 }
             }
             ow4Var.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);

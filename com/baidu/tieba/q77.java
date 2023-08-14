@@ -3,34 +3,62 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedEntrybarComponent;
+import tbclient.BaseTextColor;
+import tbclient.FeedContentColor;
+import tbclient.FeedContentText;
 /* loaded from: classes7.dex */
 public final class q77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<u97<? extends Object>> mutableList, c77 c77Var) {
+    public static final t57 a(BaseTextColor baseTextColor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, c77Var) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(b(feedEntrybarComponent, c77Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
+            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
+            Integer type = baseTextColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new t57(type.intValue(), baseTextColor.day, baseTextColor.night);
         }
+        return (t57) invokeL.objValue;
     }
 
-    public static final j47 b(FeedEntrybarComponent feedEntrybarComponent, c77 c77Var) {
-        InterceptResult invokeLL;
+    public static final t57 b(FeedContentColor feedContentColor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, c77Var)) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            String text = feedEntrybarComponent.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            String schema = feedEntrybarComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            return new j47(text, schema, null, c77Var, 4, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
+            Integer type = feedContentColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new t57(type.intValue(), feedContentColor.day, feedContentColor.night);
         }
-        return (j47) invokeLL.objValue;
+        return (t57) invokeL.objValue;
+    }
+
+    public static final f77 c(FeedContentText feedContentText) {
+        InterceptResult invokeL;
+        t57 t57Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
+            String str = feedContentText.text;
+            if (str == null) {
+                str = "";
+            }
+            FeedContentColor feedContentColor = feedContentText.color;
+            t57 t57Var2 = null;
+            if (feedContentColor != null) {
+                t57Var = b(feedContentColor);
+            } else {
+                t57Var = null;
+            }
+            FeedContentColor feedContentColor2 = feedContentText.bg_color;
+            if (feedContentColor2 != null) {
+                t57Var2 = b(feedContentColor2);
+            }
+            return new f77(str, t57Var, t57Var2);
+        }
+        return (f77) invokeL.objValue;
     }
 }

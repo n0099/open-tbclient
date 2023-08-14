@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mx4 implements pk6 {
+public class mx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class mx4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public mx4() {
@@ -50,27 +50,27 @@ public class mx4 implements pk6 {
         }
     }
 
-    public jca c(WebView webView, String str, String str2) {
+    public kca c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             HybridLog.getInstance().w(str, str2);
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    public jca d(WebView webView, HashMap<String, String> hashMap) {
+    public kca d(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (hashMap != null && hashMap.get("result") != null) {
-                jcaVar.o(hashMap.get("result"));
+                kcaVar.o(hashMap.get("result"));
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 }

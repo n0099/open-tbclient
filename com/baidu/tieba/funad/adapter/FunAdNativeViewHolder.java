@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cv7;
-import com.baidu.tieba.ev7;
+import com.baidu.tieba.dv7;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.tieba.funad.view.FunAbsAdView;
-import com.baidu.tieba.gv7;
-import com.baidu.tieba.kv7;
-import com.baidu.tieba.oba;
+import com.baidu.tieba.fv7;
+import com.baidu.tieba.hv7;
+import com.baidu.tieba.lv7;
+import com.baidu.tieba.pba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,33 +43,33 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     public String h;
 
     /* loaded from: classes6.dex */
-    public static class a implements cv7.h {
+    public static class a implements dv7.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<FunAdNativeViewHolder> a;
         public final int b;
-        public final oba c;
+        public final pba c;
 
-        @Override // com.baidu.tieba.cv7.h
+        @Override // com.baidu.tieba.dv7.h
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.cv7.h
+        @Override // com.baidu.tieba.dv7.h
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             }
         }
 
-        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, oba obaVar) {
+        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, pba pbaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), obaVar};
+                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), pbaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -81,10 +81,10 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
             this.a = new WeakReference<>(funAdNativeViewHolder);
             this.b = i;
-            this.c = obaVar;
+            this.c = pbaVar;
         }
 
-        @Override // com.baidu.tieba.cv7.h
+        @Override // com.baidu.tieba.dv7.h
         public void onAdClicked(String str, String str2, String str3) {
             FunAdNativeViewHolder funAdNativeViewHolder;
             Interceptable interceptable = $ic;
@@ -94,14 +94,14 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, funAdNativeViewHolder.g()).param("obj_type", funAdNativeViewHolder.f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
             if ("a006".equals(funAdNativeViewHolder.f())) {
                 param.param(TiebaStatic.Params.OBJ_PARAM3, this.b);
-                param.param("obj_param1", ev7.a);
+                param.param("obj_param1", fv7.a);
             }
-            kv7.a(param, this.c);
-            kv7.N(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, funAdNativeViewHolder.f(), this.c);
+            lv7.a(param, this.c);
+            lv7.N(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, funAdNativeViewHolder.f(), this.c);
             TiebaStatic.log(param);
         }
 
-        @Override // com.baidu.tieba.cv7.h
+        @Override // com.baidu.tieba.dv7.h
         public void onAdShow(String str, String str2, String str3) {
             FunAdNativeViewHolder funAdNativeViewHolder;
             Interceptable interceptable = $ic;
@@ -114,14 +114,14 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             statisticItem.param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, funAdNativeViewHolder.g()).param("obj_type", funAdNativeViewHolder.f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
             if ("a006".equals(funAdNativeViewHolder.f())) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.b);
-                statisticItem.param("obj_param1", ev7.a);
+                statisticItem.param("obj_param1", fv7.a);
             }
-            kv7.a(statisticItem, this.c);
-            kv7.N(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, funAdNativeViewHolder.f(), this.c);
+            lv7.a(statisticItem, this.c);
+            lv7.N(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, funAdNativeViewHolder.f(), this.c);
             TiebaStatic.log(statisticItem);
         }
 
-        @Override // com.baidu.tieba.cv7.h
+        @Override // com.baidu.tieba.dv7.h
         public void onAdError(String str) {
             FunAdNativeViewHolder funAdNativeViewHolder;
             Interceptable interceptable = $ic;
@@ -130,10 +130,10 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, funAdNativeViewHolder.g()).param("obj_type", funAdNativeViewHolder.f()).param("obj_locate", 1);
             if ("a006".equals(funAdNativeViewHolder.f())) {
-                param.param("obj_param1", ev7.a);
+                param.param("obj_param1", fv7.a);
             }
-            kv7.a(param, this.c);
-            kv7.N(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, funAdNativeViewHolder.f(), this.c);
+            lv7.a(param, this.c);
+            lv7.N(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, funAdNativeViewHolder.f(), this.c);
             TiebaStatic.log(param);
         }
     }
@@ -165,7 +165,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, funNativeAd2)) == null) {
-            if (kv7.f(funNativeAd2) == null && kv7.e(funNativeAd2) == null) {
+            if (lv7.f(funNativeAd2) == null && lv7.e(funNativeAd2) == null) {
                 return false;
             }
             return true;
@@ -273,45 +273,45 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         return (String) invokeV.objValue;
     }
 
-    public void n(@NonNull oba obaVar, int i) {
+    public void n(@NonNull pba pbaVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, obaVar, i) == null) {
-            Object e = obaVar.e();
+        if (interceptable == null || interceptable.invokeLI(1048588, this, pbaVar, i) == null) {
+            Object e = pbaVar.e();
             if (e == null) {
-                e = cv7.m().n(this.b, this.d);
-                obaVar.o(e);
+                e = dv7.m().n(this.b, this.d);
+                pbaVar.o(e);
                 if (!TextUtils.isEmpty(this.g) && e != null) {
                     FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                     FunNativeAd2 funNativeAd2 = (FunNativeAd2) e;
                     StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append(kv7.s(funNativeAd2));
+                    stringBuffer.append(lv7.s(funNativeAd2));
                     stringBuffer.append("_");
-                    stringBuffer.append(kv7.l(funNativeAd2));
+                    stringBuffer.append(lv7.l(funNativeAd2));
                     stringBuffer.append("_");
-                    stringBuffer.append(kv7.i(funNativeAd2));
+                    stringBuffer.append(lv7.i(funNativeAd2));
                     funAdHistoryData.setFunAdKey(stringBuffer.toString());
                     funAdHistoryData.setShowTime(System.currentTimeMillis() / 1000);
-                    gv7.f().a(this.g, funAdHistoryData);
+                    hv7.f().a(this.g, funAdHistoryData);
                 }
             }
             Object obj = e;
             if (obj == null) {
                 this.c.d(8);
                 if ("a006".equals(f())) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", ev7.a));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", fv7.a));
                     return;
                 }
                 return;
             }
             if ("a006".equals(f())) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", ev7.a));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", fv7.a));
             }
             this.c.d(0);
-            this.c.f(obaVar, this.b);
+            this.c.f(pbaVar, this.b);
             this.c.e(this.a);
             FunNativeAd2 funNativeAd22 = (FunNativeAd2) obj;
             ViewGroup c = this.c.c(funNativeAd22);
-            cv7.m().E(this.b, obj, new a(this, i, obaVar), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
+            dv7.m().E(this.b, obj, new a(this, i, pbaVar), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
             if (b(funNativeAd22) && c != null && (c.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) c.getParent();
                 if (viewGroup.getChildCount() > 1) {

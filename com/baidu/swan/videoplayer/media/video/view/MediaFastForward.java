@@ -75,10 +75,10 @@ public final class MediaFastForward extends FrameLayout {
         this.a = inflate;
         this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091009);
         this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09145c);
-        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d71);
+        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d77);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070877), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070876));
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081494);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081497);
         this.a.setLayoutParams(layoutParams);
     }
 

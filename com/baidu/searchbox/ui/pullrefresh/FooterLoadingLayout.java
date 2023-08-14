@@ -22,8 +22,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da2);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da1);
+        this.mLoadingView = (LoadingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da8);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da7);
         this.mHintView = textView;
         textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06094b));
         setState(ILoadingLayout.State.RESET);
@@ -31,7 +31,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     public void showTopDivider(boolean z) {
         int i;
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925eb);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925f1);
         if (findViewById != null) {
             if (z) {
                 i = 0;
@@ -64,7 +64,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout, com.baidu.searchbox.ui.pullrefresh.ILoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da0);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da6);
         if (findViewById != null) {
             return findViewById.getHeight();
         }

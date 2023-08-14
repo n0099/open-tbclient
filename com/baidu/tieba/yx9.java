@@ -1,36 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes8.dex */
-public interface yx9 extends IAdBaseAsyncController {
-    View b(@NonNull String str, boolean z);
+public interface yx9<T> {
+    void a(int i, int i2);
 
-    AdvertAppInfo d(@NonNull String str);
+    void c(int i, int i2, xx9 xx9Var, T t);
 
-    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
+    void d(int i, int i2, int i3, xx9 xx9Var, T t);
 
-    boolean f(@NonNull String str);
-
-    void g(@NonNull wu5 wu5Var);
-
-    int getAdCount();
-
-    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
-
-    void j(@NonNull String str);
-
-    void k(@NonNull AdvertAppInfo advertAppInfo);
-
-    void l();
-
-    boolean n();
-
-    void o(String str);
-
-    void onDestroy();
+    void e(int i, int i2, T t, xx9 xx9Var, T t2);
 }

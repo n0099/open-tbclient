@@ -52,13 +52,13 @@ public abstract class xa3 extends ua3 {
 
         /* renamed from: com.baidu.tieba.xa3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0538a implements Runnable {
+        public class RunnableC0540a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rp3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0538a(a aVar, rp3 rp3Var) {
+            public RunnableC0540a(a aVar, rp3 rp3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public abstract class xa3 extends ua3 {
                     if (z && !this.a.d("event_flag_force_post", false)) {
                         rp3Var.a(this.a);
                     } else {
-                        xa3.M().post(new RunnableC0538a(this, rp3Var));
+                        xa3.M().post(new RunnableC0540a(this, rp3Var));
                     }
                 }
             }

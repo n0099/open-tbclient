@@ -18,19 +18,19 @@ import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j58;
+import com.baidu.tieba.k58;
 import com.baidu.tieba.qg5;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.rx;
-import com.baidu.tieba.w79;
 import com.baidu.tieba.x79;
+import com.baidu.tieba.y79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x79>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<y79>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public w79 j;
-    public x79 k;
+    public x79 j;
+    public y79 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,18 +69,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qx
     /* renamed from: c */
-    public void onBindDataToView(x79 x79Var) {
+    public void onBindDataToView(y79 y79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x79Var) == null) {
-            this.k = x79Var;
-            w79 w79Var = this.j;
-            if (w79Var != null) {
-                w79Var.D(x79Var.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y79Var) == null) {
+            this.k = y79Var;
+            x79 x79Var = this.j;
+            if (x79Var != null) {
+                x79Var.D(y79Var.a);
             }
-            this.i.setData(x79Var.b);
-            if (x79Var.c) {
+            this.i.setData(y79Var.b);
+            if (y79Var.c) {
                 this.d.setVisibility(0);
-                j58.q();
+                k58.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0918eb && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            j58.j();
+            k58.j();
         }
     }
 
@@ -146,14 +146,14 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06eb, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092736);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092735);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09273c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09273b);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09121e);
             this.d = findViewById(R.id.obfuscated_res_0x7f0918eb);
             this.g = findViewById(R.id.obfuscated_res_0x7f0918e9);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918e8);
             this.b = findViewById(R.id.obfuscated_res_0x7f0914a7);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091e81);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091e87);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -164,7 +164,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.j = new w79(context, qg5.l, 1);
+            this.j = new x79(context, qg5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -174,13 +174,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x7
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            x79 x79Var = this.k;
-            if (x79Var != null) {
-                x79Var.a = z;
+            y79 y79Var = this.k;
+            if (y79Var != null) {
+                y79Var.a = z;
             }
-            w79 w79Var = this.j;
-            if (w79Var != null) {
-                w79Var.D(z);
+            x79 x79Var = this.j;
+            if (x79Var != null) {
+                x79Var.D(z);
             }
         }
     }

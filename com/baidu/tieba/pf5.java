@@ -189,9 +189,9 @@ public class pf5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
             if (i == 0) {
-                fka.d(this.d, i2);
+                gka.d(this.d, i2);
             } else {
-                fka.b(this.d, i2);
+                gka.b(this.d, i2);
             }
         }
     }

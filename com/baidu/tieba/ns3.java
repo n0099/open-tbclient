@@ -50,12 +50,12 @@ public class ns3 extends a23 {
 
         /* renamed from: com.baidu.tieba.ns3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0411a implements rp3<String> {
+        public class C0410a implements rp3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0411a(a aVar) {
+            public C0410a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class ns3 extends a23 {
                 if (!wf3.h(bg3Var)) {
                     wf3.q(bg3Var, this.a, this.b);
                 } else {
-                    ns3.z(this.c, new C0411a(this));
+                    ns3.z(this.c, new C0410a(this));
                 }
             }
         }

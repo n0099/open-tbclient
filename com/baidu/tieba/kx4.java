@@ -31,14 +31,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kx4 implements pk6 {
+public class kx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
     public final boolean e() {
@@ -50,9 +50,9 @@ public class kx4 implements pk6 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     static {
@@ -85,7 +85,7 @@ public class kx4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -133,65 +133,65 @@ public class kx4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public jca c(WebView webView) {
+    public kca c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             try {
-                ck6.a();
+                dk6.a();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca i(WebView webView) {
+    public kca i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             try {
-                ck6.c();
+                dk6.c();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca d(WebView webView) {
+    public kca d(WebView webView) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("version", TbConfig.getVersion());
                 jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-                jSONObject.put("hybridVersion", ck6.d());
+                jSONObject.put("hybridVersion", dk6.d());
                 if (QuickWebViewSwitch.getInOn()) {
                     i = 1;
                 } else {
@@ -203,24 +203,24 @@ public class kx4 implements pk6 {
                     jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
                 }
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
+                kcaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca f(WebView webView, int i) {
+    public kca f(WebView webView, int i) {
         InterceptResult invokeLI;
         boolean z;
         TriState triState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, webView, i)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             if (i == 1) {
                 z = true;
@@ -236,23 +236,23 @@ public class kx4 implements pk6 {
                 QuickWebViewSwitch.setState(triState);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (jca) invokeLI.objValue;
+        return (kca) invokeLI.objValue;
     }
 
-    public jca g(WebView webView, String str) {
+    public kca g(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             try {
                 if (StringUtils.isNull(str)) {
@@ -265,23 +265,23 @@ public class kx4 implements pk6 {
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca h(WebView webView, ArrayList<JSONObject> arrayList) {
+    public kca h(WebView webView, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, arrayList)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!e()) {
-                return jcaVar;
+                return kcaVar;
             }
             try {
                 vw4 vw4Var = new vw4();
@@ -300,12 +300,12 @@ public class kx4 implements pk6 {
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                jcaVar.o(jSONObject2.toString());
+                kcaVar.o(jSONObject2.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 }

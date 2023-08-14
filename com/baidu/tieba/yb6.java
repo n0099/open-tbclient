@@ -14,8 +14,8 @@ public class yb6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public h96 a;
-    public h96 b;
+    public i96 a;
+    public i96 b;
 
     static {
         InterceptResult invokeClinit;

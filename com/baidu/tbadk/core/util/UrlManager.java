@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tieba.ge5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.p06;
 import com.baidu.tieba.pe5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -292,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new o06(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new p06(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }

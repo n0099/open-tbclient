@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +14,9 @@ public class ky9 {
     public String a;
     public String b;
     public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public ky9() {
         Interceptable interceptable = $ic;
@@ -36,9 +40,14 @@ public class ky9 {
                 return null;
             }
             ky9 ky9Var = new ky9();
-            ky9Var.a = jSONObject.optString("apk_name");
-            ky9Var.b = jSONObject.optString("apk_url");
-            ky9Var.c = jSONObject.optString("download_key");
+            jSONObject.optString("brand_name");
+            ky9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            ky9Var.b = jSONObject.optString("button_scheme");
+            ky9Var.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            ky9Var.d = jSONObject.optString("operate_recommend_reason");
+            ky9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
+            ky9Var.f = jSONObject.optInt("layout_upgrade", 0);
             return ky9Var;
         }
         return (ky9) invokeL.objValue;

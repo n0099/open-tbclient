@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.lb6;
 import com.baidu.tieba.mb6;
+import com.baidu.tieba.nb6;
 import com.baidu.tieba.om5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaRecentHistoryModel a;
-    public mb6 b;
+    public nb6 b;
     public int c;
     public om5 d;
     public i95.g e;
@@ -124,7 +124,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
-        public void a(boolean z, List<lb6> list) {
+        public void a(boolean z, List<mb6> list) {
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
@@ -212,9 +212,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            mb6 mb6Var = this.b;
-            if (mb6Var != null) {
-                mb6Var.k(i);
+            nb6 nb6Var = this.b;
+            if (nb6Var != null) {
+                nb6Var.k(i);
             }
         }
     }
@@ -261,9 +261,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = new AlaRecentHistoryModel(getPageContext(), this.c, this.g);
-            mb6 mb6Var = new mb6(getPageContext(), this.c);
-            this.b = mb6Var;
-            mb6Var.p(this.e);
+            nb6 nb6Var = new nb6(getPageContext(), this.c);
+            this.b = nb6Var;
+            nb6Var.p(this.e);
             this.b.r(this.f);
             O1();
             if (this.c == 0) {
@@ -283,9 +283,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            mb6 mb6Var = this.b;
-            if (mb6Var != null) {
-                mb6Var.l();
+            nb6 nb6Var = this.b;
+            if (nb6Var != null) {
+                nb6Var.l();
             }
         }
     }

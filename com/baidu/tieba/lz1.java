@@ -666,7 +666,7 @@ public class lz1 {
                 }
                 textView.setText(str3);
             }
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0925a3);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0925a9);
             if (guideType == ShowFavoriteGuideApi.GuideType.TIPS) {
                 if (findViewById != null) {
                     int[] iArr = new int[2];

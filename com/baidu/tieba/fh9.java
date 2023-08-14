@@ -1,89 +1,175 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
 /* loaded from: classes5.dex */
-public class fh9 extends pg9<ae9, PbLoadMoreItemViewHolder> {
+public class fh9 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public View.OnClickListener h;
-    public int i;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public long f;
+    public MetaData g;
+    public HashMap<String, MetaData> h;
+    public boolean i;
+    public String j;
+    public String k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public NegativeFeedBackData o;
+    public YyExtData p;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fh9(ul9 ul9Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(ul9Var, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ul9Var, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ul9) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764274, "Lcom/baidu/tieba/fh9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947764274, "Lcom/baidu/tieba/fh9;");
                 return;
             }
         }
-        this.g = bdUniqueId2;
-        this.i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        q = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: u */
-    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public fh9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.g);
-        }
-        return (PbLoadMoreItemViewHolder) invokeL.objValue;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.h = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.pg9, com.baidu.tieba.lm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (ae9) obj, (PbLoadMoreItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, ae9 ae9Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae9Var, pbLoadMoreItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ae9Var, (ae9) pbLoadMoreItemViewHolder);
-            if (ae9Var.b) {
-                pbLoadMoreItemViewHolder.e(ae9Var.a);
-            } else {
-                pbLoadMoreItemViewHolder.d(ae9Var.a, this.i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            pbLoadMoreItemViewHolder.c(this.h);
-            pbLoadMoreItemViewHolder.a();
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            this.b = 0;
+            this.c = null;
+            this.d = null;
+            this.e = 0;
+            this.f = 0L;
+            this.g = null;
+            this.h = null;
+            this.i = false;
+            this.j = null;
+            this.k = null;
+            this.n = false;
+            this.l = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return q;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(AlaLiveInfo alaLiveInfo) {
+        boolean z;
+        HashMap<String, MetaData> hashMap;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
+            this.a = alaLiveInfo.user_info.user_name;
+            this.c = alaLiveInfo.description;
+            String str = alaLiveInfo.cover_wide;
+            this.d = str;
+            if (str == null || TextUtils.isEmpty(str)) {
+                this.d = alaLiveInfo.cover;
+            }
+            this.b = alaLiveInfo.audience_count.intValue();
+            this.e = alaLiveInfo.live_status.intValue();
+            this.f = alaLiveInfo.live_id.longValue();
+            if (alaLiveInfo.live_from.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.i = z;
+            this.j = alaLiveInfo.third_live_type;
+            this.k = alaLiveInfo.third_room_id;
+            YyExtData yyExtData = new YyExtData();
+            this.p = yyExtData;
+            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            Long l = alaLiveInfo.user_info.user_id;
+            if (l != null && l.longValue() > 0 && (hashMap = this.h) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.g = metaData;
+                metaData.setIsLike(metaData.hadConcerned());
+            }
+            List<DislikeInfo> list = alaLiveInfo.dislike_info;
+            if (ListUtils.getCount(list) > 0) {
+                SparseArray<String> sparseArray = new SparseArray<>();
+                SparseArray<String> sparseArray2 = new SparseArray<>();
+                for (DislikeInfo dislikeInfo : list) {
+                    if (dislikeInfo != null) {
+                        sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                        sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                    }
+                }
+                NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+                this.o = negativeFeedBackData;
+                negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+                this.o.feedBackExtraMap = sparseArray2;
+            } else {
+                this.o = null;
+            }
+            this.l = true;
+        }
+    }
+
+    public void c(HashMap<String, MetaData> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.h = hashMap;
+        }
     }
 }

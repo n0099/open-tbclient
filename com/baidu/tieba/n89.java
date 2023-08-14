@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -10,6 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.ky;
 import com.baidu.tieba.vy;
@@ -19,17 +21,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n89 extends i89<w35, ThreadCardViewHolder<ThreadData>> {
+public class n89 extends j89<w35, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
     public boolean e;
     public en f;
-    public bn6<ThreadData> g;
+    public cn6<ThreadData> g;
 
     /* loaded from: classes7.dex */
-    public class a extends bn6<ThreadData> {
+    public class a extends cn6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n89 b;
@@ -53,12 +55,12 @@ public class n89 extends i89<w35, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                um6.b().d(true);
+                vm6.b().d(true);
                 this.b.B(view2, threadData);
             }
         }
@@ -158,7 +160,14 @@ public class n89 extends i89<w35, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.f(w35Var.t);
                 threadCardViewHolder.b().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.b().q(this.g);
-                e89.c(this, w35Var);
+                f89.c(this, w35Var);
+                yx yxVar = (yx) threadCardViewHolder.b().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yxVar.f.d.getLayoutParams();
+                layoutParams.width = w35Var.u;
+                layoutParams.height = w35Var.v;
+                if (yxVar.f.d.getVisibility() != 8) {
+                    yxVar.f.d.setLayoutParams(layoutParams);
+                }
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -169,7 +178,10 @@ public class n89 extends i89<w35, ThreadCardViewHolder<ThreadData>> {
     public final void B(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-            e89.b(this, threadData);
+            f89.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                f89.e(threadData);
+            }
         }
     }
 
@@ -181,10 +193,10 @@ public class n89 extends i89<w35, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.d.getPageActivity(), false);
-            zx zxVar = new zx(this.d.getPageActivity());
-            zxVar.setFrom("index");
-            zxVar.y(this.e);
-            bVar.n(zxVar);
+            yx yxVar = new yx(this.d.getPageActivity());
+            yxVar.setFrom("index");
+            yxVar.x(this.e);
+            bVar.n(yxVar);
             ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.s(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);

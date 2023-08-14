@@ -96,7 +96,7 @@ public class nz0 extends kz0 implements View.OnClickListener {
             if (this.i == null) {
                 LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_kernel_error, null);
                 this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c98);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c9e);
                 this.j = textView;
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
@@ -115,7 +115,7 @@ public class nz0 extends kz0 implements View.OnClickListener {
         if (this.f == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0926f5);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0926fb);
             Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f09049a);
             this.h = button;
             button.setOnClickListener(this);
@@ -198,7 +198,7 @@ public class nz0 extends kz0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09049a || view2.getId() == R.id.obfuscated_res_0x7f091c98) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09049a || view2.getId() == R.id.obfuscated_res_0x7f091c9e) {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = u().n();
                     if (n != null && u().n1().a()) {

@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sy5;
+import com.baidu.tieba.ty5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public sy5 b;
+    public ty5 b;
     public View c;
     public int d;
     public int e;
@@ -484,11 +484,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(sy5 sy5Var) {
+    public void setRefreshViewAndListener(ty5 ty5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, sy5Var) == null) {
-            this.b = sy5Var;
-            this.c = sy5Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, ty5Var) == null) {
+            this.b = ty5Var;
+            this.c = ty5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);
@@ -656,9 +656,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            sy5 sy5Var = this.b;
-                            if (sy5Var != null) {
-                                sy5Var.b(this.c);
+                            ty5 ty5Var = this.b;
+                            if (ty5Var != null) {
+                                ty5Var.b(this.c);
                             }
                             return true;
                         }
@@ -714,9 +714,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            sy5 sy5Var = this.b;
-                            if (sy5Var != null) {
-                                sy5Var.b(this.c);
+                            ty5 ty5Var = this.b;
+                            if (ty5Var != null) {
+                                ty5Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -724,21 +724,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                sy5 sy5Var2 = this.b;
-                                if (sy5Var2 != null) {
-                                    sy5Var2.a(this.c);
+                                ty5 ty5Var2 = this.b;
+                                if (ty5Var2 != null) {
+                                    ty5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    sy5 sy5Var3 = this.b;
-                                    if (sy5Var3 != null) {
-                                        sy5Var3.a(this.c);
+                                    ty5 ty5Var3 = this.b;
+                                    if (ty5Var3 != null) {
+                                        ty5Var3.a(this.c);
                                     }
                                 } else {
-                                    sy5 sy5Var4 = this.b;
-                                    if (sy5Var4 != null) {
-                                        sy5Var4.b(this.c);
+                                    ty5 ty5Var4 = this.b;
+                                    if (ty5Var4 != null) {
+                                        ty5Var4.b(this.c);
                                     }
                                 }
                             }

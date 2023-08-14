@@ -34,9 +34,9 @@ import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.b05;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.im;
-import com.baidu.tieba.j06;
+import com.baidu.tieba.k06;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
@@ -64,11 +64,11 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
     public String i;
     public boolean j;
     public boolean k;
-    public bn6<q05> l;
+    public cn6<q05> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public j06 p;
+    public k06 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
@@ -105,7 +105,7 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bn6<q05> subClickListener;
+            cn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -140,7 +140,7 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bn6<q05> subClickListener;
+            cn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("1");
@@ -520,10 +520,10 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, bn6Var) == null) {
-            this.l = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, cn6Var) == null) {
+            this.l = cn6Var;
         }
     }
 
@@ -586,13 +586,13 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
         return invokeL.booleanValue;
     }
 
-    public bn6<q05> getSubClickListener() {
+    public cn6<q05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.l;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     public final void j(ThreadData threadData) {
@@ -678,7 +678,7 @@ public class NewGridImageLayout extends LinearLayout implements qx<q05>, View.On
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new j06();
+            this.p = new k06();
             int i = BdUtilHelper.getScreenDimensions(this.g)[0];
             this.p.J = (i - (BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
             this.p.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);

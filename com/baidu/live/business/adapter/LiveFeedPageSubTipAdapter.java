@@ -109,7 +109,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d05d4, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(inflate);
-        viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092714);
+        viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09271a);
         return viewHolder;
     }
 

@@ -37,25 +37,25 @@ import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.af8;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.bf8;
 import com.baidu.tieba.ep5;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
 import com.baidu.tieba.j75;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
 import com.baidu.tieba.lk5;
-import com.baidu.tieba.oca;
-import com.baidu.tieba.p98;
+import com.baidu.tieba.pca;
 import com.baidu.tieba.pz4;
+import com.baidu.tieba.q98;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.ub8;
-import com.baidu.tieba.ue7;
 import com.baidu.tieba.uw4;
 import com.baidu.tieba.v65;
+import com.baidu.tieba.vb8;
+import com.baidu.tieba.ve7;
 import com.baidu.tieba.wallet.WalletStaticInit;
 import com.baidu.tieba.yp5;
-import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -231,11 +231,11 @@ public class LaunchStatic {
         b();
         d();
         c();
-        oca.a();
-        af8.a();
-        p98.a();
+        pca.a();
+        bf8.a();
+        q98.a();
         ImMemoryCacheRegister.i();
-        ub8.i();
+        vb8.i();
         uw4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
@@ -255,8 +255,8 @@ public class LaunchStatic {
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             lk5.d().f();
-            zaa.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, zaa.a(TbConfig.GET_PAY_CONFIG, 303039));
+            aba.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, aba.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -279,7 +279,7 @@ public class LaunchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(TbadkCoreApplication.getInst(), ue7.a());
+            Fresco.initialize(TbadkCoreApplication.getInst(), ve7.a());
         }
     }
 

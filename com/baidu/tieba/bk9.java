@@ -1,136 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.bot.RequestBotSkillHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes5.dex */
-public final class bk9 {
+public class bk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<rba> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public View b;
-    public TBLottieAnimationView c;
-    public TextView d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947647993, "Lcom/baidu/tieba/bk9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947647993, "Lcom/baidu/tieba/bk9;");
-        }
-    }
-
-    public bk9(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647993, "Lcom/baidu/tieba/bk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947647993, "Lcom/baidu/tieba/bk9;");
                 return;
             }
         }
-        this.a = activity;
+        a = new ArrayList();
     }
 
-    public final void b(int i) {
+    public static void a(TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull String str, long j, @NonNull String str2, @NonNull String str3, @NonNull String str4, FastRequest.b<Void> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
-            }
-            TextView textView = this.d;
-            if (textView != null) {
-                EMManager.from(textView).setTextColor(R.color.CAM_X0108);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, Long.valueOf(j), str2, str3, str4, bVar}) == null) {
+            new RequestBotSkillHelper(tbPageContext).b(new RequestBotSkillHelper.BotRequest(str, j, str2, str3, str4), bVar);
         }
     }
 
-    public final void a() {
+    public static void b(PbModel pbModel, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
-                tBLottieAnimationView.cancelAnimation();
-            }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            DefaultLog.getInstance().i("PbFragmentLoadingManager", "隐藏最上层loading");
+        if ((interceptable != null && interceptable.invokeLL(65538, null, pbModel, str) != null) || pbModel == null) {
+            return;
         }
+        td9 s1 = pbModel.s1();
+        td9 td9Var = new td9();
+        ArrayList<rba> F = td9Var.F();
+        rba rbaVar = new rba();
+        rbaVar.o1(System.currentTimeMillis());
+        ArrayList arrayList = new ArrayList();
+        PbContent.Builder builder = new PbContent.Builder();
+        List<RobotSkillInfo> list = s1.K().robot_skill_info;
+        List<RobotSkill> list2 = s1.K().bottom_bar_robot_skill;
+        if (list != null && list2 != null) {
+            builder.text = BotEntranceManager.h().c(list, list2).style_conf.android_extra.bot_loading_content;
+        }
+        if (TextUtils.isEmpty(builder.text)) {
+            builder.text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ee);
+        }
+        arrayList.add(builder.build(true));
+        rbaVar.k1(new TbRichText(arrayList, pbModel.M1(), false));
+        rbaVar.Q0(1);
+        if (s1 != null && s1.y() != null) {
+            rbaVar.S0(s1.F().size() + 1);
+        }
+        if (s1 != null && s1.O() != null) {
+            td9Var.R0(s1.O());
+            td9Var.O().setReply_num(td9Var.O().getReply_num() + 1);
+        }
+        MetaData metaData = new MetaData();
+        UserData V = pbModel.s1().V();
+        metaData.setName_show(V.getName_show());
+        metaData.setPortrait(V.getPortrait());
+        metaData.setUserId(V.getUserId());
+        metaData.setLevel_id(V.getLevel_id());
+        metaData.setLevelName(V.getLevelName());
+        metaData.setIconInfo(V.getIconInfo());
+        rbaVar.N0(metaData);
+        rbaVar.O0(str);
+        F.clear();
+        F.add(rbaVar);
+        a.add(rbaVar);
+        pbModel.D2(td9Var, 8, false, 0, "", false, 0, 0L, 0L, true);
     }
 
-    public final Activity getActivity() {
-        InterceptResult invokeV;
+    public static String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            return hi.c(str + str2 + j);
         }
-        return (Activity) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final void c(View view2) {
+    public static void d(String str, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                Intrinsics.checkNotNull(tBLottieAnimationView);
-                if (tBLottieAnimationView.isAnimating()) {
+        if ((interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, i) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            for (rba rbaVar : a) {
+                if (str.equals(rbaVar.w()) && rbaVar.l() == 1) {
+                    ArrayList arrayList = new ArrayList();
+                    PbContent.Builder builder = new PbContent.Builder();
+                    builder.text = str2;
+                    arrayList.add(builder.build(true));
+                    rbaVar.k1(new TbRichText(arrayList, "", false));
+                    rbaVar.Y0(str3);
+                    rbaVar.Q0(i);
                     return;
                 }
             }
-            if (view2 != null) {
-                this.b = view2;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0927f6);
-                this.c = tBLottieAnimationView2;
-                if (tBLottieAnimationView2 != null) {
-                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
-                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
-                    if (tBLottieAnimationView3 != null) {
-                        tBLottieAnimationView3.setRepeatCount(-1);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
-                    if (tBLottieAnimationView4 != null) {
-                        tBLottieAnimationView4.setSpeed(1.2f);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
-                    if (tBLottieAnimationView5 != null) {
-                        tBLottieAnimationView5.playAnimation();
-                    }
-                }
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927f7);
-            }
-            DefaultLog.getInstance().i("PbFragmentLoadingManager", "显示最上层loading");
+        }
+    }
+
+    public static void e(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), str).show();
         }
     }
 }

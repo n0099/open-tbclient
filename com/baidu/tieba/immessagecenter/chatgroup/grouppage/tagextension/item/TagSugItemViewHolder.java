@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn8;
 import com.baidu.tieba.gn8;
+import com.baidu.tieba.hn8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
@@ -21,8 +21,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputV
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagSugItemViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.ym8;
+import com.baidu.tieba.nm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,16 +33,16 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
-    public mm8 d;
+    public nm8 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TagSugItemViewHolder(View view2, final gn8 gn8Var) {
+    public TagSugItemViewHolder(View view2, final hn8 hn8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, gn8Var};
+            Object[] objArr = {view2, hn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,9 +53,9 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237f);
-        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09237e)).setVisibility(8);
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dm8
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092385);
+        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092384)).setVisibility(8);
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.em8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,25 +63,25 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
             public final void onClick(View view3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                    TagSugItemViewHolder.this.q(gn8Var, view3);
+                    TagSugItemViewHolder.this.q(hn8Var, view3);
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void g(fn8 fn8Var, Context context, int i) {
+    public void g(gn8 gn8Var, Context context, int i) {
         long j;
         long j2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, fn8Var, context, i) == null) {
-            super.g(fn8Var, context, i);
-            if (fn8Var instanceof mm8) {
-                mm8 mm8Var = (mm8) fn8Var;
-                this.d = mm8Var;
-                this.c.setText(mm8Var.c());
-                String b = ym8.b(this.d.b());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, gn8Var, context, i) == null) {
+            super.g(gn8Var, context, i);
+            if (gn8Var instanceof nm8) {
+                nm8 nm8Var = (nm8) gn8Var;
+                this.d = nm8Var;
+                this.c.setText(nm8Var.c());
+                String b = zm8.b(this.d.b());
                 AbilityItem b2 = this.d.b();
                 String m = m();
                 String o = o();
@@ -100,7 +100,7 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
                 } else {
                     str = "";
                 }
-                ym8.f("c15300", 1, b2, m, o, j, j2, str, b);
+                zm8.f("c15300", 1, b2, m, o, j, j2, str, b);
                 r(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -183,13 +183,13 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
         return (AbilityItem.Style) invokeLI.objValue;
     }
 
-    public /* synthetic */ void q(gn8 gn8Var, View view2) {
+    public /* synthetic */ void q(hn8 hn8Var, View view2) {
         long j;
         String str;
-        if (gn8Var != null && this.d != null) {
-            gn8Var.a(getAdapterPosition(), true, this.d.b());
+        if (hn8Var != null && this.d != null) {
+            hn8Var.a(getAdapterPosition(), true, this.d.b());
             r(TbadkCoreApplication.getInst().getSkinType());
-            String b = ym8.b(this.d.b());
+            String b = zm8.b(this.d.b());
             AbilityItem b2 = this.d.b();
             String m = m();
             String o = o();
@@ -208,15 +208,15 @@ public class TagSugItemViewHolder extends BaseTagItemViewHolder {
             } else {
                 str = "";
             }
-            ym8.f("c15300", 2, b2, m, o, j, j3, str, b);
+            zm8.f("c15300", 2, b2, m, o, j, j3, str, b);
         }
     }
 
     public final void r(int i) {
-        mm8 mm8Var;
+        nm8 nm8Var;
         AbilityItem.Style p;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || (mm8Var = this.d) == null || mm8Var.b().getStyleConf() == null || (p = p(this.d.b().getStyleConf(), i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || (nm8Var = this.d) == null || nm8Var.b().getStyleConf() == null || (p = p(this.d.b().getStyleConf(), i)) == null) {
             return;
         }
         if (p.getContentColor() != null && p.getBackgroundColor() != null && !ColorUtils.isColorInvalid(ColorUtils.parseColor(p.getContentColor())) && !ColorUtils.isColorInvalid(ColorUtils.parseColor(p.getBackgroundColor()))) {

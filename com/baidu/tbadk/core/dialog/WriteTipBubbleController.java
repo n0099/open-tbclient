@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.kr6;
+import com.baidu.tieba.lr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public kr6 b;
+    public lr6 b;
     public b c;
 
     /* loaded from: classes4.dex */
@@ -154,10 +154,10 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        kr6 kr6Var;
+        lr6 lr6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (kr6Var = this.b) != null) {
-            kr6Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lr6Var = this.b) != null) {
+            lr6Var.h();
         }
     }
 
@@ -165,9 +165,9 @@ public class WriteTipBubbleController {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !bi.isEmpty(str) && !bi.isEmpty(str2)) {
             if (this.b == null) {
-                kr6 kr6Var = new kr6(this.a, view2);
-                this.b = kr6Var;
-                kr6Var.L(R.drawable.pic_post_findlink);
+                lr6 lr6Var = new lr6(this.a, view2);
+                this.b = lr6Var;
+                lr6Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);

@@ -40,13 +40,13 @@ public class zm2 {
 
         /* renamed from: com.baidu.tieba.zm2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0557a implements Runnable {
+        public class RunnableC0556a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xm2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0557a(a aVar, xm2 xm2Var) {
+            public RunnableC0556a(a aVar, xm2 xm2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0557a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0556a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

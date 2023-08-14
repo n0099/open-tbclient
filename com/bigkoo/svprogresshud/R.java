@@ -98,7 +98,7 @@ public final class R {
         public static final int size_image_bigloading = 0x7f0707d5;
         public static final int size_image_smallloading = 0x7f0707d6;
         public static final int size_minwidth_svprogresshuddefault = 0x7f0707d7;
-        public static final int textSize_svprogresshuddefault_msg = 0x7f070b23;
+        public static final int textSize_svprogresshuddefault_msg = 0x7f070b24;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -150,8 +150,8 @@ public final class R {
         public static final int circleProgressBar = 0x7f090718;
         public static final int ivBigLoading = 0x7f0911eb;
         public static final int ivSmallLoading = 0x7f0911ed;
-        public static final int sv_outmost_container = 0x7f0922ef;
-        public static final int tvMsg = 0x7f0926ab;
+        public static final int sv_outmost_container = 0x7f0922f5;
+        public static final int tvMsg = 0x7f0926b1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

@@ -24,7 +24,7 @@ import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tieba.el0;
 import com.baidu.tieba.k61;
-import com.baidu.tieba.u46;
+import com.baidu.tieba.v46;
 import com.baidu.tieba.yw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +41,7 @@ public abstract class BaseAdWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseAdWebView a;
     public Context b;
-    public u46 c;
+    public v46 c;
     public el0 d;
     public d e;
 
@@ -334,10 +334,10 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    public void setDownloadStartListener(u46 u46Var) {
+    public void setDownloadStartListener(v46 v46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, u46Var) == null) {
-            this.c = u46Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, v46Var) == null) {
+            this.c = v46Var;
         }
     }
 

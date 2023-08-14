@@ -25,8 +25,8 @@ public final class R {
         public static final int d20_loading_animation = 0x7f080568;
         public static final int d20_loading_bg = 0x7f080569;
         public static final int d20_selector_close = 0x7f08056a;
-        public static final int loading_progress = 0x7f080f64;
-        public static final int loading_progress_animation = 0x7f080f65;
+        public static final int loading_progress = 0x7f080f67;
+        public static final int loading_progress_animation = 0x7f080f68;
     }
 
     /* loaded from: classes4.dex */
@@ -34,7 +34,7 @@ public final class R {
         public static final int close = 0x7f09072f;
         public static final int loading_bar = 0x7f091631;
         public static final int message = 0x7f091740;
-        public static final int root_container = 0x7f091f73;
+        public static final int root_container = 0x7f091f79;
     }
 
     /* loaded from: classes4.dex */

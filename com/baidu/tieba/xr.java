@@ -30,13 +30,13 @@ public class xr {
 
         /* renamed from: com.baidu.tieba.xr$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0541a implements Runnable {
+        public class RunnableC0544a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0541a(a aVar, byte[] bArr) {
+            public RunnableC0544a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class xr {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0541a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0544a(this, bArr), "HandshakeRequest");
             }
         }
 

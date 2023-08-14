@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
-import com.baidu.tieba.era;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.pqa;
+import com.baidu.tieba.fra;
+import com.baidu.tieba.nx9;
+import com.baidu.tieba.qqa;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.yv6;
+import com.baidu.tieba.zv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public final class DownloadFloatBall {
     public final List<String> c;
     public final Lazy d;
     public final Lazy e;
-    public yv6 f;
+    public zv6 f;
     public View.OnClickListener g;
     public View.OnClickListener h;
 
@@ -93,7 +93,7 @@ public final class DownloadFloatBall {
             }
 
             /* loaded from: classes5.dex */
-            public static final class a implements pqa {
+            public static final class a implements qqa {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadFloatBall a;
@@ -116,7 +116,7 @@ public final class DownloadFloatBall {
                     this.a = downloadFloatBall;
                 }
 
-                @Override // com.baidu.tieba.pqa
+                @Override // com.baidu.tieba.qqa
                 public void a(boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -145,10 +145,10 @@ public final class DownloadFloatBall {
                 return (FoldCloseEdgeFloat) invokeV.objValue;
             }
         });
-        this.f = new yv6();
+        this.f = new zv6();
     }
 
-    public final void m(yv6 data) {
+    public final void m(zv6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -182,13 +182,13 @@ public final class DownloadFloatBall {
         q(TbadkCoreStatisticKey.DOWNLOAD_FLOAT_BALL_SHOW, false, z);
     }
 
-    public final yv6 b() {
+    public final zv6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (yv6) invokeV.objValue;
+        return (zv6) invokeV.objValue;
     }
 
     public final FoldCloseEdgeFloat d() {
@@ -243,68 +243,68 @@ public final class DownloadFloatBall {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.era) type: VIRTUAL call: com.baidu.tieba.era.e():int), ('%' char)] */
-    public final era c() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.fra) type: VIRTUAL call: com.baidu.tieba.fra.e():int), ('%' char)] */
+    public final fra c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            era eraVar = new era();
+            fra fraVar = new fra();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            eraVar.h(c);
-            eraVar.j(R.drawable.progress_ball_dynamic);
-            eraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            fraVar.h(c);
+            fraVar.j(R.drawable.progress_ball_dynamic);
+            fraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
             StringBuilder sb = new StringBuilder();
-            sb.append(eraVar.e());
+            sb.append(fraVar.e());
             sb.append('%');
-            eraVar.m(new SpannableString(sb.toString()));
-            eraVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, eraVar.f().length() - 1, 17);
-            return eraVar;
+            fraVar.m(new SpannableString(sb.toString()));
+            fraVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, fraVar.f().length() - 1, 17);
+            return fraVar;
         }
-        return (era) invokeV.objValue;
+        return (fra) invokeV.objValue;
     }
 
-    public final era e() {
+    public final fra e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            era eraVar = new era();
+            fra fraVar = new fra();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            eraVar.h(c);
-            eraVar.i(R.color.CAM_X0302);
-            eraVar.l(100);
-            eraVar.m(new SpannableString(this.f.b()));
-            return eraVar;
+            fraVar.h(c);
+            fraVar.i(R.color.CAM_X0302);
+            fraVar.l(100);
+            fraVar.m(new SpannableString(this.f.b()));
+            return fraVar;
         }
-        return (era) invokeV.objValue;
+        return (fra) invokeV.objValue;
     }
 
-    public final era g() {
+    public final fra g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            era eraVar = new era();
+            fra fraVar = new fra();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            eraVar.h(c);
-            eraVar.i(R.color.CAM_X0305);
-            eraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
-            eraVar.m(new SpannableString(this.f.b()));
-            return eraVar;
+            fraVar.h(c);
+            fraVar.i(R.color.CAM_X0305);
+            fraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            fraVar.m(new SpannableString(this.f.b()));
+            return fraVar;
         }
-        return (era) invokeV.objValue;
+        return (fra) invokeV.objValue;
     }
 
-    public final era i() {
+    public final fra i() {
         InterceptResult invokeV;
-        era e;
+        fra e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.f.a() == 7) {
@@ -321,7 +321,7 @@ public final class DownloadFloatBall {
             }
             return e;
         }
-        return (era) invokeV.objValue;
+        return (fra) invokeV.objValue;
     }
 
     public final void q(String key, boolean z, boolean z2) {
@@ -332,7 +332,7 @@ public final class DownloadFloatBall {
             StatisticItem statisticItem = new StatisticItem(key);
             statisticItem.param("obj_source", this.f.d());
             int i2 = 2;
-            if (mx9.i(this.f.e())) {
+            if (nx9.i(this.f.e())) {
                 i = 4;
             } else {
                 if (!z2) {

@@ -1,12 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.DownloadErrorLogger;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.browser.exception.UnzipErrorException;
-import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,141 +20,158 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wj6 extends BdAsyncTask<Void, Void, uj6> {
+public class wj6 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
 
-    public wj6(String str, nw9 nw9Var) {
+    public wj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, nw9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = str;
-        this.c = nw9Var.c();
-        this.b = nw9Var.a();
-        this.d = nw9Var.b();
-    }
-
-    public static void c(String str, nw9 nw9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, nw9Var) == null) {
-            wj6 wj6Var = new wj6(str, nw9Var);
-            wj6Var.setPriority(4);
-            wj6Var.execute(new Void[0]);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
-    public uj6 doInBackground(Void... voidArr) {
+    public String doInBackground(Void... voidArr) {
         InterceptResult invokeL;
-        boolean z;
-        uj6 uj6Var;
+        String str;
+        String a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            File file = new File(qj6.n().o(), this.a);
-            HybridLog.getInstance().e("Offline", "离线包开始下载：" + this.a + " 目录：" + file);
-            if (!gl6.a(file)) {
-                cl6.b("newHybrid", "离线包下载失败：" + this.a + "->目录创建失败");
-            }
-            File file2 = new File(file, this.c + ".zip");
-            if (!file2.exists()) {
-                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
-            } else {
-                z = true;
-            }
-            if (!z) {
-                gl6.c(file2);
-                cl6.b("newHybrid", "离线包下载失败:网络下载异常：" + this.a);
-                qj6.w("download bundle", DownloadErrorLogger.LOGGER_SPACE, this.a, this.c, hl6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
+            String modName = TbSingleton.getInstance().getModName();
+            if (TextUtils.isEmpty(modName)) {
                 return null;
-            } else if (!fl6.d(file2, this.d)) {
-                gl6.c(file2);
-                cl6.b("newHybrid", "离线包目md5验证失败：" + this.a);
-                qj6.w("download bundle", "md5_error", this.a, this.c, hl6.a(Pair.create("detail", this.d + "_" + fl6.b(file2))));
-                return null;
+            }
+            uj6 d = d(modName);
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
+            netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
+            netWork.addPostData("mod_name", modName);
+            if (d.b()) {
+                str = "1";
             } else {
-                File file3 = new File(qj6.n().m(), this.a);
-                if (!e(file2, file3, this.c)) {
-                    qj6.w("download bundle", "unzip_error", this.a, this.c, "");
-                    return null;
-                }
-                File file4 = new File(file3, this.c);
-                Map<String, zj6> b = xj6.b(file4);
-                if (xj6.f(file4, b)) {
-                    uj6Var = new uj6(file4, this.c, b);
+                str = "2";
+            }
+            netWork.addPostData("status", str);
+            if (d.b()) {
+                a = "";
+            } else {
+                a = d.a();
+            }
+            netWork.addPostData("fail_reason", a);
+            netWork.postNetData();
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void c(String str, uj6 uj6Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uj6Var) == null) {
+            if (StringUtils.isNull(str)) {
+                uj6Var.c("serve return is null");
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optInt("error_code") == 0) {
+                    z = true;
                 } else {
-                    uj6Var = null;
+                    z = false;
                 }
-                if (uj6Var != null && uj6Var.c()) {
-                    qj6.j(qj6.n().m(), this.c, this.a);
-                    qj6.j(qj6.n().o(), this.c + ".zip", this.a);
-                    return uj6Var;
-                }
-                gl6.b(file4);
-                cl6.b("newHybrid", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
-                return null;
+                uj6Var.d(z);
+                uj6Var.c(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
+            } catch (JSONException e) {
+                uj6Var.c("parse json exception");
+                BdLog.e(e);
             }
+        }
+    }
+
+    public final uj6 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            uj6 uj6Var = new uj6();
+            if (TextUtils.isEmpty(str)) {
+                uj6Var.c("module not exit");
+                return uj6Var;
+            }
+            File file = new File(rj6.n().m(), str);
+            String p = rj6.n().p(str);
+            if (TbSingleton.getInstance().isUploadOffPack()) {
+                uj6Var.d(false);
+                if (!file.exists()) {
+                    uj6Var.c("bundle not exist");
+                    return uj6Var;
+                } else if (TextUtils.isEmpty(p)) {
+                    uj6Var.c("the local has no valid version name");
+                    return uj6Var;
+                } else {
+                    String str2 = file.getAbsolutePath() + "/" + p + "/";
+                    if (!new File(str2).exists()) {
+                        uj6Var.c("bundle not exist");
+                        return uj6Var;
+                    }
+                    String str3 = file.getAbsolutePath() + "/" + p + ".zip";
+                    File file2 = new File(str3);
+                    if (file2.exists()) {
+                        FileHelper.deleteFileOrDir(file2);
+                    }
+                    if (d85.e(str2, str3)) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
+                        netWork.addPostData("offline_pack_version", p);
+                        netWork.addPostData("mod_name", str);
+                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                        c(netWork.uploadFile("offline_pack_file_stream", str3), uj6Var);
+                        if (!uj6Var.b()) {
+                            return uj6Var;
+                        }
+                    } else {
+                        uj6Var.c("zip bundle error");
+                        return uj6Var;
+                    }
+                }
+            } else {
+                uj6Var.d(true);
+            }
+            if (TbSingleton.getInstance().isClearOffPack()) {
+                rj6.n().h(str);
+                if (!TextUtils.isEmpty(p)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", p));
+                }
+                if (file.exists() && !StringUtils.isNull(p)) {
+                    if (!new File(file.getAbsolutePath(), p).exists()) {
+                        return uj6Var;
+                    }
+                    uj6Var.c("delete fail");
+                    uj6Var.d(false);
+                }
+            }
+            return uj6Var;
         }
         return (uj6) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public void onPostExecute(uj6 uj6Var) {
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uj6Var) == null) {
-            super.onPostExecute(uj6Var);
-            if (uj6Var != null) {
-                qj6.n().y(this.a, uj6Var.b());
-                qj6.n().v();
-                rj6.e().k(this.a, uj6Var.a());
-                rj6.e().c(this.a);
-                qj6.w("download bundle", "success", this.a, uj6Var.b(), "");
-            } else {
-                qj6.n().i(this.a);
-                qj6.n().v();
-                rj6.e().i(this.a);
-            }
-            pj6.b(uj6Var, this.a);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            zj6.c();
         }
-    }
-
-    public final boolean e(File file, File file2, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
-            File file3 = new File(file2, str);
-            if (!file3.exists()) {
-                try {
-                    kl6.c(file, file3);
-                    return true;
-                } catch (UnzipErrorException e) {
-                    gl6.b(file2);
-                    cl6.b("newHybrid", "离线包资源解压缩失败：" + e);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
     }
 }

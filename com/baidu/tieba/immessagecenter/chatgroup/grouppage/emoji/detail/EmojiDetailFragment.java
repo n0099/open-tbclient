@@ -24,9 +24,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiDetailRecyclerAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import com.baidu.tieba.jk8;
-import com.baidu.tieba.ok8;
+import com.baidu.tieba.kk8;
 import com.baidu.tieba.om5;
+import com.baidu.tieba.pk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EmojiDetailFragment extends BaseFragment implements jk8 {
+public class EmojiDetailFragment extends BaseFragment implements kk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmojiDetailRecyclerAdapter a;
     public final TbPageContext<BaseFragmentActivity> b;
     @NonNull
-    public final ok8 c;
+    public final pk8 c;
     public final BdUniqueId d;
     public boolean e;
     public View f;
@@ -120,17 +120,17 @@ public class EmojiDetailFragment extends BaseFragment implements jk8 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements jk8 {
+    public static class c implements kk8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<jk8> a;
+        public final WeakReference<kk8> a;
 
-        public c(jk8 jk8Var) {
+        public c(kk8 kk8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jk8Var};
+                Object[] objArr = {kk8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,24 +140,24 @@ public class EmojiDetailFragment extends BaseFragment implements jk8 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(jk8Var);
+            this.a = new WeakReference<>(kk8Var);
         }
 
-        @Override // com.baidu.tieba.jk8
+        @Override // com.baidu.tieba.kk8
         public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-            jk8 jk8Var;
+            kk8 kk8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (jk8Var = this.a.get()) != null) {
-                jk8Var.a(z, list);
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (kk8Var = this.a.get()) != null) {
+                kk8Var.a(z, list);
             }
         }
 
-        @Override // com.baidu.tieba.jk8
+        @Override // com.baidu.tieba.kk8
         public void onFailure(int i, String str) {
-            jk8 jk8Var;
+            kk8 kk8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (jk8Var = this.a.get()) != null) {
-                jk8Var.onFailure(i, str);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (kk8Var = this.a.get()) != null) {
+                kk8Var.onFailure(i, str);
             }
         }
     }
@@ -181,7 +181,7 @@ public class EmojiDetailFragment extends BaseFragment implements jk8 {
         this.e = false;
         this.k = new a(this);
         this.b = tbPageContext;
-        this.c = new ok8(tbPageContext, emojiData, j, this.d);
+        this.c = new pk8(tbPageContext, emojiData, j, this.d);
         this.j = new c(this);
     }
 
@@ -272,7 +272,7 @@ public class EmojiDetailFragment extends BaseFragment implements jk8 {
         }
     }
 
-    @Override // com.baidu.tieba.jk8
+    @Override // com.baidu.tieba.kk8
     public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, list) == null) {
@@ -303,7 +303,7 @@ public class EmojiDetailFragment extends BaseFragment implements jk8 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.jk8
+    @Override // com.baidu.tieba.kk8
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) && isLoadingViewAttached()) {

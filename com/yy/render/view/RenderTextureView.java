@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.usb;
+import com.baidu.tieba.vsb;
 import com.yy.render.IRemoteRender;
 import com.yy.render.RenderEngine;
 import kotlin.Metadata;
@@ -48,7 +48,7 @@ public final class RenderTextureView extends TextureView {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            usb.a aVar = usb.b;
+            vsb.a aVar = vsb.b;
             aVar.f("[RenderTextureView](onSurfaceTextureAvailable) channelId: " + RenderTextureView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i + ", height = " + i2);
             RenderTextureView.this.t(surfaceTexture);
             RenderTextureView.this.s(surfaceTexture, i, i2);
@@ -56,7 +56,7 @@ public final class RenderTextureView extends TextureView {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            usb.a aVar = usb.b;
+            vsb.a aVar = vsb.b;
             aVar.f("[RenderTextureView](onSurfaceTextureSizeChanged) channelId: " + RenderTextureView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i + ", height = " + i2);
             RenderTextureView.this.s(surfaceTexture, i, i2);
         }
@@ -68,7 +68,7 @@ public final class RenderTextureView extends TextureView {
             IRemoteRender iRemoteRender2;
             IBinder asBinder;
             IBinder asBinder2;
-            usb.a aVar = usb.b;
+            vsb.a aVar = vsb.b;
             aVar.f("[RenderTextureView](surfaceDestroyed) channelId: " + RenderTextureView.this.getChannelId());
             RenderTextureView.this.k = false;
             if (RenderTextureView.this.j != null && (((iRemoteRender = RenderTextureView.this.j) == null || (asBinder2 = iRemoteRender.asBinder()) == null || asBinder2.isBinderAlive()) && ((iRemoteRender2 = RenderTextureView.this.j) == null || (asBinder = iRemoteRender2.asBinder()) == null || asBinder.pingBinder()))) {
@@ -124,7 +124,7 @@ public final class RenderTextureView extends TextureView {
                     return;
                 }
                 RenderTextureView.this.h = true;
-                usb.a aVar = usb.b;
+                vsb.a aVar = vsb.b;
                 aVar.f("[RenderTextureView](surfaceChanged) " + RenderTextureView.this.getChannelId());
                 IRemoteRender iRemoteRender = RenderTextureView.this.j;
                 if (iRemoteRender != null) {
@@ -189,7 +189,7 @@ public final class RenderTextureView extends TextureView {
 
     @SuppressLint({"Recycle"})
     public final void t(SurfaceTexture surfaceTexture) {
-        usb.a aVar = usb.b;
+        vsb.a aVar = vsb.b;
         aVar.f("[RenderTextureView](surfaceCreated) channelId: " + getChannelId());
         Handler handler = this.e;
         if (handler == null) {
@@ -230,7 +230,7 @@ public final class RenderTextureView extends TextureView {
 
     public final void setRemote(IRemoteRender iRemoteRender) {
         this.j = iRemoteRender;
-        usb.a aVar = usb.b;
+        vsb.a aVar = vsb.b;
         aVar.f("[RenderTextureView](setRemote) isSetRemoteSend: " + this.k + StringUtil.ARRAY_ELEMENT_SEPARATOR + "isSendSurfaceCreate: " + this.g + ", surface: " + this.a + ", channelId: " + getChannelId() + "remote: " + this.j + ", isSendSurfaceChange: " + this.h);
         if (this.a != null) {
             if (!this.g) {
@@ -240,7 +240,7 @@ public final class RenderTextureView extends TextureView {
                         iRemoteRender2.surfaceCreated(getChannelId(), this.a, this.f);
                     }
                 } catch (Exception e) {
-                    usb.a aVar2 = usb.b;
+                    vsb.a aVar2 = vsb.b;
                     aVar2.c("[RenderTextureView](setRemote) surfaceCreated ex: " + e.getMessage());
                 }
             }
@@ -251,7 +251,7 @@ public final class RenderTextureView extends TextureView {
                         iRemoteRender3.surfaceChanged(getChannelId(), this.a, this.f, this.d, this.c, this.b);
                     }
                 } catch (Exception e2) {
-                    usb.a aVar3 = usb.b;
+                    vsb.a aVar3 = vsb.b;
                     aVar3.c("[RenderTextureView](setRemote) surfaceChanged ex: " + e2.getMessage());
                 }
             }

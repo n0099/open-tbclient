@@ -203,7 +203,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 this.m.setVisibility(8);
             }
             this.t.getLayoutParams().height = oa0.b(getContext(), 61.0f);
-            this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0f));
+            this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f12));
             LiveFeedConfig liveFeedConfig = this.d;
             if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
                 this.x = true;
@@ -221,7 +221,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 this.k.setVisibility(8);
                 this.n.setTypeface(Typeface.defaultFromStyle(1));
                 this.t.getLayoutParams().height = oa0.b(getContext(), 35.0f);
-                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f09));
+                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0c));
             }
             RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
             if (rightLableInfo != null && rightLableInfo.canShowLabel()) {

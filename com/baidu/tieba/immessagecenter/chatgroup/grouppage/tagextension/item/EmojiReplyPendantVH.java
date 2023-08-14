@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj8;
-import com.baidu.tieba.fn8;
-import com.baidu.tieba.gk8;
-import com.baidu.tieba.gm8;
+import com.baidu.tieba.gj8;
+import com.baidu.tieba.gn8;
+import com.baidu.tieba.hk8;
+import com.baidu.tieba.hm8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
@@ -29,9 +29,9 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final fj8 c;
+    public final gj8 c;
     @Nullable
-    public gm8 d;
+    public hm8 d;
     public final TbImageView e;
     public final TextView f;
     public final View.OnClickListener g;
@@ -65,7 +65,7 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.c != null) {
-                gk8.f(this.a.c, this.a.d.d(), this.a.d.b(), 2);
+                hk8.f(this.a.c, this.a.d.d(), this.a.d.b(), 2);
             }
         }
     }
@@ -112,13 +112,13 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiReplyPendantVH(@NonNull View view2, @Nullable fj8 fj8Var) {
+    public EmojiReplyPendantVH(@NonNull View view2, @Nullable gj8 gj8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, fj8Var};
+            Object[] objArr = {view2, gj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,7 +131,7 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         }
         this.g = new a(this);
         this.h = new b(this);
-        this.c = fj8Var;
+        this.c = gj8Var;
         view2.setOnClickListener(this.g);
         view2.setOnLongClickListener(this.h);
         this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09099a);
@@ -140,12 +140,12 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void g(fn8 fn8Var, Context context, int i) {
+    public void g(gn8 gn8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, fn8Var, context, i) == null) && (fn8Var instanceof gm8)) {
-            gm8 gm8Var = (gm8) fn8Var;
-            this.d = gm8Var;
-            gm8Var.e(i);
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, gn8Var, context, i) == null) && (gn8Var instanceof hm8)) {
+            hm8 hm8Var = (hm8) gn8Var;
+            this.d = hm8Var;
+            hm8Var.e(i);
             EmojiData d = this.d.d();
             this.e.startLoad(d.getContent());
             this.f.setText(String.valueOf(d.getAllNum()));
@@ -158,8 +158,8 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.i(i);
-            gm8 gm8Var = this.d;
-            if (gm8Var != null && gm8Var.d().hasReplied()) {
+            hm8 hm8Var = this.d;
+            if (hm8Var != null && hm8Var.d().hasReplied()) {
                 EMManager.from(this.f).setTextColor(R.color.CAM_X0304);
                 EMManager.from(this.itemView).setCorner(R.string.J_X01).setAlpha(R.string.A_X11).setBackGroundColor(R.color.CAM_X0302);
                 return;

@@ -31,7 +31,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qa5;
-import com.baidu.tieba.qw5;
+import com.baidu.tieba.rw5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
@@ -235,7 +235,7 @@ public class RichTextEditor extends LinearLayout {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (qw5.c(spanned.toString()) - (i4 - i3)) + qw5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (rw5.c(spanned.toString()) - (i4 - i3)) + rw5.c(charSequence.toString()) > this.a) {
                     if (this.b.k != null) {
                         this.b.k.a();
                     }
@@ -312,7 +312,7 @@ public class RichTextEditor extends LinearLayout {
         this.m = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08127d));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081280));
         setShowDividers(2);
         this.a = new a(this);
     }

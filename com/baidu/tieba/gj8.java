@@ -1,108 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class gj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final gj8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, ij8> a;
+    public ij8 b;
+    public long c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947795956, "Lcom/baidu/tieba/gj8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947795956, "Lcom/baidu/tieba/gj8;");
-                return;
-            }
+    @JvmOverloads
+    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            e(this, abilityItem, baseMsg, null, 4, null);
         }
-        a = new gj8();
     }
 
     public gj8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public static /* synthetic */ void e(gj8 gj8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
+        if ((i & 4) != 0) {
+            obj = null;
+        }
+        gj8Var.d(abilityItem, baseMsg, obj);
+    }
+
+    public final void a(ij8 handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            Intrinsics.checkNotNullParameter(handler, "handler");
+            if (handler.c()) {
+                this.b = handler;
+            }
+            for (String str : handler.e()) {
+                this.a.put(str, handler);
             }
         }
     }
 
-    @JvmStatic
-    public static final long a() {
-        InterceptResult invokeV;
+    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d05.t().j();
-        }
-        return invokeV.longValue;
-    }
-
-    @JvmStatic
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String h = d05.t().h();
-            if (h == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            ij8 ij8Var = this.b;
+            if (ij8Var != null) {
+                ij8Var.b(abilityItem, baseMsg, null);
             }
-            return h;
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final boolean c(long j) {
-        InterceptResult invokeJ;
+    @JvmOverloads
+    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
-            if (j == a()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            try {
+                ij8 ij8Var = this.a.get(abilityItem.getType());
+                if (ij8Var != null) {
+                    ij8Var.b(abilityItem, baseMsg, obj);
+                    unit = Unit.INSTANCE;
+                } else {
+                    unit = null;
+                }
+                if (unit == null) {
+                    b(abilityItem, baseMsg);
+                }
+            } catch (Exception e) {
+                si8.g("ability_handle_exception", this.c, e);
             }
-            return false;
         }
-        return invokeJ.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean d(String uid) {
-        InterceptResult invokeL;
+    public final void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uid)) == null) {
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            return c(JavaTypesHelper.toLong(uid, 0L));
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.c = j;
         }
-        return invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean e(String uk) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uk)) == null) {
-            Intrinsics.checkNotNullParameter(uk, "uk");
-            return c(jj8.a(uk));
-        }
-        return invokeL.booleanValue;
     }
 }

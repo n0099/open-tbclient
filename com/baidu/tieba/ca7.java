@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.i97;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.j97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ca7 implements i97.c {
+public final class ca7 implements j97.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y97 a;
+    public final z97 a;
 
-    public ca7(y97 statStrategy) {
+    public ca7(z97 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,39 +34,31 @@ public final class ca7 implements i97.c {
         this.a = statStrategy;
     }
 
-    @Override // com.baidu.tieba.i97.c
-    public void a(u97<?> data, t97<?, ?> template, int i) {
+    @Override // com.baidu.tieba.j97.b
+    public void a(v97<?> data, int i) {
         Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(template, "template");
-            e97 e97Var = (e97) data;
+            f97 f97Var = (f97) data;
             StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            l57 l57Var = new l57();
-            l57 l57Var2 = e97Var.b;
-            if (l57Var2 != null) {
-                l57Var = l57Var2;
+            m57 m57Var = new m57();
+            m57 m57Var2 = f97Var.b;
+            if (m57Var2 != null) {
+                m57Var = m57Var2;
             }
-            for (Map.Entry<String, String> entry : this.a.a(l57Var).entrySet()) {
-                statisticItem.param(entry.getKey(), entry.getValue());
+            if (f97Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(m57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
             }
-            s67 s67Var = e97Var.a;
-            if (s67Var != null && (a = s67Var.a()) != null) {
+            t67 t67Var = f97Var.a;
+            if (t67Var != null && (a = t67Var.a()) != null) {
                 for (Map.Entry<String, String> entry2 : a.entrySet()) {
                     statisticItem.param(entry2.getKey(), entry2.getValue());
                 }
             }
-            um6.b().a(statisticItem);
-        }
-    }
-
-    @Override // com.baidu.tieba.i97.c
-    public void b(RecyclerView rv) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
-            Intrinsics.checkNotNullParameter(rv, "rv");
-            um6.b().c();
+            TiebaStatic.log(statisticItem);
         }
     }
 }

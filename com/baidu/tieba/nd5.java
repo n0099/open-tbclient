@@ -57,7 +57,7 @@ public class nd5 {
     public String S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1136T;
+    public String f1135T;
     public String U;
     public int V;
     public String W;
@@ -182,7 +182,7 @@ public class nd5 {
                 this.E = ad5Var;
                 ad5Var.a(optJSONObject3);
             }
-            zb8.f(jSONObject.optInt("android_max_stranger"));
+            ac8.f(jSONObject.optInt("android_max_stranger"));
             TiebaPlusConfigData tiebaPlusConfigData = new TiebaPlusConfigData();
             tiebaPlusConfigData.setSwitchOpen(jSONObject.optInt("switch_open") == 1);
             tiebaPlusConfigData.setJumpUrl(jSONObject.optString("tiebaplus_jumpurl"));
@@ -227,8 +227,8 @@ public class nd5 {
             SharedPrefHelper.getInstance().putString("profile_swan_app_key", this.R);
             this.S = jSONObject.optString("android_mission_system_entrance_url");
             SharedPrefHelper.getInstance().putString("index_activity_abtest_url", this.S);
-            this.f1136T = jSONObject.optString("android_mission_system_entrance_icon");
-            SharedPrefHelper.getInstance().putString("index_activity_abtest_icon_url", this.f1136T);
+            this.f1135T = jSONObject.optString("android_mission_system_entrance_icon");
+            SharedPrefHelper.getInstance().putString("index_activity_abtest_icon_url", this.f1135T);
             this.U = jSONObject.optString("obj_source");
             SharedPrefHelper.getInstance().putString("index_activity_abtest_obj_source", this.U);
             this.g0 = jSONObject.optString("namoaixud_sign_link");
@@ -238,7 +238,7 @@ public class nd5 {
             SharedPrefHelper.getInstance().putString("key_ubs_sample_id", this.h0);
             zo5.q("multi_process_sample_id", this.h0);
             vc5.c(jSONObject.optString("js_whitelist"));
-            cr5.f().j(jSONObject.optString("stat_keys_list"));
+            dr5.f().j(jSONObject.optString("stat_keys_list"));
             this.W = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
             SharedPrefHelper.getInstance().putString("ala_game_frs_live_tab_video_url", this.W);
             this.X = jSONObject.optString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives");
@@ -327,7 +327,7 @@ public class nd5 {
             TbSingleton.getInstance().setLoopChatroomFrequency(jSONObject.optInt("loop_chatroom_frs_frequency", 5));
             TbSingleton.getInstance().mAdFloatTipsAppLimitCount = jSONObject.optInt("app_install_tip_num", 2);
             TbSingleton.getInstance().mAdFloatTipsDayLimitCount = jSONObject.optInt("daily_install_tip_num", 1);
-            b56.h().o(jSONObject.optJSONObject("motivational_video_guide"));
+            c56.h().o(jSONObject.optJSONObject("motivational_video_guide"));
             DownloadFloatBallConfig.g().o(jSONObject.optJSONObject("download_edge_float"));
             this.t0 = jSONObject.optString("world_cup_sponsor_flag");
             SharedPrefHelper.getInstance().putString("world_cup_sponsor_flag", this.t0);
@@ -416,7 +416,7 @@ public class nd5 {
                 BdLog.e(e6);
             }
             TbSingleton.getInstance().parseGroupChatDisturbText(jSONObject);
-            lk6.d(jSONObject);
+            mk6.d(jSONObject);
             new te5().b(jSONObject);
             try {
                 SharedPrefHelper.getInstance().putLong("key_msg_remind_frequency_minute", TimeUnit.MINUTES.toMillis(jSONObject.optLong("msg_remind_frequency_minute", 0L)));
@@ -466,7 +466,7 @@ public class nd5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1136T;
+            return this.f1135T;
         }
         return (String) invokeV.objValue;
     }

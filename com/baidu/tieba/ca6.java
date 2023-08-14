@@ -4,77 +4,31 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ca6 extends lm<ga6, LiveTabConcernNotificationViewHolder> {
+public class ca6 extends lm<z96, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public boolean b;
-    public bn6<ga6> c;
-
-    /* loaded from: classes5.dex */
-    public class a extends bn6<ga6> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca6 b;
-
-        public a(ca6 ca6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ca6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
-        /* renamed from: d */
-        public void a(View view2, ga6 ga6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ga6Var) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09102f) {
-                    if (!this.b.b) {
-                        this.b.b = true;
-                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091030) {
-                    ja6.b(this.b.a);
-                }
-            }
-        }
-    }
+    public pa6 b;
+    public ua6 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ca6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ga6.a);
+    public ca6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), z96.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,37 +40,51 @@ public class ca6 extends lm<ga6, LiveTabConcernNotificationViewHolder> {
                 return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
+        this.d = "";
         this.a = tbPageContext;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
-    /* renamed from: x */
-    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            pa6 pa6Var = new pa6(this.a, viewGroup);
-            pa6Var.k(this.c);
-            return new LiveTabConcernNotificationViewHolder(pa6Var);
+            pa6 pa6Var = new pa6(this.a, viewGroup, this.d);
+            this.b = pa6Var;
+            ua6 ua6Var = this.c;
+            if (ua6Var != null) {
+                pa6Var.s(ua6Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(ua6 ua6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ua6Var) == null) {
+            this.c = ua6Var;
+            pa6 pa6Var = this.b;
+            if (pa6Var != null) {
+                pa6Var.s(ua6Var);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ga6 ga6Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z96 z96Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
         pa6 pa6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ga6Var, liveTabConcernNotificationViewHolder})) == null) {
-            if (liveTabConcernNotificationViewHolder != null && (pa6Var = liveTabConcernNotificationViewHolder.a) != null) {
-                this.b = false;
-                pa6Var.i(ga6Var);
-                return liveTabConcernNotificationViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z96Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (pa6Var = liveTabConcernItemViewLineHolder.a) != null) {
+                pa6Var.i(z96Var);
+                return liveTabConcernItemViewLineHolder.getView();
             }
             return null;
         }

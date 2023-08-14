@@ -108,23 +108,23 @@ public final class FragmentPersonalChatBinding implements ViewBinding {
                                     i = R.id.obfuscated_res_0x7f0918fe;
                                     Group group = (Group) view2.findViewById(R.id.obfuscated_res_0x7f0918fe);
                                     if (group != null) {
-                                        i = R.id.obfuscated_res_0x7f091ec5;
-                                        FrameLayout frameLayout5 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
+                                        i = R.id.obfuscated_res_0x7f091ecb;
+                                        FrameLayout frameLayout5 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ecb);
                                         if (frameLayout5 != null) {
-                                            i = R.id.obfuscated_res_0x7f09223d;
-                                            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f09223d);
+                                            i = R.id.obfuscated_res_0x7f092243;
+                                            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f092243);
                                             if (space != null) {
-                                                i = R.id.obfuscated_res_0x7f09223e;
-                                                Space space2 = (Space) view2.findViewById(R.id.obfuscated_res_0x7f09223e);
+                                                i = R.id.obfuscated_res_0x7f092244;
+                                                Space space2 = (Space) view2.findViewById(R.id.obfuscated_res_0x7f092244);
                                                 if (space2 != null) {
-                                                    i = R.id.obfuscated_res_0x7f092267;
-                                                    FrameLayout frameLayout6 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092267);
+                                                    i = R.id.obfuscated_res_0x7f09226d;
+                                                    FrameLayout frameLayout6 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09226d);
                                                     if (frameLayout6 != null) {
-                                                        i = R.id.obfuscated_res_0x7f092268;
-                                                        TbImage tbImage2 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092268);
+                                                        i = R.id.obfuscated_res_0x7f09226e;
+                                                        TbImage tbImage2 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f09226e);
                                                         if (tbImage2 != null) {
-                                                            i = R.id.obfuscated_res_0x7f0929d7;
-                                                            TbImage tbImage3 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0929d7);
+                                                            i = R.id.obfuscated_res_0x7f0929dd;
+                                                            TbImage tbImage3 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0929dd);
                                                             if (tbImage3 != null) {
                                                                 return new FragmentPersonalChatBinding((ConstraintLayout) view2, frameLayout, textView, tbImage, frameLayout2, frameLayout3, frameLayout4, group, frameLayout5, space, space2, frameLayout6, tbImage2, tbImage3);
                                                             }

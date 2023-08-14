@@ -169,7 +169,7 @@ public class od3 {
                 this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
             }
             this.b.setFloatButtonText(this.c);
-            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081400));
+            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081403));
             this.b.setFloatButtonDefaultPosition();
             this.b.setFloatButtonStyle(this.d);
             this.b.setVisibility(0);

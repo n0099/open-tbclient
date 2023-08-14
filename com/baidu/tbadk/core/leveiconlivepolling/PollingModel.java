@@ -34,16 +34,16 @@ import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.aba;
 import com.baidu.tieba.ek5;
-import com.baidu.tieba.gw5;
 import com.baidu.tieba.h55;
+import com.baidu.tieba.hw5;
 import com.baidu.tieba.i85;
 import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
 import com.baidu.tieba.jg5;
 import com.baidu.tieba.k85;
 import com.baidu.tieba.l85;
 import com.baidu.tieba.xd5;
-import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class PollingModel extends BdBaseModel {
     public LiveRemindData mLiveRemindData;
     public MemberBroadcastData mMemberBroadcastData;
     public String mUniqueLoopId;
-    public final gw5 retry;
+    public final hw5 retry;
     public BdUniqueId uniqueId;
 
     /* loaded from: classes4.dex */
@@ -358,12 +358,12 @@ public class PollingModel extends BdBaseModel {
         this.liveIndexSecondFloor = new ArrayList();
         this.livePicSecondFloor = new ArrayList();
         this.mChatRoomEntranceData = new ChatRoomEntranceData();
-        this.retry = gw5.g();
+        this.retry = hw5.g();
         this.mGetPollingListener = new a(this, CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, 309732);
         this.mContext = tbPageContext;
         setUniqueId(bdUniqueId);
         this.uniqueId = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, zaa.a(TbConfig.GET_POLLING_DATA, 309732));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, aba.a(TbConfig.GET_POLLING_DATA, 309732));
         TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309732);
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

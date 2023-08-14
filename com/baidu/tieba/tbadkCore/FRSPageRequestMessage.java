@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.yu5;
+import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.category_id = Integer.valueOf(this.categoryId);
             builder.call_from = Integer.valueOf(this.callFrom);
             builder.app_pos = LocationCacheData.getInstance().createAppPosInfo();
-            builder.app_transmit_data = yu5.b();
+            builder.app_transmit_data = zu5.b();
             NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
             builder2.data = builder.build(false);

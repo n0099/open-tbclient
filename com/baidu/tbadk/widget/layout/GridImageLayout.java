@@ -29,7 +29,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.j06;
+import com.baidu.tieba.k06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class GridImageLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ag<ImageView> a;
     public ag<GifView> b;
-    public j06 c;
+    public k06 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -295,12 +295,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(j06 j06Var) {
+    public void setLayoutStrategy(k06 k06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, j06Var) == null) {
-            this.c = j06Var;
-            if (j06Var != null) {
-                this.f = j06Var.K;
+        if (interceptable == null || interceptable.invokeL(1048596, this, k06Var) == null) {
+            this.c = k06Var;
+            if (k06Var != null) {
+                this.f = k06Var.K;
             }
         }
     }

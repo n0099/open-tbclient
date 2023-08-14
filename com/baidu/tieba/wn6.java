@@ -10,41 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wn6 extends BaseCardInfo implements xn6 {
+public class wn6 extends BaseCardInfo implements yn6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
+    public boolean a;
+    public boolean b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
-    public String i;
+    public List<vn6> d;
+    public int e;
+    public int f;
 
-    @Override // com.baidu.tieba.xn6
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xn6
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xn6
+    @Override // com.baidu.tieba.yn6
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -62,7 +46,7 @@ public class wn6 extends BaseCardInfo implements xn6 {
                 return;
             }
         }
-        j = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public wn6() {
@@ -75,16 +59,19 @@ public class wn6 extends BaseCardInfo implements xn6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = true;
     }
 
-    @Override // com.baidu.tieba.xn6
+    @Override // com.baidu.tieba.yn6
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.h;
+            return this.e;
         }
         return invokeV.intValue;
     }
@@ -94,8 +81,24 @@ public class wn6 extends BaseCardInfo implements xn6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return j;
+            return g;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yn6
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.yn6
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
+        }
     }
 }

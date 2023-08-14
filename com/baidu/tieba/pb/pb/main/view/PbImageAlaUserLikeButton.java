@@ -94,7 +94,7 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements y
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 x95Var.u(R.color.CAM_X0302);
-                x95Var.j(R.drawable.obfuscated_res_0x7f080b00, 0, TBSpecificationButtonConfig.IconType.SVG);
+                x95Var.j(R.drawable.obfuscated_res_0x7f080b02, 0, TBSpecificationButtonConfig.IconType.SVG);
                 x95Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
                 setConfig(x95Var);
                 setClickable(true);

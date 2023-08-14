@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.mc.FrsModelController;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public interface xo7 {
-    FrsModelController W0();
-
-    void c();
-
-    oo7 o1();
-
-    zt7 y0();
-
-    mf7 z1();
+    void a(int i, boolean z, int i2, boolean z2, ArrayList<ym> arrayList, boolean z3);
 }

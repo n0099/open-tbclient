@@ -1,145 +1,255 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.security.KeyManagementException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
-public class jxb extends SSLSocketFactory {
-    public static /* synthetic */ Interceptable $ic;
+public class jxb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 1;
+    public static final char[] d;
+    public static jxb e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SSLSocketFactory a;
+    public final HandlerThread a;
+    public final Handler b;
 
-    public jxb() throws KeyManagementException, NoSuchAlgorithmException {
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String[] a;
+        public final /* synthetic */ jxb b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jxb jxbVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jxbVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jxbVar;
+            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                Log.i("playStats", "handle msg " + message.what);
+                int i = message.what;
+                if (i < this.a.length && i >= 0) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, jxb.c) && i2 < 5; i2++) {
+                    }
+                    jxb.b();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900085, "Lcom/baidu/tieba/jxb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947900085, "Lcom/baidu/tieba/jxb;");
+                return;
+            }
+        }
+        d = "0123456789abcdef".toCharArray();
+        e = null;
+    }
+
+    public static /* synthetic */ int b() {
+        int i = c;
+        c = i + 1;
+        return i;
+    }
+
+    public static jxb f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            jxb jxbVar = e;
+            if (jxbVar != null) {
+                return jxbVar;
+            }
+            synchronized (jxb.class) {
+                if (e == null) {
+                    e = new jxb();
+                }
+            }
+            return e;
+        }
+        return (jxb) invokeV.objValue;
+    }
+
+    public jxb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        SSLContext sSLContext = SSLContext.getInstance("TLS");
-        sSLContext.init(null, null, null);
-        this.a = sSLContext.getSocketFactory();
+        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
+        this.a = handlerThread;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Socket createSocket = this.a.createSocket();
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.getDefaultCipherSuites();
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.getSupportedCipherSuites();
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public final Socket a(Socket socket) {
+    public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, socket)) == null) {
-            if (socket instanceof SSLSocket) {
-                ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.2"});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            char[] cArr = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                int i2 = bArr[i] & 255;
+                int i3 = i * 2;
+                char[] cArr2 = d;
+                cArr[i3] = cArr2[i2 >>> 4];
+                cArr[i3 + 1] = cArr2[i2 & 15];
             }
-            return socket;
+            return new String(cArr);
         }
-        return (Socket) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    public static String g(String str) {
+        MessageDigest messageDigest;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            Socket createSocket = this.a.createSocket(str, i);
-            a(createSocket);
-            return createSocket;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
+                messageDigest = null;
+            }
+            if (messageDigest == null) {
+                return "";
+            }
+            messageDigest.update(str.getBytes());
+            return d(messageDigest.digest());
         }
-        return (Socket) invokeLI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
+    public static String e(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static void i(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
+            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
+            try {
+                f().b.obtainMessage(i2, str).sendToTarget();
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean h(String str, String str2, long j, int i) {
         InterceptResult invokeCommon;
+        URL url;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.a.createSocket(str, i, inetAddress, i2);
-            a(createSocket);
-            return createSocket;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            boolean z = false;
+            if (str2 == null) {
+                return false;
+            }
+            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                url = new URL(str3);
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
+                url = null;
+            }
+            if (url == null) {
+                Log.e("playStats", "report url failed!");
+                return false;
+            }
+            try {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+                try {
+                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
+                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new kxb());
+                    }
+                    httpURLConnection2.setConnectTimeout(10000);
+                    httpURLConnection2.setReadTimeout(6000);
+                    httpURLConnection2.connect();
+                    int responseCode = httpURLConnection2.getResponseCode();
+                    Log.i("playStats", "url : " + str3);
+                    Log.i("playStats", "code : " + responseCode);
+                    if (responseCode == 200) {
+                        z = true;
+                    }
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    httpURLConnection = httpURLConnection2;
+                    try {
+                        th.printStackTrace();
+                        Log.e("playStats", "open connection except!");
+                        return z;
+                    } finally {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return z;
         }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            Socket createSocket = this.a.createSocket(inetAddress, i);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.a.createSocket(inetAddress, i, inetAddress2, i2);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Socket createSocket = this.a.createSocket(socket, str, i, z);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
+        return invokeCommon.booleanValue;
     }
 }

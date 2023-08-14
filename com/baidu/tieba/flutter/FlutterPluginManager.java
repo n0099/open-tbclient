@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.PluginCheck;
-import com.baidu.tieba.bs5;
+import com.baidu.tieba.cs5;
 import com.baidu.tieba.fg5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
@@ -409,23 +409,23 @@ public class FlutterPluginManager {
         }
     }
 
-    public void init(bs5 bs5Var) {
+    public void init(cs5 cs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bs5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, cs5Var) == null) {
             if (this.mIFlutterPlugin == null) {
                 zj.a().i(TAG, "Flutter init(INpsPluginInitCallback) 触发插件安装");
-                invokePlugin(new IInvokeCallback(this, bs5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
+                invokePlugin(new IInvokeCallback(this, cs5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FlutterPluginManager this$0;
-                    public final /* synthetic */ bs5 val$callback;
+                    public final /* synthetic */ cs5 val$callback;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, bs5Var};
+                            Object[] objArr = {this, cs5Var};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -436,7 +436,7 @@ public class FlutterPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$callback = bs5Var;
+                        this.val$callback = cs5Var;
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
@@ -466,7 +466,7 @@ public class FlutterPluginManager {
                 });
                 return;
             }
-            bs5Var.onSuccess();
+            cs5Var.onSuccess();
         }
     }
 

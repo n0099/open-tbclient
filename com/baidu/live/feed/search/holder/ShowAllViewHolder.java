@@ -21,9 +21,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         this.a = view2;
         this.b = context;
         this.f = str;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d7);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921dd);
         this.d = view2.findViewById(R.id.obfuscated_res_0x7f0915ea);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921dd);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921e3);
     }
 
     public void b(int i) {
@@ -35,9 +35,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         }
         String r = fd0.f().r();
         if ("day".equals(r)) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f46);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f49);
         } else if ("night".equals(r)) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f47);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f4a);
         }
     }
 }

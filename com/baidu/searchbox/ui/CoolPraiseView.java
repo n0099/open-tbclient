@@ -956,9 +956,9 @@ public class CoolPraiseView extends LinearLayout {
         boolean z2;
         int i2;
         LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d022d, (ViewGroup) this, true);
-        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928a6);
-        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928a7);
-        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928a5);
+        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928ac);
+        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928ad);
+        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928ab);
         if (attributeSet != null) {
             typedArray = context.obtainStyledAttributes(attributeSet, com.baidu.android.common.widget.praise.R.styleable.coolPraiseView);
         } else {

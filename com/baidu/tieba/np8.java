@@ -1,47 +1,31 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class np8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public final NotifyType a;
     public final int b;
-    public boolean c;
+    public String c;
+    public int d;
+    public long e;
+    public boolean f;
 
-    public static /* synthetic */ np8 b(np8 np8Var, long j, int i, boolean z, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            j = np8Var.a;
-        }
-        if ((i2 & 2) != 0) {
-            i = np8Var.b;
-        }
-        if ((i2 & 4) != 0) {
-            z = np8Var.c;
-        }
-        return np8Var.a(j, i, z);
-    }
-
-    public final np8 a(long j, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? new np8(j, i, z) : (np8) invokeCommon.objValue;
-    }
-
-    @JvmOverloads
-    public np8(long j, int i, boolean z) {
+    public np8(NotifyType type, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {type, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,62 +35,65 @@ public final class np8 {
                 return;
             }
         }
-        this.a = j;
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
         this.b = i;
-        this.c = z;
     }
 
-    public /* synthetic */ np8(long j, int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, (i2 & 2) != 0 ? 2 : i, (i2 & 4) != 0 ? false : z);
-    }
-
-    public final long c() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
     }
 
-    public int hashCode() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (((b.a(this.a) * 31) + this.b) * 31) + a.a(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
         return invokeV.intValue;
     }
 
-    public final void e(boolean z) {
+    public final NotifyType getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (NotifyType) invokeV.objValue;
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d = i;
         }
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
@@ -114,7 +101,7 @@ public final class np8 {
                 return false;
             }
             np8 np8Var = (np8) obj;
-            if (this.a == np8Var.a && this.b == np8Var.b && this.c == np8Var.c) {
+            if (this.a == np8Var.a && this.b == np8Var.b && Intrinsics.areEqual(this.c, np8Var.c) && this.d == np8Var.d && this.e == np8Var.e && this.f == np8Var.f) {
                 return true;
             }
             return false;
@@ -122,11 +109,28 @@ public final class np8 {
         return invokeL.booleanValue;
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b) * 31;
+            String str = this.c;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            return ((((((hashCode + i) * 31) + this.d) * 31) + b.a(this.e)) * 31) + a.a(this.f);
+        }
+        return invokeV.intValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "NavigationData(dataId=" + this.a + ", type=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "MsgNotifyData{type=" + this.a + ", content='" + this.c + "', unreadMsgCount=" + this.d + ", lastMsgTimeMillis=" + this.e + ", showMsgTime=" + this.f + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -34,7 +34,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b05;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.u35;
@@ -50,7 +50,7 @@ public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public bn6<q05> c;
+    public cn6<q05> c;
     public q05 d;
     public TbImageView e;
     public LinearLayout f;
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bn6Var) == null) {
-            this.c = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cn6Var) == null) {
+            this.c = cn6Var;
         }
     }
 

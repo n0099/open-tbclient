@@ -199,7 +199,7 @@ public class xm {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return tu5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
+                return uu5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }

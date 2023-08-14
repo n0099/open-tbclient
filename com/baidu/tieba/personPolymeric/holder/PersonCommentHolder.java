@@ -72,17 +72,17 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919f8);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919fe);
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ce3);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09285a);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed7);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ce9);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092860);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091edd);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec8);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ece);
         this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091195);
         this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911a4);
         this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09119f);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091baf);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bb5);
         this.g = BdUtilHelper.dip2px(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {

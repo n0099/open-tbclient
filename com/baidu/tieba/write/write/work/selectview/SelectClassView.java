@@ -166,7 +166,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09fa, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a38);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a3e);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914e7);
@@ -178,14 +178,14 @@ public class SelectClassView extends LinearLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09071c);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.class_center_content)");
             setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091f0f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091f15);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oza
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pza
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

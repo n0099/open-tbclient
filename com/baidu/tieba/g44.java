@@ -48,7 +48,7 @@ public class g44 extends EventTargetImpl implements d44 {
 
         /* renamed from: com.baidu.tieba.g44$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0308a implements xp3 {
+        public class C0312a implements xp3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class g44 extends EventTargetImpl implements d44 {
                 }
             }
 
-            public C0308a(a aVar) {
+            public C0312a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class g44 extends EventTargetImpl implements d44 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0308a(this);
+                        this.a.k = new C0312a(this);
                         g44.K(this.a.k);
                     }
                 } else if (this.a.e != null) {

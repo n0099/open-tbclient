@@ -11,7 +11,7 @@ public class vn8 extends be8 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vn8() {
-        super(md8.a(), 2001149);
+        super(nd8.a(), 2001143);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class vn8 extends be8 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((id8) objArr[0], ((Integer) objArr[1]).intValue());
+                super((jd8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

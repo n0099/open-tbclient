@@ -50,14 +50,14 @@ public class x84 extends hw2 {
 
         /* renamed from: com.baidu.tieba.x84$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0537a implements Runnable {
+        public class RunnableC0538a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rt2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0537a(a aVar, rt2 rt2Var, int i) {
+            public RunnableC0538a(a aVar, rt2 rt2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class x84 extends hw2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, rt2Var) == null) {
                 so3.d0(this.c.m);
-                this.c.m = new RunnableC0537a(this, rt2Var, i);
+                this.c.m = new RunnableC0538a(this, rt2Var, i);
                 so3.g0(this.c.m);
             }
         }

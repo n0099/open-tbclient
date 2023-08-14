@@ -6,15 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class yt8<T> extends tt8 {
+public final class yt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wt8 c;
-    public T d;
-    public Object e;
-    public xt8 f;
+    public String a;
 
     public yt8() {
         Interceptable interceptable = $ic;
@@ -29,89 +26,23 @@ public final class yt8<T> extends tt8 {
                 return;
             }
         }
-        this.c = new wt8();
-        this.f = new xt8();
+        this.a = "";
     }
 
-    public final wt8 e() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (wt8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final T f() {
-        InterceptResult invokeV;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final xt8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (xt8) invokeV.objValue;
-    }
-
-    public final Object h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return Objects.hashCode(b());
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        yt8 yt8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            String str = null;
-            if (obj instanceof yt8) {
-                yt8Var = (yt8) obj;
-            } else {
-                yt8Var = null;
-            }
-            String b = b();
-            if (yt8Var != null) {
-                str = yt8Var.b();
-            }
-            return Objects.equals(b, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            this.d = t;
-        }
-    }
-
-    public final void j(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.e = obj;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
     }
 }

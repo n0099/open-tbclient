@@ -12,16 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class oga extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sea a;
+    public final MainTabActivity a;
+    public final tea b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oga(MainTabActivity mainTabActivity) {
-        super(2921764);
+    public oga(MainTabActivity mainTabActivity, iea ieaVar) {
+        super(2921579);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, ieaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,22 +33,23 @@ public class oga extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        sea seaVar;
+        tea teaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (seaVar = this.a) != null && seaVar.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                Runnable runnable = this.a.k().d;
-                SafeHandler.getInst().removeCallbacks(runnable);
-                SafeHandler.getInst().post(runnable);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (teaVar = this.b) != null && teaVar.g() != null) {
+            Runnable runnable = this.b.g().c;
+            SafeHandler.getInst().removeCallbacks(runnable);
+            int i = 0;
+            if (customResponsedMessage.getData() instanceof Integer) {
+                i = ((Integer) customResponsedMessage.getData()).intValue();
             }
-            SafeHandler.getInst().removeCallbacks(this.a.k().d);
+            SafeHandler.getInst().postDelayed(runnable, i * 1000);
         }
     }
 }

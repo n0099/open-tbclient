@@ -334,14 +334,14 @@ public class di1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
             View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0246, null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cdf)).setText(R.string.obfuscated_res_0x7f0f0f65);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cde)).setText(R.string.obfuscated_res_0x7f0f0f66);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ce5)).setText(R.string.obfuscated_res_0x7f0f0f65);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ce4)).setText(R.string.obfuscated_res_0x7f0f0f66);
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
             this.d = popupWindow;
             popupWindow.w(false);
             this.d.B(false);
             this.d.v(new ColorDrawable(0));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd6)).setOnClickListener(new d(this));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cdc)).setOnClickListener(new d(this));
             this.d.A(new e(this, channelListView));
             this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         }

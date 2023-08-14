@@ -7,7 +7,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.ky;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oy7 extends lm<ty7, ThreadCardViewHolder<ty7>> implements a46 {
+public class oy7 extends lm<xqa, ThreadCardViewHolder<xqa>> implements b46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -46,7 +45,7 @@ public class oy7 extends lm<ty7, ThreadCardViewHolder<ty7>> implements a46 {
         this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.a46
+    @Override // com.baidu.tieba.b46
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -64,21 +63,21 @@ public class oy7 extends lm<ty7, ThreadCardViewHolder<ty7>> implements a46 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: s */
-    public ThreadCardViewHolder<ty7> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<xqa> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.a.getPageActivity(), false);
-            ez7 ez7Var = new ez7(this.a);
-            ez7Var.q(this.b);
-            bVar.n(ez7Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            rqa rqaVar = new rqa(this.a);
+            rqaVar.u(2);
+            rqaVar.q(this.b);
+            bVar.n(rqaVar);
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
             bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<ty7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<xqa> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.j(this.b);
             return threadCardViewHolder;
         }
@@ -88,11 +87,12 @@ public class oy7 extends lm<ty7, ThreadCardViewHolder<ty7>> implements a46 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ty7 ty7Var, ThreadCardViewHolder<ty7> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xqa xqaVar, ThreadCardViewHolder<xqa> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ty7Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.f(ty7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xqaVar, threadCardViewHolder})) == null) {
+            xqaVar.h(i);
+            threadCardViewHolder.f(xqaVar);
             if (threadCardViewHolder.b() != null) {
                 threadCardViewHolder.b().r(i);
                 threadCardViewHolder.b().b(this.d);

@@ -32,7 +32,7 @@ public class wz3 {
 
         /* renamed from: com.baidu.tieba.wz3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0531a extends ResponseCallback<AdResponseInfo> {
+        public class C0533a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -40,18 +40,18 @@ public class wz3 {
 
             /* renamed from: com.baidu.tieba.wz3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0532a implements Runnable {
+            public class RunnableC0534a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0531a b;
+                public final /* synthetic */ C0533a b;
 
-                public RunnableC0532a(C0531a c0531a, AdElementInfo adElementInfo) {
+                public RunnableC0534a(C0533a c0533a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0531a, adElementInfo};
+                        Object[] objArr = {c0533a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class wz3 {
                             return;
                         }
                     }
-                    this.b = c0531a;
+                    this.b = c0533a;
                     this.a = adElementInfo;
                 }
 
@@ -74,7 +74,7 @@ public class wz3 {
                 }
             }
 
-            public C0531a(a aVar) {
+            public C0533a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class wz3 {
                     aVar.c.j(aVar.a, "requestSuccess", aVar.b);
                     if (adResponseInfo != null) {
                         if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            n04.c(new RunnableC0532a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                            n04.c(new RunnableC0534a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                             return;
                         }
                         if (!this.b.c.c) {
@@ -192,14 +192,14 @@ public class wz3 {
             b04 b04Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b04Var = this.a) != null && b04Var.i != null) {
-                C0531a c0531a = new C0531a(this);
+                C0533a c0533a = new C0533a(this);
                 if (NetworkUtils.f(this.c.a)) {
                     if (this.c.c) {
                         b04 b04Var2 = this.a;
                         if (b04Var2 instanceof c04) {
                             c04 c04Var = (c04) b04Var2;
                             if (this.b != null && c04Var.i() != null) {
-                                this.b.a(c04Var.g(), c04Var.i(), c0531a);
+                                this.b.a(c04Var.g(), c04Var.i(), c0533a);
                                 return;
                             }
                             return;
@@ -209,7 +209,7 @@ public class wz3 {
                     String g = this.a.g();
                     pz3 pz3Var = this.b;
                     if (pz3Var != null) {
-                        pz3Var.f(g, c0531a);
+                        pz3Var.f(g, c0533a);
                     }
                     this.c.j(this.a, "request", this.b);
                     return;

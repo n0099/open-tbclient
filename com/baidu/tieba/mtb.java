@@ -1,74 +1,54 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class mtb {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985614, "Lcom/baidu/tieba/mtb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985614, "Lcom/baidu/tieba/mtb;");
-                return;
+            if (context == null) {
+                return "";
             }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
+            } catch (Throwable unused) {
+                b = null;
+            }
+            return b;
         }
-        a = new AtomicBoolean(false);
+        return (String) invokeL.objValue;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (mtb.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
-        }
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (mtb.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
-                qub.d();
-                if (a.compareAndSet(false, true)) {
-                    boolean z = ovb.z(context);
-                    a.set(z);
-                    if (z) {
-                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
-                    }
-                }
+            if (context == null) {
+                return "";
             }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            return a;
         }
+        return (String) invokeL.objValue;
     }
 }

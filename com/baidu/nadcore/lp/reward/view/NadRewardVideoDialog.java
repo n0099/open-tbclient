@@ -982,14 +982,14 @@ public class NadRewardVideoDialog extends DialogFragment {
         if (view5 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogContent");
         }
-        View findViewById3 = view5.findViewById(R.id.obfuscated_res_0x7f09255a);
+        View findViewById3 = view5.findViewById(R.id.obfuscated_res_0x7f092560);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "dialogContent.findViewById(R.id.title)");
         TextView textView13 = (TextView) findViewById3;
         View view6 = this.f;
         if (view6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogContent");
         }
-        View findViewById4 = view6.findViewById(R.id.obfuscated_res_0x7f0922cf);
+        View findViewById4 = view6.findViewById(R.id.obfuscated_res_0x7f0922d5);
         Intrinsics.checkNotNullExpressionValue(findViewById4, "dialogContent.findViewById(R.id.sub_title)");
         TextView textView14 = (TextView) findViewById4;
         View view7 = this.f;
@@ -1316,7 +1316,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         boolean z = true;
         View rootView = inflater.inflate(a2.f(), viewGroup, true);
-        View findViewById = rootView.findViewById(R.id.obfuscated_res_0x7f091f81);
+        View findViewById = rootView.findViewById(R.id.obfuscated_res_0x7f091f87);
         Intrinsics.checkNotNullExpressionValue(findViewById, "rootView.findViewById(R.id.root_view)");
         this.a = findViewById;
         View findViewById2 = rootView.findViewById(R.id.top_img);

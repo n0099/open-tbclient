@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.fnb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public class cnb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ xnb a;
-    public final /* synthetic */ Callable b;
+    public final /* synthetic */ fnb.a a;
 
-    public cnb(xnb xnbVar, Callable callable) {
+    public cnb(fnb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xnbVar, callable};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,19 +26,14 @@ public class cnb implements Runnable {
                 return;
             }
         }
-        this.a = xnbVar;
-        this.b = callable;
+        this.a = aVar;
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.b(this.b.call());
-            } catch (Exception e) {
-                this.a.a(e);
-            }
+            this.a.d();
         }
     }
 }

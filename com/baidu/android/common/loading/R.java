@@ -105,9 +105,9 @@ public final class R {
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int black_shimmer_loading = 0x7f080386;
-        public static final int novel_loading_bg = 0x7f0810eb;
-        public static final int novel_loading_progress = 0x7f0810ec;
-        public static final int white_shimmer_loading = 0x7f08157b;
+        public static final int novel_loading_bg = 0x7f0810ee;
+        public static final int novel_loading_progress = 0x7f0810ef;
+        public static final int white_shimmer_loading = 0x7f08157e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -137,10 +137,10 @@ public final class R {
         public static final int linear = 0x7f091525;
         public static final int loading_bar = 0x7f091631;
         public static final int message = 0x7f091740;
-        public static final int radial = 0x7f091dfc;
-        public static final int restart = 0x7f091ee5;
-        public static final int reverse = 0x7f091eea;
-        public static final int root_container = 0x7f091f73;
+        public static final int radial = 0x7f091e02;
+        public static final int restart = 0x7f091eeb;
+        public static final int reverse = 0x7f091ef0;
+        public static final int root_container = 0x7f091f79;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

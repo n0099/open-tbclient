@@ -25,7 +25,7 @@ public class wm {
     public int g;
     public int h;
     public int i;
-    public yr5 j;
+    public zr5 j;
     public RecyclerView.OnChildAttachStateChangeListener k;
     public RecyclerView.OnScrollListener l;
     public RecyclerView.OnItemTouchListener m;
@@ -293,7 +293,7 @@ public class wm {
             if (i == 1) {
                 if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
                     if (this.j == null) {
-                        this.j = new yr5("anim_switch_slide");
+                        this.j = new zr5("anim_switch_slide");
                     }
                     this.j.b();
                 }

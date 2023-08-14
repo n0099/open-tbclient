@@ -173,10 +173,10 @@ public class GameCloseGuidePopView extends RelativeLayout {
 
     public final void i() {
         LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d093a, this);
-        this.b = findViewById(R.id.obfuscated_res_0x7f0926f6);
-        this.c = findViewById(R.id.obfuscated_res_0x7f09272c);
-        this.d = findViewById(R.id.obfuscated_res_0x7f091f3f);
-        this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f9d);
+        this.b = findViewById(R.id.obfuscated_res_0x7f0926fc);
+        this.c = findViewById(R.id.obfuscated_res_0x7f092732);
+        this.d = findViewById(R.id.obfuscated_res_0x7f091f45);
+        this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091fa3);
         this.b.setOnClickListener(new a());
         this.c.setOnClickListener(new b());
         this.d.setOnClickListener(new c());

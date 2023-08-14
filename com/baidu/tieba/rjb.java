@@ -7,20 +7,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class rjb extends wjb {
+public class rjb extends xjb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public final /* synthetic */ cjb b;
-    public final /* synthetic */ String c;
-    public final /* synthetic */ pjb d;
+    public boolean b;
+    public final /* synthetic */ djb c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ qjb e;
 
-    public rjb(pjb pjbVar, cjb cjbVar, String str) {
+    public rjb(qjb qjbVar, djb djbVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pjbVar, cjbVar, str};
+            Object[] objArr = {qjbVar, djbVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,9 +31,9 @@ public class rjb extends wjb {
                 return;
             }
         }
-        this.d = pjbVar;
-        this.b = cjbVar;
-        this.c = str;
+        this.e = qjbVar;
+        this.c = djbVar;
+        this.d = str;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
@@ -40,8 +41,8 @@ public class rjb extends wjb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.d.onAdClicked((pjb) this.b, this.a, this.c);
-            this.a = true;
+            this.e.onAdClicked((qjb) this.c, this.b, this.d);
+            this.b = true;
         }
     }
 
@@ -50,7 +51,7 @@ public class rjb extends wjb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.d.onAdClose((pjb) this.b, this.c);
+            this.e.onAdClose((qjb) this.c, this.d);
         }
     }
 
@@ -59,7 +60,7 @@ public class rjb extends wjb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.d.onRewardedVideo((pjb) this.b, this.c);
+            this.e.onRewardedVideo((qjb) this.c, this.d);
         }
     }
 
@@ -76,7 +77,7 @@ public class rjb extends wjb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             LogPrinter.d();
-            this.d.onAdError(this.b, i, String.valueOf(i2), this.c);
+            this.e.onAdError(this.c, i, String.valueOf(i2), this.d);
         }
     }
 
@@ -85,7 +86,8 @@ public class rjb extends wjb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.d.onAdShow((pjb) this.b, false, this.c);
+            this.e.onAdShow((qjb) this.c, this.a, this.d);
+            this.a = true;
         }
     }
 }

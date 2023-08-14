@@ -1,102 +1,102 @@
 package org.chromium.base;
 
-import com.baidu.tieba.wxb;
+import com.baidu.tieba.xxb;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends wxb.a {
+    public static final class anim extends xxb.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends wxb.b {
+    public static final class animator extends xxb.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends wxb.c {
+    public static final class array extends xxb.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends wxb.d {
+    public static final class attr extends xxb.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends wxb.e {
+    public static final class bool extends xxb.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends wxb.f {
+    public static final class color extends xxb.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends wxb.g {
+    public static final class dimen extends xxb.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends wxb.h {
+    public static final class drawable extends xxb.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends wxb.i {
+    public static final class font extends xxb.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends wxb.j {
+    public static final class fraction extends xxb.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends wxb.k {
+    public static final class id extends xxb.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends wxb.l {
+    public static final class integer extends xxb.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends wxb.m {
+    public static final class interpolator extends xxb.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends wxb.n {
+    public static final class layout extends xxb.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends wxb.o {
+    public static final class menu extends xxb.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends wxb.p {
+    public static final class mipmap extends xxb.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends wxb.q {
+    public static final class plurals extends xxb.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends wxb.r {
+    public static final class raw extends xxb.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends wxb.s {
+    public static final class string extends xxb.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends wxb.t {
+    public static final class style extends xxb.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends wxb.u {
+    public static final class styleable extends xxb.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends wxb.v {
+    public static final class transition extends xxb.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends wxb.w {
+    public static final class xml extends xxb.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        wxb.a(i);
+        xxb.a(i);
     }
 }

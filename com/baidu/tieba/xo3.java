@@ -34,12 +34,12 @@ public class xo3 implements rp3<Exception> {
 
         /* renamed from: com.baidu.tieba.xo3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0540a implements Runnable {
+        public class RunnableC0543a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0540a(a aVar) {
+            public RunnableC0543a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class xo3 implements rp3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0540a(this);
+                    this.a.c = new RunnableC0543a(this);
                     long a = en4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (xo3.e) {

@@ -80,9 +80,9 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
         Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
         String r = f3.r();
         if (Intrinsics.areEqual(r, "day")) {
-            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f57);
+            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f5a);
         } else if (Intrinsics.areEqual(r, "night")) {
-            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f58);
+            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f5b);
         }
     }
 

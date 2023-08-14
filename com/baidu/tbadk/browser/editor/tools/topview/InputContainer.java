@@ -32,9 +32,9 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l17;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.m17;
+import com.baidu.tieba.n17;
 import com.baidu.tieba.nc5;
 import com.baidu.tieba.vj5;
 import com.baidu.tieba.w65;
@@ -539,7 +539,7 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
                 spanGroupEditText = null;
             }
             String valueOf = String.valueOf(spanGroupEditText.getText());
-            if (this.h && l17.a(valueOf) >= 10 && getContext() != null) {
+            if (this.h && m17.a(valueOf) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
@@ -550,7 +550,7 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
             } else {
                 spanGroupEditText2 = spanGroupEditText3;
             }
-            m17.c(context, nc5Var, spanGroupEditText2);
+            n17.c(context, nc5Var, spanGroupEditText2);
         }
     }
 
@@ -701,11 +701,11 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
                     Context context = getContext();
                     Object obj6 = lh5Var.c;
                     if (obj6 != null) {
-                        m17.h(context, (String) obj6, new m17.i() { // from class: com.baidu.tieba.jy4
+                        n17.h(context, (String) obj6, new n17.i() { // from class: com.baidu.tieba.jy4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.m17.i
+                            @Override // com.baidu.tieba.n17.i
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -741,7 +741,7 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
             }
             String substring = valueOf.substring(0, spanGroupEditText7.getSelectionStart());
             Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-            Matcher matcher = l17.b.matcher(substring);
+            Matcher matcher = m17.b.matcher(substring);
             if (matcher.find()) {
                 int length = substring.length() - matcher.replaceFirst("").length();
                 SpanGroupEditText spanGroupEditText8 = this.c;
@@ -919,7 +919,7 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
                 spanGroupEditText = null;
             }
             String valueOf = String.valueOf(spanGroupEditText.getText());
-            if (this.h && l17.a(valueOf) >= 10 && getContext() != null) {
+            if (this.h && m17.a(valueOf) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
@@ -930,7 +930,7 @@ public final class InputContainer extends LinearLayout implements yh5, zj5 {
             } else {
                 spanGroupEditText2 = spanGroupEditText3;
             }
-            m17.d(context, nc5Var, spanGroupEditText2);
+            n17.d(context, nc5Var, spanGroupEditText2);
         }
     }
 

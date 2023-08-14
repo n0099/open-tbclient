@@ -3,69 +3,26 @@ package com.baidu.tieba;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fi8 implements tk1<go5> {
+public class fi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BotsDTO.BotListDTO.UserDTO a;
+    public BotsDTO.BotListDTO.SkillDTO b;
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    @NonNull
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a implements go5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public ChatFloatEntranceFragment b;
-
-        @Override // com.baidu.tieba.go5
-        public void a(@Nullable go5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            }
-        }
-
-        public a(fi8 fi8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fi8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.go5
-        public void onChangeSkinType(int i) {
-            ChatFloatEntranceFragment chatFloatEntranceFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (chatFloatEntranceFragment = this.b) != null) {
-                chatFloatEntranceFragment.onChangeSkinType(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.go5
-        @NonNull
-        public go5.b b(String str, jo5 jo5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jo5Var)) == null) {
-                if (this.b == null) {
-                    this.b = new ChatFloatEntranceFragment(str, jo5Var);
-                }
-                return this.b;
-            }
-            return (go5.b) invokeLL.objValue;
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
     }
 
@@ -79,19 +36,53 @@ public class fi8 implements tk1<go5> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = false;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tk1
-    /* renamed from: a */
-    public go5 getService() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (go5) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
+                    if (itemsDTO.isFileType()) {
+                        return itemsDTO;
+                    }
+                }
+            }
+            return null;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
     }
 }

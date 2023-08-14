@@ -101,7 +101,7 @@ public class ef0 {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1092T;
+    public boolean f1095T;
     public boolean U;
     public int V;
     public int W;
@@ -777,7 +777,7 @@ public class ef0 {
                         }
                         aVar.h = this.a.Q;
                         aVar.i = this.a.R;
-                        aVar.j = this.a.f1092T;
+                        aVar.j = this.a.f1095T;
                         aVar.k = this.a.S;
                         aVar.l = this.a.U;
                         aVar.m = this.a.V;
@@ -1112,7 +1112,7 @@ public class ef0 {
         this.O = new ArrayList();
         this.P = new ArrayList();
         this.S = false;
-        this.f1092T = false;
+        this.f1095T = false;
         this.U = false;
         this.X = new JSONObject();
         this.Y = new JSONObject();

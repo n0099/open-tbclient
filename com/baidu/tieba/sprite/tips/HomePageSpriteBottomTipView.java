@@ -33,18 +33,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.cha;
-import com.baidu.tieba.jv5;
-import com.baidu.tieba.kr6;
+import com.baidu.tieba.dha;
+import com.baidu.tieba.kv5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.o7a;
+import com.baidu.tieba.lr6;
+import com.baidu.tieba.p7a;
 import com.baidu.tieba.pc5;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.t1a;
-import com.baidu.tieba.uka;
+import com.baidu.tieba.u1a;
 import com.baidu.tieba.um5;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.vka;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public SpriteTipHttpResponseMessage b;
-    public kr6.e c;
+    public lr6.e c;
     public TextView d;
     public TextView e;
     public final b f;
@@ -220,12 +220,12 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091740);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.message)");
         this.d = (TextView) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092269);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09226f);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.sprite_tip_button)");
         this.e = (TextView) findViewById3;
         h();
         this.f = new b(this, this);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.m7a
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.n7a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,7 +248,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(context, "$context");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!jv5.a() && (context instanceof TbPageContextSupport)) {
+            if (!kv5.a() && (context instanceof TbPageContextSupport)) {
                 this$0.f();
                 this$0.c();
             }
@@ -272,7 +272,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public final void g(SpriteTipHttpResponseMessage spriteTipHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, spriteTipHttpResponseMessage) == null) && spriteTipHttpResponseMessage.getScene() == 4) {
-            cha.h.a().i(true);
+            dha.h.a().i(true);
         }
     }
 
@@ -347,7 +347,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 z2 = false;
                 if (z2) {
                     this.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(spriteTipHttpResponseMessage.getButtonInfo().a, 8, (String) null));
-                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.l7a
+                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.m7a
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -373,7 +373,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             return;
         }
         this.h = false;
-        kr6.e eVar = this.c;
+        lr6.e eVar = this.c;
         if (eVar != null) {
             eVar.onDismiss();
         }
@@ -441,7 +441,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             }
             Context context = getContext();
             if (context != null) {
-                t1a.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
+                u1a.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
@@ -459,22 +459,22 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             if (pureDrawable != null) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new o7a(pureDrawable), (Drawable) null);
+                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new p7a(pureDrawable), (Drawable) null);
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null) {
                 ThemeColorInfo textColorTheme = spriteTipHttpResponseMessage.getTextColorTheme();
                 if (textColorTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(textColorTheme, "textColorTheme");
-                    int f = x9a.f(uka.e(textColorTheme));
-                    if (!x9a.e(f)) {
+                    int f = y9a.f(vka.e(textColorTheme));
+                    if (!y9a.e(f)) {
                         this.d.setTextColor(f);
                     }
                 }
                 ThemeColorInfo bgUrlTheme = spriteTipHttpResponseMessage.getBgUrlTheme();
                 if (bgUrlTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(bgUrlTheme, "bgUrlTheme");
-                    str = uka.g(bgUrlTheme);
+                    str = vka.g(bgUrlTheme);
                 } else {
                     str = null;
                 }
@@ -532,7 +532,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, kr6.e listener) {
+    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, lr6.e listener) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, responseMessage, listener) == null) {

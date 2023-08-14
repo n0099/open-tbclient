@@ -57,12 +57,12 @@ public class dg3 extends jg3<e> {
 
             /* renamed from: com.baidu.tieba.dg3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0269a implements tf3 {
+            public class C0273a implements tf3 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0269a(a aVar) {
+                public C0273a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class dg3 extends jg3<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                wf3.u(this.a, this.c.c.M(), this.b, null, new C0269a(this));
+                wf3.u(this.a, this.c.c.M(), this.b, null, new C0273a(this));
             }
         }
 

@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.a1c;
 import com.baidu.tieba.a3c;
+import com.baidu.tieba.b1c;
 import com.baidu.tieba.b3c;
-import com.baidu.tieba.e3c;
-import com.baidu.tieba.g3c;
-import com.baidu.tieba.k5c;
-import com.baidu.tieba.n5c;
+import com.baidu.tieba.c3c;
+import com.baidu.tieba.f3c;
+import com.baidu.tieba.h3c;
+import com.baidu.tieba.l5c;
 import com.baidu.tieba.o5c;
-import com.baidu.tieba.z2c;
+import com.baidu.tieba.p5c;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final a1c a;
-    public final a1c b;
-    public final a1c c;
+    public final b1c a;
+    public final b1c b;
+    public final b1c c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static a1c computation() {
-        return k5c.f(a().a);
+    public static b1c computation() {
+        return l5c.f(a().a);
     }
 
-    public static a1c immediate() {
-        return b3c.a;
+    public static b1c immediate() {
+        return c3c.a;
     }
 
-    public static a1c io() {
-        return k5c.k(a().b);
+    public static b1c io() {
+        return l5c.k(a().b);
     }
 
-    public static a1c newThread() {
-        return k5c.l(a().c);
+    public static b1c newThread() {
+        return l5c.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            a3c.d.shutdown();
+            b3c.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            a3c.d.start();
+            b3c.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static a1c trampoline() {
-        return g3c.a;
+    public static b1c trampoline() {
+        return h3c.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof e3c) {
-            ((e3c) this.a).shutdown();
+        if (this.a instanceof f3c) {
+            ((f3c) this.a).shutdown();
         }
-        if (this.b instanceof e3c) {
-            ((e3c) this.b).shutdown();
+        if (this.b instanceof f3c) {
+            ((f3c) this.b).shutdown();
         }
-        if (this.c instanceof e3c) {
-            ((e3c) this.c).shutdown();
+        if (this.c instanceof f3c) {
+            ((f3c) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof e3c) {
-            ((e3c) this.a).start();
+        if (this.a instanceof f3c) {
+            ((f3c) this.a).start();
         }
-        if (this.b instanceof e3c) {
-            ((e3c) this.b).start();
+        if (this.b instanceof f3c) {
+            ((f3c) this.b).start();
         }
-        if (this.c instanceof e3c) {
-            ((e3c) this.c).start();
+        if (this.c instanceof f3c) {
+            ((f3c) this.c).start();
         }
     }
 
     public Schedulers() {
-        o5c f = n5c.c().f();
-        a1c g = f.g();
+        p5c f = o5c.c().f();
+        b1c g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = o5c.a();
+            this.a = p5c.a();
         }
-        a1c i = f.i();
+        b1c i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = o5c.c();
+            this.b = p5c.c();
         }
-        a1c j = f.j();
+        b1c j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = o5c.e();
+            this.c = p5c.e();
         }
     }
 
-    public static a1c from(Executor executor) {
-        return new z2c(executor);
+    public static b1c from(Executor executor) {
+        return new a3c(executor);
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it9;
+import com.baidu.tieba.jt9;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.om5;
-import com.baidu.tieba.t89;
+import com.baidu.tieba.u89;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,12 +38,12 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicDetailActivity> a;
     public BdTypeRecyclerView b;
-    public t89 c;
+    public u89 c;
     public LoadingView d;
     public om5 e;
     public PbListView f;
     public RecyclerView.OnScrollListener g;
-    public it9 h;
+    public jt9 h;
     public int i;
     public RecyclerView.OnScrollListener j;
     public e k;
@@ -253,9 +253,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
                 pbListView.J(SkinManager.getColor(R.color.CAM_X0109));
                 this.f.e(i);
             }
-            t89 t89Var = this.c;
-            if (t89Var != null) {
-                t89Var.c();
+            u89 u89Var = this.c;
+            if (u89Var != null) {
+                u89Var.c();
             }
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         }
@@ -315,13 +315,13 @@ public class HotTopicDetailFeedView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             this.i = i;
-            t89 t89Var = this.c;
+            u89 u89Var = this.c;
             if (i == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            t89Var.b(z);
+            u89Var.b(z);
             return this;
         }
         return (HotTopicDetailFeedView) invokeI.objValue;
@@ -345,9 +345,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.c.d(list);
-            it9 it9Var = this.h;
-            if (it9Var != null) {
-                it9Var.n(this.b.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
+            jt9 jt9Var = this.h;
+            if (jt9Var != null) {
+                jt9Var.n(this.b.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
             }
         }
     }
@@ -362,9 +362,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            it9 it9Var = this.h;
-            if (it9Var != null) {
-                it9Var.h();
+            jt9 jt9Var = this.h;
+            if (jt9Var != null) {
+                jt9Var.h();
             }
             SafeHandler.getInst().removeCallbacks(this.k);
         }
@@ -398,19 +398,19 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void k() {
-        it9 it9Var;
+        jt9 jt9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (it9Var = this.h) != null) {
-            it9Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (jt9Var = this.h) != null) {
+            jt9Var.z();
             this.h.r(false);
         }
     }
 
     public void l() {
-        it9 it9Var;
+        jt9 jt9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (it9Var = this.h) != null) {
-            it9Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (jt9Var = this.h) != null) {
+            jt9Var.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.b;
             if (bdTypeRecyclerView != null) {
                 this.h.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
@@ -446,13 +446,13 @@ public class HotTopicDetailFeedView extends FrameLayout {
             this.b.addOnScrollListener(this.j);
             this.b.setOnSrollToBottomListener(new b(this));
             TbPageContext<HotTopicDetailActivity> tbPageContext = this.a;
-            this.c = new t89(tbPageContext, tbPageContext.getUniqueId(), this.b);
+            this.c = new u89(tbPageContext, tbPageContext.getUniqueId(), this.b);
             addView(this.b);
             ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070569);
             if (this.h == null) {
-                it9 it9Var = new it9(this.a, this.b);
-                this.h = it9Var;
-                it9Var.p(2);
+                jt9 jt9Var = new jt9(this.a, this.b);
+                this.h = jt9Var;
+                jt9Var.p(2);
                 this.h.u(this.a.getUniqueId());
             }
             this.b.setRecyclerListener(new c(this));

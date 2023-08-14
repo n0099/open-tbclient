@@ -10,7 +10,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.uka;
+import com.baidu.tieba.vka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = uka.g(themeColorInfo);
+        String g = vka.g(themeColorInfo);
         if (!bi.isEmpty(g)) {
             lg.c(new a(this, g));
         }
@@ -261,8 +261,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
                     this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
-                    this.textColorTheme = uka.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = uka.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = vka.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = vka.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

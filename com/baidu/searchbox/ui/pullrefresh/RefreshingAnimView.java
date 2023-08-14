@@ -467,7 +467,7 @@ public class RefreshingAnimView extends View {
         this.mCamera = new Camera();
         this.mMatrix = new Matrix();
         changeState(1);
-        setId(com.baidu.tieba.R.id.obfuscated_res_0x7f091e91);
+        setId(com.baidu.tieba.R.id.obfuscated_res_0x7f091e97);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

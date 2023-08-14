@@ -23,7 +23,7 @@ public class vi1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc7)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccd)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;
@@ -58,8 +58,8 @@ public class vi1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc6);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc7);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccc);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccd);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

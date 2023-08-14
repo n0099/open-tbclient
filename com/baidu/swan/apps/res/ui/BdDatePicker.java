@@ -211,7 +211,7 @@ public class BdDatePicker extends LinearLayout {
         this.p = po3.g(this.p);
         this.q = po3.g(16.0f);
         this.r = po3.g(14.0f);
-        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a05);
+        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a0b);
         this.d = wheelView3d;
         wheelView3d.setCenterTextSize(this.q);
         this.d.setOuterTextSize(this.r);
@@ -221,7 +221,7 @@ public class BdDatePicker extends LinearLayout {
         this.d.setDividerType(WheelView3d.DividerType.FILL);
         this.d.setVisibleItem(7);
         this.d.setOnItemSelectedListener(new a());
-        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a04);
+        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a0a);
         this.e = wheelView3d2;
         wheelView3d2.setCenterTextSize(this.q);
         this.e.setOuterTextSize(this.r);
@@ -231,7 +231,7 @@ public class BdDatePicker extends LinearLayout {
         this.e.setDividerType(WheelView3d.DividerType.FILL);
         this.e.setVisibleItem(7);
         this.e.setOnItemSelectedListener(new b());
-        WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a01);
+        WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a07);
         this.f = wheelView3d3;
         wheelView3d3.setCenterTextSize(this.q);
         this.f.setOuterTextSize(this.r);

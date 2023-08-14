@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,13 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes7.dex */
 public class r88 implements ym {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public long c;
+    public long d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +34,7 @@ public class r88 implements ym {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public r88() {
@@ -52,34 +55,24 @@ public class r88 implements ym {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(TopicList topicList) {
+    public void a(CommonInteraction commonInteraction) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
-            topicList.topic_id.longValue();
-            String str = topicList.topic_name;
-            topicList.tag.intValue();
-            topicList.discuss_num.longValue();
-            String str2 = topicList.topic_desc;
-            String str3 = topicList.topic_pic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, commonInteraction) != null) || commonInteraction == null) {
+            return;
         }
-    }
-
-    public void b(TopicListModule topicListModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
+        String str = commonInteraction.module_name;
+        String str2 = commonInteraction.ques_desc;
+        this.a = commonInteraction.total_num.longValue();
+        this.b = commonInteraction.has_clicked.intValue();
+        String str3 = commonInteraction.before_click_pic;
+        String str4 = commonInteraction.after_click_pic;
+        this.c = commonInteraction.pk_id.longValue();
+        this.d = commonInteraction.user_pk_id.longValue();
     }
 }

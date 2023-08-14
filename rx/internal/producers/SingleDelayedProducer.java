@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.d1c;
-import com.baidu.tieba.j1c;
-import com.baidu.tieba.z0c;
+import com.baidu.tieba.a1c;
+import com.baidu.tieba.e1c;
+import com.baidu.tieba.k1c;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements z0c {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements a1c {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final d1c<? super T> child;
+    public final e1c<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(d1c<? super T> d1cVar) {
-        this.child = d1cVar;
+    public SingleDelayedProducer(e1c<? super T> e1cVar) {
+        this.child = e1cVar;
     }
 
-    @Override // com.baidu.tieba.z0c
+    @Override // com.baidu.tieba.a1c
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements z0c
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(d1c<? super T> d1cVar, T t) {
-        if (d1cVar.isUnsubscribed()) {
+    public static <T> void emit(e1c<? super T> e1cVar, T t) {
+        if (e1cVar.isUnsubscribed()) {
             return;
         }
         try {
-            d1cVar.onNext(t);
-            if (d1cVar.isUnsubscribed()) {
+            e1cVar.onNext(t);
+            if (e1cVar.isUnsubscribed()) {
                 return;
             }
-            d1cVar.onCompleted();
+            e1cVar.onCompleted();
         } catch (Throwable th) {
-            j1c.g(th, d1cVar, t);
+            k1c.g(th, e1cVar, t);
         }
     }
 }

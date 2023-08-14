@@ -155,7 +155,7 @@ public class PushThreadActivity extends BaseActivity {
                 View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0838, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091215);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091214);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092718);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09271e);
                 PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.a.g, i);
                 if (pushTypeData != null) {
                     tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
@@ -258,7 +258,7 @@ public class PushThreadActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091214);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092718);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271e);
             this.d.setEnabled(true);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.g, i);
             if (pushTypeData != null) {
@@ -271,7 +271,7 @@ public class PushThreadActivity extends BaseActivity {
                 PushTypeData pushTypeData2 = this.c;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.g, pushTypeData2))) != null) {
                     ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091214)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092718), (int) R.color.CAM_X0105);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f09271e), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);
@@ -285,19 +285,19 @@ public class PushThreadActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0839);
-            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091dd4), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f092145), (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091dda), R.drawable.dialog_background);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f09214b), (int) R.color.CAM_X0105);
             this.a = (GridView) findViewById(R.id.obfuscated_res_0x7f090edb);
             this.a.setAdapter((ListAdapter) new b(this));
             this.a.setOnItemClickListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbc);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
             this.d = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f081261);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f081264);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setOnClickListener(this);
             ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090fe9);
             this.e = imageButton;
-            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f081260);
+            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f081263);
             this.e.setOnClickListener(this);
         }
     }

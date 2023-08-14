@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi8;
+import com.baidu.tieba.wi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class TopBubbleView extends FrameLayout {
                 aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
                 aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
                 aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bb);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092187);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218d);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -194,7 +194,7 @@ public class TopBubbleView extends FrameLayout {
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!vi8.a(topBubbleData.getVersionKey())) {
+            } else if (!wi8.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
                 this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080614);
             } else {

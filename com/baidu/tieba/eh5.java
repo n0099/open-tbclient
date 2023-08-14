@@ -304,7 +304,7 @@ public class eh5 {
         if (interceptable == null || interceptable.invokeL(1048593, this, downloadData) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(downloadData);
-            d06.c().f(linkedList);
+            e06.c().f(linkedList);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
         }
     }

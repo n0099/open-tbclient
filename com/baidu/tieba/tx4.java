@@ -37,18 +37,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tx4 implements pk6 {
+public class tx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public tx4() {
@@ -65,7 +65,7 @@ public class tx4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -136,13 +136,13 @@ public class tx4 implements pk6 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public jca e(WebView webView, String str) {
+    public kca e(WebView webView, String str) {
         InterceptResult invokeLL;
         String signInfo;
         JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             JSONObject jSONObject = null;
             int i = 0;
             try {
@@ -159,8 +159,8 @@ public class tx4 implements pk6 {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
                 jSONObject2.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-                jcaVar.o(jSONObject2.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject2.toString());
+                return kcaVar;
             }
             if (!TextUtils.isEmpty(signInfo)) {
                 jSONObject = new JSONObject(signInfo);
@@ -168,23 +168,23 @@ public class tx4 implements pk6 {
             JSONObject jSONObject22 = new JSONObject();
             jSONObject22.put("resultCode", i);
             jSONObject22.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            jcaVar.o(jSONObject22.toString());
-            return jcaVar;
+            kcaVar.o(jSONObject22.toString());
+            return kcaVar;
             i = 1;
             JSONObject jSONObject222 = new JSONObject();
             jSONObject222.put("resultCode", i);
             jSONObject222.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            jcaVar.o(jSONObject222.toString());
-            return jcaVar;
+            kcaVar.o(jSONObject222.toString());
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public kca f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             gu4 gu4Var = new gu4();
             gu4Var.c = i;
             gu4Var.d = i2;
@@ -217,13 +217,13 @@ public class tx4 implements pk6 {
                     c(gu4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
             } else if (i == gu4.C) {
-                Activity a = ek6.a(webView.getContext());
+                Activity a = fk6.a(webView.getContext());
                 if (i6 == 1 && a != null) {
                     a.finish();
                 }
                 MutiProcessManager.publishEvent(new TopToastEvent(i5, str, 1500));
             } else if (i == gu4.D) {
-                Activity a2 = ek6.a(webView.getContext());
+                Activity a2 = fk6.a(webView.getContext());
                 if (i6 == 1 && a2 != null) {
                     a2.finish();
                 }
@@ -236,22 +236,22 @@ public class tx4 implements pk6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeCommon.objValue;
+        return (kca) invokeCommon.objValue;
     }
 
-    public jca g(WebView webView, String str, String str2, String str3, int i, int i2) {
+    public kca g(WebView webView, String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            jca jcaVar = new jca();
-            Activity a = ek6.a(webView.getContext());
+            kca kcaVar = new kca();
+            Activity a = fk6.a(webView.getContext());
             int i3 = 0;
             boolean z = false;
             boolean z2 = false;
@@ -283,13 +283,13 @@ public class tx4 implements pk6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i3);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeCommon.objValue;
+        return (kca) invokeCommon.objValue;
     }
 }

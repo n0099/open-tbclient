@@ -99,7 +99,7 @@ public final class tx3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return u86.a();
+            return v86.a();
         }
         return (b) invokeV.objValue;
     }

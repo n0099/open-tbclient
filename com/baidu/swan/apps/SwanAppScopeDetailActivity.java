@@ -43,7 +43,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public void d(String str) {
             super.d(str);
             if (!TextUtils.isEmpty(str)) {
-                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f09255a)).setText(str);
+                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f092560)).setText(str);
             }
         }
     }

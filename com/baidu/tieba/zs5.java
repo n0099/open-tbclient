@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -18,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zs5 extends vs5<w35, ThreadCardViewHolder<w35>> {
+public class zs5 extends ws5<w35, ThreadCardViewHolder<w35>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bn6<w35> g;
+    public cn6<w35> g;
 
     /* loaded from: classes8.dex */
-    public class a extends bn6<w35> {
+    public class a extends cn6<w35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zs5 b;
@@ -48,7 +49,7 @@ public class zs5 extends vs5<w35, ThreadCardViewHolder<w35>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, w35 w35Var) {
             Interceptable interceptable = $ic;
@@ -100,7 +101,7 @@ public class zs5 extends vs5<w35, ThreadCardViewHolder<w35>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zs5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,10 +129,10 @@ public class zs5 extends vs5<w35, ThreadCardViewHolder<w35>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.c.getPageActivity(), false);
-            zx zxVar = new zx(this.c.getPageActivity());
-            zxVar.setFrom(z());
-            zxVar.y(G());
-            bVar.n(zxVar);
+            yx yxVar = new yx(this.c.getPageActivity());
+            yxVar.setFrom(z());
+            yxVar.x(G());
+            bVar.n(yxVar);
             ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.s(C());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -156,6 +157,13 @@ public class zs5 extends vs5<w35, ThreadCardViewHolder<w35>> {
                 threadCardViewHolder.f(w35Var);
                 threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.b().q(this.g);
+                yx yxVar = (yx) threadCardViewHolder.b().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yxVar.f.d.getLayoutParams();
+                layoutParams.width = w35Var.u;
+                layoutParams.height = w35Var.v;
+                if (yxVar.f.d.getVisibility() != 8) {
+                    yxVar.f.d.setLayoutParams(layoutParams);
+                }
                 N(threadCardViewHolder.getView(), w35Var, i, i);
                 return threadCardViewHolder.getView();
             }

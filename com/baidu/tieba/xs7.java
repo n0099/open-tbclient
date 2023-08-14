@@ -1,273 +1,622 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.FrsAllThreadFragment;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.ad.FrsADFragment;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.good.FrsGoodFragment;
+import com.baidu.tieba.frs.h5.FrsTabWebFragment;
+import com.baidu.tieba.frs.h5.NewFrsTabWebFragment;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import tbclient.FrsTabInfo;
 /* loaded from: classes8.dex */
-public final class xs7 {
+public class xs7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311021, "Lcom/baidu/tieba/xs7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+        public final /* synthetic */ FrsTabInfo b;
+        public final /* synthetic */ FrsViewData c;
+        public final /* synthetic */ int d;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a(FrsFragment frsFragment, FrsTabInfo frsTabInfo, FrsViewData frsViewData, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, frsTabInfo, frsViewData, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948311021, "Lcom/baidu/tieba/xs7;");
-                return;
+            this.a = frsFragment;
+            this.b = frsTabInfo;
+            this.c = frsViewData;
+            this.d = i;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsAllThreadFragment frsAllThreadFragment = new FrsAllThreadFragment();
+                FrsFragment frsFragment = this.a;
+                if (frsFragment != null && frsFragment.z1() != null) {
+                    frsAllThreadFragment.K1(this.a.z1().Z());
+                    this.a.f5(kv7.e(this.b, this.c.showAdsense.intValue()));
+                }
+                Bundle bundle = new Bundle();
+                FrsFragment frsFragment2 = this.a;
+                if (frsFragment2 != null) {
+                    bundle.putString("forum_id", frsFragment2.w());
+                }
+                bundle.putInt("tab_id", this.d);
+                bundle.putBoolean("isAdded", false);
+                frsAllThreadFragment.setArguments(bundle);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsAllThreadFragment;
+                fragmentTabStructure.type = 1;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
             }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            a.c();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.e();
+            return (FragmentTabStructure) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public static class b extends FragmentDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo a;
+        public final /* synthetic */ FrsViewData b;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ int d;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        public a() {
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public b(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsTabInfo;
+            this.b = frsViewData;
+            this.c = frsFragment;
+            this.d = i;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsGoodFragment frsGoodFragment = new FrsGoodFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv7.e(this.a, this.b.showAdsense.intValue()));
+                bundle.putString("name", this.c.v());
+                bundle.putString("from", this.c.getFrom());
+                bundle.putBoolean("back_special", false);
+                bundle.putBoolean(FrsActivityConfig.GOOD, true);
+                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
+                bundle.putString("forum_id", this.c.w());
+                bundle.putBoolean("isAdded", false);
+                frsGoodFragment.setArguments(bundle);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsGoodFragment;
+                fragmentTabStructure.type = this.d;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
+            }
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo a;
+        public final /* synthetic */ FrsViewData b;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ int d;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public c(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsTabInfo;
+            this.b = frsViewData;
+            this.c = frsFragment;
+            this.d = i;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsNewAreaFragment frsNewAreaFragment = new FrsNewAreaFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv7.e(this.a, this.b.showAdsense.intValue()));
+                bundle.putString("name", this.c.v());
+                bundle.putString("from", this.c.getFrom());
+                bundle.putBoolean("back_special", false);
+                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
+                bundle.putString("forum_id", this.c.w());
+                bundle.putBoolean("isAdded", false);
+                frsNewAreaFragment.setArguments(bundle);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsNewAreaFragment;
+                fragmentTabStructure.type = this.d;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
+            }
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public d(FrsFragment frsFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = frsFragment;
         }
 
-        @JvmStatic
-        public final boolean d() {
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsADFragment frsADFragment = new FrsADFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", this.a.v());
+                bundle.putString("from", this.a.getFrom());
+                bundle.putString("forum_id", this.a.w());
+                bundle.putBoolean("isAdded", false);
+                frsADFragment.setArguments(bundle);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsADFragment;
+                fragmentTabStructure.type = 90;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
+            }
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class e extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo a;
+        public final /* synthetic */ FrsViewData b;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ int d;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
             }
             return invokeV.booleanValue;
         }
 
-        @JvmStatic
-        public final void e() {
+        public e(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), true);
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.ys7.j();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int j;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || j <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = ys7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
-                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
-                    int i = 0;
-                    for (String str2 : split$default) {
-                        if (Intrinsics.areEqual(str2, str)) {
-                            i++;
-                        }
-                    }
-                    if (i >= j) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void f(String str) {
-            boolean z;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = ys7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                mutableList.add(str);
-                ys7.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
             }
+            this.a = frsTabInfo;
+            this.b = frsViewData;
+            this.c = frsFragment;
+            this.d = i;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.ys7.i();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int i;
-            String g;
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsCommonTabFragment frsCommonTabFragment = new FrsCommonTabFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv7.e(this.a, this.b.showAdsense.intValue()));
+                bundle.putString("name", this.c.v());
+                bundle.putString("from", this.c.getFrom());
+                bundle.putString("forum_id", this.c.w());
+                bundle.putInt("tab_id", this.d);
+                bundle.putInt("tab_type", this.a.tab_type.intValue());
+                bundle.putString("tab_name", this.a.tab_name);
+                bundle.putInt("is_general_tab", this.a.is_general_tab.intValue());
+                bundle.putBoolean("can_auto_play_video", this.b.isFrsVideoAutoPlay);
+                boolean z = true;
+                if (this.b.needLog != 1) {
                     z = false;
-                } else {
-                    z = true;
                 }
-                if (z || i <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = ys7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    ys7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    ys7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
-                        return false;
-                    }
-                    mutableList.add(str);
-                    ys7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    ys7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                }
+                bundle.putBoolean(DownloadStatisticConstants.UBC_SOURCE_NEED_LOG, z);
+                bundle.putBoolean("is_brand_forum", this.b.isBrandForum);
+                bundle.putSerializable("view_data", this.b);
+                bundle.putBoolean("isAdded", false);
+                frsCommonTabFragment.setArguments(bundle);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsCommonTabFragment;
+                fragmentTabStructure.type = this.d;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
             }
-            return invokeL.booleanValue;
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class f extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo a;
+        public final /* synthetic */ FrsViewData b;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ int d;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @JvmStatic
-        public final void c() {
-            int i;
-            String g;
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = ys7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                for (i = ys7.i(); -1 < i; i--) {
-                    mutableList.add(String.valueOf(i));
-                }
-                ys7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
             }
+            return invokeV.booleanValue;
         }
+
+        public f(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsTabInfo;
+            this.b = frsViewData;
+            this.c = frsFragment;
+            this.d = i;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv7.e(this.a, this.b.showAdsense.intValue()));
+                bundle.putString("name", this.c.v());
+                bundle.putString("from", this.c.getFrom());
+                bundle.putString("forum_id", this.c.w());
+                bundle.putInt("tab_id", this.d);
+                bundle.putInt("tab_type", this.a.tab_type.intValue());
+                bundle.putString("tab_name", this.a.tab_name);
+                bundle.putString("tab_url", this.a.tab_url);
+                bundle.putInt("is_general_tab", this.a.is_general_tab.intValue());
+                bundle.putBoolean("can_auto_play_video", this.b.isFrsVideoAutoPlay);
+                boolean z = true;
+                if (this.b.needLog != 1) {
+                    z = false;
+                }
+                bundle.putBoolean(DownloadStatisticConstants.UBC_SOURCE_NEED_LOG, z);
+                bundle.putBoolean("is_brand_forum", this.b.isBrandForum);
+                bundle.putSerializable("view_data", this.b);
+                bundle.putBoolean("isAdded", false);
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                if (mk6.e(this.a.tab_url)) {
+                    NewFrsTabWebFragment newFrsTabWebFragment = new NewFrsTabWebFragment();
+                    newFrsTabWebFragment.setArguments(bundle);
+                    fragmentTabStructure.frag = newFrsTabWebFragment;
+                } else {
+                    FrsTabWebFragment frsTabWebFragment = new FrsTabWebFragment();
+                    frsTabWebFragment.setArguments(bundle);
+                    fragmentTabStructure.frag = frsTabWebFragment;
+                }
+                fragmentTabStructure.type = this.d;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
+            }
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g extends FragmentDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ FrsTabInfo c;
+        public final /* synthetic */ FrsViewData d;
+        public final /* synthetic */ String e;
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public TbFragmentTabIndicator getTabIndicator(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public boolean isAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public g(FrsFragment frsFragment, int i, FrsTabInfo frsTabInfo, FrsViewData frsViewData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, Integer.valueOf(i), frsTabInfo, frsViewData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsFragment;
+            this.b = i;
+            this.c = frsTabInfo;
+            this.d = frsViewData;
+            this.e = str;
+        }
+
+        @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+        public FragmentTabStructure createFragmentTabStructure() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsItemTabFragment frsItemTabFragment = new FrsItemTabFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", this.a.v());
+                bundle.putString("from", this.a.getFrom());
+                bundle.putString("forum_id", this.a.w());
+                bundle.putInt("tab_id", this.b);
+                bundle.putInt("tab_type", this.c.tab_type.intValue());
+                bundle.putString("tab_name", this.c.tab_name);
+                bundle.putString("tab_code", this.c.tab_code);
+                boolean z = true;
+                if (this.d.needLog != 1) {
+                    z = false;
+                }
+                bundle.putBoolean(DownloadStatisticConstants.UBC_SOURCE_NEED_LOG, z);
+                bundle.putString("theme_color", this.e);
+                bundle.putBoolean("isAdded", false);
+                bundle.putInt(FrsActivityConfig.FRS_CALL_FROM_BY_ITEM_POSITION, this.a.H3());
+                frsItemTabFragment.setArguments(bundle);
+                frsItemTabFragment.O1(this.a.getUniqueId());
+                FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+                fragmentTabStructure.frag = frsItemTabFragment;
+                fragmentTabStructure.type = this.b;
+                fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+                return fragmentTabStructure;
+            }
+            return (FragmentTabStructure) invokeV.objValue;
+        }
+    }
+
+    public static FragmentDelegate a(@NonNull FrsTabInfo frsTabInfo, @NonNull FrsFragment frsFragment, @NonNull FrsViewData frsViewData, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, frsTabInfo, frsFragment, frsViewData, str)) == null) {
+            int intValue = frsTabInfo.tab_id.intValue();
+            if (intValue == 1) {
+                return new a(frsFragment, frsTabInfo, frsViewData, intValue);
+            }
+            if (intValue == 301) {
+                return new b(frsTabInfo, frsViewData, frsFragment, intValue);
+            }
+            if (intValue == 503) {
+                return new c(frsTabInfo, frsViewData, frsFragment, intValue);
+            }
+            if (intValue == 90) {
+                return new d(frsFragment);
+            }
+            if (frsTabInfo.tab_type.intValue() != 91 && intValue != 89 && intValue != 504 && frsTabInfo.tab_type.intValue() != 15 && frsTabInfo.tab_type.intValue() != 16 && frsTabInfo.tab_type.intValue() != 3 && frsTabInfo.tab_type.intValue() != 100) {
+                if (frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_type.intValue() == 102) {
+                    return new f(frsTabInfo, frsViewData, frsFragment, intValue);
+                }
+                if (intValue == 506) {
+                    return new g(frsFragment, intValue, frsTabInfo, frsViewData, str);
+                }
+                return null;
+            }
+            return new e(frsTabInfo, frsViewData, frsFragment, intValue);
+        }
+        return (FragmentDelegate) invokeLLLL.objValue;
     }
 }

@@ -36,13 +36,13 @@ public class b22 extends x12 {
 
         /* renamed from: com.baidu.tieba.b22$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0246a implements rp3<bg3<dg3.e>> {
+        public class C0244a implements rp3<bg3<dg3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ az1.b a;
             public final /* synthetic */ a b;
 
-            public C0246a(a aVar, az1.b bVar) {
+            public C0244a(a aVar, az1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class b22 extends x12 {
                 if (b0 == null) {
                     return new y22(1001, "null swan runtime");
                 }
-                b0.e0().g(xa3.K(), "mapp_i_get_common_sys_info", new C0246a(this, bVar));
+                b0.e0().g(xa3.K(), "mapp_i_get_common_sys_info", new C0244a(this, bVar));
                 return new y22(0);
             }
             return (y22) invokeLL.objValue;

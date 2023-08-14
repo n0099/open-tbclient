@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mz5 implements ImageAssetDelegate {
+public final class mz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
+    public static final mz5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +31,7 @@ public class mz5 implements ImageAssetDelegate {
                 return;
             }
         }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        a = new mz5();
     }
 
     public mz5() {
@@ -52,74 +44,82 @@ public class mz5 implements ImageAssetDelegate {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = false;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_full_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
-        return invokeV.booleanValue;
+        return invokeI.intValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public final int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
-        return (String) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public void c(boolean z) {
+    public final int b(int i, Boolean bool) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (bi.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bool)) == null) {
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                return a(i);
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(str, 36, new Object[0]);
-            if (bdImage == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                bdImage = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (bdImage != null && bdImage.getRawBitmap() != null) {
-                Bitmap rawBitmap = bdImage.getRawBitmap();
-                try {
-                    if (rawBitmap.getConfig() != null) {
-                        return rawBitmap.copy(rawBitmap.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            BdResourceLoader.getInstance().loadResource(str, 36, null, null);
-            return null;
+            return d(i);
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeIL.intValue;
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            boolean z4 = true;
+            if (1 <= i && i < 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return R.color.CAM_X0309;
+            }
+            if (4 <= i && i < 10) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                return R.color.CAM_X0306;
+            }
+            if (10 <= i && i < 16) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                return R.color.CAM_X0305;
+            }
+            if ((16 > i || i >= 19) ? false : false) {
+                return R.color.CAM_X0319;
+            }
+            if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                return 0;
+            }
+            throw new IllegalArgumentException("unsupported simple level " + i + ", check and replace!");
+        }
+        return invokeI.intValue;
     }
 }

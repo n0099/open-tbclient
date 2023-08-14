@@ -15,13 +15,13 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax8;
 import com.baidu.tieba.az8;
-import com.baidu.tieba.gx8;
+import com.baidu.tieba.bx8;
+import com.baidu.tieba.bz8;
+import com.baidu.tieba.hx8;
 import com.baidu.tieba.lego.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.om5;
-import com.baidu.tieba.sy8;
 import com.baidu.tieba.ty8;
-import com.baidu.tieba.yy8;
-import com.baidu.tieba.zw8;
+import com.baidu.tieba.uy8;
 import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public class LegoTabFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
-    public zy8 b;
+    public az8 b;
     public om5 c;
     public LoadingView d;
     public long e;
@@ -45,14 +45,14 @@ public class LegoTabFragment extends BaseFragment {
     public String g;
     public String h;
     public String i;
-    public List<sy8> j;
-    public gx8 k;
-    public ax8 l;
-    public zw8 m;
+    public List<ty8> j;
+    public hx8 k;
+    public bx8 l;
+    public ax8 m;
     public CustomMessageListener n;
 
     /* loaded from: classes6.dex */
-    public class a implements ax8 {
+    public class a implements bx8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -75,7 +75,7 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.ax8
+        @Override // com.baidu.tieba.bx8
         public void a(int i, long j, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) {
@@ -83,7 +83,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.ax8
+        @Override // com.baidu.tieba.bx8
         public void b(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
@@ -93,7 +93,7 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements zw8 {
+    public class b implements ax8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -116,12 +116,12 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.zw8
-        public void a(List<sy8> list) {
+        @Override // com.baidu.tieba.ax8
+        public void a(List<ty8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                List<sy8> list2 = legoTabFragment.j;
+                List<ty8> list2 = legoTabFragment.j;
                 if (list2 == null) {
                     legoTabFragment.j = new ArrayList();
                 } else {
@@ -134,7 +134,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.zw8
+        @Override // com.baidu.tieba.ax8
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -143,7 +143,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.zw8
+        @Override // com.baidu.tieba.ax8
         public void c(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str) == null) {
@@ -151,8 +151,8 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.zw8
-        public void d(String str, String str2, String str3, List<ty8> list) {
+        @Override // com.baidu.tieba.ax8
+        public void d(String str, String str2, String str3, List<uy8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, list) == null) {
                 this.a.g = str;
@@ -163,7 +163,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.zw8
+        @Override // com.baidu.tieba.ax8
         public void e(long j, String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) {
@@ -211,7 +211,7 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements az8 {
+    public class d implements bz8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -234,7 +234,7 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
@@ -256,7 +256,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void b(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) {
@@ -274,7 +274,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.az8
+        @Override // com.baidu.tieba.bz8
         public void c(long j, String str, Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
@@ -380,10 +380,10 @@ public class LegoTabFragment extends BaseFragment {
         }
     }
 
-    public void b2(gx8 gx8Var) {
+    public void b2(hx8 hx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gx8Var) == null) {
-            this.k = gx8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, hx8Var) == null) {
+            this.k = hx8Var;
         }
     }
 
@@ -427,21 +427,21 @@ public class LegoTabFragment extends BaseFragment {
     public final void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zy8 c2 = yy8.d().c(getPageContext(), getUniqueId());
+            az8 c2 = zy8.d().c(getPageContext(), getUniqueId());
             this.b = c2;
             c2.b(new d(this));
         }
     }
 
     public final void e2() {
-        gx8 gx8Var;
+        hx8 hx8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (gx8Var = this.k) != null) {
-            gx8Var.g(this.j);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (hx8Var = this.k) != null) {
+            hx8Var.g(this.j);
         }
     }
 
-    public final void Y1(List<ty8> list) {
+    public final void Y1(List<uy8> list) {
         int count;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (count = ListUtils.getCount(list)) > 0 && this.a != null) {

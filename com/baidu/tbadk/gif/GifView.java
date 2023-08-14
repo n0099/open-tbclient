@@ -35,7 +35,7 @@ import com.baidu.tieba.l9;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.nb;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.pv5;
+import com.baidu.tieba.qv5;
 import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -819,7 +819,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 return;
             }
             if (this.F != null) {
-                boolean c2 = pv5.c();
+                boolean c2 = qv5.c();
                 GifInfo gifInfo = this.F;
                 if (c2) {
                     str = gifInfo.mDynamicUrl;
@@ -986,7 +986,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             if (mk5Var != null) {
                 mk5Var.a();
             }
-            boolean c2 = pv5.c();
+            boolean c2 = qv5.c();
             k9 c3 = l9.c(getContext());
             if (c3 != null) {
                 bdUniqueId = c3.getUniqueId();

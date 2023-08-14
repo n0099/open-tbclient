@@ -56,14 +56,14 @@ public final class R {
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int highlight_toast_image_d20 = 0x7f080716;
-        public static final int template_2_btn_bg_d20 = 0x7f0814c4;
-        public static final int toast_bg_d20 = 0x7f0814d7;
-        public static final int toast_cancel = 0x7f0814d9;
-        public static final int toast_left_icon_d20 = 0x7f0814da;
-        public static final int toast_left_tx_d20 = 0x7f0814db;
-        public static final int toast_loading_d20 = 0x7f0814dc;
-        public static final int toast_loading_pic_d20 = 0x7f0814dd;
-        public static final int toast_right_jump_d20 = 0x7f0814df;
+        public static final int template_2_btn_bg_d20 = 0x7f0814c7;
+        public static final int toast_bg_d20 = 0x7f0814da;
+        public static final int toast_cancel = 0x7f0814dc;
+        public static final int toast_left_icon_d20 = 0x7f0814dd;
+        public static final int toast_left_tx_d20 = 0x7f0814de;
+        public static final int toast_loading_d20 = 0x7f0814df;
+        public static final int toast_loading_pic_d20 = 0x7f0814e0;
+        public static final int toast_right_jump_d20 = 0x7f0814e2;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -139,24 +139,24 @@ public final class R {
         public static final int negative_button = 0x7f0918ef;
         public static final int neutral_button = 0x7f091904;
         public static final int normal_toast_text = 0x7f091981;
-        public static final int one_line_text = 0x7f0919c8;
-        public static final int positive_button = 0x7f091ce8;
-        public static final int right_button_toast_btn_view = 0x7f091f15;
-        public static final int right_button_toast_info_view = 0x7f091f16;
-        public static final int right_button_toast_view = 0x7f091f17;
-        public static final int right_img = 0x7f091f1f;
-        public static final int right_jump_img = 0x7f091f20;
-        public static final int right_toast_click_area = 0x7f091f29;
-        public static final int right_toast_jump_text = 0x7f091f2a;
-        public static final int right_toast_vertical_line = 0x7f091f2b;
-        public static final int root_container = 0x7f091f73;
-        public static final int searchbox_alert_dialog = 0x7f09211e;
-        public static final int sub_title = 0x7f0922cf;
-        public static final int text_area = 0x7f09245e;
-        public static final int text_title = 0x7f09248e;
-        public static final int title = 0x7f09255a;
-        public static final int title_panel = 0x7f09257c;
-        public static final int title_text = 0x7f092587;
+        public static final int one_line_text = 0x7f0919ce;
+        public static final int positive_button = 0x7f091cee;
+        public static final int right_button_toast_btn_view = 0x7f091f1b;
+        public static final int right_button_toast_info_view = 0x7f091f1c;
+        public static final int right_button_toast_view = 0x7f091f1d;
+        public static final int right_img = 0x7f091f25;
+        public static final int right_jump_img = 0x7f091f26;
+        public static final int right_toast_click_area = 0x7f091f2f;
+        public static final int right_toast_jump_text = 0x7f091f30;
+        public static final int right_toast_vertical_line = 0x7f091f31;
+        public static final int root_container = 0x7f091f79;
+        public static final int searchbox_alert_dialog = 0x7f092124;
+        public static final int sub_title = 0x7f0922d5;
+        public static final int text_area = 0x7f092464;
+        public static final int text_title = 0x7f092494;
+        public static final int title = 0x7f092560;
+        public static final int title_panel = 0x7f092582;
+        public static final int title_text = 0x7f09258d;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

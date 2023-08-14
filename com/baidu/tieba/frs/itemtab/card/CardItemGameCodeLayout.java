@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo7;
+import com.baidu.tieba.co7;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
 import com.baidu.tieba.rx;
@@ -199,13 +199,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements rx {
         }
     }
 
-    public void setData(bo7 bo7Var) {
+    public void setData(co7 co7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bo7Var) != null) || bo7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, co7Var) != null) || co7Var == null) {
             return;
         }
-        this.f = bo7Var.d();
-        this.g = bo7Var.c();
+        this.f = co7Var.d();
+        this.g = co7Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0302), Integer.valueOf(this.f)));
         } else {

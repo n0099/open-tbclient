@@ -1,15 +1,15 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes7.dex */
 public interface ny5 {
-    void a();
+    String a();
 
-    void b(int i, int i2, int i3, int i4);
+    void b(String str);
 
-    Context getContext();
+    String c();
 
-    boolean post(Runnable runnable);
+    String d();
 
-    boolean removeCallbacks(Runnable runnable);
+    boolean e();
+
+    boolean isValid();
 }

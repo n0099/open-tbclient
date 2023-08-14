@@ -36,7 +36,7 @@ public class u15 implements b75 {
     public String m;
     public float n;
     public List<String> o;
-    public saa p;
+    public taa p;
 
     /* loaded from: classes8.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -122,13 +122,13 @@ public class u15 implements b75 {
         return (String) invokeV.objValue;
     }
 
-    public saa f() {
+    public taa f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (saa) invokeV.objValue;
+        return (taa) invokeV.objValue;
     }
 
     public String g() {
@@ -309,9 +309,9 @@ public class u15 implements b75 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        saa saaVar = new saa();
-        this.p = saaVar;
-        saaVar.d(headImgs);
+        taa taaVar = new taa();
+        this.p = taaVar;
+        taaVar.d(headImgs);
     }
 
     public void p(String str) {

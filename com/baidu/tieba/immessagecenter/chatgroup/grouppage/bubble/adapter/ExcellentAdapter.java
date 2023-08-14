@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
-import com.baidu.tieba.vi8;
+import com.baidu.tieba.wi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
             this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092187);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218d);
         }
     }
 
@@ -219,7 +219,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
             excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f040a);
-            if (!vi8.a(topBubbleData.getVersionKey())) {
+            if (!wi8.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);

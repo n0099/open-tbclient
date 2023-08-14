@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +25,7 @@ public class fz8 extends bv4 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
     }
 
     public fz8() {
@@ -54,49 +48,31 @@ public class fz8 extends bv4 {
         Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
+            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
             gv4 gv4Var = new gv4();
-            if (obj instanceof zx8) {
-                zx8 zx8Var = (zx8) obj;
-                boolean c = zx8Var.c();
-                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-                Intent intent = new Intent(context, AlarmReceiver.class);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
-                intent.setData(Uri.parse(currentAccount));
-                long j = 0;
+            if (obj instanceof ay8) {
+                ay8 ay8Var = (ay8) obj;
+                Intent intent = new Intent(baseContext, AlarmReceiver.class);
                 Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                boolean z = false;
                 int i = 0;
                 while (it.hasNext() && (next = it.next()) != null) {
                     intent.putExtra(next.getKey(), next.getValue());
                     if ("task_id".equals(next.getKey())) {
                         i = Integer.parseInt(next.getValue());
-                    } else if ("s_time".equals(next.getKey())) {
-                        j = Long.parseLong(next.getValue()) * 1000;
                     }
                 }
-                StatisticItem statisticItem = new StatisticItem(zx8Var.h());
-                statisticItem.param("obj_id", "");
-                if (c) {
-                    statisticItem.param("obj_type", "2");
-                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0adc)).show();
-                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
-                    if (broadcast != null) {
-                        alarmManager.cancel(broadcast);
-                        broadcast.cancel();
-                    }
-                    gv4Var.a = false;
-                } else {
-                    statisticItem.param("obj_type", "1");
-                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0ae7)).show();
-                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
-                    gv4Var.a = true;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
                 }
-                TiebaStatic.log(statisticItem);
-                zx8Var.k(gv4Var.a);
+                intent.setData(Uri.parse(currentAccount));
+                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
+                    z = true;
+                }
+                gv4Var.a = z;
+                ay8Var.l(true);
+                ay8Var.k(gv4Var.a);
             }
             return gv4Var;
         }

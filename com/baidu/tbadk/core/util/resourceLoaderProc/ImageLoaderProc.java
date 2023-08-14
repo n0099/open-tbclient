@@ -22,7 +22,7 @@ import com.baidu.tieba.cg;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -204,8 +204,8 @@ public class ImageLoaderProc implements eg<BdImage> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             WebClient webClient = new WebClient();
-            sv5.e(true, str, str);
-            Pair<Boolean, String> d = sv5.d(str);
+            tv5.e(true, str, str);
+            Pair<Boolean, String> d = tv5.d(str);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -223,7 +223,7 @@ public class ImageLoaderProc implements eg<BdImage> {
             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && Bytes2Bitmap == null) {
-                    sv5.b(str3);
+                    tv5.b(str3);
                     Logger.addLog(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                     downloadImageBytes = webClient.downloadImageBytes(str, false);
                     needCache = webClient.needCache();

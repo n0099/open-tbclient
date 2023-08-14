@@ -555,10 +555,10 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091cba) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091cc0) {
                 y();
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f091cc5) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091ccb) {
                 t();
             }
         }
@@ -657,11 +657,11 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d053f, this);
-            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091cba);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cca);
-            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc9);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc8);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc5);
+            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091cc0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd0);
+            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccf);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cce);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccb);
             s(60L);
             this.c.setOnCodeFinishListener(this);
             this.a.setOnClickListener(this);

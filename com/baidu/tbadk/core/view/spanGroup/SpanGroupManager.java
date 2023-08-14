@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.nv5;
+import com.baidu.tieba.ov5;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.pw7;
 import com.baidu.tieba.qa5;
+import com.baidu.tieba.qw7;
 import com.baidu.tieba.ra5;
 import com.baidu.tieba.sa5;
 import com.baidu.tieba.ua5;
@@ -335,7 +335,7 @@ public class SpanGroupManager {
                     }
                     va5 va5Var2 = new va5(str);
                     va5Var2.a(this.c.getText(), i, va5Var2.u().length() + i, (int) this.c.getTextSize());
-                    if (!nv5.g(this.c.getText(), i)) {
+                    if (!ov5.g(this.c.getText(), i)) {
                         this.d.add(va5Var2);
                     }
                     va5Var2.t();
@@ -558,15 +558,15 @@ public class SpanGroupManager {
                     String substring = group.substring(18, group.length() - 7);
                     int start = matcher.start();
                     int end = matcher.end();
-                    pw7 pw7Var = null;
+                    qw7 qw7Var = null;
                     try {
-                        pw7Var = pw7.g(new JSONObject(substring));
+                        qw7Var = qw7.g(new JSONObject(substring));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (pw7Var != null) {
+                    if (qw7Var != null) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
-                        p15 b2 = p15.b(tbLinkSpanGroup, pw7Var);
+                        p15 b2 = p15.b(tbLinkSpanGroup, qw7Var);
                         tbLinkSpanGroup.a(text, start, end, (int) this.c.getTextSize());
                         b2.h = substring;
                         tbLinkSpanGroup.C(b2.d);

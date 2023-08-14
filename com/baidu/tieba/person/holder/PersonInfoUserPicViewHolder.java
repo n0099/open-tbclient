@@ -46,11 +46,11 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c65);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c6b);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
         this.c = view2.findViewById(R.id.obfuscated_res_0x7f09197f);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09253d);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092543);
     }
 
     public void b(ym ymVar) {

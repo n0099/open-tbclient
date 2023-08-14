@@ -10,7 +10,7 @@ public interface zd5 {
 
     void b(boolean z);
 
-    x0c<Boolean> c();
+    y0c<Boolean> c();
 
     boolean d();
 
@@ -18,5 +18,5 @@ public interface zd5 {
 
     boolean f();
 
-    x0c<NewsRemindMessage> g();
+    y0c<NewsRemindMessage> g();
 }

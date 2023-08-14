@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.pia;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.nia;
 import com.baidu.tieba.qia;
-import com.baidu.tieba.zaa;
+import com.baidu.tieba.ria;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pia> a;
-    public qia b;
-    public List<mia> c;
+    public List<qia> a;
+    public ria b;
+    public List<nia> c;
     public b d;
     public boolean e;
     public NetMessageListener f;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, List<mia> list, qia qiaVar, List<pia> list2);
+        void a(int i, String str, List<nia> list, ria riaVar, List<qia> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zaa.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            zaa.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            aba.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            aba.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

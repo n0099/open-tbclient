@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class z0a implements y97 {
+public final class z0a implements z97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.y97
+    @Override // com.baidu.tieba.z97
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c14686" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10730" : (String) invokeV.objValue;
     }
 
     public z0a() {
@@ -35,27 +36,26 @@ public final class z0a implements y97 {
         }
     }
 
-    @Override // com.baidu.tieba.y97
-    public Map<String, String> a(l57 businessInfo) {
+    @Override // com.baidu.tieba.z97
+    public Map<String, String> a(m57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", "1");
-            hashMap.put("obj_locate", "1");
-            String str = a.get("thread_id");
+            hashMap.putAll(y0a.a.a(businessInfo));
+            String str = businessInfo.a().get("pic_count");
             String str2 = "";
             if (str == null) {
                 str = "";
             }
-            hashMap.put("tid", str);
-            String str3 = a.get("recommend_info_business_id");
+            hashMap.put("obj_type", str);
+            String str3 = businessInfo.a().get("nid");
             if (str3 != null) {
                 str2 = str3;
             }
-            hashMap.put("obj_param1", str2);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
+            hashMap.put(TiebaStatic.Params.AB_ACTION, "click");
             return hashMap;
         }
         return (Map) invokeL.objValue;

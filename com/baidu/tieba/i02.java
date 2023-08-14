@@ -36,12 +36,12 @@ public class i02 {
 
         /* renamed from: com.baidu.tieba.i02$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0338a implements Runnable {
+        public class RunnableC0340a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0338a(a aVar) {
+            public RunnableC0340a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class i02 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0338a(this));
+                this.a.runOnJSThread(new RunnableC0340a(this));
             }
         }
     }

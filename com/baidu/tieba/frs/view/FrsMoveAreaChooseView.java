@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mu7;
-import com.baidu.tieba.we7;
+import com.baidu.tieba.nu7;
+import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,14 +117,14 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.m() >= 0) {
                     boolean z = SharedPrefHelper.getInstance().getBoolean("key_frs_move_area_tip", true);
-                    List<FrsTabInfo> g = we7.h().g();
+                    List<FrsTabInfo> g = xe7.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.l());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.m());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (z) {
-                            mu7.a(this.a, frsTabInfo, frsTabInfo2);
+                            nu7.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            we7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            xe7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");

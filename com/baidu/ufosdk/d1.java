@@ -109,7 +109,7 @@ public class d1 extends BaseAdapter {
                     i3 = -1;
                 }
                 view3.setBackgroundDrawable(p1.a(context, i3, "ufo_list_press.png"));
-                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d59);
+                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d5f);
                 view3.setTag(aVar);
             } else {
                 view3 = view2;

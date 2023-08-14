@@ -41,14 +41,14 @@ public class re3 extends vc3 {
 
         /* renamed from: com.baidu.tieba.re3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0464a implements dh2.f {
+        public class C0466a implements dh2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dh2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0464a(a aVar, dh2.e eVar, JSONObject jSONObject) {
+            public C0466a(a aVar, dh2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class re3 extends vc3 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                dh2.q(f, new C0464a(this, f, c2));
+                dh2.q(f, new C0466a(this, f, c2));
             }
         }
 

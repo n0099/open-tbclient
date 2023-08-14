@@ -360,7 +360,7 @@ public class zf3 implements zu1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081419);
+                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f08141c);
                 }
                 SwanAppRoundedImageView swanAppRoundedImageView = this.b;
                 if (swanAppRoundedImageView != null) {
@@ -575,7 +575,7 @@ public class zf3 implements zu1 {
     public final void A(Context context, View view2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, view2, jSONObject) == null) && context != null && view2 != null && jSONObject != null) {
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f092817);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09281d);
             TextView textView = (TextView) view2.findViewById(R.id.user_name);
             Pair<String, String> o = o(jSONObject);
             if (o != null) {
@@ -597,7 +597,7 @@ public class zf3 implements zu1 {
             textView2.setText(Html.fromHtml(str));
         }
         textView.setText(yf3Var.f);
-        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b65)).setVisibility(0);
+        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b6b)).setVisibility(0);
         if (((TextUtils.equals(yf3Var.b, "snsapi_userinfo") && jSONObject != null) || TextUtils.equals(yf3Var.b, "mobile")) && view3 != null) {
             view3.findViewById(R.id.obfuscated_res_0x7f0902fa).setVisibility(8);
         }
@@ -621,7 +621,7 @@ public class zf3 implements zu1 {
     public final void w(View view2, yf3 yf3Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048592, this, view2, yf3Var) == null) && view2 != null && yf3Var != null) {
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092835);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09283b);
             StringBuilder sb = new StringBuilder();
             for (String str : yf3Var.i) {
                 sb.append(str);
@@ -728,7 +728,7 @@ public class zf3 implements zu1 {
             } else {
                 z = false;
             }
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0922f5);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0922fb);
             if (swanAppRoundedImageView != null) {
                 if (z) {
                     i2 = so3.j(this.d.q, "SwanAppAuthDialog", false);
@@ -738,18 +738,18 @@ public class zf3 implements zu1 {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), i2));
                 swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060aaf));
             }
-            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922f7);
+            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922fd);
             if (z) {
                 Z = this.d.p;
             } else {
                 Z = this.b.Z();
             }
             textView.setText(Z);
-            TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b69);
+            TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b6f);
             this.h = textView2;
             if (textView2 != null) {
                 if (u(this.d)) {
-                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0922f4);
+                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0922fa);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }
@@ -824,7 +824,7 @@ public class zf3 implements zu1 {
     public void s() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b64)) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b6a)) == null) {
             return;
         }
         ya3 ya3Var = this.b;
@@ -834,7 +834,7 @@ public class zf3 implements zu1 {
             return;
         }
         if (!u(this.d)) {
-            wp3 wp3Var = new wp3(this.a, R.drawable.obfuscated_res_0x7f0813f6);
+            wp3 wp3Var = new wp3(this.a, R.drawable.obfuscated_res_0x7f0813f9);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(wp3Var, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
@@ -896,9 +896,9 @@ public class zf3 implements zu1 {
             SpannableString spannableString = new SpannableString(textView2.getText());
             textView.setEnabled(z);
             if (z) {
-                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146f);
+                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081472);
             } else {
-                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081470);
+                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081473);
             }
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             spannableString.setSpan(new b(this, drawable), 0, 4, 33);
@@ -930,7 +930,7 @@ public class zf3 implements zu1 {
         SwanAppConfigData.f fVar;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048593, this, view2, yf3Var) != null) || view2 == null || yf3Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b66)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048593, this, view2, yf3Var) != null) || view2 == null || yf3Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b6c)) == null) {
             return;
         }
         if (TextUtils.equals(yf3Var.b, "mapp_location") && (s = lw2.T().s()) != null && (fVar = s.p) != null && (map = fVar.a.get("scope.userLocation")) != null) {
@@ -952,9 +952,9 @@ public class zf3 implements zu1 {
         textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f1538));
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146f);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081472);
         } else {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081470);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081473);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         h hVar = new h(this, drawable);

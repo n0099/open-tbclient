@@ -1511,12 +1511,12 @@ public class ba2 extends ea2 implements View.OnClickListener {
             if (wh2.n(xa3.K().getAppId())) {
                 this.O0.setText(R.string.obfuscated_res_0x7f0f1520);
                 this.O0.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060aa6));
-                this.O0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813e8);
+                this.O0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813eb);
                 return;
             }
             this.O0.setText(R.string.obfuscated_res_0x7f0f14ec);
             this.O0.setTextColor(-1);
-            this.O0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813e6);
+            this.O0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813e9);
         }
     }
 
@@ -1715,14 +1715,14 @@ public class ba2 extends ea2 implements View.OnClickListener {
             int id = view2.getId();
             if (id == R.id.obfuscated_res_0x7f0901ad) {
                 v3();
-            } else if (id == R.id.obfuscated_res_0x7f0919cd) {
+            } else if (id == R.id.obfuscated_res_0x7f0919d3) {
                 g3();
             } else if (id == R.id.obfuscated_res_0x7f09048f) {
                 SchemeRouter.invoke(getContext(), this.L0);
                 l3("click", "brand");
             } else if (id == R.id.obfuscated_res_0x7f090173) {
                 f3();
-            } else if (id == R.id.obfuscated_res_0x7f092196) {
+            } else if (id == R.id.obfuscated_res_0x7f09219c) {
                 O2();
             } else if (id == R.id.obfuscated_res_0x7f09012c) {
                 t3();
@@ -1827,7 +1827,7 @@ public class ba2 extends ea2 implements View.OnClickListener {
             l43.h().l().f(textView);
             TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901a4);
             textView2.setText(W.e1());
-            Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f092196);
+            Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09219c);
             button.setOnClickListener(this);
             Button button2 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09012c);
             this.O0 = button2;
@@ -1849,8 +1849,8 @@ public class ba2 extends ea2 implements View.OnClickListener {
                 this.O0.setVisibility(8);
             }
             xp4.b().a(textView2);
-            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092171)).setText(W.s1());
-            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d2)).setText(W.t1());
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092177)).setText(W.s1());
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d8)).setText(W.t1());
             String G = fu2.o().G();
             this.N0 = G;
             if (!TextUtils.isEmpty(G)) {
@@ -1858,7 +1858,7 @@ public class ba2 extends ea2 implements View.OnClickListener {
                 findViewById.setVisibility(0);
                 findViewById.setOnClickListener(this);
             }
-            this.P0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e97);
+            this.P0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e9d);
             PMSAppInfo f0 = W.f0();
             if (r3(f0)) {
                 w3(view2, f0.brandsInfo);
@@ -1872,7 +1872,7 @@ public class ba2 extends ea2 implements View.OnClickListener {
                 this.J0 = new vp3(this.c0, view2, k1, R.id.obfuscated_res_0x7f0903c9);
             }
             n3(W.getType());
-            ((Button) view2.findViewById(R.id.obfuscated_res_0x7f0919cd)).setVisibility(8);
+            ((Button) view2.findViewById(R.id.obfuscated_res_0x7f0919d3)).setVisibility(8);
             if (R0 || lw2.T().M()) {
                 View inflate = ((ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09017b)).inflate();
                 if (a2() && (inflate instanceof Button)) {

@@ -2230,7 +2230,7 @@ public class BdAlertDialog extends Dialog {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0472, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
-                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0922bb);
+                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0922c1);
                 FontSizeTextViewExtKt.setScaledSizeRes$default(textView, 0, R.dimen.bd_dialog_stress_button_size, 0, 4, null);
                 Resources resources = getContext().getResources();
                 if (i2 == 1) {
@@ -2545,7 +2545,7 @@ public class BdAlertDialog extends Dialog {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092582);
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ba);
@@ -2555,7 +2555,7 @@ public class BdAlertDialog extends Dialog {
             this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090fe4);
             this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f090456);
-            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f19);
+            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f1f);
             this.mDivider = findViewById(R.id.obfuscated_res_0x7f090fe8);
             this.mBtnHeight = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d7);
             BdBaseImageView bdBaseImageView = this.mRightClose;

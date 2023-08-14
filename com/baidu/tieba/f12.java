@@ -36,14 +36,14 @@ public class f12 extends e12 {
 
         /* renamed from: com.baidu.tieba.f12$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0283a implements kk3.a {
+        public class C0284a implements kk3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ q12 b;
             public final /* synthetic */ a c;
 
-            public C0283a(a aVar, String str, q12 q12Var) {
+            public C0284a(a aVar, String str, q12 q12Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class f12 extends e12 {
                 q12 q12Var = new q12("accelerometerChange", jSONObject, str);
                 kk3 a = kk3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0283a(this, str, q12Var));
+                a.e(new C0284a(this, str, q12Var));
                 a.f();
                 q12Var.b(this.a);
                 return y22.f();

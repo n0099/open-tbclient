@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class o4c<E> extends q4c<E> {
+public abstract class o4c<E> extends b4c<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long h;
+    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +26,7 @@ public abstract class o4c<E> extends q4c<E> {
                 return;
             }
         }
-        h = a5c.a(o4c.class, "consumerIndex");
+        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,5 +47,6 @@ public abstract class o4c<E> extends q4c<E> {
                 return;
             }
         }
+        Math.min(i / 4, f.intValue());
     }
 }

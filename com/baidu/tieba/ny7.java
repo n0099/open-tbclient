@@ -8,6 +8,7 @@ import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.tieba.ky;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ny7 extends lm<wqa, ThreadCardViewHolder<wqa>> implements a46 {
+public class ny7 extends lm<RecommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel>> implements b46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BdUniqueId b;
     public en c;
     public String d;
+    public byte e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ny7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
@@ -43,9 +45,10 @@ public class ny7 extends lm<wqa, ThreadCardViewHolder<wqa>> implements a46 {
             }
         }
         this.a = tbPageContext;
+        this.e = b;
     }
 
-    @Override // com.baidu.tieba.a46
+    @Override // com.baidu.tieba.b46
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -63,21 +66,17 @@ public class ny7 extends lm<wqa, ThreadCardViewHolder<wqa>> implements a46 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: s */
-    public ThreadCardViewHolder<wqa> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<RecommendBarCardModel> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.a.getPageActivity(), false);
-            qqa qqaVar = new qqa(this.a);
-            qqaVar.u(2);
-            qqaVar.q(this.b);
-            bVar.n(qqaVar);
+            bVar.n(new dz7(this.a, this.b, this.e));
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
-            bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<wqa> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.j(this.b);
             return threadCardViewHolder;
         }
@@ -87,12 +86,11 @@ public class ny7 extends lm<wqa, ThreadCardViewHolder<wqa>> implements a46 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wqa wqaVar, ThreadCardViewHolder<wqa> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, RecommendBarCardModel recommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wqaVar, threadCardViewHolder})) == null) {
-            wqaVar.h(i);
-            threadCardViewHolder.f(wqaVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, recommendBarCardModel, threadCardViewHolder})) == null) {
+            threadCardViewHolder.f(recommendBarCardModel);
             if (threadCardViewHolder.b() != null) {
                 threadCardViewHolder.b().r(i);
                 threadCardViewHolder.b().b(this.d);

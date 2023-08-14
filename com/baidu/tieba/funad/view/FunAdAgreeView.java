@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar5;
+import com.baidu.tieba.br5;
 import com.baidu.tieba.jh5;
 import com.baidu.tieba.k95;
 import com.baidu.tieba.kh5;
@@ -991,7 +991,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             agreeData2.agreeType = 2;
             agreeData2.hasAgree = true;
             w();
-            ar5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+            br5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView != null) {
                 this.h.objSource = findPageExtraByView.a();
             }
@@ -1079,7 +1079,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     agreeData.hasAgree = true;
                     x(false);
                 }
-                ar5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+                br5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
                 if (findPageExtraByView != null) {
                     this.h.objSource = findPageExtraByView.a();
                 }
@@ -1107,7 +1107,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 x(true);
                 RateManager.getInstance().notifyLike(getTbPageContext());
             }
-            ar5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
+            br5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView2 != null) {
                 this.h.objSource = findPageExtraByView2.a();
             }

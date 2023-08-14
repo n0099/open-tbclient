@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fz7;
-import com.baidu.tieba.ks6;
-import com.baidu.tieba.n97;
-import com.baidu.tieba.vy7;
+import com.baidu.tieba.gz7;
+import com.baidu.tieba.ls6;
+import com.baidu.tieba.o97;
+import com.baidu.tieba.wy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,10 +25,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000eR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/compact/RecommendTopicCardView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "topicCardLayout", "Lcom/baidu/tieba/homepage/concern/view/RecommendTopicCardLayout;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "data", "Lcom/baidu/tieba/homepage/concern/data/RecommendTopicCardData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendTopicCardView extends FrameLayout implements n97 {
+public final class RecommendTopicCardView extends FrameLayout implements o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fz7 a;
+    public gz7 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -81,11 +81,11 @@ public final class RecommendTopicCardView extends FrameLayout implements n97 {
         } else {
             tbPageContext = null;
         }
-        tbPageContext = context instanceof ks6 ? ((ks6) context).getPageContext() : tbPageContext;
+        tbPageContext = context instanceof ls6 ? ((ls6) context).getPageContext() : tbPageContext;
         if (tbPageContext != null) {
-            fz7 fz7Var = new fz7(tbPageContext);
-            this.a = fz7Var;
-            if (fz7Var != null && (c = fz7Var.c()) != null) {
+            gz7 gz7Var = new gz7(tbPageContext);
+            this.a = gz7Var;
+            if (gz7Var != null && (c = gz7Var.c()) != null) {
                 addView(c, new FrameLayout.LayoutParams(-1, -2));
             }
         }
@@ -96,25 +96,25 @@ public final class RecommendTopicCardView extends FrameLayout implements n97 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.n97
+    @Override // com.baidu.tieba.o97
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
-            fz7 fz7Var = this.a;
-            if (fz7Var != null) {
-                fz7Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
+            gz7 gz7Var = this.a;
+            if (gz7Var != null) {
+                gz7Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
-    public final void update(vy7 data) {
+    public final void update(wy7 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            fz7 fz7Var = this.a;
-            if (fz7Var != null) {
-                fz7Var.e(data);
+            gz7 gz7Var = this.a;
+            if (gz7Var != null) {
+                gz7Var.e(data);
             }
             c();
         }

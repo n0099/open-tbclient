@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public final class anb<TResult> implements tnb<TResult> {
+public class anb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wnb<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final String a;
+    public final int b;
 
-    public anb(Executor executor, wnb<TResult> wnbVar) {
+    public anb(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, wnbVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +30,49 @@ public final class anb<TResult> implements tnb<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = wnbVar;
-        this.b = executor;
+        this.a = str;
+        this.b = a(str);
     }
 
-    @Override // com.baidu.tieba.tnb
-    public final void a(fnb<TResult> fnbVar) {
+    public static int a(Object... objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fnbVar) == null) && fnbVar.f()) {
-            fnbVar.e();
-            this.b.execute(new ymb(this, fnbVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
+            return Arrays.hashCode(objArr);
         }
+        return invokeL.intValue;
+    }
+
+    public static anb b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new anb(str);
+        }
+        return (anb) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && anb.class == obj.getClass()) {
+                return TextUtils.equals(this.a, ((anb) obj).a);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

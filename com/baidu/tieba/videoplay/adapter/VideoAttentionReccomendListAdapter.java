@@ -70,10 +70,10 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09110d);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c9c);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092483);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09248e);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ca2);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca4);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092489);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092494);
             this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f5);
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f0910e4);
             this.b.setRadiusById(R.string.J_X05);

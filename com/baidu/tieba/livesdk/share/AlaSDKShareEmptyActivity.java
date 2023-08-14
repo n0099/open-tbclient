@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pz8;
+import com.baidu.tieba.qz8;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +49,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public pz8 m;
+    public qz8 m;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -193,9 +193,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            pz8 pz8Var = this.m;
-            if (pz8Var != null) {
-                pz8Var.d();
+            qz8 qz8Var = this.m;
+            if (qz8Var != null) {
+                qz8Var.d();
             }
         }
     }
@@ -249,10 +249,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void B1() {
-        pz8 pz8Var;
+        qz8 qz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (pz8Var = this.m) != null) {
-            if (ListUtils.isEmpty(pz8Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qz8Var = this.m) != null) {
+            if (ListUtils.isEmpty(qz8Var.b())) {
                 this.m.c();
             }
             this.m.e(JavaTypesHelper.toLong(this.g, 0L), this.i, this.l);
@@ -280,12 +280,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f027a, R.drawable.obfuscated_res_0x7f080b02, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f027a, R.drawable.obfuscated_res_0x7f080b04, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        pz8 pz8Var = this.m;
-        if (pz8Var != null) {
-            pz8Var.c();
+        qz8 qz8Var = this.m;
+        if (qz8Var != null) {
+            qz8Var.c();
         }
     }
 
@@ -313,7 +313,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new pz8(getPageContext());
+            this.m = new qz8(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");

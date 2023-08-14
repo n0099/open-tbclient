@@ -24,18 +24,18 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gx4 implements pk6 {
+public class gx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public gx4() {
@@ -52,7 +52,7 @@ public class gx4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -81,29 +81,29 @@ public class gx4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public jca c(WebView webView, long j) {
+    public kca c(WebView webView, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, webView, j)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
-            Activity a = ek6.a(webView.getContext());
+            Activity a = fk6.a(webView.getContext());
             if (a != null) {
                 a.finish();
             }
-            jcaVar.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
-            return jcaVar;
+            kcaVar.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
+            return kcaVar;
         }
-        return (jca) invokeLJ.objValue;
+        return (kca) invokeLJ.objValue;
     }
 
-    public jca e(WebView webView, HashMap hashMap) {
+    public kca e(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (hashMap == null) {
-                return jcaVar;
+                return kcaVar;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -113,13 +113,13 @@ public class gx4 implements pk6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.CHANGE_POST_WALL, jSONObject);
-            jcaVar.o(jSONObject.toString());
-            return jcaVar;
+            kcaVar.o(jSONObject.toString());
+            return kcaVar;
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca d(WebView webView, String str) {
+    public kca d(WebView webView, String str) {
         int i;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -131,35 +131,35 @@ public class gx4 implements pk6 {
                 i = -1;
             }
             wy4.b(i);
-            return new jca();
+            return new kca();
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca h(WebView webView, String str) {
+    public kca h(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            a2a.d().f(str);
-            return new jca();
+            b2a.d().f(str);
+            return new kca();
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca k(WebView webView, HashMap hashMap) {
+    public kca k(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            return new jca();
+            return new kca();
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca f(WebView webView, String str, String str2) {
+    public kca f(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             int i = 0;
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -177,61 +177,61 @@ public class gx4 implements pk6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
-                jcaVar.o(jSONObject2.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject2.toString());
+                return kcaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    public jca j(WebView webView, String str, String str2) {
+    public kca j(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                v16 v16Var = new v16();
+                w16 w16Var = new w16();
                 try {
-                    v16Var.a = URLDecoder.decode(str, "utf-8");
+                    w16Var.a = URLDecoder.decode(str, "utf-8");
                 } catch (UnsupportedEncodingException e) {
-                    v16Var.a = str;
+                    w16Var.a = str;
                     e.printStackTrace();
                 }
                 try {
-                    v16Var.b = URLDecoder.decode(str2, "utf-8");
+                    w16Var.b = URLDecoder.decode(str2, "utf-8");
                 } catch (UnsupportedEncodingException e2) {
-                    v16Var.b = str2;
+                    w16Var.b = str2;
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921787, v16Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921787, w16Var));
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    public jca g(WebView webView) {
+    public kca g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             g05.c().h();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jcaVar.o(jSONObject.toString());
+                kcaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca i(WebView webView, int i, String str) {
+    public kca i(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         SmallTailThemeData smallTailThemeData;
         Interceptable interceptable = $ic;
@@ -243,8 +243,8 @@ public class gx4 implements pk6 {
                 smallTailThemeData = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921748, smallTailThemeData));
-            return new jca();
+            return new kca();
         }
-        return (jca) invokeLIL.objValue;
+        return (kca) invokeLIL.objValue;
     }
 }

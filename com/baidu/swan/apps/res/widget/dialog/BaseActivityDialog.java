@@ -448,14 +448,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c4);
         this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b9);
         this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ba);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce8);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cee);
         this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ef);
         this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091904);
         this.h = findViewById(R.id.obfuscated_res_0x7f0908f8);
         this.i = findViewById(R.id.obfuscated_res_0x7f0908f9);
         this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908af);
         this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908b3);
-        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09211e);
+        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092124);
         this.g = findViewById(R.id.obfuscated_res_0x7f0908f7);
         this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091752);
         this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904dc);

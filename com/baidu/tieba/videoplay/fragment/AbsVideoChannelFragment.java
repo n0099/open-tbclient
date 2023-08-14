@@ -45,7 +45,7 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.util.VideoAudioHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
-import com.baidu.tieba.ooa;
+import com.baidu.tieba.poa;
 import com.baidu.tieba.ud5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.model.JumpYYLiveHttpResponseMessage;
@@ -61,7 +61,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes8.dex */
-public abstract class AbsVideoChannelFragment extends BaseFragment implements ooa {
+public abstract class AbsVideoChannelFragment extends BaseFragment implements poa {
     public static /* synthetic */ Interceptable $ic;
     public static String w;
     public transient /* synthetic */ FieldHolder $fh;
@@ -778,9 +778,9 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
         }
     }
 
-    @Override // com.baidu.tieba.ooa
+    @Override // com.baidu.tieba.poa
     public void M0() {
-        ooa Q1;
+        poa Q1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (Q1 = Q1()) != null) {
             Q1.M0();
@@ -812,12 +812,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ooa
+    @Override // com.baidu.tieba.poa
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ooa Q1 = Q1();
+            poa Q1 = Q1();
             if (Q1 != null) {
                 return Q1.n();
             }
@@ -850,12 +850,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
         }
     }
 
-    @Override // com.baidu.tieba.ooa
+    @Override // com.baidu.tieba.poa
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            ooa Q1 = Q1();
+            poa Q1 = Q1();
             if (Q1 != null) {
                 return Q1.s();
             }
@@ -864,21 +864,21 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
         return invokeV.booleanValue;
     }
 
-    public final ooa Q1() {
+    public final poa Q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FragmentAdapter fragmentAdapter = this.g;
             if (fragmentAdapter != null && fragmentAdapter.b != -1) {
                 Fragment item = this.g.getItem(this.g.b);
-                if (item instanceof ooa) {
-                    return (ooa) item;
+                if (item instanceof poa) {
+                    return (poa) item;
                 }
                 return null;
             }
             return null;
         }
-        return (ooa) invokeV.objValue;
+        return (poa) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -920,7 +920,7 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090327);
             this.e = imageView;
             imageView.setOnClickListener(new j(this));
-            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f092419);
+            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09241f);
             this.f = viewGroup;
             ((RelativeLayout.LayoutParams) viewGroup.getLayoutParams()).topMargin = av4.c + UtilHelper.getStatusBarHeight();
             X1();
@@ -1037,9 +1037,9 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements oo
         }
     }
 
-    @Override // com.baidu.tieba.ooa
+    @Override // com.baidu.tieba.poa
     public void q(int i2, int i3, Intent intent) {
-        ooa Q1;
+        poa Q1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048600, this, i2, i3, intent) == null) && (Q1 = Q1()) != null) {
             Q1.q(i2, i3, intent);

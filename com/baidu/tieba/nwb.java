@@ -9,28 +9,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.yy.transvod.player.log.TLog;
 import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-import java.util.Locale;
 /* loaded from: classes7.dex */
-public final class nwb extends fwb implements NativeFfmpeg.a {
+public class nwb extends hwb implements NativeIttiam.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.awb
+    @Override // com.baidu.tieba.bwb
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public nwb(jvb jvbVar, int i) {
+    public nwb(kvb kvbVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jvbVar, Integer.valueOf(i)};
+            Object[] objArr = {kvbVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,11 +40,11 @@ public final class nwb extends fwb implements NativeFfmpeg.a {
             }
         }
         this.l.d(-16);
-        this.s = new WeakReference<>(jvbVar);
+        this.G = new WeakReference<>(kvbVar);
         this.w = true;
         this.b = i;
         this.A.i(i);
-        this.o = 3;
+        this.o = 2;
     }
 
     public void M(MediaInfo mediaInfo) {
@@ -55,44 +54,41 @@ public final class nwb extends fwb implements NativeFfmpeg.a {
             synchronized (this) {
                 if (this.q.e(mediaInfo)) {
                     this.q.c(mediaInfo);
-                } else {
-                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
                 }
                 if (this.B == null || this.B.capacity() < this.q.i) {
                     this.B = ByteBuffer.allocateDirect(this.q.i);
                 }
-                int j = ((((int) wvb.j(this.q.d, 16L)) * ((int) wvb.j(this.q.e, 16L))) * 3) >> 1;
-                if (j > this.E) {
-                    this.E = j;
+                int j = ((((int) xvb.j(this.q.d, 16L)) * ((int) xvb.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.D) {
+                    this.D = j;
                     this.C = ByteBuffer.allocateDirect(j);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.awb
+    @Override // com.baidu.tieba.bwb
     public void z(MediaFormat mediaFormat, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
             this.x = System.currentTimeMillis();
             this.a = i;
-            this.A.p(this);
+            this.A.m(this);
             this.A.h(i);
             String string = mediaFormat.getString("mime");
-            if (string.compareTo("video/avc") == 0) {
-                i2 = 6;
-            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+            if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
                 i2 = 7;
             } else {
                 i2 = 0;
             }
             if (this.A.j(i2, mediaFormat) != 0) {
                 m(50);
+                TLog.g(this, "createDecoder failed mine: " + string);
             }
             M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
             this.y = System.currentTimeMillis();
+            TLog.g(this, "ittiamDecoder handleCreateDecoder: taskId " + i + ", spent: " + (this.y - this.x));
         }
     }
 }

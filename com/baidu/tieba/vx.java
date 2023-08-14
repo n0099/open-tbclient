@@ -127,18 +127,18 @@ public class vx extends yw implements rx, qx<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && this.a.h != null && this.a.g != null && !this.a.h.isTransportThread() && this.a.j) {
-                if (!this.a.h.isMarkToDel() && xe7.f().i()) {
-                    if (xe7.f().a(this.a.h)) {
+                if (!this.a.h.isMarkToDel() && ye7.f().i()) {
+                    if (ye7.f().a(this.a.h)) {
                         this.a.h.setMarkToDel(true);
                     }
-                } else if (!this.a.h.isMarkToMove() && we7.h().j()) {
-                    if (we7.h().a(this.a.h)) {
+                } else if (!this.a.h.isMarkToMove() && xe7.h().j()) {
+                    if (xe7.h().a(this.a.h)) {
                         this.a.h.setMarkToMove(true);
                     }
                 } else {
-                    xe7.f().l(this.a.h);
+                    ye7.f().l(this.a.h);
                     this.a.h.setMarkToDel(false);
-                    we7.h().l(this.a.h);
+                    xe7.h().l(this.a.h);
                     this.a.h.setMarkToMove(false);
                 }
                 this.a.h();
@@ -209,7 +209,7 @@ public class vx extends yw implements rx, qx<ThreadData> {
                 z = false;
             }
             this.j = z;
-            if (!xe7.f().i() && !we7.h().j()) {
+            if (!ye7.f().i() && !xe7.h().j()) {
                 this.threadCard.p(new vy.a(4, Boolean.TRUE));
                 this.c.setVisibility(8);
                 return;

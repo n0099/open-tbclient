@@ -44,11 +44,11 @@ public class pz4 {
 
         /* renamed from: com.baidu.tieba.pz4$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0448a implements Runnable {
+        public class RunnableC0450a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0448a(a aVar) {
+            public RunnableC0450a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class pz4 {
                     j = currentTimeMillis;
                 }
                 if (currentTimeMillis - j > pz4.a) {
-                    fs6.a(new RunnableC0448a(this), "clearResource", 3);
+                    gs6.a(new RunnableC0450a(this), "clearResource", 3);
                     SharedPrefHelper.getInstance().putLong("key_clear_resource", currentTimeMillis);
                 }
             }

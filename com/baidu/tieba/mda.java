@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,15 +12,19 @@ public class mda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static VoiceManager a(Context context) {
+        InterceptResult invokeL;
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (MessageManager.getInstance().runTask(2001274, Boolean.class) != null) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof VoiceManager.i) {
+                return ((VoiceManager.i) context).z0();
             }
-            return false;
+            if ((l9.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) l9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.i)) {
+                return ((VoiceManager.i) tbPageContext.getOrignalPage()).z0();
+            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (VoiceManager) invokeL.objValue;
     }
 }

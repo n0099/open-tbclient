@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab6;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.bb6;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.qb0;
 import com.baidu.tieba.tm5;
 import com.baidu.tieba.um5;
@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -103,7 +103,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
         this.f = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -115,7 +115,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -123,7 +123,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -142,7 +142,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -269,7 +269,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mg7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             K1("onCreate");
-            ab6.a().c(TbadkCoreApplication.getInst());
+            bb6.a().c(TbadkCoreApplication.getInst());
             this.a = new qb0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.f);

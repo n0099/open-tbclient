@@ -1,25 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes6.dex */
-public interface i26 extends o26<q26> {
+public interface i26<T> {
+    void a();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(q26 q26Var, View view2);
+    void b(String str);
 
-        void b(q26 q26Var, View view2);
-    }
+    void c(T t);
 
-    void a(int i);
+    String getTitle();
 
-    void c(Object obj);
-
-    View getView();
-
-    void h(a aVar);
-
-    void j();
-
-    void l(int i);
+    void onDestroy();
 }

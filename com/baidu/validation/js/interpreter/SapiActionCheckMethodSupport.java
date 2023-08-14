@@ -1,7 +1,7 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.bbb;
 import com.baidu.tieba.cbb;
+import com.baidu.tieba.dbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,14 +28,14 @@ public class SapiActionCheckMethodSupport extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(cbb cbbVar) {
+    public String interpret(dbb dbbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cbbVar)) == null) {
-            if (cbbVar == null || cbbVar.c() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dbbVar)) == null) {
+            if (dbbVar == null || dbbVar.c() == null) {
                 return null;
             }
-            return bbb.b().a(cbbVar.c().get(0)) != null ? "1" : "0";
+            return cbb.b().a(dbbVar.c().get(0)) != null ? "1" : "0";
         }
         return (String) invokeL.objValue;
     }

@@ -26,10 +26,10 @@ public class l75 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(vv5 vv5Var) {
+    public void onFinish(wv5 wv5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, vv5Var) == null) && vv5Var != null) {
-            GrowthFunnelHelper.updateAppStartInfoByInfo(vv5Var.a, vv5Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, wv5Var) == null) && wv5Var != null) {
+            GrowthFunnelHelper.updateAppStartInfoByInfo(wv5Var.a, wv5Var.b);
         }
     }
 }

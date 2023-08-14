@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.hca;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.lca;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.mca;
+import com.baidu.tieba.qk6;
 import com.baidu.tieba.tx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ToastJsBridgePlugin_Proxy extends hca {
+public class ToastJsBridgePlugin_Proxy extends ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public tx4 mJsBridge;
@@ -48,67 +48,67 @@ public class ToastJsBridgePlugin_Proxy extends hca {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.hca
-    public jca dispatch(WebView webView, lca lcaVar, jca jcaVar) {
+    @Override // com.baidu.tieba.ica
+    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
         InterceptResult invokeLLL;
-        jca jcaVar2;
+        kca kcaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, lcaVar, jcaVar)) == null) {
-            if (jcaVar == null) {
-                jcaVar2 = new jca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
+            if (kcaVar == null) {
+                kcaVar2 = new kca();
             } else {
-                jcaVar2 = jcaVar;
+                kcaVar2 = kcaVar;
             }
-            String b = lcaVar.b();
-            JSONObject e = lcaVar.e();
+            String b = mcaVar.b();
+            JSONObject e = mcaVar.e();
             if (b.equals("toast/toastPopupView")) {
-                jcaVar2.s(true);
-                jca f = this.mJsBridge.f(webView, e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                kcaVar2.s(true);
+                kca f = this.mJsBridge.f(webView, e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (f != null) {
-                    jcaVar2.y(f.f());
-                    jcaVar2.u(f.b());
-                    jcaVar2.o(f.a());
-                    jcaVar2.x(f.e());
+                    kcaVar2.y(f.f());
+                    kcaVar2.u(f.b());
+                    kcaVar2.o(f.a());
+                    kcaVar2.x(f.e());
                 }
-                jcaVar2.z(0);
+                kcaVar2.z(0);
             } else if (b.equals("toast/showTipToast")) {
-                jcaVar2.s(true);
-                jca g = this.mJsBridge.g(webView, e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                kcaVar2.s(true);
+                kca g = this.mJsBridge.g(webView, e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (g != null) {
-                    jcaVar2.y(g.f());
-                    jcaVar2.u(g.b());
-                    jcaVar2.o(g.a());
-                    jcaVar2.x(g.e());
+                    kcaVar2.y(g.f());
+                    kcaVar2.u(g.b());
+                    kcaVar2.o(g.a());
+                    kcaVar2.x(g.e());
                 }
-                jcaVar2.z(0);
+                kcaVar2.z(0);
             } else if (b.equals("toast/getModalData")) {
-                jcaVar2.s(true);
-                jca e2 = this.mJsBridge.e(webView, e.optString("url"));
+                kcaVar2.s(true);
+                kca e2 = this.mJsBridge.e(webView, e.optString("url"));
                 if (e2 != null) {
-                    jcaVar2.y(e2.f());
-                    jcaVar2.u(e2.b());
-                    jcaVar2.o(e2.a());
-                    jcaVar2.x(e2.e());
+                    kcaVar2.y(e2.f());
+                    kcaVar2.u(e2.b());
+                    kcaVar2.o(e2.a());
+                    kcaVar2.x(e2.e());
                 }
-                jcaVar2.z(0);
+                kcaVar2.z(0);
             }
-            return jcaVar2;
+            return kcaVar2;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public pk6 getJsBridge() {
+    @Override // com.baidu.tieba.ica
+    public qk6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (pk6) invokeV.objValue;
+        return (qk6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public List<jca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.ica
+    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

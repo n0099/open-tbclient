@@ -2,14 +2,6 @@ package com.baidu.tieba;
 
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes6.dex */
-public interface jac extends hac {
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
-
-    void setCallback(a aVar);
-
+public interface jac extends iac {
     void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
 }

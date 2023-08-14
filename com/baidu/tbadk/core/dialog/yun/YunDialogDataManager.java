@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.l45;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.ne;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.ov5;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.pv5;
 import com.baidu.tieba.t65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -122,7 +122,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends jw5<List<DialogStrategiesData>> {
+    public class b extends kw5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YunDialogDataManager a;
@@ -146,7 +146,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public List<DialogStrategiesData> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements ov5<List<DialogStrategiesData>> {
+    public class c implements pv5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
@@ -186,7 +186,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(List<DialogStrategiesData> list) {
             Interceptable interceptable = $ic;
@@ -311,7 +311,7 @@ public class YunDialogDataManager {
             }
             List<DialogStrategiesData> list = this.a.get(str);
             if (list == null && this.a.isEmpty()) {
-                nw5.b(new b(this), new c(this, dVar, str));
+                ow5.b(new b(this), new c(this, dVar, str));
             } else if (dVar != null) {
                 if (ListUtils.isEmpty(list)) {
                     list = d;

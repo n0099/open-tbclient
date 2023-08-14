@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kpa;
-import com.baidu.tieba.p07;
+import com.baidu.tieba.lpa;
+import com.baidu.tieba.q07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public kpa l;
+    public lpa l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public p07 a;
+        public q07 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new p07();
+            this.a = new q07();
         }
 
         @Override // android.view.View.OnClickListener
@@ -218,10 +218,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         m(0);
     }
 
-    public void setOnViewResponseListener(kpa kpaVar) {
+    public void setOnViewResponseListener(lpa lpaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kpaVar) == null) {
-            this.l = kpaVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lpaVar) == null) {
+            this.l = lpaVar;
         }
     }
 
@@ -246,17 +246,17 @@ public class PersonHeaderAttentionView extends LinearLayout {
             setOrientation(0);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d046d, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091be6);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091be3);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091be7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091bde);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdb);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091be1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091be0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091bec);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091be9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bed);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091be4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091be1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091be7);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091be6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bfa);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf3);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf9);
             this.j = textView2;
             textView2.setVisibility(8);
             this.n = findViewById(R.id.obfuscated_res_0x7f090906);

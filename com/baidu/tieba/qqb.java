@@ -1,74 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class qqb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebSettings webSettings) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
-            webSettings.setAllowContentAccess(false);
-        }
-    }
-
-    public static void b(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
-            webSettings.setAllowFileAccess(false);
-            if (Build.VERSION.SDK_INT >= 16) {
-                webSettings.setAllowFileAccessFromFileURLs(false);
-                webSettings.setAllowUniversalAccessFromFileURLs(false);
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+                Log.e("IOUtil", "closeSecure IOException");
             }
         }
     }
 
-    public static void c(WebSettings webSettings) {
+    public static void b(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
-            webSettings.setGeolocationEnabled(false);
+        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
+            a(inputStream);
         }
     }
 
-    public static void d(WebSettings webSettings) {
+    public static void c(OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
-            webSettings.setMixedContentMode(1);
+        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
+            a(outputStream);
         }
     }
 
-    public static void e(WebSettings webSettings) {
+    public static void d(File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
-            webSettings.setSavePassword(false);
-        }
-    }
-
-    public static void f(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
-            WebSettings settings = webView.getSettings();
-            b(settings);
-            g(webView);
-            e(settings);
-            c(settings);
-            d(settings);
-            a(settings);
-        }
-    }
-
-    public static void g(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+        if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists() && !file.delete()) {
+            Log.e("IOUtil", "deleteSecure exception");
         }
     }
 }

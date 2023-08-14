@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface yva {
-    void M();
+    void i(String str);
 
-    void P();
+    void k(String str);
 
-    void P0(boolean z);
+    void u(String str);
 
-    void Q0(int i, boolean z);
-
-    void b(String str);
-
-    void c();
-
-    void finish();
-
-    void setResult(int i);
-
-    void x();
+    void v(String str);
 }

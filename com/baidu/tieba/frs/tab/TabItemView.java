@@ -11,9 +11,9 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.es7;
 import com.baidu.tieba.fh7;
+import com.baidu.tieba.fs7;
+import com.baidu.tieba.gh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,19 +25,19 @@ import java.util.List;
 public class TabItemView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public es7 a;
+    public fs7 a;
     public int b;
     public boolean c;
     public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabItemView(Context context, es7 es7Var, int i, boolean z) {
+    public TabItemView(Context context, fs7 fs7Var, int i, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, es7Var, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {context, fs7Var, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,7 +50,7 @@ public class TabItemView extends TextView {
         }
         this.b = 0;
         this.d = 0;
-        this.a = es7Var;
+        this.a = fs7Var;
         this.c = z;
         b(context, i);
     }
@@ -104,11 +104,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            es7 es7Var = this.a;
-            if (es7Var == null) {
+            fs7 fs7Var = this.a;
+            if (fs7Var == null) {
                 return -1;
             }
-            return es7Var.b;
+            return fs7Var.b;
         }
         return invokeV.intValue;
     }
@@ -117,11 +117,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            es7 es7Var = this.a;
-            if (es7Var == null) {
+            fs7 fs7Var = this.a;
+            if (fs7Var == null) {
                 return null;
             }
-            return es7Var.d;
+            return fs7Var.d;
         }
         return (String) invokeV.objValue;
     }
@@ -137,9 +137,9 @@ public class TabItemView extends TextView {
             }
             setSingleLine();
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-            es7 es7Var = this.a;
-            if (es7Var != null) {
-                setText(es7Var.a);
+            fs7 fs7Var = this.a;
+            if (fs7Var != null) {
+                setText(fs7Var.a);
             }
             a();
         }
@@ -188,12 +188,12 @@ public class TabItemView extends TextView {
     }
 
     public void setState(int i) {
-        fh7 fh7Var;
-        List<eh7> list;
+        gh7 gh7Var;
+        List<fh7> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            es7 es7Var = this.a;
-            if (es7Var != null && (fh7Var = es7Var.c) != null && (list = fh7Var.b) != null && list.size() > 0) {
+            fs7 fs7Var = this.a;
+            if (fs7Var != null && (gh7Var = fs7Var.c) != null && (list = gh7Var.b) != null && list.size() > 0) {
                 int i2 = -BdUtilHelper.getDimens(getContext(), R.dimen.tbds20);
                 if (!this.c) {
                     i2 = 0;

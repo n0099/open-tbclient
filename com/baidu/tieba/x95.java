@@ -164,7 +164,7 @@ public class x95 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setColor(x9a.a(i, 0.08f));
+                gradientDrawable.setColor(y9a.a(i, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
             }

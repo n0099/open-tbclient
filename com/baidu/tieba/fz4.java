@@ -23,7 +23,7 @@ public class fz4 {
             if (webView == null) {
                 return BdActivityStack.getInst().currentActivity();
             }
-            Activity a = ek6.a(webView.getContext());
+            Activity a = fk6.a(webView.getContext());
             if (a == null) {
                 a = TbadkCoreApplication.getInst().getCurrentActivity();
             }

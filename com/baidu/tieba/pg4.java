@@ -429,7 +429,7 @@ public class pg4 extends ea2 implements kg4, OnGetPoiSearchResultListener, View.
                 }
                 this.U0 = string;
             }
-            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f092116);
+            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09211c);
             this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091653);
             this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f091969);
             this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090542);

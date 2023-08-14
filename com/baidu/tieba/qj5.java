@@ -63,7 +63,7 @@ import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.pb.bot.BotEntranceManager;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class qj5 extends ph5 implements uaa.g {
+public class qj5 extends ph5 implements vaa.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -142,12 +142,12 @@ public class qj5 extends ph5 implements uaa.g {
                     this.a.S(true);
                     WriteData d0 = this.a.g.d0();
                     this.a.M();
-                    uaa.z(this.a.l, null);
+                    vaa.z(this.a.l, null);
                     if (d0 == null) {
                         return;
                     }
                     if (d0.getType() == 2) {
-                        uaa.p(d0.getThreadId(), this.a);
+                        vaa.p(d0.getThreadId(), this.a);
                     }
                 } else if (writeData != null && jd5Var != null && !TextUtils.isEmpty(jd5Var.d())) {
                     writeData.setVcodeMD5(jd5Var.b());
@@ -524,7 +524,7 @@ public class qj5 extends ph5 implements uaa.g {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
-            uaa.p(str, this);
+            vaa.p(str, this);
         }
     }
 
@@ -993,7 +993,7 @@ public class qj5 extends ph5 implements uaa.g {
                     this.e = null;
                     this.s = null;
                     if (!TextUtils.isEmpty(this.l)) {
-                        uaa.z(this.l, null);
+                        vaa.z(this.l, null);
                     }
                     S(true);
                     NewWriteModel.d dVar = this.u;
@@ -1136,7 +1136,7 @@ public class qj5 extends ph5 implements uaa.g {
             d0.setContent(this.c);
             d0.setVideoInfo(this.s);
             d0.setVoiceModel(this.e);
-            uaa.z(str, d0);
+            vaa.z(str, d0);
         }
     }
 
@@ -1212,7 +1212,7 @@ public class qj5 extends ph5 implements uaa.g {
         }
     }
 
-    @Override // com.baidu.tieba.uaa.g
+    @Override // com.baidu.tieba.vaa.g
     public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048602, this, writeData) != null) || writeData == null) {

@@ -29,16 +29,16 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a09;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.location.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.location.data.LocationSearchNetRequestMessage;
 import com.baidu.tieba.location.data.LocationSearchResponseMessage;
-import com.baidu.tieba.pca;
+import com.baidu.tieba.qca;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-import com.baidu.tieba.wz8;
-import com.baidu.tieba.zz8;
+import com.baidu.tieba.xz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +50,8 @@ import java.util.List;
 public class SearchLocationActivity extends NavigationBarActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wz8 f;
-    public zz8 g;
+    public xz8 f;
+    public a09 g;
     public BdListView h;
     public LinearLayout i;
     public EditText j;
@@ -361,7 +361,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.g != null && this.a.g.c()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                wz8.a aVar = (wz8.a) this.a.g.getItem(i);
+                xz8.a aVar = (xz8.a) this.a.g.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.a(), aVar.a(), aVar.b()));
                 LocationEvent locationEvent = new LocationEvent();
                 locationEvent.setType(1);
@@ -397,8 +397,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = new wz8();
-            LocationData b2 = pca.a().b();
+            this.f = new xz8();
+            LocationData b2 = qca.a().b();
             if (b2 != null) {
                 this.f.c(F1(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }
@@ -449,25 +449,25 @@ public class SearchLocationActivity extends NavigationBarActivity {
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0882, (View.OnClickListener) null);
             this.i = linearLayout;
-            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920e3);
-            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f092106);
+            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920e9);
+            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f09210c);
             this.j = editText;
             editText.addTextChangedListener(new c(this));
             this.j.setOnEditorActionListener(new d(this));
-            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092105);
+            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09210b);
             this.k = textView;
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
-            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f09210a);
-            zz8 zz8Var = new zz8(this);
-            this.g = zz8Var;
-            this.h.setAdapter((ListAdapter) zz8Var);
+            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f092110);
+            a09 a09Var = new a09(this);
+            this.g = a09Var;
+            this.h.setAdapter((ListAdapter) a09Var);
             this.h.setOnItemClickListener(this.o);
             this.h.setOnScrollListener(this.n);
         }
     }
 
-    public final ArrayList<wz8.a> F1(List<LocationData.NearByAddressData> list, String str, String str2) {
+    public final ArrayList<xz8.a> F1(List<LocationData.NearByAddressData> list, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, str, str2)) == null) {
@@ -475,13 +475,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            ArrayList<wz8.a> arrayList = new ArrayList<>();
+            ArrayList<xz8.a> arrayList = new ArrayList<>();
             for (LocationData.NearByAddressData nearByAddressData2 : list) {
                 if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                     if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                         nearByAddressData = nearByAddressData2;
                     } else {
-                        wz8.a aVar = new wz8.a();
+                        xz8.a aVar = new xz8.a();
                         aVar.d(nearByAddressData2.getName());
                         aVar.e(nearByAddressData2.getSn());
                         arrayList.add(aVar);
@@ -489,12 +489,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 }
             }
             if (nearByAddressData != null) {
-                wz8.a aVar2 = new wz8.a();
+                xz8.a aVar2 = new xz8.a();
                 aVar2.d(nearByAddressData.getName());
                 aVar2.e(nearByAddressData.getSn());
                 arrayList.add(0, aVar2);
             } else {
-                wz8.a aVar3 = new wz8.a();
+                xz8.a aVar3 = new xz8.a();
                 aVar3.d(str);
                 aVar3.e(str2);
                 arrayList.add(0, aVar3);

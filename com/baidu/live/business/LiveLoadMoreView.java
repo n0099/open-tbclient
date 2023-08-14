@@ -138,7 +138,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             }
         }
         LayoutInflater.from(getContext()).inflate(i, this);
-        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f6b);
+        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f71);
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09162a);
         this.i = lottieAnimationView;
         lottieAnimationView.loop(true);

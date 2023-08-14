@@ -1,18 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.opb;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
-public class ipb {
+public final class ipb {
     public static /* synthetic */ Interceptable $ic;
-    public static opb a;
+    public static final ipb d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                runnable.run();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -27,35 +60,42 @@ public class ipb {
                 return;
             }
         }
-        a = new opb();
+        d = new ipb();
     }
 
-    public static <TResult> TResult a(fpb<TResult> fpbVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public ipb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fpbVar)) == null) {
-            opb.c("await must not be called on the UI thread");
-            if (fpbVar.g()) {
-                return (TResult) opb.b(fpbVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            opb.b bVar = new opb.b();
-            fpbVar.c(bVar);
-            fpbVar.b(bVar);
-            bVar.a.await();
-            return (TResult) opb.b(fpbVar);
         }
-        return (TResult) invokeL.objValue;
+        this.b = kpb.a();
+        this.a = new a();
+        this.c = kpb.b();
     }
 
-    public static <TResult> fpb<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static ExecutorService a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(hpb.a(), callable) : (fpb) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
     }
 
-    public static <TResult> fpb<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static Executor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(hpb.b(), callable) : (fpb) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

@@ -1,44 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: TabBarLogic.java */
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class gq7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gq7 {
+    void d(int i, @NonNull String str);
 
-    @NonNull
-    public static iq7 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new hq7();
-        }
-        return (iq7) invokeV.objValue;
-    }
+    void g(boolean z);
 
-    @ColorInt
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SkinManager.getColor(R.color.CAM_X0107);
-        }
-        return invokeV.intValue;
-    }
+    void h(View.OnClickListener onClickListener);
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        }
-        return invokeV.intValue;
-    }
+    void i(long j, long j2);
+
+    void j(@Nullable String str, @NonNull String str2);
+
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

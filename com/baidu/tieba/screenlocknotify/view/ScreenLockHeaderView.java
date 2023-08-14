@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.y1a;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public y1a h;
+    public z1a h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -60,15 +60,15 @@ public class ScreenLockHeaderView extends LinearLayout {
         this.b = findViewById(R.id.obfuscated_res_0x7f090c44);
         this.c = findViewById(R.id.obfuscated_res_0x7f0917b8);
         this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091462);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0919ca);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0927df);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0919d0);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0927e5);
         this.g = findViewById(R.id.obfuscated_res_0x7f091515);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081341);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081344);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920cb);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920cc);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f0920ca);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920d1);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d2);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f0920d0);
         this.k.setVisibility(8);
     }
 
@@ -148,24 +148,24 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(y1a y1aVar) {
+    public void d(z1a z1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, y1aVar) == null) {
-            this.h = y1aVar;
-            this.a.setText(y1aVar.a);
-            this.d.setText(a(y1aVar.l));
-            this.e.setText(y1aVar.e);
-            this.f.setText(b(y1aVar.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, z1aVar) == null) {
+            this.h = z1aVar;
+            this.a.setText(z1aVar.a);
+            this.d.setText(a(z1aVar.l));
+            this.e.setText(z1aVar.e);
+            this.f.setText(b(z1aVar.i));
         }
     }
 
-    public y1a getData() {
+    public z1a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (y1a) invokeV.objValue;
+        return (z1a) invokeV.objValue;
     }
 
     public View getEditText() {

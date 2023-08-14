@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.im;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
@@ -40,7 +40,7 @@ public class MutiImgTextLayout extends LinearLayout implements qx<q05> {
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public bn6<q05> d;
+    public cn6<q05> d;
     public q05 e;
     public boolean f;
 
@@ -88,7 +88,7 @@ public class MutiImgTextLayout extends LinearLayout implements qx<q05> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bn6<q05> subClickListener;
+            cn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -165,10 +165,10 @@ public class MutiImgTextLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bn6Var) == null) {
-            this.d = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cn6Var) == null) {
+            this.d = cn6Var;
         }
     }
 
@@ -275,13 +275,13 @@ public class MutiImgTextLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public bn6<q05> getSubClickListener() {
+    public cn6<q05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

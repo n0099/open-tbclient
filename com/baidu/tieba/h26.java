@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface h26<T> {
-    void a();
-
-    void b(String str);
-
-    void c(T t);
-
-    String getTitle();
-
+public interface h26 extends ms5 {
     void onDestroy();
+
+    void onResume();
 }

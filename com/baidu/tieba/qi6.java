@@ -1,118 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.Pair;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class qi6 {
-    public static /* synthetic */ Interceptable $ic;
+public final class qi6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final qi6 a;
+    public static String b = "";
+    public static final Map<String, Integer> c;
+    public static final Map<String, Long> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
 
-    public qi6(WebView webView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092843, "Lcom/baidu/tieba/qi6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948092843, "Lcom/baidu/tieba/qi6;");
+                return;
+            }
+        }
+        a = new qi6();
+        c = new LinkedHashMap();
+        d = new LinkedHashMap();
+    }
+
+    public qi6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = webView;
-        webView.setDrawingCacheEnabled(false);
-        webView.setLayerType(2, null);
-        webView.setScrollBarStyle(0);
-        webView.requestFocusFromTouch();
-        if (Build.VERSION.SDK_INT >= 26) {
-            webView.setRendererPriorityPolicy(2, false);
         }
     }
 
-    public void a() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebSettings c = c();
-            c.setJavaScriptEnabled(true);
-            c.setCacheMode(-1);
-            if (Build.VERSION.SDK_INT >= 21) {
-                c.setMixedContentMode(0);
-            }
-            c.setGeolocationEnabled(true);
-            c.setLoadsImagesAutomatically(true);
-            c.setBlockNetworkImage(false);
-            c.setBlockNetworkLoads(false);
-            c.setLoadWithOverviewMode(true);
-            c.setAllowFileAccess(true);
-            c.setUseWideViewPort(true);
-            c.setSupportZoom(true);
-            c.setBuiltInZoomControls(false);
-            c.setDisplayZoomControls(false);
-            c.setMediaPlaybackRequiresUserGesture(false);
-            c.setDomStorageEnabled(true);
-            try {
-                c.setAppCacheEnabled(true);
-                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
-            } catch (IOException unused) {
-                c.setAppCachePath(getContext().getCacheDir().getPath());
-            }
-            String userAgentString = c().getUserAgentString();
-            Pair<Boolean, String> j = xh6.j(userAgentString);
-            if (((Boolean) j.first).booleanValue()) {
-                TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.i("WebSetting", "更新UA信息：" + ((String) j.second) + " 原UA：" + userAgentString);
-                c.setUserAgentString((String) j.second);
-            }
-            c.setJavaScriptCanOpenWindowsAutomatically(true);
-            c.setTextZoom(100);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c.clear();
+            d.clear();
         }
     }
 
-    public final File b(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            File file = new File(context.getCacheDir(), str);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c.put(str, Integer.valueOf(e(str) + 1));
+            b = str;
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            d.put(str, Long.valueOf(System.currentTimeMillis()));
+        }
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            Integer num = c.get(str);
+            if (num != null) {
+                return num.intValue();
             }
-            return file;
+            return 0;
         }
-        return (File) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    public WebSettings c() {
-        InterceptResult invokeV;
+    public final long f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getSettings();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Long l = d.get(str);
+            if (l != null) {
+                return l.longValue();
+            }
+            return -1L;
         }
-        return (WebSettings) invokeV.objValue;
+        return invokeL.longValue;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            long f = f(str);
+            if (!b.equals(str)) {
+                d(str);
+            }
+            a(str);
+            int e = e(str);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (e < 3 || currentTimeMillis - f >= 1000) {
+                return false;
+            }
+            c();
+            return true;
         }
-        return (Context) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

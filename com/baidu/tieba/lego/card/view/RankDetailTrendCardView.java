@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.kx8;
+import com.baidu.tieba.ks5;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
+import com.baidu.tieba.lx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            kx8 a = kx8.a();
+            lx8 a = lx8.a();
             RankDetailTrendCard rankDetailTrendCard = this.a;
             a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
@@ -147,7 +147,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void u(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            js5.a(this.i, getRootView());
+            ks5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -273,9 +273,9 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             this.m = linearLayout;
             this.n = (TbImageView) m(linearLayout, R.id.obfuscated_res_0x7f0914cc);
             this.o = (TextView) m(this.m, R.id.obfuscated_res_0x7f09118d);
-            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f09268e);
-            this.q = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f09268c);
-            this.r = (TextView) m(this.m, R.id.obfuscated_res_0x7f09268d);
+            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f092694);
+            this.q = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f092692);
+            this.r = (TextView) m(this.m, R.id.obfuscated_res_0x7f092693);
             this.s = (TextView) m(this.m, R.id.obfuscated_res_0x7f0904e6);
             HeadImageView headImageView = (HeadImageView) m(this.m, R.id.obfuscated_res_0x7f090eea);
             this.t = headImageView;

@@ -486,7 +486,7 @@ public class s75 extends WebChromeClient {
                 intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
             }
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-            Activity a2 = ek6.a(this.c.getContext());
+            Activity a2 = fk6.a(this.c.getContext());
             WebViewBridge webViewBridge = this.c;
             if (webViewBridge != null && (webViewBridge.getContext() instanceof TBWebViewActivity)) {
                 TBWebViewActivity tBWebViewActivity = (TBWebViewActivity) this.c.getContext();

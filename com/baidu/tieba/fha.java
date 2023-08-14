@@ -1,111 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Application;
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class fha implements l97 {
+public class fha {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<Integer> d;
+    public static fha b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public TbPageContext b;
-    public String c;
+    public a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765514, "Lcom/baidu/tieba/fha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947765514, "Lcom/baidu/tieba/fha;");
-                return;
-            }
-        }
-        ArrayList arrayList = new ArrayList();
-        d = arrayList;
-        arrayList.add(2);
-        d.add(8);
-        d.add(6);
-        d.add(7);
-        d.add(14);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Application application);
+
+        void b(Context context);
+
+        void c(Context context, WebView webView, WebChromeClient webChromeClient);
+
+        void d(Context context, String str, boolean z);
     }
 
-    public fha(int i) {
+    public fha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = c();
     }
 
-    @Override // com.baidu.tieba.l97
-    @NonNull
-    public List<t97<?, ?>> a() {
+    public static fha b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < sx8.a.size(); i++) {
-                int keyAt = sx8.a.keyAt(i);
-                if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
-                    hha hhaVar = new hha(keyAt, this.a);
-                    hhaVar.f(this.b);
-                    hhaVar.e(this.c);
-                    arrayList.add(hhaVar);
-                } else {
-                    for (Integer num : d) {
-                        hha hhaVar2 = new hha(keyAt, num.intValue(), this.a);
-                        hhaVar2.f(this.b);
-                        hhaVar2.e(this.c);
-                        arrayList.add(hhaVar2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (fha.class) {
+                    if (b == null) {
+                        b = new fha();
                     }
                 }
             }
-            return arrayList;
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (fha) invokeV.objValue;
     }
 
-    public fha b(String str) {
-        InterceptResult invokeL;
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.c = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
         }
-        return (fha) invokeL.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public fha c(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
-            this.b = tbPageContext;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("pref_key_stat_sdk_enable", 1) != 0) {
+                return true;
+            }
+            return false;
         }
-        return (fha) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void a(Context context) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.b(context);
+        }
+    }
+
+    public void d(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.a(application);
+        }
+    }
+
+    public void f(Context context, String str, boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.d(context, str, z);
+        }
+    }
+
+    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.c(context, webView, webChromeClient);
+        }
     }
 }

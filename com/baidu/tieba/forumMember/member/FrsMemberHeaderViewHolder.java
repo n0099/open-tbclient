@@ -49,13 +49,13 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
         this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09150d);
         this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914fe);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f1b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092828);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09282e);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f16);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09293a);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092541);
-        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f76);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092940);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092547);
+        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f7c);
         this.i = view2.findViewById(R.id.obfuscated_res_0x7f090f17);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092540);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092546);
         this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167d);
         this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167c);
         this.a.setOnClickListener(onClickListener);

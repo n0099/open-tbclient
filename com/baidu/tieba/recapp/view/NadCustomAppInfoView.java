@@ -17,7 +17,7 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mx9;
+import com.baidu.tieba.nx9;
 import com.baidu.tieba.q31;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.NadCustomAppInfoView;
@@ -295,7 +295,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 return (TextView) invokeV.objValue;
             }
         });
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.kz9
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.lz9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -378,7 +378,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             } else if (id != R.id.ad_author_full_name) {
                 str = "";
                 str2 = str;
-                mx9.a(context, str7, null, null, str);
+                nx9.a(context, str7, null, null, str);
                 this$0.c(str2);
             } else {
                 s05 s05Var5 = this$0.f;
@@ -391,7 +391,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str8 = str7;
             str7 = str3;
             str = str8;
-            mx9.a(context, str7, null, null, str);
+            nx9.a(context, str7, null, null, str);
             this$0.c(str2);
         }
     }

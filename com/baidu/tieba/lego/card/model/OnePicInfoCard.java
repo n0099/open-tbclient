@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ay8;
+import com.baidu.tieba.by8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<ay8> iconList;
+    public final List<by8> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -58,12 +58,12 @@ public class OnePicInfoCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                ay8 ay8Var = new ay8();
-                ay8Var.c = optJSONObject.optInt("type");
-                ay8Var.a = optJSONObject.optString("url");
-                ay8Var.b = optJSONObject.optString("urlNight");
-                ay8Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(ay8Var);
+                by8 by8Var = new by8();
+                by8Var.c = optJSONObject.optInt("type");
+                by8Var.a = optJSONObject.optString("url");
+                by8Var.b = optJSONObject.optString("urlNight");
+                by8Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(by8Var);
             }
         }
     }
@@ -77,7 +77,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (String) invokeV.objValue;
     }
 
-    public List<ay8> getIconList() {
+    public List<by8> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

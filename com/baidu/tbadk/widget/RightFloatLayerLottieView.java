@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -212,7 +213,11 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         public void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                this.a.setRenderMode(RenderMode.HARDWARE);
+                if (Build.VERSION.SDK_INT == 24) {
+                    this.a.setRenderMode(RenderMode.SOFTWARE);
+                } else {
+                    this.a.setRenderMode(RenderMode.HARDWARE);
+                }
                 this.a.setRepeatCount(-1);
                 this.a.enableMergePathsForKitKatAndAbove(true);
                 this.a.setComposition(lottieComposition);

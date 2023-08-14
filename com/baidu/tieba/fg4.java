@@ -655,7 +655,7 @@ public class fg4 extends ea2 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
         }
         View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d00c4, null);
         inflate.setOnClickListener(new c(this));
-        OpenLocationBottomMenu openLocationBottomMenu = (OpenLocationBottomMenu) inflate.findViewById(R.id.obfuscated_res_0x7f0919d7);
+        OpenLocationBottomMenu openLocationBottomMenu = (OpenLocationBottomMenu) inflate.findViewById(R.id.obfuscated_res_0x7f0919dd);
         this.R0 = openLocationBottomMenu;
         openLocationBottomMenu.setFragment(this);
         PopupWindow popupWindow2 = new PopupWindow(activity);

@@ -41,7 +41,7 @@ public class NotificationCompat {
             } else {
                 color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608ff);
             }
-            remoteViews.setInt(R.id.obfuscated_res_0x7f0922b2, "setBackgroundColor", color);
+            remoteViews.setInt(R.id.obfuscated_res_0x7f0922b8, "setBackgroundColor", color);
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style

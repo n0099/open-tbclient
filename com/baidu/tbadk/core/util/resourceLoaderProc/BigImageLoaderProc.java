@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.pv5;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.qv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.yb;
@@ -216,7 +216,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && pv5.a(str)) {
+            if (str != null && qv5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && pv5.a(str)) {
+            if (str != null && qv5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -380,8 +380,8 @@ public class BigImageLoaderProc implements eg<BdImage> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            sv5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = sv5.d(str3);
+            tv5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = tv5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -412,7 +412,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    sv5.b(str4);
+                    tv5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

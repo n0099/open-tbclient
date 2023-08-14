@@ -77,41 +77,41 @@ import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
 import com.baidu.tbadk.switchs.RichTextGifViewSwitch;
 import com.baidu.tbadk.switchs.WalletSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.asb;
 import com.baidu.tieba.b35;
 import com.baidu.tieba.be5;
 import com.baidu.tieba.bi;
+import com.baidu.tieba.bsb;
 import com.baidu.tieba.d05;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.dw5;
-import com.baidu.tieba.f79;
+import com.baidu.tieba.ew5;
 import com.baidu.tieba.frs.mc.FrsNetModel;
+import com.baidu.tieba.g79;
 import com.baidu.tieba.je5;
 import com.baidu.tieba.k20;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lv5;
 import com.baidu.tieba.m85;
 import com.baidu.tieba.mc5;
+import com.baidu.tieba.mv5;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
 import com.baidu.tieba.qg;
 import com.baidu.tieba.rb5;
-import com.baidu.tieba.rca;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.ru5;
 import com.baidu.tieba.s85;
 import com.baidu.tieba.sb5;
+import com.baidu.tieba.sca;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.sm5;
-import com.baidu.tieba.tca;
+import com.baidu.tieba.su5;
 import com.baidu.tieba.tm5;
 import com.baidu.tieba.u85;
 import com.baidu.tieba.uc5;
 import com.baidu.tieba.uca;
 import com.baidu.tieba.uf5;
+import com.baidu.tieba.vca;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.wc5;
 import com.baidu.tieba.zb5;
@@ -228,13 +228,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public boolean mNeedShowNewVersion;
     public int mNewVcodeWebviewCrashCount;
     public int mPerformSampleCount;
-    public tca mPhotoLiveReadHistory;
+    public uca mPhotoLiveReadHistory;
     public boolean mPromotedMessageOn;
-    public uca mReadThreadHistory;
+    public vca mReadThreadHistory;
     public ArrayList<Activity> mRemoteActivity;
     public ShareItem mShareItem;
     public Hashtable<String, Integer> mSignLevelUpList;
-    public f79 mSplash;
+    public g79 mSplash;
     public int mTempFaceShopVersion;
     public boolean mThemeWebviewOpened;
     public BdUtilHelper.d mToast;
@@ -519,7 +519,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* loaded from: classes4.dex */
-    public class f implements ru5.b {
+    public class f implements su5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbadkCoreApplication a;
@@ -542,7 +542,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
             this.a = tbadkCoreApplication;
         }
 
-        @Override // com.baidu.tieba.ru5.b
+        @Override // com.baidu.tieba.su5.b
         public void a(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -962,14 +962,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void AddResumeNum() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lv5.g().a();
+            mv5.g().a();
         }
     }
 
     public void DelResumeNum() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lv5.g().b();
+            mv5.g().b();
         }
     }
 
@@ -1001,7 +1001,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return lv5.g().d();
+            return mv5.g().d();
         }
         return invokeV.booleanValue;
     }
@@ -1025,7 +1025,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void clearEnterForeCount() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            lv5.g().e();
+            mv5.g().e();
         }
     }
 
@@ -1291,7 +1291,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            return lv5.g().f();
+            return mv5.g().f();
         }
         return invokeV.intValue;
     }
@@ -1358,7 +1358,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return asb.a(sApp);
+                return bsb.a(sApp);
             }
             return "";
         }
@@ -1674,13 +1674,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return (b35) invokeV.objValue;
     }
 
-    public tca getPhotoLiveReadThreadHistory() {
+    public uca getPhotoLiveReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             return this.mPhotoLiveReadHistory;
         }
-        return (tca) invokeV.objValue;
+        return (uca) invokeV.objValue;
     }
 
     @Modify(description = "flutter代理ip", type = Constants.SHORT_PING_CMD_TYPE)
@@ -1721,13 +1721,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return (String) invokeV.objValue;
     }
 
-    public uca getReadThreadHistory() {
+    public vca getReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
             return this.mReadThreadHistory;
         }
-        return (uca) invokeV.objValue;
+        return (vca) invokeV.objValue;
     }
 
     public long getReporyUserInfoLastTime() {
@@ -1743,7 +1743,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
-            return lv5.g().h();
+            return mv5.g().h();
         }
         return invokeV.intValue;
     }
@@ -1778,16 +1778,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return invokeV.intValue;
     }
 
-    public f79 getSplash() {
+    public g79 getSplash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
             if (this.mSplash == null) {
-                this.mSplash = new f79(this);
+                this.mSplash = new g79(this);
             }
             return this.mSplash;
         }
-        return (f79) invokeV.objValue;
+        return (g79) invokeV.objValue;
     }
 
     public int getStartType() {
@@ -2104,7 +2104,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
-            return lv5.g().j();
+            return mv5.g().j();
         }
         return invokeV.booleanValue;
     }
@@ -2246,7 +2246,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void notifyAppEnterBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048768, this) == null) {
-            lv5.g().m();
+            mv5.g().m();
         }
     }
 
@@ -2286,7 +2286,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void sendMessageForEnterBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048790, this) == null) {
-            lv5.g().r();
+            mv5.g().r();
         }
     }
 
@@ -2355,9 +2355,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void startTrackConfigRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048886, this) == null) {
-            ru5 ru5Var = new ru5();
-            ru5Var.c();
-            ru5Var.b(new f(this));
+            su5 su5Var = new su5();
+            su5Var.c();
+            su5Var.b(new f(this));
         }
     }
 
@@ -2724,7 +2724,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
             be5.p0().b0(true);
             NotificationHelper.cancelAllNotification(this);
-            rca.n();
+            sca.n();
         }
     }
 
@@ -2932,7 +2932,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public void notifySwitchProcess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048770, this, z) == null) {
-            lv5.g().o(z);
+            mv5.g().o(z);
         }
     }
 
@@ -4156,9 +4156,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
             if (this.imagePvThread == null) {
                 this.imagePvThread = Executors.newSingleThreadExecutor();
             }
-            dw5 dw5Var = new dw5(i, i2);
-            dw5Var.a(str);
-            this.imagePvThread.execute(dw5Var);
+            ew5 ew5Var = new ew5(i, i2);
+            ew5Var.a(str);
+            this.imagePvThread.execute(ew5Var);
             TiebaStatic.eventStat(getInst().getApp(), "img_browse", null, 1, "img_num", Integer.valueOf(i), "img_total", Integer.valueOf(i2), "img_type", str, "img_begin", Integer.valueOf(i3), "img_end", Integer.valueOf(i4));
         }
     }

@@ -405,10 +405,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 fVar.a = view2;
                 fVar.b = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090f7e);
                 fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09085d);
-                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920fd);
-                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092111);
-                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092118);
-                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920dd);
+                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092103);
+                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092117);
+                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09211e);
+                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920e3);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b9);
                 fVar.h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);

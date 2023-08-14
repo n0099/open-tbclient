@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.p06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,11 +105,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                cw5.a(z);
+                dw5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                cw5.d(z2);
+                dw5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -127,7 +127,7 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends o06 {
+    public class a extends p06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int m;
@@ -160,11 +160,11 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.o06, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.p06, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                o06.b bVar = this.j;
+                p06.b bVar = this.j;
                 if (bVar != null) {
                     bVar.a(this);
                 }

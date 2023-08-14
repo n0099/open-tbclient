@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j58;
+import com.baidu.tieba.k58;
 import com.baidu.tieba.rx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements rx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                j58.g();
+                k58.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -412,9 +412,9 @@ public class PostAnimateFloatView extends FrameLayout implements rx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6b);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf4);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d0c);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f71);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cfa);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d12);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();
@@ -466,7 +466,7 @@ public class PostAnimateFloatView extends FrameLayout implements rx {
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080b5b, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080b5d, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {

@@ -57,7 +57,7 @@ public class g13 extends HandlerThread implements f13 {
 
             /* renamed from: com.baidu.tieba.g13$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0305a implements Runnable {
+            public class RunnableC0310a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap a;
@@ -66,17 +66,17 @@ public class g13 extends HandlerThread implements f13 {
 
                 /* renamed from: com.baidu.tieba.g13$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes6.dex */
-                public class RunnableC0306a implements Runnable {
+                public class RunnableC0311a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SwanAppActivity a;
 
-                    public RunnableC0306a(RunnableC0305a runnableC0305a, SwanAppActivity swanAppActivity) {
+                    public RunnableC0311a(RunnableC0310a runnableC0310a, SwanAppActivity swanAppActivity) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {runnableC0305a, swanAppActivity};
+                            Object[] objArr = {runnableC0310a, swanAppActivity};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -101,7 +101,7 @@ public class g13 extends HandlerThread implements f13 {
                     }
                 }
 
-                public RunnableC0305a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                public RunnableC0310a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class g13 extends HandlerThread implements f13 {
                 public final void a(SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, swanAppActivity) == null) {
-                        so3.a0(new RunnableC0306a(this, swanAppActivity));
+                        so3.a0(new RunnableC0311a(this, swanAppActivity));
                     }
                 }
 
@@ -173,20 +173,20 @@ public class g13 extends HandlerThread implements f13 {
                 SwanAppActivity activity;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (activity = lw2.T().getActivity()) != null && !activity.isFinishing() && !activity.isDestroyed() && this.a.a != null) {
-                    sn3.f().execute(new RunnableC0305a(this, po3.p(), activity), "SwanPageMonitorRecheck");
+                    sn3.f().execute(new RunnableC0310a(this, po3.p(), activity), "SwanPageMonitorRecheck");
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.g13$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0304a implements Runnable {
+        public class RunnableC0309a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i13 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0304a(a aVar, i13 i13Var) {
+            public RunnableC0309a(a aVar, i13 i13Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,7 +248,7 @@ public class g13 extends HandlerThread implements f13 {
         public final void g(i13 i13Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, i13Var) == null) && i13Var != null && i(i13Var.a)) {
-                so3.e0(new RunnableC0304a(this, i13Var));
+                so3.e0(new RunnableC0309a(this, i13Var));
             }
         }
 

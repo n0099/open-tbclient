@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kg5;
-import com.baidu.tieba.mv5;
+import com.baidu.tieba.nv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -268,9 +268,9 @@ public class GroupChatActivity extends BaseFragmentActivity {
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                mv5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c35, this.d);
+                nv5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c35, this.d);
             } else {
-                this.d = (GroupChatFragment) mv5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) nv5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);

@@ -22,7 +22,7 @@ public abstract class ww<T extends q05> implements rx, qx<T> {
     public ky a;
     public Context b;
     public Boolean c;
-    public bn6<T> d;
+    public cn6<T> d;
     public a e;
 
     /* loaded from: classes8.dex */
@@ -75,13 +75,13 @@ public abstract class ww<T extends q05> implements rx, qx<T> {
         this.b = context;
     }
 
-    public bn6<T> h() {
+    public cn6<T> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     public Boolean j() {
@@ -141,10 +141,10 @@ public abstract class ww<T extends q05> implements rx, qx<T> {
         }
     }
 
-    public void p(bn6<T> bn6Var) {
+    public void p(cn6<T> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bn6Var) == null) {
-            this.d = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cn6Var) == null) {
+            this.d = cn6Var;
         }
     }
 

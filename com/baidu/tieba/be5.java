@@ -346,7 +346,7 @@ public class be5 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ChatSysNotifyPojo f = nb8.b().f(i);
+            ChatSysNotifyPojo f = ob8.b().f(i);
             if (f != null) {
                 return f.getContent();
             }
@@ -359,7 +359,7 @@ public class be5 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ChatSysNotifyPojo f = nb8.b().f(i);
+            ChatSysNotifyPojo f = ob8.b().f(i);
             if (f != null) {
                 return f.getUnread();
             }
@@ -1017,7 +1017,7 @@ public class be5 {
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, aVar)) == null) {
-            if (aVar != null && (h = mc8.n().h(aVar.a, aVar.f)) != null && h.getLast_content() != null) {
+            if (aVar != null && (h = nc8.n().h(aVar.a, aVar.f)) != null && h.getLast_content() != null) {
                 try {
                     String lastTaskId = h.getLastTaskId();
                     String lastServiceId = h.getLastServiceId();

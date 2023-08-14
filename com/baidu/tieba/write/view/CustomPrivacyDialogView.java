@@ -100,7 +100,7 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d023e, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091d31);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091d37);
             this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090841);
             this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090842);
             this.b.setTextSize(R.dimen.tbds34);

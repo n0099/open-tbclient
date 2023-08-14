@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.l78;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,21 +29,21 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes6.dex */
-public class TopicFragment extends BaseFragment implements mg7, i95.g, k78 {
+public class TopicFragment extends BaseFragment implements ng7, i95.g, l78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
     public TopicListView b;
     public boolean c;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -73,7 +73,7 @@ public class TopicFragment extends BaseFragment implements mg7, i95.g, k78 {
         this.c = false;
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -81,7 +81,7 @@ public class TopicFragment extends BaseFragment implements mg7, i95.g, k78 {
         }
     }
 
-    @Override // com.baidu.tieba.k78
+    @Override // com.baidu.tieba.l78
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
@@ -92,7 +92,7 @@ public class TopicFragment extends BaseFragment implements mg7, i95.g, k78 {
         this.a.N();
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -167,7 +167,7 @@ public class TopicFragment extends BaseFragment implements mg7, i95.g, k78 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k78
+    @Override // com.baidu.tieba.l78
     public void l0(int i, List<ym> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) {

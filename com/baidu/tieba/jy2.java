@@ -632,7 +632,7 @@ public class jy2 extends BaseAdapter {
             view2.setBackgroundColor(-1);
             jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060aed));
             jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060af8));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081435));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081438));
             jVar.g.setTextColor(-1);
             jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060afb));
             jVar.a.setLayoutParams(this.f);
@@ -642,7 +642,7 @@ public class jy2 extends BaseAdapter {
             jVar.f.setVisibility(8);
             jVar.h.setVisibility(8);
             jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081443);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081446);
             jVar.h.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
             layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070841);
@@ -666,7 +666,7 @@ public class jy2 extends BaseAdapter {
                     qa3.f(this.a, R.string.obfuscated_res_0x7f0f14f8).G();
                     return;
                 } else {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081441);
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081444);
                     jVar.c.setVisibility(0);
                     jVar.c.setText(String.valueOf(py2.c(mediaModel) + 1));
                     py2.i(mediaModel);
@@ -680,7 +680,7 @@ public class jy2 extends BaseAdapter {
                 }
             }
             py2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081443);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081446);
             jVar.c.setVisibility(8);
             vy2 vy2Var2 = this.c;
             if (vy2Var2 != null) {
@@ -832,11 +832,11 @@ public class jy2 extends BaseAdapter {
             view2.setClickable(true);
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090248);
             if (TextUtils.equals(oy2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08142b);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08142e);
                 view2.setOnClickListener(new a(this));
                 return;
             }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08142f);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081432);
             view2.setOnClickListener(new b(this));
         }
     }
@@ -845,7 +845,7 @@ public class jy2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
             if (py2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081441);
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081444);
                 jVar.c.setVisibility(0);
                 jVar.c.setText(String.valueOf(py2.c(mediaModel) + 1));
             }

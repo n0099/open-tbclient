@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class hr7 implements t55 {
+public class hr7 extends r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.t55
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsForumManage" : (String) invokeV.objValue;
-    }
 
     public hr7() {
         Interceptable interceptable = $ic;
@@ -34,13 +30,23 @@ public class hr7 implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
-    public Class<? extends r55> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r55
+    public void a(@NonNull Context context, @NonNull j55 j55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gr7.class;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, j55Var) == null) {
+            if (TbSingleton.getInstance().getFrsResponseData() == null) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧务管理弹窗失败：当前没有FRS吧数据");
+                YunDialogManager.unMarkShowingDialogName("frsForumManage");
+            } else if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧务管理弹窗失败：当前Activity非FrsActivity");
+                YunDialogManager.unMarkShowingDialogName("frsForumManage");
+            } else {
+                FrsFragment u1 = ((FrsActivity) context).u1();
+                if (!ws7.a(TbSingleton.getInstance().getFrsResponseData(), u1)) {
+                    u1.X4(true);
+                    YunDialogManager.unMarkShowingDialogName("frsForumManage");
+                }
+            }
         }
-        return (Class) invokeV.objValue;
     }
 }

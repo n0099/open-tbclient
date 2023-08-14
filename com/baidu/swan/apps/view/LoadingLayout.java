@@ -24,7 +24,7 @@ public class LoadingLayout extends LinearLayout {
         if (z) {
             setVisibility(0);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010175);
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f08143e);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f081441);
             this.a.startAnimation(loadAnimation);
             return;
         }

@@ -25,7 +25,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startBenchmark() {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
         int i = this.mBenchmarkWhich;
         if (i == 1) {
             benchmarkInflate(textView);
@@ -37,7 +37,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     }
 
     private void updatePreview() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6b);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f71);
         View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) linearLayout, false);
         inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         linearLayout.removeAllViews();

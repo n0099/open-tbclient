@@ -139,7 +139,7 @@ public class ky2 extends BaseAdapter {
             } else {
                 aVar = (a) view2.getTag();
             }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081436));
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081439));
             yy2 yy2Var = this.c.get(i);
             if (yy2Var == null) {
                 return view2;

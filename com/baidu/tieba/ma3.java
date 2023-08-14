@@ -482,9 +482,9 @@ public final class ma3 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801df));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914dc);
         TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914e8);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f29);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f2a);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091f2b);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f2f);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f30);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091f31);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(na3.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -515,7 +515,7 @@ public final class ma3 {
                     } else {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f20)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801e2));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f26)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801e2));
                         textView2.setText(charSequence2);
                         textView2.setTextColor(na3.a);
                         findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601c1));

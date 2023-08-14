@@ -1,41 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.ActivityLog;
+import com.baidu.tieba.v1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u1a {
     public static /* synthetic */ Interceptable $ic;
-    public static u1a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
 
     /* loaded from: classes8.dex */
-    public interface c {
-        void a(HashMap<String, String> hashMap);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends jw5<Object> {
+    public static class a implements v1a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u1a a;
+        public final WeakReference<Context> a;
+        public final String b;
+        public final Uri c;
 
-        public a(u1a u1aVar) {
+        public a(Context context, Uri uri, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u1aVar};
+                Object[] objArr = {context, uri, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,147 +43,119 @@ public class u1a {
                     return;
                 }
             }
-            this.a = u1aVar;
+            this.a = new WeakReference<>(context);
+            this.b = str;
+            this.c = uri;
         }
 
-        @Override // com.baidu.tieba.jw5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Reader reader;
-            Throwable th;
-            InputStream inputStream;
-            BufferedReader bufferedReader;
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00a9 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.v1a.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    try {
-                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                String[] split = readLine.split(",");
-                                if (split.length == 2 && split[0] != null && split[1] != null) {
-                                    this.a.a.put(split[0], split[1]);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                BdCloseHelper.close(inputStream);
-                                BdCloseHelper.close((Reader) bufferedReader);
-                                return null;
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        reader = null;
-                        th = th3;
-                        BdCloseHelper.close(inputStream);
-                        BdCloseHelper.close(reader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream = null;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    reader = null;
-                    th = th4;
-                    inputStream = null;
-                }
-                BdCloseHelper.close(inputStream);
-                BdCloseHelper.close((Reader) bufferedReader);
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ov5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ u1a b;
-
-        public b(u1a u1aVar, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u1aVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = u1aVar;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.ov5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.a(this.b.a);
-            }
-        }
-    }
-
-    public u1a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
                 return;
             }
-        }
-        this.a = new HashMap<>();
-        new HashMap();
-    }
-
-    public static u1a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (u1a.class) {
-                    if (b == null) {
-                        b = new u1a();
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.b);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject(YunDialogManager.PAGE_PARAMS_KEY);
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
+                        }
+                    }
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                    for (String str2 : this.c.getQueryParameterNames()) {
+                        if (!"params".equals(str2)) {
+                            jSONObject.put(str2, this.c.getQueryParameter(str2));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
+            }
+            if (jSONObject == null) {
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
+                    return;
+                }
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(t1a.class)) {
+                        try {
+                            ((t1a) cls.newInstance()).dispatch(jSONObject, this.a.get());
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
                     }
                 }
             }
-            return b;
         }
-        return (u1a) invokeV.objValue;
     }
 
-    public void b(c cVar) {
+    public static int a(Context context, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (!this.a.isEmpty()) {
-                cVar.a(this.a);
-            } else {
-                nw5.b(new a(this), new b(this, cVar));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
+            if (context != null && strArr != null && strArr.length != 0) {
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = bi.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Uri parse = Uri.parse(str);
+                    ActivityLog.getInstance().i("scheme", "SchemaHelper:" + str);
+                    try {
+                        v1a.c().b(new a(context, parse, parse.getQueryParameter("params")));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
             }
+            return 3;
         }
+        return invokeLL.intValue;
+    }
+
+    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                return a(tbPageContext.getPageActivity(), strArr);
+            }
+            return 3;
+        }
+        return invokeLL.intValue;
     }
 }

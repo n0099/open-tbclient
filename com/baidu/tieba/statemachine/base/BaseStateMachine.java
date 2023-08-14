@@ -3,11 +3,11 @@ package com.baidu.tieba.statemachine.base;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m9a;
 import com.baidu.tieba.n9a;
 import com.baidu.tieba.o9a;
 import com.baidu.tieba.p9a;
 import com.baidu.tieba.q9a;
+import com.baidu.tieba.r9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,12 +27,12 @@ import kotlin.jvm.internal.Intrinsics;
 public class BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n9a a;
-    public q9a b;
-    public List<p9a> c;
-    public final Function1<List<m9a>, Unit> d;
+    public final o9a a;
+    public r9a b;
+    public List<q9a> c;
+    public final Function1<List<n9a>, Unit> d;
 
-    public BaseStateMachine(n9a baseStateMap) {
+    public BaseStateMachine(o9a baseStateMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class BaseStateMachine {
         this.d = BaseStateMachine$doAction$1.INSTANCE;
     }
 
-    public final void a(p9a listener) {
+    public final void a(q9a listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -61,14 +61,14 @@ public class BaseStateMachine {
                 this.c = new ArrayList();
             }
             b();
-            List<p9a> list = this.c;
+            List<q9a> list = this.c;
             if (list != null) {
                 list.add(listener);
             }
         }
     }
 
-    public final void e(p9a listener) {
+    public final void e(q9a listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -77,10 +77,10 @@ public class BaseStateMachine {
     }
 
     public final void b() {
-        List<p9a> list;
+        List<q9a> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.c) != null) {
-            Iterator<p9a> it = list.iterator();
+            Iterator<q9a> it = list.iterator();
             while (it.hasNext()) {
                 if (!it.next().a()) {
                     it.remove();
@@ -89,13 +89,13 @@ public class BaseStateMachine {
         }
     }
 
-    public final q9a c() {
+    public final r9a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (q9a) invokeV.objValue;
+        return (r9a) invokeV.objValue;
     }
 
     public final void d() {
@@ -107,32 +107,32 @@ public class BaseStateMachine {
         }
     }
 
-    public final void f(o9a event) {
+    public final void f(p9a event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            HashMap<o9a, q9a> hashMap = this.a.getMap().get(this.b);
+            HashMap<p9a, r9a> hashMap = this.a.getMap().get(this.b);
             if (hashMap == null) {
                 DefaultLog.getInstance().e("State Machine", "Illegal state!");
                 return;
             }
-            q9a q9aVar = hashMap.get(event);
-            if (q9aVar == null) {
+            r9a r9aVar = hashMap.get(event);
+            if (r9aVar == null) {
                 DefaultLog.getInstance().e("State Machine", "Illegal event!");
                 return;
             }
             TbLog defaultLog = DefaultLog.getInstance();
             defaultLog.e("State Machine", "Current State: " + this.b.getClass().getSimpleName() + "  Current Event: " + event.getClass().getSimpleName());
             this.d.invoke(event.a());
-            this.b = q9aVar;
+            this.b = r9aVar;
             TbLog defaultLog2 = DefaultLog.getInstance();
             defaultLog2.e("State Machine", "Next State: " + this.b.getClass().getSimpleName());
             this.d.invoke(this.b.b());
-            List<p9a> list = this.c;
+            List<q9a> list = this.c;
             if (list != null) {
-                for (p9a p9aVar : list) {
-                    if (p9aVar.a()) {
-                        p9aVar.b(this.b);
+                for (q9a q9aVar : list) {
+                    if (q9aVar.a()) {
+                        q9aVar.b(this.b);
                     }
                 }
             }
@@ -143,11 +143,11 @@ public class BaseStateMachine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.d.invoke(this.b.b());
-            List<p9a> list = this.c;
+            List<q9a> list = this.c;
             if (list != null) {
-                for (p9a p9aVar : list) {
-                    if (p9aVar.a()) {
-                        p9aVar.b(this.b);
+                for (q9a q9aVar : list) {
+                    if (q9aVar.a()) {
+                        q9aVar.b(this.b);
                     }
                 }
             }

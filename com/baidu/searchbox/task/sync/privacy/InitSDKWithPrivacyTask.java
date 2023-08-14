@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.qj0;
-import com.baidu.tieba.uz8;
 import com.baidu.tieba.vz8;
+import com.baidu.tieba.wz8;
 import com.baidu.tieba.xh5;
-import com.baidu.tieba.xz8;
 import com.baidu.tieba.yz8;
+import com.baidu.tieba.zz8;
 /* loaded from: classes4.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static final String LBS_API_KEY = "ZcNrGBp4BZPVHSz6ODfQGHRAyPQoxc9E";
@@ -56,13 +56,13 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     }
 
     private void initBaiduMap() {
-        BdLocationMananger.getInstance().registerProvider(vz8.t());
+        BdLocationMananger.getInstance().registerProvider(wz8.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            BdLocationMananger.getInstance().registerProvider(uz8.j());
+            BdLocationMananger.getInstance().registerProvider(vz8.j());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(2010044) { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -71,9 +71,9 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.w()) {
-                        editorTools.d(new xz8(editorTools.getContext(), true));
+                        editorTools.d(new yz8(editorTools.getContext(), true));
                     } else {
-                        editorTools.d(new xz8(editorTools.getContext()));
+                        editorTools.d(new yz8(editorTools.getContext()));
                     }
                 }
             }
@@ -81,7 +81,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<xh5> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2016556, new yz8(customMessage.getData(), 0));
+                return new CustomResponsedMessage<>(2016556, new zz8(customMessage.getData(), 0));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

@@ -1,210 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.recentforum.data.RecentForumRespondedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.switchs.BaseNormalSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+@Service
 /* loaded from: classes7.dex */
-public final class pz9 {
-    public static /* synthetic */ Interceptable $ic;
+public final class pz9 extends BaseNormalSwitch {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a a;
+    public static int b = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public a c;
-    public boolean d;
-    public final b e;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(y38 y38Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948079482, "Lcom/baidu/tieba/pz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948079482, "Lcom/baidu/tieba/pz9;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
-        void onFail();
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "12.45_recent_forum_switch_android" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public static final class b extends HttpMessageListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pz9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(pz9 pz9Var) {
-            super(CmdConfigHttp.CMD_RECENT_FORUM);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = pz9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @JvmStatic
+        public final boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003572 && (httpResponsedMessage instanceof RecentForumRespondedMessage)) {
-                    RecentForumRespondedMessage recentForumRespondedMessage = (RecentForumRespondedMessage) httpResponsedMessage;
-                    if (recentForumRespondedMessage.getError() != 0) {
-                        this.a.g(false);
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.i("RecentForumLog", "请求结束，返回错误，错误码为：" + recentForumRespondedMessage.getError());
-                        a a = this.a.a();
-                        if (a != null) {
-                            a.onFail();
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.g(false);
-                    y38 data = recentForumRespondedMessage.getData();
-                    Unit unit = null;
-                    if (data != null) {
-                        pz9 pz9Var = this.a;
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，有返回数据");
-                        a a2 = pz9Var.a();
-                        if (a2 != null) {
-                            a2.a(data);
-                            unit = Unit.INSTANCE;
-                        }
-                    }
-                    if (unit == null) {
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，返回数据为空");
-                        return;
-                    }
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (pz9.b == -1) {
+                    pz9.b = SwitchManager.getInstance().findType("12.45_recent_forum_switch_android");
                 }
-                this.a.g(false);
-                DefaultLog.getInstance().i("RecentForumLog", "请求结束，数据不合法");
-                a a3 = this.a.a();
-                if (a3 != null) {
-                    a3.onFail();
+                if (pz9.b == 1) {
+                    return true;
                 }
+                return false;
             }
+            return invokeV.booleanValue;
         }
     }
 
-    public pz9(BdUniqueId bdUniqueId) {
+    public pz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = bdUniqueId;
-        this.e = new b(this);
-        e();
-    }
-
-    public final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_RECENT_FORUM);
-            MessageManager.getInstance().unRegisterListener(this.e);
-            this.d = true;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
-            this.e.setSelfListener(true);
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-        }
-    }
-
-    public final boolean b(dx7 dx7Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dx7Var)) == null) {
-            if (this.d) {
-                e();
-                this.d = false;
-                DefaultLog.getInstance().i("RecentForumLog", "重新注册");
-            }
-            if (this.b) {
-                DefaultLog.getInstance().i("RecentForumLog", "上一次请求正在执行，不请求");
-                return false;
-            }
-            this.b = true;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RECENT_FORUM);
-            String str = null;
-            if (dx7Var != null) {
-                str = dx7Var.a().toString();
-                httpMessage.addParam("forum_frscsm", str);
-            }
-            httpMessage.setTag(this.a);
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("RecentForumLog", "开始请求，请求参数：" + str);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECENT_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecentForum");
-            tbHttpMessageTask.setResponsedClass(RecentForumRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void f(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
         }
     }
 }

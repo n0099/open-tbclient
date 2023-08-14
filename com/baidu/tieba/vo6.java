@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
-import com.baidu.tbadk.widget.ad.DownloadGuideFull;
-import com.baidu.tbadk.widget.ad.DownloadGuidePart;
-import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
-import com.baidu.tieba.j37;
+import com.baidu.tieba.compact.AlaLiveAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.PbContent;
 /* loaded from: classes8.dex */
-public final class vo6 implements j37.f {
+public class vo6 extends e97<AlaLiveAttentionCardView, j37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoundFrameLayout a;
-    public AbsDownloadGuide b;
-    public String c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vo6() {
+        super("ala_live_attention");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,126 +25,40 @@ public final class vo6 implements j37.f {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "part";
     }
 
-    @Override // com.baidu.tieba.j37.r
-    public void a(ViewGroup view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            AbsDownloadGuide absDownloadGuide = this.b;
-            if (absDownloadGuide == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                absDownloadGuide = null;
-            }
-            absDownloadGuide.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.j37.f
-    public ViewGroup create(Context context) {
+    @Override // com.baidu.tieba.e97, com.baidu.tieba.u97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.a = new RoundFrameLayout(context);
-            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds21);
-            RoundFrameLayout roundFrameLayout = this.a;
-            if (roundFrameLayout == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                roundFrameLayout = null;
-            }
-            roundFrameLayout.setRadiusPx(0, 0, dimens, dimens);
-            this.b = new DownloadGuidePart(context);
-            RoundFrameLayout roundFrameLayout2 = this.a;
-            if (roundFrameLayout2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                roundFrameLayout2 = null;
-            }
-            AbsDownloadGuide absDownloadGuide = this.b;
-            if (absDownloadGuide == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                absDownloadGuide = null;
-            }
-            roundFrameLayout2.addView(absDownloadGuide);
-            RoundFrameLayout roundFrameLayout3 = this.a;
-            if (roundFrameLayout3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                return null;
-            }
-            return roundFrameLayout3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
+            ib7.i(alaLiveAttentionCardView, Integer.valueOf(ib7.e() * 2));
+            return alaLiveAttentionCardView;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.j37.f
-    public void update(ViewGroup view2, u57 downloadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.u97
+    /* renamed from: e */
+    public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull j37 j37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, downloadData) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            Map<String, String> a = downloadData.a().a();
-            String type = downloadData.getType();
-            AbsDownloadGuide absDownloadGuide = null;
-            if (!Intrinsics.areEqual(type, this.c)) {
-                RoundFrameLayout roundFrameLayout = this.a;
-                if (roundFrameLayout == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                    roundFrameLayout = null;
-                }
-                AbsDownloadGuide absDownloadGuide2 = this.b;
-                if (absDownloadGuide2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                    absDownloadGuide2 = null;
-                }
-                roundFrameLayout.removeView(absDownloadGuide2);
-                if (Intrinsics.areEqual(type, "part")) {
-                    Context context = view2.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context, "view.context");
-                    this.b = new DownloadGuidePart(context);
-                } else if (Intrinsics.areEqual(type, "full")) {
-                    Context context2 = view2.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context2, "view.context");
-                    this.b = new DownloadGuideFull(context2);
-                }
-                RoundFrameLayout roundFrameLayout2 = this.a;
-                if (roundFrameLayout2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                    roundFrameLayout2 = null;
-                }
-                AbsDownloadGuide absDownloadGuide3 = this.b;
-                if (absDownloadGuide3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                    absDownloadGuide3 = null;
-                }
-                roundFrameLayout2.addView(absDownloadGuide3);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, alaLiveAttentionCardView, j37Var) == null) {
+            Object obj = j37Var.a().a;
+            if (obj instanceof gn6) {
+                alaLiveAttentionCardView.setVisibility(0);
+                alaLiveAttentionCardView.update((gn6) obj);
+                return;
             }
-            ThreadData threadData = new ThreadData();
-            ArrayList arrayList = new ArrayList();
-            PbContent.Builder builder = new PbContent.Builder();
-            builder.type = 35;
-            builder.tiebaplus_info = rp6.a(downloadData.a());
-            PbContent build = builder.build(true);
-            Intrinsics.checkNotNullExpressionValue(build, "contentBuilder.build(true)");
-            arrayList.add(build);
-            threadData.setRichAbstractList(arrayList);
-            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(a.get("is_tie_plus_ad"), "1");
-            threadData.tiebaPlusOrderId = a.get("tie_plus_order_id");
-            threadData.tid = a.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(a.get("forum_id"), 0L));
-            AbsDownloadGuide absDownloadGuide4 = this.b;
-            if (absDownloadGuide4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-            } else {
-                absDownloadGuide = absDownloadGuide4;
-            }
-            absDownloadGuide.setData(threadData);
+            alaLiveAttentionCardView.setVisibility(8);
         }
     }
 }

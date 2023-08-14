@@ -2,8 +2,8 @@ package com.huawei.hms.aaid;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fpb;
 import com.baidu.tieba.gpb;
+import com.baidu.tieba.hpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,15 +93,15 @@ public class HmsInstanceIdEx {
         return (HmsInstanceIdEx) invokeL.objValue;
     }
 
-    public final fpb<TokenResult> a(Exception exc) {
+    public final gpb<TokenResult> a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exc)) == null) {
-            gpb gpbVar = new gpb();
-            gpbVar.c(exc);
-            return gpbVar.b();
+            hpb hpbVar = new hpb();
+            hpbVar.c(exc);
+            return hpbVar.b();
         }
-        return (fpb) invokeL.objValue;
+        return (gpb) invokeL.objValue;
     }
 
     public final String a(String str) {
@@ -155,8 +155,8 @@ public class HmsInstanceIdEx {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.fpb<TResult>, com.baidu.tieba.fpb<com.huawei.hms.aaid.entity.TokenResult> */
-    public fpb<TokenResult> getToken() {
+    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.gpb<TResult>, com.baidu.tieba.gpb<com.huawei.hms.aaid.entity.TokenResult> */
+    public gpb<TokenResult> getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,9 +164,9 @@ public class HmsInstanceIdEx {
                 try {
                     HMSLog.i(TAG, "use proxy get token, please check HmsMessageService.onNewToken receive result.");
                     ProxyCenter.getProxy().getToken(this.a, null, null);
-                    gpb gpbVar = new gpb();
-                    gpbVar.setResult(new TokenResult());
-                    return gpbVar.b();
+                    hpb hpbVar = new hpb();
+                    hpbVar.setResult(new TokenResult());
+                    return hpbVar.b();
                 } catch (ApiException e) {
                     return a(e);
                 } catch (Exception unused) {
@@ -186,6 +186,6 @@ public class HmsInstanceIdEx {
                 return a(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
             }
         }
-        return (fpb) invokeV.objValue;
+        return (gpb) invokeV.objValue;
     }
 }

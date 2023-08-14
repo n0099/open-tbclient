@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.aba;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.e25;
-import com.baidu.tieba.ew7;
-import com.baidu.tieba.iw7;
-import com.baidu.tieba.zaa;
+import com.baidu.tieba.fw7;
+import com.baidu.tieba.jw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ew7> a;
+    public ArrayList<fw7> a;
     public ArrayList<d25> b;
-    public ArrayList<iw7> c;
+    public ArrayList<jw7> c;
     public String d;
     public int e;
     public b f;
@@ -32,7 +32,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, e25 e25Var, ArrayList<ew7> arrayList, ArrayList<d25> arrayList2, ArrayList<iw7> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, e25 e25Var, ArrayList<fw7> arrayList, ArrayList<d25> arrayList2, ArrayList<jw7> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zaa.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            zaa.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            aba.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            aba.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

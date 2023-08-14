@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface b7c {
-    PayFlowModel j(PayFlowType payFlowType);
+    void a(View view2);
+
+    void b(View view2);
 }

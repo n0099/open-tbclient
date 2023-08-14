@@ -33,7 +33,7 @@ public class w30 implements s30 {
 
         /* renamed from: com.baidu.tieba.w30$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0512a {
+        public static class C0515a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class w30 implements s30 {
             public String c;
             public int d;
 
-            public C0512a(Context context) {
+            public C0515a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class w30 implements s30 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0512a c0512a = new C0512a(context);
-                String d = c0512a.d();
-                int c = c0512a.c();
+                C0515a c0515a = new C0515a(context);
+                String d = c0515a.d();
+                int c = c0515a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

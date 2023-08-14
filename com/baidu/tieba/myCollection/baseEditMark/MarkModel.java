@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.r79;
-import com.baidu.tieba.t79;
+import com.baidu.tieba.s79;
+import com.baidu.tieba.u79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public t79 c;
+        public u79 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,7 +75,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new t79();
+            this.c = new u79();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,9 +88,9 @@ public class MarkModel extends BdBaseModel {
                 boolean z = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    r79 r79Var = new r79();
-                    r79Var.j(this.d.b);
-                    this.a.addPostData("data", r79Var.E(0, 1));
+                    s79 s79Var = new s79();
+                    s79Var.j(this.d.b);
+                    this.a.addPostData("data", s79Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;

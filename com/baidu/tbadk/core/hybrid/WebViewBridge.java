@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.a85;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.c85;
-import com.baidu.tieba.qk6;
 import com.baidu.tieba.r75;
+import com.baidu.tieba.rk6;
 import com.baidu.tieba.s75;
 import com.baidu.tieba.t75;
 import com.baidu.tieba.v75;
@@ -494,7 +494,7 @@ public class WebViewBridge extends z75 implements w75 {
             }
             try {
                 String b2 = a85Var.b();
-                qk6.a().e(this.a, b2, null);
+                rk6.a().e(this.a, b2, null);
                 t75.a(b2);
             } catch (NullPointerException e) {
                 x("500", e.getMessage());

@@ -25,7 +25,7 @@ import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.x0c;
+import com.baidu.tieba.y0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +117,7 @@ public class ce5 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements l1c<Triple<Integer, Integer, Boolean>> {
+    public class b implements m1c<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ce5 a;
@@ -141,7 +141,7 @@ public class ce5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l1c
+        @Override // com.baidu.tieba.m1c
         public void call(Triple<Integer, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, triple) == null) {
@@ -154,7 +154,7 @@ public class ce5 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements p1c<Triple<Integer, Integer, Boolean>, Boolean> {
+    public class c implements q1c<Triple<Integer, Integer, Boolean>, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,7 +175,7 @@ public class ce5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p1c
+        @Override // com.baidu.tieba.q1c
         public Boolean call(Triple<Integer, Integer, Boolean> triple) {
             InterceptResult invokeL;
             boolean z;
@@ -193,7 +193,7 @@ public class ce5 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements x0c.a<Triple<Integer, Integer, Boolean>> {
+    public class d implements y0c.a<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Map a;
@@ -217,12 +217,12 @@ public class ce5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
-        public void call(d1c<? super Triple<Integer, Integer, Boolean>> d1cVar) {
+        @Override // com.baidu.tieba.y0c.a, com.baidu.tieba.m1c
+        public void call(e1c<? super Triple<Integer, Integer, Boolean>> e1cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d1cVar) == null) {
-                d1cVar.onNext(ce5.p(this.a));
-                d1cVar.onCompleted();
+            if (interceptable == null || interceptable.invokeL(1048576, this, e1cVar) == null) {
+                e1cVar.onNext(ce5.p(this.a));
+                e1cVar.onCompleted();
             }
         }
     }
@@ -315,7 +315,7 @@ public class ce5 {
                     if (value != null && !TextUtils.isEmpty(value.getLast_content()) && value.getUnread_count() > 0) {
                         if (value.getCustomGroupType() != -4 && value.getCustomGroupType() != -7) {
                             if (value.getCustomGroupType() == 2) {
-                                PersonalSettingItemData setting = md8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), value.getGid());
+                                PersonalSettingItemData setting = nd8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), value.getGid());
                                 if (setting != null) {
                                     if (setting.isAcceptNotify()) {
                                         unread_count = value.getUnread_count();
@@ -349,7 +349,7 @@ public class ce5 {
                                     }
                                 }
                             } else if (value.getCustomGroupType() != -8) {
-                                if (value.getCustomGroupType() == 9 && jd8.b().d(Long.valueOf(JavaTypesHelper.toLong(value.getGid(), 0L))) && value.getUnread_count() > 0) {
+                                if (value.getCustomGroupType() == 9 && kd8.b().d(Long.valueOf(JavaTypesHelper.toLong(value.getGid(), 0L))) && value.getUnread_count() > 0) {
                                     i2 += value.getUnread_count();
                                 }
                             }
@@ -476,11 +476,11 @@ public class ce5 {
     public final void n(Map<String, ImMessageCenterPojo> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-            x0c.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(h1c.b()).k(new c(this)).x().I(new b(this), new l1c() { // from class: com.baidu.tieba.yd5
+            y0c.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(i1c.b()).k(new c(this)).x().I(new b(this), new m1c() { // from class: com.baidu.tieba.yd5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.l1c
+                @Override // com.baidu.tieba.m1c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

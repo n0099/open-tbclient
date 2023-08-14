@@ -2,7 +2,7 @@ package com.kwad.components.ad.e.a;
 
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class k extends com.kwad.components.ad.e.kwai.a {
     public ProgressBar kk;
 

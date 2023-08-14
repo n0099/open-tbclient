@@ -20,11 +20,11 @@ public class rs1 implements ku1 {
 
         /* renamed from: com.baidu.tieba.rs1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0467a implements sp3<Bundle> {
+        public class C0470a implements sp3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0467a(a aVar) {
+            public C0470a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class rs1 implements ku1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) pp3.b(new C0467a(this));
+                return (Bundle) pp3.b(new C0470a(this));
             }
             return (Bundle) invokeL.objValue;
         }

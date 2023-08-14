@@ -41,12 +41,12 @@ public class ExcellentSysMsg extends NoticeModifySysMsg {
 
         /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ExcellentSysMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0351a implements Runnable {
+        public class RunnableC0352a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0351a(a aVar) {
+            public RunnableC0352a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class ExcellentSysMsg extends NoticeModifySysMsg {
                 if (baseMsg != null) {
                     baseMsg.getCommonMsgField().setExcellentInfo(new ExcellentInfo(String.valueOf(this.a.excellentMsgOp)));
                 }
-                lg.g(new RunnableC0351a(this));
+                lg.g(new RunnableC0352a(this));
             }
         }
     }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes6.dex */
 public interface jja {
-    void a(View view2);
+    String getFrom();
+
+    String getScene();
+
+    String getTraceId();
 }

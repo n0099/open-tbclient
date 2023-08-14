@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da9;
 import com.baidu.tieba.ea9;
-import com.baidu.tieba.ka9;
+import com.baidu.tieba.fa9;
+import com.baidu.tieba.la9;
 import com.baidu.tieba.view.NoScrollGridView;
 import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements da9.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements ea9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public ka9 m;
+    public la9 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -147,9 +147,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ea9 ea9Var = new ea9(null, getContext());
-            this.c = ea9Var;
-            this.m = new ka9(this, ea9Var);
+            fa9 fa9Var = new fa9(null, getContext());
+            this.c = fa9Var;
+            this.m = new la9(this, fa9Var);
         }
     }
 

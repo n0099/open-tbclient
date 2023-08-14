@@ -144,8 +144,8 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
 
     public final void g(View view2) {
         this.d = view2.findViewById(R.id.obfuscated_res_0x7f090f13);
-        this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922f5);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f9);
+        this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922fb);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ff);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904c8);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c2);
         vv2.a W = xa3.K().q().W();
@@ -164,17 +164,17 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public void setAttentionBtnStates(boolean z) {
         if (fu2.y0().d()) {
             this.e.setText(R.string.obfuscated_res_0x7f0f018d);
-            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f081471));
+            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f081474));
             this.e.setTextColor(bp4.b(getContext(), R.color.obfuscated_res_0x7f060b0e));
         } else if (!z) {
             this.e.setText(R.string.obfuscated_res_0x7f0f018d);
             this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f081445));
+            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f081448));
             this.e.setTextColor(bp4.c(getContext(), R.color.obfuscated_res_0x7f060afd));
         } else {
             this.e.setText(R.string.obfuscated_res_0x7f0f1520);
             this.e.setTypeface(Typeface.create("sans-serif", 0));
-            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f08144c));
+            this.e.setBackground(bp4.d(getContext(), R.drawable.obfuscated_res_0x7f08144f));
             this.e.setTextColor(bp4.c(getContext(), R.color.obfuscated_res_0x7f060afe));
         }
     }

@@ -1,87 +1,180 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.LoadDraftMessage;
-import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.CommonStatisticUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.AddMsgRecordModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ae8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
+public class ae8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ae8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public id8 a;
-    public int b;
+    public HashSet<String> a;
+    public StringBuilder b;
 
-    public ae8(id8 id8Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id8Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612405, "Lcom/baidu/tieba/ae8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947612405, "Lcom/baidu/tieba/ae8;");
                 return;
             }
         }
-        this.a = id8Var;
-        this.b = i;
+        c = new ae8();
     }
 
-    public final LoadDraftResponsedMessage a(int i) {
-        InterceptResult invokeI;
+    public ae8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-            loadDraftResponsedMessage.setError(-18);
-            return loadDraftResponsedMessage;
-        }
-        return (LoadDraftResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
-                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting setting = this.a.getSetting(str, data.a);
-                if (setting == null) {
-                    return a(loadDraftMessage.getCmd());
-                }
-                String draft = setting.getDraft();
-                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-                aVar.a = draft;
-                String str2 = data.a;
-                try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadDraftResponsedMessage;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return a(this.b);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = new HashSet<>();
+        this.b = new StringBuilder();
+    }
+
+    public static ae8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (ae8) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            StringBuilder sb = this.b;
+            if (sb != null && sb.length() > 0) {
+                StringBuilder sb2 = this.b;
+                sb2.delete(0, sb2.length());
+            }
+            HashSet<String> hashSet = this.a;
+            if (hashSet != null) {
+                hashSet.clear();
+            }
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.length() > 0) {
+            StringBuilder sb = this.b;
+            sb.append(str);
+            sb.append(",");
+        }
+    }
+
+    public void d(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && chatMessage.getUserInfo() != null && CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID.equals(chatMessage.getUserInfo().getUserId()) && !StringUtils.isNull(chatMessage.getContent())) {
+            try {
+                JSONArray jSONArray = new JSONArray(chatMessage.getContent());
+                if (jSONArray.length() > 0) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(0);
+                    String optString = jSONObject.optString("msg_src");
+                    String optString2 = jSONObject.optString("type");
+                    CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_SHOW, optString + "_" + optString2, jSONObject.optString("title"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void e(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        lb8 p;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, chatMessage, context) != null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
+            return;
+        }
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (p = ve8.p(chatMessage.getContent())) != null && !TextUtils.isEmpty(p.b) && this.a.add(p.b)) {
+            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", p.a, "task_id", p.b);
+        }
+    }
+
+    public void f(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, chatMessage, context) == null) && chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
+            StatisticItem statisticItem = new StatisticItem("c13989");
+            statisticItem.param("service_id", chatMessage.getStatisticsServiceId());
+            statisticItem.param("task_id", chatMessage.getStatTaskId());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void g() {
+        String str;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String str2 = null;
+            if (this.a != null) {
+                StringBuilder sb3 = new StringBuilder();
+                Iterator<String> it = this.a.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (next != null && next.length() > 0) {
+                        sb3.append(next);
+                        sb3.append(",");
+                    }
+                }
+                if (sb3.length() > 0) {
+                    sb3.deleteCharAt(sb3.length() - 1);
+                    if (sb3.length() > 0) {
+                        str = sb3.toString();
+                        sb = this.b;
+                        if (sb != null && sb.length() > 0) {
+                            this.b.deleteCharAt(sb2.length() - 1);
+                            str2 = this.b.toString();
+                        }
+                        new AddMsgRecordModel().reqViewAndClick(str, str2);
+                    }
+                }
+            }
+            str = null;
+            sb = this.b;
+            if (sb != null) {
+                this.b.deleteCharAt(sb2.length() - 1);
+                str2 = this.b.toString();
+            }
+            new AddMsgRecordModel().reqViewAndClick(str, str2);
+        }
     }
 }

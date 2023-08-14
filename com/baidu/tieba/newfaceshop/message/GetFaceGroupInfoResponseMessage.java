@@ -5,8 +5,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.f99;
 import com.baidu.tieba.g99;
+import com.baidu.tieba.h99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f99 mData;
+    public g99 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetFaceGroupInfoResponseMessage(int i) {
@@ -56,43 +56,43 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public f99 getData() {
+    public g99 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (f99) invokeV.objValue;
+        return (g99) invokeV.objValue;
     }
 
-    public f99 parseData(JSONObject jSONObject) {
+    public g99 parseData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
-            f99 f99Var = new f99();
+            g99 g99Var = new g99();
             String optString = jSONObject.optString("id");
-            f99Var.a = optString;
+            g99Var.a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            f99Var.b = jSONObject.optString("name");
+            g99Var.b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            f99Var.c = jSONObject.optString("covername");
-            f99Var.d = jSONObject.optString("url");
-            f99Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
-            return f99Var;
+            g99Var.c = jSONObject.optString("covername");
+            g99Var.d = jSONObject.optString("url");
+            g99Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            return g99Var;
         }
-        return (f99) invokeL.objValue;
+        return (g99) invokeL.objValue;
     }
 
-    public List<g99> parsePicsData(JSONArray jSONArray) {
+    public List<h99> parsePicsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
@@ -103,15 +103,15 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    g99 g99Var = new g99();
-                    g99Var.b = jSONObject.optString("id");
+                    h99 h99Var = new h99();
+                    h99Var.b = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    g99Var.c = jSONObject.optString("name");
-                    g99Var.d = jSONObject.optString("thumbname");
-                    g99Var.f = jSONObject.optInt("width");
-                    g99Var.e = jSONObject.optInt("height");
-                    arrayList.add(g99Var);
+                    h99Var.c = jSONObject.optString("name");
+                    h99Var.d = jSONObject.optString("thumbname");
+                    h99Var.f = jSONObject.optInt("width");
+                    h99Var.e = jSONObject.optInt("height");
+                    arrayList.add(h99Var);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

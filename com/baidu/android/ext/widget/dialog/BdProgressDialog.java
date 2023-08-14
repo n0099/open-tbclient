@@ -122,7 +122,7 @@ public class BdProgressDialog extends ProgressDialog {
             setCancelable(false);
             setCanceledOnTouchOutside(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0821);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f73);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f79);
             this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091631);
             this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f091740);
             setMessage(this.mMsgText);
@@ -241,11 +241,11 @@ public class BdProgressDialog extends ProgressDialog {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View view2 = this.mRootView;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810eb));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ee));
             }
             SmoothProgressBar smoothProgressBar = this.mProgressBar;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f65));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f68));
             }
             TextView textView = this.mMsg;
             if (textView != null) {

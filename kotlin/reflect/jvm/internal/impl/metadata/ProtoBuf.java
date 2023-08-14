@@ -52,7 +52,7 @@ public final class ProtoBuf {
     public interface ExpressionOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface FunctionOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
@@ -7454,7 +7454,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Function extends GeneratedMessageLite.ExtendableMessage<Function> implements FunctionOrBuilder {
         public static Parser<Function> PARSER = new AbstractParser<Function>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.Function.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -8407,7 +8407,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Package extends GeneratedMessageLite.ExtendableMessage<Package> implements PackageOrBuilder {
         public static Parser<Package> PARSER = new AbstractParser<Package>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.Package.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -8427,7 +8427,7 @@ public final class ProtoBuf {
         public final ByteString unknownFields;
         public VersionRequirementTable versionRequirementTable_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<Package, Builder> implements PackageOrBuilder {
             public int bitField0_;
             public List<Function> function_ = Collections.emptyList();
@@ -13963,7 +13963,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum MemberKind implements Internal.EnumLite {
         DECLARATION(0, 0),
         FAKE_OVERRIDE(1, 1),
@@ -14006,7 +14006,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum Modality implements Internal.EnumLite {
         FINAL(0, 0),
         OPEN(1, 1),

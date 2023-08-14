@@ -56,12 +56,12 @@ public class cx extends sy {
     }
 
     @Override // com.baidu.tieba.sy
-    public xt9 x() {
+    public yt9 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new yt9(this.b, this.i, this.A);
+            return new zt9(this.b, this.i, this.A);
         }
-        return (xt9) invokeV.objValue;
+        return (yt9) invokeV.objValue;
     }
 }

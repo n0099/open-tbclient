@@ -830,18 +830,18 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092582);
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ba);
-            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091cee);
             this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091904);
             this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f0908f8);
             this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f0908f9);
             this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908af);
             this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908b3);
-            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09211e);
+            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092124);
             this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f0908f7);
             this.mScrollView = (BoxScrollView) findViewById(R.id.obfuscated_res_0x7f091752);
             this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904dc);

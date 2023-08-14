@@ -39,8 +39,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.e95;
 import com.baidu.tieba.m45;
-import com.baidu.tieba.ms5;
 import com.baidu.tieba.ns5;
+import com.baidu.tieba.os5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,8 +57,8 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public View c;
     public BdGridView d;
     public LinearLayout e;
-    public ms5 f;
-    public ArrayList<ns5> g;
+    public ns5 f;
+    public ArrayList<os5> g;
     public int h;
     public h i;
     public BdImage j;
@@ -67,7 +67,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public BlueCircleProgressDialog m;
     public BdResourceCallback<BdImage> n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != -1) {
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
-                changeSystemPhotoActivity.K1((ns5) changeSystemPhotoActivity.g.get(this.a.h));
+                changeSystemPhotoActivity.K1((os5) changeSystemPhotoActivity.g.get(this.a.h));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,11 +231,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getPopularPortraitsInfoResult) == null) && getPopularPortraitsInfoResult != null && (list = getPopularPortraitsInfoResult.popularPortraitsInfoList) != null && list.size() > 0) {
                 for (GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo : getPopularPortraitsInfoResult.popularPortraitsInfoList) {
                     if (popularPortraitsInfo != null && popularPortraitsInfo.url != null) {
-                        ns5 ns5Var = new ns5();
-                        ns5Var.d(popularPortraitsInfo.url);
-                        ns5Var.c(popularPortraitsInfo.num);
-                        ns5Var.b(popularPortraitsInfo.myItem);
-                        this.a.g.add(ns5Var);
+                        os5 os5Var = new os5();
+                        os5Var.d(popularPortraitsInfo.url);
+                        os5Var.c(popularPortraitsInfo.num);
+                        os5Var.b(popularPortraitsInfo.myItem);
+                        this.a.g.add(os5Var);
                     }
                 }
                 this.a.f.c(this.a.g);
@@ -630,19 +630,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);
             this.b.setOnClickListener(new b(this));
-            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091e6c);
-            ms5 ms5Var = new ms5(getPageContext());
-            this.f = ms5Var;
-            this.d.setAdapter((ListAdapter) ms5Var);
+            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091e72);
+            ns5 ns5Var = new ns5(getPageContext());
+            this.f = ns5Var;
+            this.d.setAdapter((ListAdapter) ns5Var);
             this.d.setOnItemClickListener(new c(this));
         }
     }
 
-    public void K1(ns5 ns5Var) {
+    public void K1(os5 os5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ns5Var) == null) && ns5Var != null && !StringUtils.isNull(ns5Var.a())) {
-            this.k = ns5Var.a();
-            BdResourceLoader.getInstance().loadResource(ns5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, os5Var) == null) && os5Var != null && !StringUtils.isNull(os5Var.a())) {
+            this.k = os5Var.a();
+            BdResourceLoader.getInstance().loadResource(os5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
         }
     }
 

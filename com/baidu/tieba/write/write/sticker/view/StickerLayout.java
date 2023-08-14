@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bya;
-import com.baidu.tieba.ev5;
-import com.baidu.tieba.zxa;
+import com.baidu.tieba.aya;
+import com.baidu.tieba.cya;
+import com.baidu.tieba.fv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,33 +27,33 @@ public class StickerLayout extends FrameLayout {
     public int d;
 
     /* loaded from: classes8.dex */
-    public class a implements zxa {
+    public class a implements aya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerView a;
-        public final /* synthetic */ bya b;
+        public final /* synthetic */ cya b;
         public final /* synthetic */ StickerLayout c;
 
-        @Override // com.baidu.tieba.zxa
+        @Override // com.baidu.tieba.aya
         public void a(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.zxa
+        @Override // com.baidu.tieba.aya
         public void c(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
             }
         }
 
-        public a(StickerLayout stickerLayout, StickerView stickerView, bya byaVar) {
+        public a(StickerLayout stickerLayout, StickerView stickerView, cya cyaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {stickerLayout, stickerView, byaVar};
+                Object[] objArr = {stickerLayout, stickerView, cyaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,10 +65,10 @@ public class StickerLayout extends FrameLayout {
             }
             this.c = stickerLayout;
             this.a = stickerView;
-            this.b = byaVar;
+            this.b = cyaVar;
         }
 
-        @Override // com.baidu.tieba.zxa
+        @Override // com.baidu.tieba.aya
         public void b(StickerView stickerView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerView, z) == null) {
@@ -79,16 +79,16 @@ public class StickerLayout extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.zxa
+        @Override // com.baidu.tieba.aya
         public void onDelete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.c.removeView(this.a);
                 this.c.b.remove(this.a);
                 this.c.e();
-                bya byaVar = this.b;
-                if (byaVar != null) {
-                    byaVar.a();
+                cya cyaVar = this.b;
+                if (cyaVar != null) {
+                    cyaVar.a();
                 }
             }
         }
@@ -115,9 +115,9 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public void f(bya byaVar) {
+    public void f(cya cyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, byaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cyaVar) == null) {
             Iterator<StickerView> it = this.b.iterator();
             while (it.hasNext()) {
                 StickerView next = it.next();
@@ -125,8 +125,8 @@ public class StickerLayout extends FrameLayout {
                     removeView(next);
                     it.remove();
                     e();
-                    if (byaVar != null) {
-                        byaVar.a();
+                    if (cyaVar != null) {
+                        cyaVar.a();
                     }
                 }
             }
@@ -192,19 +192,19 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public StickerView b(Bitmap bitmap, bya byaVar) {
+    public StickerView b(Bitmap bitmap, cya cyaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, byaVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, cyaVar)) == null) {
             StickerView stickerView = new StickerView(this.a);
             stickerView.setImageBitmap(bitmap);
             stickerView.setLayoutParams(this.c);
-            stickerView.setmOnStickerActionListener(new a(this, stickerView, byaVar));
+            stickerView.setmOnStickerActionListener(new a(this, stickerView, cyaVar));
             addView(stickerView);
             this.b.add(stickerView);
             e();
-            if (byaVar != null) {
-                byaVar.d();
+            if (cyaVar != null) {
+                cyaVar.d();
             }
             return stickerView;
         }
@@ -219,7 +219,7 @@ public class StickerLayout extends FrameLayout {
                 return null;
             }
             e();
-            return ev5.c(this);
+            return fv5.c(this);
         }
         return (Bitmap) invokeV.objValue;
     }

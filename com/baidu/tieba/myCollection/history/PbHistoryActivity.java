@@ -48,7 +48,7 @@ import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
 import com.baidu.tieba.rq5;
-import com.baidu.tieba.u79;
+import com.baidu.tieba.v79;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,7 +66,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public rq5<PbHistoryData, kq5, u79> f;
+    public rq5<PbHistoryData, kq5, v79> f;
     public boolean g;
     public List<PbHistoryData> h;
     public List<Long> i;
@@ -415,7 +415,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final void L1(List<PbHistoryData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            rq5<PbHistoryData, kq5, u79> rq5Var = this.f;
+            rq5<PbHistoryData, kq5, v79> rq5Var = this.f;
             if (rq5Var != null) {
                 rq5Var.g(list);
             }
@@ -512,7 +512,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070420)));
             this.e.w(textView, 0);
-            this.f = new rq5<>(getPageContext(), u79.class, R.layout.obfuscated_res_0x7f0d0795, null);
+            this.f = new rq5<>(getPageContext(), v79.class, R.layout.obfuscated_res_0x7f0d0795, null);
             this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07038b)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0fda)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));

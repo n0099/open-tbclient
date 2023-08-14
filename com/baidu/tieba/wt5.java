@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface wt5<T> extends vt5<T> {
-    void a(nt5 nt5Var);
+public interface wt5<T> {
+    void onError(int i, String str);
+
+    void onSuccess(T t);
 }

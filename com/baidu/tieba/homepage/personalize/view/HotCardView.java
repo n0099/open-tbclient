@@ -29,7 +29,7 @@ import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
 import com.baidu.tieba.ji;
 import com.baidu.tieba.lz4;
 import com.baidu.tieba.ma5;
-import com.baidu.tieba.qba;
+import com.baidu.tieba.rba;
 import com.baidu.tieba.rx;
 import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -162,7 +162,7 @@ public class HotCardView extends LinearLayout implements rx {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092560);
             this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
             this.e = (TbImageView) findViewById(R.id.image_content);
@@ -200,7 +200,7 @@ public class HotCardView extends LinearLayout implements rx {
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, threadData, i, themeColorInfo) == null) {
             this.f.removeAllViews();
             this.f.stopFlipping();
-            List<qba> postList = threadData.getPostList();
+            List<rba> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());

@@ -250,10 +250,10 @@ public class lw extends AutoOrientationBtnActDialog {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.obfuscated_res_0x7f0d09f8, viewGroup, false);
             this.a = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa3);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa9);
             this.b = textView;
             textView.setTextColor(AppRuntime.getAppContext().getResources().getColor(R.color.safe_dialog_message));
-            SelectorTextView selectorTextView = (SelectorTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa4);
+            SelectorTextView selectorTextView = (SelectorTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091faa);
             this.c = selectorTextView;
             selectorTextView.setTextColor(AppRuntime.getAppContext().getResources().getColor(R.color.safe_dialog_btn_blue));
             b();

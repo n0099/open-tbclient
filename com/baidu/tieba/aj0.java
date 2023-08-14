@@ -45,7 +45,7 @@ public class aj0 implements ck1 {
             arrayList.add(new sp0());
             arrayList.add(new v81());
             arrayList.add(new ya1());
-            arrayList.add(new n46());
+            arrayList.add(new o46());
             return arrayList;
         }
         return invokeV.objValue;

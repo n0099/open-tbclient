@@ -215,7 +215,7 @@ public final class LiveSearchPanel extends LinearLayout implements ib0.a {
         this.i = new ib0(this);
         this.n = LiveFeedPageSdk.HOST_LIVE_TAB;
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05e0, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3f);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080f42);
         setGravity(16);
         View findViewById = findViewById(R.id.obfuscated_res_0x7f0915b3);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.live_search_panel_search_tag)");
@@ -469,11 +469,11 @@ public final class LiveSearchPanel extends LinearLayout implements ib0.a {
 
     public final void i(String str) {
         if (Intrinsics.areEqual(str, "day")) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3f);
-            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f41);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080f42);
+            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f44);
         } else if (Intrinsics.areEqual(str, "night")) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080f40);
-            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f42);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080f43);
+            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f45);
         }
         this.b.setHintTextColor(fd0.f().a(getContext(), this.n, "color_858585"));
         this.b.setTextColor(fd0.f().a(getContext(), this.n, "color_1F1F1F"));

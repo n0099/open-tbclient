@@ -21,7 +21,7 @@ public class j32 extends i32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public d1c c;
+    public e1c c;
 
     /* loaded from: classes6.dex */
     public class a implements rp3<bg3<dg3.e>> {
@@ -174,7 +174,7 @@ public class j32 extends i32 {
                 return false;
             }
             s32 s32Var = (s32) r(unitedSchemeEntity);
-            d1c w = new x62(context, s32Var).w();
+            e1c w = new x62(context, s32Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class j32 extends i32 {
                 String str = s32Var.b;
                 e13 e13Var = s32Var.h;
                 if (!TextUtils.isEmpty(str) && e13Var != null && e13Var.h()) {
-                    d1c d1cVar = this.c;
-                    if (d1cVar == null) {
+                    e1c e1cVar = this.c;
+                    if (e1cVar == null) {
                         r72.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    d1cVar.onCompleted();
+                    e1cVar.onCompleted();
                     y72.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

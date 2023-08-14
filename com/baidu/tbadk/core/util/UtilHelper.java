@@ -147,21 +147,21 @@ import com.baidu.tieba.ci;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.jv5;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.kr5;
+import com.baidu.tieba.kv5;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.lr5;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.m95;
 import com.baidu.tieba.ml;
-import com.baidu.tieba.mx9;
 import com.baidu.tieba.nl;
+import com.baidu.tieba.nx9;
 import com.baidu.tieba.p95;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.xw5;
 import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1159,7 +1159,7 @@ public class UtilHelper {
 
     public static void showSkinChangeAnimation(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65718, null, activity) == null) && !jv5.a() && activity != null) {
+        if ((interceptable == null || interceptable.invokeL(65718, null, activity) == null) && !kv5.a() && activity != null) {
             View decorView = activity.getWindow().getDecorView();
             Bitmap cacheBitmapFromView = getCacheBitmapFromView(decorView);
             if ((decorView instanceof ViewGroup) && cacheBitmapFromView != null) {
@@ -2904,7 +2904,7 @@ public class UtilHelper {
                         int intExtra10 = intent.getIntExtra(MemberPayActivityConfig.FROM_SCENE, 0);
                         PayConfig payConfig = new PayConfig(JavaTypesHelper.toInt(stringExtra7, 0), stringExtra10, stringExtra8, stringExtra9, stringExtra11, true, stringExtra12, stringExtra13);
                         payConfig.fromScene = intExtra10;
-                        kr5.c().a(payConfig, context);
+                        lr5.c().a(payConfig, context);
                         str = "class";
                         str2 = "push";
                         break;
@@ -2984,7 +2984,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z7 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            mx9.a(TbadkCoreApplication.getInst(), string2, hi.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
+                            nx9.a(TbadkCoreApplication.getInst(), string2, hi.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
                         } else {
                             k9 c = l9.c(context);
                             if (c instanceof BaseActivity) {
@@ -3403,7 +3403,7 @@ public class UtilHelper {
                     }
                 } else if (metaData.getAuthType() == 3) {
                     if (metaData.isNewGod()) {
-                        return metaData.getNewGodData().getFieldName() + ww5.c(metaData.isVideoGod());
+                        return metaData.getNewGodData().getFieldName() + xw5.c(metaData.isVideoGod());
                     }
                 } else if (metaData.getAuthType() == 4 && !z && metaData.showBazhuGrade()) {
                     return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i, "...");
@@ -3416,7 +3416,7 @@ public class UtilHelper {
                 return metaData.getCreatorInfo().authDesc;
             }
             if (TextUtils.isEmpty("") && metaData.isNewGod()) {
-                return metaData.getNewGodData().getFieldName() + ww5.c(metaData.isVideoGod());
+                return metaData.getNewGodData().getFieldName() + xw5.c(metaData.isVideoGod());
             } else if (!TextUtils.isEmpty("") || z || !metaData.showBazhuGrade()) {
                 return "";
             } else {

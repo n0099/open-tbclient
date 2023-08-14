@@ -38,7 +38,7 @@ import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.tieba.rx;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.uy7;
+import com.baidu.tieba.vy7;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -106,16 +106,16 @@ public class RecommendBarLayout extends LinearLayout implements rx, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 ym b = this.a.h.b(i);
-                if (b instanceof uy7) {
-                    uy7 uy7Var = (uy7) b;
+                if (b instanceof vy7) {
+                    vy7 vy7Var = (vy7) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(uy7Var.a)) {
-                        param = param.param("obj_name", uy7Var.a);
+                    if (!StringUtils.isNull(vy7Var.a)) {
+                        param = param.param("obj_name", vy7Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", uy7Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(uy7Var.a)) {
-                        param2 = param2.param("obj_name", uy7Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", vy7Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(vy7Var.a)) {
+                        param2 = param2.param("obj_name", vy7Var.a);
                     }
                     TiebaStatic.log(param2);
                     TiebaStatic.log(new StatisticItem("c15344").param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -247,8 +247,8 @@ public class RecommendBarLayout extends LinearLayout implements rx, View.OnClick
                 i = R.dimen.tbds728;
             }
             List<ym> h = recommendBarCardModel.h();
-            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof uy7)) {
-                int b2 = ((uy7) h.get(0)).b();
+            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof vy7)) {
+                int b2 = ((vy7) h.get(0)).b();
                 if (b2 != 1) {
                     if (b2 == 2) {
                         if (recommendBarCardModel.l()) {
@@ -271,17 +271,17 @@ public class RecommendBarLayout extends LinearLayout implements rx, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091e56) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091e5c) {
             return;
         }
         SharedPrefHelper.getInstance().putInt("key_home_show_card_not_click", 0);
         ym b2 = this.h.b(this.e.getCurrentItem());
-        if (b2 instanceof uy7) {
-            uy7 uy7Var = (uy7) b2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, uy7Var.c)));
+        if (b2 instanceof vy7) {
+            vy7 vy7Var = (vy7) b2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, vy7Var.c)));
             StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-            if (!StringUtils.isNull(uy7Var.a)) {
-                param = param.param("obj_name", uy7Var.a);
+            if (!StringUtils.isNull(vy7Var.a)) {
+                param = param.param("obj_name", vy7Var.a);
             }
             TiebaStatic.log(param);
         }
@@ -293,10 +293,10 @@ public class RecommendBarLayout extends LinearLayout implements rx, View.OnClick
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0846, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e56);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e54);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091e57);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e52);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e5c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e58);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;

@@ -187,8 +187,8 @@ public class BawuMemberInfoView extends RelativeLayout {
             this.c.setBorderWidth(BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910a7);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b5);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b4);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924bb);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924ba);
         }
     }
 

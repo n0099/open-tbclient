@@ -1,126 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.transvod.player.log.TLog;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class nub {
     public static /* synthetic */ Interceptable $ic;
+    public static AtomicBoolean a;
+    public static final LinkedList<tvb> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public transient rwb j;
-    public transient qwb k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016366, "Lcom/baidu/tieba/nub;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948016366, "Lcom/baidu/tieba/nub;");
+                return;
+            }
+        }
+        a = new AtomicBoolean(false);
+        b = new LinkedList<>();
+    }
 
     public nub() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
-        this.b = 1;
-        this.c = 1;
-        this.d = 0;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.n = 1;
-        this.o = 4000;
     }
 
-    public static nub a(String str) {
-        InterceptResult invokeL;
+    public static void a(tvb tvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            nub nubVar = new nub();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                nubVar.a = jSONObject.optString("cacheDirectory");
-                nubVar.b = jSONObject.optInt("avcCodec");
-                nubVar.c = jSONObject.optInt("hevcCodec");
-                nubVar.d = jSONObject.optInt("audioCodec");
-                nubVar.e = jSONObject.optInt("videoSeekMode");
-                nubVar.f = jSONObject.optBoolean("clearRender");
-                nubVar.g = jSONObject.optBoolean("usingSurfaceView");
-                nubVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
-                nubVar.i = jSONObject.optBoolean("forceNotCrop");
-                nubVar.l = jSONObject.optInt("samplerFilter");
-                nubVar.m = jSONObject.optBoolean("isSubProcess");
-                nubVar.n = jSONObject.optInt("pcdnCatonTime");
-                nubVar.o = jSONObject.optInt("pcdnCatonCount");
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(65538, null, tvbVar) == null) {
+            synchronized (nub.class) {
+                if (b.size() == 0) {
+                    c(tvbVar);
+                }
+                if (!b.contains(tvbVar)) {
+                    b.add(tvbVar);
+                }
             }
-            return nubVar;
         }
-        return (nub) invokeL.objValue;
     }
 
-    public static String b(nub nubVar) {
-        InterceptResult invokeL;
+    public static void c(tvb tvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nubVar)) == null) {
-            if (nubVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cacheDirectory", nubVar.a);
-                jSONObject.put("avcCodec", nubVar.b);
-                jSONObject.put("hevcCodec", nubVar.c);
-                jSONObject.put("audioCodec", nubVar.d);
-                jSONObject.put("videoSeekMode", nubVar.e);
-                jSONObject.put("clearRender", nubVar.f);
-                jSONObject.put("usingSurfaceView", nubVar.g);
-                jSONObject.put("hardDecodeOutputToBuffer", nubVar.h);
-                jSONObject.put("forceNotCrop", nubVar.i);
-                jSONObject.put("samplerFilter", nubVar.l);
-                jSONObject.put("isSubProcess", nubVar.m);
-                jSONObject.put("pcdnCatonTime", nubVar.n);
-                jSONObject.put("pcdnCatonCount", nubVar.o);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tvbVar) == null) && tvbVar != null) {
+            tvbVar.S0(a.get());
         }
-        return (String) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            TLog.h("PlayerGlobalOptions", " setAudioFocusEnable:" + z);
+            a.set(z);
+            evb.h(z);
+            synchronized (nub.class) {
+                if (b.size() > 0) {
+                    Iterator<tvb> it = b.iterator();
+                    while (it.hasNext()) {
+                        tvb next = it.next();
+                        if (next != null) {
+                            next.S0(z);
+                        }
+                    }
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

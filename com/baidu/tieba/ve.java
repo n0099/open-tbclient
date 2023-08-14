@@ -44,13 +44,13 @@ public class ve implements ck1 {
             arrayList.add(new GdtInitSwitch());
             arrayList.add(new KsInitSwitch());
             arrayList.add(new PicCaptureModeSwitch());
-            arrayList.add(new ti6());
             arrayList.add(new ui6());
-            arrayList.add(new eo6());
-            arrayList.add(new g58());
-            arrayList.add(new at8());
+            arrayList.add(new vi6());
+            arrayList.add(new fo6());
+            arrayList.add(new h58());
             arrayList.add(new bt8());
-            arrayList.add(new oz9());
+            arrayList.add(new ct8());
+            arrayList.add(new pz9());
             return arrayList;
         }
         return invokeV.objValue;

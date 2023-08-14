@@ -167,7 +167,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.p = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091a73);
+            this.p = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091a79);
         }
     }
 

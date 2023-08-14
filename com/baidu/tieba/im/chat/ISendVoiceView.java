@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.v98;
-import com.baidu.tieba.we8;
+import com.baidu.tieba.w98;
+import com.baidu.tieba.xe8;
 /* loaded from: classes6.dex */
-public interface ISendVoiceView extends v98 {
+public interface ISendVoiceView extends w98 {
     void setRecoding(boolean z);
 
-    void setTouchCallBack(we8 we8Var);
+    void setTouchCallBack(xe8 xe8Var);
 }

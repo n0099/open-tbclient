@@ -3,75 +3,123 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
 import java.io.IOException;
-import java.io.OutputStream;
-/* loaded from: classes6.dex */
-public abstract class m1b extends OutputStream {
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public class m1b extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IOException a;
+    public final l1b a;
     public boolean b;
-    public boolean c;
+    public ByteBuffer c;
+    public IOException d;
 
-    public abstract void e() throws IOException;
-
-    public abstract UploadDataProvider f();
-
-    public abstract void g() throws IOException;
-
-    public m1b() {
+    public m1b(l1b l1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = l1bVar;
     }
 
-    public void a() throws IOException {
-        IOException iOException;
+    public void d(IOException iOException) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
+            this.d = iOException;
+            this.b = true;
+            this.c = null;
         }
-        throw iOException;
     }
 
-    public void c() throws IOException {
+    public final void a() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.c) {
-                if (!this.b) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b) {
+                IOException iOException = this.d;
+                if (iOException == null) {
                     return;
                 }
-                throw new IOException("Stream has been closed.");
+                throw iOException;
+            } else if (!c()) {
+                if (this.c == null) {
+                    this.c = ByteBuffer.allocateDirect(32768);
+                }
+                this.c.clear();
+                this.a.v(this.c);
+                IOException iOException2 = this.d;
+                if (iOException2 == null) {
+                    ByteBuffer byteBuffer = this.c;
+                    if (byteBuffer != null) {
+                        byteBuffer.flip();
+                        return;
+                    }
+                    return;
+                }
+                throw iOException2;
             }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null && byteBuffer.hasRemaining()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a();
-            throw new IOException("Writing after request completed.");
+            if (c()) {
+                return this.c.get() & 255;
+            }
+            return -1;
         }
+        return invokeV.intValue;
     }
 
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+                if (i2 == 0) {
+                    return 0;
+                }
+                a();
+                if (c()) {
+                    int min = Math.min(this.c.limit() - this.c.position(), i2);
+                    this.c.get(bArr, i, min);
+                    return min;
+                }
+                return -1;
+            }
+            throw new IndexOutOfBoundsException();
         }
-    }
-
-    public void h(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.a = iOException;
-            this.c = true;
-        }
+        return invokeLII.intValue;
     }
 }

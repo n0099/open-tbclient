@@ -41,18 +41,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 /* loaded from: classes6.dex */
-public class ix4 implements pk6 {
+public class ix4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public ix4() {
@@ -72,7 +72,7 @@ public class ix4 implements pk6 {
     public static /* synthetic */ void l(WebView webView) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH, Float.valueOf(RefreshRateManager.getInstance().getRefreshRate()));
-        qk6.a().d(webView, "deviceRefreshRate", hashMap);
+        rk6.a().d(webView, "deviceRefreshRate", hashMap);
     }
 
     public final void c(String str) {
@@ -86,7 +86,7 @@ public class ix4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class ix4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public jca d(WebView webView, String str, String str2) {
+    public kca d(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
@@ -130,62 +130,62 @@ public class ix4 implements pk6 {
             } else {
                 SensorAccelerometerManager.getSensor().stop();
             }
-            return new jca();
+            return new kca();
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    public jca e(WebView webView, HashMap<String, Object> hashMap) {
+    public kca e(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("x", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Y));
                 jSONObject.put("y", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_X));
                 jSONObject.put("z", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Z));
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca f(WebView webView, HashMap<String, Object> hashMap) {
+    public kca f(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("refreshRate", hashMap.get(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH));
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca g(final WebView webView, String str) {
+    public kca g(final WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
             if (TextUtils.equals(str, "1")) {
                 RefreshRateManager.getInstance().start();
-                hk6.a().c(new Runnable() { // from class: com.baidu.tieba.bx4
+                ik6.a().c(new Runnable() { // from class: com.baidu.tieba.bx4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,12 +200,12 @@ public class ix4 implements pk6 {
             } else {
                 RefreshRateManager.getInstance().stop();
             }
-            return new jca();
+            return new kca();
         }
-        return (jca) invokeLL.objValue;
+        return (kca) invokeLL.objValue;
     }
 
-    public jca h(WebView webView) {
+    public kca h(WebView webView) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -220,7 +220,7 @@ public class ix4 implements pk6 {
         String str10;
         String str11;
         String str12;
-        jca jcaVar;
+        kca kcaVar;
         String clientId;
         String version;
         String str13;
@@ -230,7 +230,7 @@ public class ix4 implements pk6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
             String str15 = "model";
-            jca jcaVar2 = new jca();
+            kca kcaVar2 = new kca();
             StringBuilder sb2 = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb2.append("imei=");
@@ -406,9 +406,9 @@ public class ix4 implements pk6 {
                                     jSONObject2.put("baiduId", str8);
                                     jSONObject2.put("publicParams", jSONObject);
                                     jSONObject2.put("sign", c);
-                                    jcaVar = jcaVar2;
-                                    jcaVar.o(jSONObject2.toString());
-                                    return jcaVar;
+                                    kcaVar = kcaVar2;
+                                    kcaVar.o(jSONObject2.toString());
+                                    return kcaVar;
                                 }
                                 try {
                                     String valueOf2 = String.valueOf(ScheduleStrategy.getDeviceScore());
@@ -519,9 +519,9 @@ public class ix4 implements pk6 {
                                                                 jSONObject22.put("baiduId", str8);
                                                                 jSONObject22.put("publicParams", jSONObject);
                                                                 jSONObject22.put("sign", c2);
-                                                                jcaVar = jcaVar2;
-                                                                jcaVar.o(jSONObject22.toString());
-                                                                return jcaVar;
+                                                                kcaVar = kcaVar2;
+                                                                kcaVar.o(jSONObject22.toString());
+                                                                return kcaVar;
                                                             }
                                                         } catch (JSONException e8) {
                                                             e = e8;
@@ -556,9 +556,9 @@ public class ix4 implements pk6 {
                                                             jSONObject222.put("baiduId", str8);
                                                             jSONObject222.put("publicParams", jSONObject);
                                                             jSONObject222.put("sign", c22);
-                                                            jcaVar = jcaVar2;
-                                                            jcaVar.o(jSONObject222.toString());
-                                                            return jcaVar;
+                                                            kcaVar = kcaVar2;
+                                                            kcaVar.o(jSONObject222.toString());
+                                                            return kcaVar;
                                                         }
                                                     } catch (JSONException e9) {
                                                         e = e9;
@@ -594,9 +594,9 @@ public class ix4 implements pk6 {
                                                         jSONObject2222.put("baiduId", str8);
                                                         jSONObject2222.put("publicParams", jSONObject);
                                                         jSONObject2222.put("sign", c222);
-                                                        jcaVar = jcaVar2;
-                                                        jcaVar.o(jSONObject2222.toString());
-                                                        return jcaVar;
+                                                        kcaVar = kcaVar2;
+                                                        kcaVar.o(jSONObject2222.toString());
+                                                        return kcaVar;
                                                     }
                                                 } catch (JSONException e10) {
                                                     e = e10;
@@ -634,9 +634,9 @@ public class ix4 implements pk6 {
                                                     jSONObject22222.put("baiduId", str8);
                                                     jSONObject22222.put("publicParams", jSONObject);
                                                     jSONObject22222.put("sign", c2222);
-                                                    jcaVar = jcaVar2;
-                                                    jcaVar.o(jSONObject22222.toString());
-                                                    return jcaVar;
+                                                    kcaVar = kcaVar2;
+                                                    kcaVar.o(jSONObject22222.toString());
+                                                    return kcaVar;
                                                 }
                                             } catch (JSONException e11) {
                                                 e = e11;
@@ -675,9 +675,9 @@ public class ix4 implements pk6 {
                                                 jSONObject222222.put("baiduId", str8);
                                                 jSONObject222222.put("publicParams", jSONObject);
                                                 jSONObject222222.put("sign", c22222);
-                                                jcaVar = jcaVar2;
-                                                jcaVar.o(jSONObject222222.toString());
-                                                return jcaVar;
+                                                kcaVar = kcaVar2;
+                                                kcaVar.o(jSONObject222222.toString());
+                                                return kcaVar;
                                             }
                                         } catch (JSONException e12) {
                                             e = e12;
@@ -726,9 +726,9 @@ public class ix4 implements pk6 {
                                     jSONObject2222222.put("baiduId", str8);
                                     jSONObject2222222.put("publicParams", jSONObject);
                                     jSONObject2222222.put("sign", c222222);
-                                    jcaVar = jcaVar2;
-                                    jcaVar.o(jSONObject2222222.toString());
-                                    return jcaVar;
+                                    kcaVar = kcaVar2;
+                                    kcaVar.o(jSONObject2222222.toString());
+                                    return kcaVar;
                                 }
                             } catch (JSONException e15) {
                                 e = e15;
@@ -781,17 +781,17 @@ public class ix4 implements pk6 {
                         jSONObject22222222.put("baiduId", str8);
                         jSONObject22222222.put("publicParams", jSONObject);
                         jSONObject22222222.put("sign", c2222222);
-                        jcaVar = jcaVar2;
-                        jcaVar.o(jSONObject22222222.toString());
-                        return jcaVar;
+                        kcaVar = kcaVar2;
+                        kcaVar.o(jSONObject22222222.toString());
+                        return kcaVar;
                     }
-                    jcaVar.o(jSONObject22222222.toString());
-                    return jcaVar;
+                    kcaVar.o(jSONObject22222222.toString());
+                    return kcaVar;
                 } catch (JSONException e18) {
                     e = e18;
                     BdLog.e(e);
-                    jcaVar.o("");
-                    return jcaVar;
+                    kcaVar.o("");
+                    return kcaVar;
                 }
                 JSONObject jSONObject222222222 = new JSONObject();
                 jSONObject222222222.put("imei", str6);
@@ -819,63 +819,63 @@ public class ix4 implements pk6 {
                 jSONObject222222222.put("baiduId", str8);
                 jSONObject222222222.put("publicParams", jSONObject);
                 jSONObject222222222.put("sign", c2222222);
-                jcaVar = jcaVar2;
+                kcaVar = kcaVar2;
             } catch (JSONException e19) {
                 e = e19;
-                jcaVar = jcaVar2;
+                kcaVar = kcaVar2;
             }
             StringBuilder sb322222222 = sb;
             sb322222222.append("tiebaclient!!!");
             String c22222222 = hi.c(sb322222222.toString());
         } else {
-            return (jca) invokeL.objValue;
+            return (kca) invokeL.objValue;
         }
     }
 
-    public jca i(WebView webView) {
+    public kca i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca k(WebView webView) {
+    public kca k(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return jcaVar;
+                return kcaVar;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca j(WebView webView) {
+    public kca j(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -909,22 +909,22 @@ public class ix4 implements pk6 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                jcaVar.o(jSONObject.toString());
-                return jcaVar;
+                kcaVar.o(jSONObject.toString());
+                return kcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                jcaVar.o("");
-                return jcaVar;
+                kcaVar.o("");
+                return kcaVar;
             }
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
+    public kca m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -934,13 +934,13 @@ public class ix4 implements pk6 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                qja.h(build);
-                qja.g(build);
+                rja.h(build);
+                rja.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeCommon.objValue;
+        return (kca) invokeCommon.objValue;
     }
 }

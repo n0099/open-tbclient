@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.extend.XGridLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by5;
+import com.baidu.tieba.cy5;
 import com.baidu.tieba.d15;
-import com.baidu.tieba.dy5;
+import com.baidu.tieba.ey5;
 import com.baidu.tieba.f25;
 import com.baidu.tieba.jz4;
 import com.baidu.tieba.l9;
@@ -41,7 +41,7 @@ public class GridIconLayout extends FrameLayout implements rx, qx<f25> {
     public mz4<d15> b;
     public jz4 c;
     public lz4<d15> d;
-    public by5 e;
+    public cy5 e;
 
     /* loaded from: classes3.dex */
     public class a implements lz4<d15> {
@@ -84,7 +84,7 @@ public class GridIconLayout extends FrameLayout implements rx, qx<f25> {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends by5<d15> {
+    public class b extends cy5<d15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GridIconLayout g;
@@ -112,22 +112,22 @@ public class GridIconLayout extends FrameLayout implements rx, qx<f25> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.by5
+        @Override // com.baidu.tieba.cy5
         /* renamed from: i */
-        public void f(dy5 dy5Var, d15 d15Var, int i) {
+        public void f(ey5 ey5Var, d15 d15Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dy5Var, d15Var, i) == null) {
-                TbImageView tbImageView = (TbImageView) dy5Var.b(R.id.iv_icon);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ey5Var, d15Var, i) == null) {
+                TbImageView tbImageView = (TbImageView) ey5Var.b(R.id.iv_icon);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setPlaceHolder(1);
                 tbImageView.startLoad(d15Var.b(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
-                TextView textView = (TextView) dy5Var.b(R.id.tv_title);
+                TextView textView = (TextView) ey5Var.b(R.id.tv_title);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                 textView.setText(d15Var.c());
                 if (this.g.b != null) {
-                    this.g.b.c(dy5Var.a(), d15Var, i, i);
+                    this.g.b.c(ey5Var.a(), d15Var, i, i);
                 }
             }
         }

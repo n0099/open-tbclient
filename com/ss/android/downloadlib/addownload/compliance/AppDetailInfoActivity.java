@@ -64,8 +64,8 @@ public class AppDetailInfoActivity extends Activity {
 
     private void b() {
         this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091207);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926f2);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b68);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926f8);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b6e);
         this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09160e);
         if (this.g.isEmpty()) {
             this.d.setVisibility(8);

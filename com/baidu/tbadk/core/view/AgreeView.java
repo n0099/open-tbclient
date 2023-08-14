@@ -59,9 +59,9 @@ import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.widget.lottie.TBLazyLottieAnimationView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar5;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.fr5;
+import com.baidu.tieba.br5;
+import com.baidu.tieba.gr5;
 import com.baidu.tieba.hv4;
 import com.baidu.tieba.jf5;
 import com.baidu.tieba.jh5;
@@ -1256,7 +1256,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         String str5;
         AgreeData agreeData2;
         String str6;
-        ar5 findPageExtraByView;
+        br5 findPageExtraByView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.r != null && (agreeData = this.h) != null) {
             int i2 = 0;
@@ -1322,7 +1322,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                         }
                         str5 = "a002";
                         if (getTbPageContext() != null) {
-                            fr5.b(getTbPageContext().getPageActivity(), param);
+                            gr5.b(getTbPageContext().getPageActivity(), param);
                         }
                         agreeData2 = this.h;
                         if (!agreeData2.isFromImageViewer) {
@@ -1419,7 +1419,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                         }
                         str2 = "a002";
                         if (getTbPageContext() != null) {
-                            fr5.b(getTbPageContext().getPageActivity(), param2);
+                            gr5.b(getTbPageContext().getPageActivity(), param2);
                         }
                         if (this.h.isFromImageViewer) {
                             param2.param(str, "a008");
@@ -1898,7 +1898,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
             if (w05Var2 != null) {
                 w05Var2.e = 1;
             }
-            ar5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+            br5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView != null) {
                 this.h.objSource = findPageExtraByView.a();
             }
@@ -1995,7 +1995,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     */
     public final void R(View view2) {
         int i2;
-        ar5 findPageExtraByView;
+        br5 findPageExtraByView;
         w05 w05Var;
         int i3;
         w05 w05Var2;
@@ -2152,7 +2152,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                     w05Var13.e = 0;
                                 }
                             }
-                            ar5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
+                            br5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
                             if (findPageExtraByView2 != null) {
                                 this.h.objSource = findPageExtraByView2.a();
                             }

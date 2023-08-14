@@ -1,72 +1,83 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.Charset;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class itb {
+public class itb implements dtb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public itb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return b(str, "1234567890abcdef");
-            } catch (Exception unused) {
-                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
-                if (str.isEmpty()) {
-                    return "";
-                }
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.dtb
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return d(c(str, str2));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            Log.d(str, str2);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static byte[] c(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.dtb
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
-            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            Log.e(str, str2);
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dtb
+    public void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            int length = bArr.length;
-            char[] cArr2 = new char[length << 1];
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i + 1;
-                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
-                i = i3 + 1;
-                cArr2[i3] = cArr[bArr[i2] & 15];
-            }
-            return new String(cArr2);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            Log.i(str, str2);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dtb
+    public void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            Log.w(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.dtb
+    public void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) {
+            Log.e(str, str2, th);
+        }
+    }
+
+    @Override // com.baidu.tieba.dtb
+    public void i(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
+            Log.i(str, str2, th);
+        }
+    }
+
+    @Override // com.baidu.tieba.dtb
+    public void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) {
+            Log.w(str, str2, th);
+        }
     }
 }

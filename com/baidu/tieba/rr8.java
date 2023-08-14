@@ -1,52 +1,56 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.cp8;
-import com.baidu.tieba.immessagecenter.arch.utils.SafetyLinearLayoutManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
-import com.baidu.tieba.immessagecenter.msgtab.ui.adapter.MsgTabNotifyItemAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel;
-import com.baidu.tieba.ps8;
-import com.baidu.tieba.tracker.core.data.ErrCode;
+import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel;
+import com.baidu.tieba.ls8;
+import com.baidu.tieba.ms8;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class rr8 extends BaseView<ps8, os8, NotifyTabViewModel> {
+public final class rr8 extends BaseView<ms8, ls8, MsgTabInviteAnswerViewModel> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragment e;
-    public BdTypeRecyclerView f;
-    public EMTextView g;
-    public View h;
-    public qr8 i;
-    public cp8 j;
-    public final MsgTabNotifyItemAdapter k;
+    public BaseFragment e;
+    public ImageView f;
+    public RelativeLayout g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public MessageRedDotView k;
+    public ImageView l;
+    public RoundRelativeLayout m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rr8(BaseFragment frag) {
-        super(R.layout.obfuscated_res_0x7f0d063e);
+    public rr8(BaseFragment mFragment) {
+        super(R.layout.obfuscated_res_0x7f0d0639);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frag};
+            Object[] objArr = {mFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,16 +61,22 @@ public final class rr8 extends BaseView<ps8, os8, NotifyTabViewModel> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(frag, "frag");
-        this.e = frag;
-        this.k = new MsgTabNotifyItemAdapter(this.e);
+        Intrinsics.checkNotNullParameter(mFragment, "mFragment");
+        this.e = mFragment;
     }
 
-    public static final void U(rr8 this$0) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.P();
+        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+            int i = 1;
+            if (m().getVisibility() == 0 && SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
+                i = 2;
+            }
+            X(0);
+            Context requireContext = this.e.requireContext();
+            Intrinsics.checkNotNullExpressionValue(requireContext, "mFragment.requireContext()");
+            p().k(new ls8.a(requireContext, i));
         }
     }
 
@@ -74,256 +84,271 @@ public final class rr8 extends BaseView<ps8, os8, NotifyTabViewModel> {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f = (BdTypeRecyclerView) j(R.id.obfuscated_res_0x7f0917f1);
-            this.g = (EMTextView) j(R.id.obfuscated_res_0x7f0917d0);
-            this.h = j(R.id.obfuscated_res_0x7f0918a3);
-        }
-    }
-
-    public final void O() {
-        qr8 qr8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (qr8Var = this.i) != null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f;
-            if (bdTypeRecyclerView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                bdTypeRecyclerView = null;
-            }
-            bdTypeRecyclerView.removeHeaderView(qr8Var.m());
-            qr8Var.m().setVisibility(8);
-        }
-    }
-
-    public final void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cp8 cp8Var = this.j;
-            if (cp8Var != null) {
-                BdTypeRecyclerView bdTypeRecyclerView = this.f;
-                if (bdTypeRecyclerView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                    bdTypeRecyclerView = null;
-                }
-                bdTypeRecyclerView.removeHeaderView(cp8Var.f());
-            }
-            this.j = null;
+            Z((ImageView) j(R.id.obfuscated_res_0x7f091181));
+            e0((RelativeLayout) j(R.id.obfuscated_res_0x7f092571));
+            f0((TextView) j(R.id.obfuscated_res_0x7f091184));
+            a0((TextView) j(R.id.obfuscated_res_0x7f091180));
+            d0((TextView) j(R.id.obfuscated_res_0x7f091183));
+            c0((MessageRedDotView) j(R.id.obfuscated_res_0x7f091182));
+            this.m = (RoundRelativeLayout) j(R.id.obfuscated_res_0x7f090296);
+            b0((ImageView) j(R.id.obfuscated_res_0x7f090a16));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: Q */
-    public NotifyTabViewModel r() {
+    /* renamed from: W */
+    public void H(ms8 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, state) == null) {
+            Intrinsics.checkNotNullParameter(state, "state");
+            if (state instanceof ms8.b) {
+                Y(((ms8.b) state).a());
+            } else if (state instanceof ms8.a) {
+                X(((ms8.a) state).a());
+            }
+        }
+    }
+
+    public final void Z(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.f = imageView;
+        }
+    }
+
+    public final void a0(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.i = textView;
+        }
+    }
+
+    public final void b0(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.l = imageView;
+        }
+    }
+
+    public final void c0(MessageRedDotView messageRedDotView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, messageRedDotView) == null) {
+            Intrinsics.checkNotNullParameter(messageRedDotView, "<set-?>");
+            this.k = messageRedDotView;
+        }
+    }
+
+    public final void d0(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.j = textView;
+        }
+    }
+
+    public final void e0(RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, relativeLayout) == null) {
+            Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
+            this.g = relativeLayout;
+        }
+    }
+
+    public final void f0(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.h = textView;
+        }
+    }
+
+    public final ImageView O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                return imageView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mCardIcon");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final TextView P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TextView textView = this.i;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mContent");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final ImageView Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ViewModel viewModel = new ViewModelProvider(this.e).get(NotifyTabViewModel.class);
-            Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(frag).…TabViewModel::class.java)");
-            return (NotifyTabViewModel) viewModel;
+            ImageView imageView = this.l;
+            if (imageView != null) {
+                return imageView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mEnterBtn");
+            return null;
         }
-        return (NotifyTabViewModel) invokeV.objValue;
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final MessageRedDotView R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            MessageRedDotView messageRedDotView = this.k;
+            if (messageRedDotView != null) {
+                return messageRedDotView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mRedView");
+            return null;
+        }
+        return (MessageRedDotView) invokeV.objValue;
+    }
+
+    public final TextView S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TextView textView = this.j;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mShield");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final RelativeLayout T() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            RelativeLayout relativeLayout = this.g;
+            if (relativeLayout != null) {
+                return relativeLayout;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mTextContainer");
+            return null;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public final TextView U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            TextView textView = this.h;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mTitle");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: R */
-    public void H(ps8 state) {
+    /* renamed from: V */
+    public MsgTabInviteAnswerViewModel r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-            if (state instanceof ps8.c) {
-                if (((ps8.c) state).a()) {
-                    T();
-                } else {
-                    P();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ViewModel viewModel = new ViewModelProvider(this.e).get(MsgTabInviteAnswerViewModel.class);
+            Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(mFragm…werViewModel::class.java)");
+            return (MsgTabInviteAnswerViewModel) viewModel;
+        }
+        return (MsgTabInviteAnswerViewModel) invokeV.objValue;
+    }
+
+    public final void X(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (i > 0) {
+                if (SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
+                    i = 0;
                 }
-            } else if (state instanceof ps8.a) {
-                if (((ps8.a) state).a()) {
-                    S();
-                } else {
-                    O();
-                }
-            } else {
-                BdTypeRecyclerView bdTypeRecyclerView = null;
-                if (state instanceof ps8.b) {
-                    hja.f(this.e, new Pair[0]);
-                    MsgTabNotifyItemAdapter msgTabNotifyItemAdapter = this.k;
-                    BdTypeRecyclerView bdTypeRecyclerView2 = this.f;
-                    if (bdTypeRecyclerView2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                    } else {
-                        bdTypeRecyclerView = bdTypeRecyclerView2;
-                    }
-                    ps8.b bVar = (ps8.b) state;
-                    msgTabNotifyItemAdapter.p(bdTypeRecyclerView.getHeaderViewsCount(), bVar.a(), bVar.b());
-                } else if (state instanceof ps8.d) {
-                    MsgTabNotifyItemAdapter msgTabNotifyItemAdapter2 = this.k;
-                    BdTypeRecyclerView bdTypeRecyclerView3 = this.f;
-                    if (bdTypeRecyclerView3 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                    } else {
-                        bdTypeRecyclerView = bdTypeRecyclerView3;
-                    }
-                    ps8.d dVar = (ps8.d) state;
-                    msgTabNotifyItemAdapter2.p(bdTypeRecyclerView.getHeaderViewsCount(), dVar.a(), dVar.b());
-                } else {
-                    hja.b(this.e, new Pair(StatConstants.KEY_EXT_ERR_CODE, ErrCode.NET_ERROR.getValue()));
-                }
+                Q().setVisibility(8);
+                R().setThreeDotMode(2);
+                R().refresh(i);
+                R().setVisibility(0);
+                P().setText(R.string.obfuscated_res_0x7f0f07eb);
+                return;
             }
+            R().setVisibility(8);
+            Q().setVisibility(0);
+            P().setText(R.string.obfuscated_res_0x7f0f07ea);
+        }
+    }
+
+    public final void Y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            if (z) {
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X1111, SvgManager.SvgResourceStateType.NORMAL);
+                int dimens = BdUtilHelper.getDimens(this.e.getContext(), R.dimen.tbds34);
+                pureDrawable.setBounds(new Rect(0, 0, dimens, dimens));
+                S().setCompoundDrawables(null, null, pureDrawable, null);
+                S().setVisibility(0);
+                return;
+            }
+            S().setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
     public void q(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            BdTypeRecyclerView bdTypeRecyclerView = this.f;
-            BdTypeRecyclerView bdTypeRecyclerView2 = null;
-            if (bdTypeRecyclerView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                bdTypeRecyclerView = null;
-            }
-            bdTypeRecyclerView.setLayoutManager(new SafetyLinearLayoutManager(context, 1, false));
-            bdTypeRecyclerView.setAdapter(this.k);
-            if (this.e.getActivity() instanceof MessageCenterActivity) {
-                View view2 = this.h;
-                if (view2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mNavBarView");
-                    view2 = null;
-                }
-                view2.setVisibility(8);
-                BdTypeRecyclerView bdTypeRecyclerView3 = this.f;
-                if (bdTypeRecyclerView3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                } else {
-                    bdTypeRecyclerView2 = bdTypeRecyclerView3;
-                }
-                EMManager.from(bdTypeRecyclerView2).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
-                return;
-            }
-            View view3 = this.h;
-            if (view3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mNavBarView");
-                view3 = null;
-            }
-            EMManager.from(view3).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
-            EMTextView eMTextView = this.g;
-            if (eMTextView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTitle");
-                eMTextView = null;
-            }
-            eMTextView.setText(context.getString(R.string.msg_notify));
-            EMTextView eMTextView2 = this.g;
-            if (eMTextView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTitle");
-            } else {
-                bdTypeRecyclerView2 = eMTextView2;
-            }
-            EMManager.from(bdTypeRecyclerView2).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X04).setTextStyle(R.string.F_X02);
+            O().setOnClickListener(this);
+            T().setOnClickListener(this);
+            U().setOnClickListener(this);
+            P().setOnClickListener(this);
+            R().setOnClickListener(this);
+            X(SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer_unread_num"), 0));
         }
     }
 
-    public final void S() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.i == null) {
-                qr8 qr8Var = new qr8(this.e);
-                this.i = qr8Var;
-                if (qr8Var != null) {
-                    Context context = m().getContext();
-                    Intrinsics.checkNotNullExpressionValue(context, "rootView.context");
-                    BaseView.M(qr8Var, context, null, true, false, 8, null);
-                }
-            }
-            qr8 qr8Var2 = this.i;
-            if (qr8Var2 != null) {
-                if (qr8Var2.m().getParent() == null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                BdTypeRecyclerView bdTypeRecyclerView = null;
-                if (!z) {
-                    qr8Var2 = null;
-                }
-                if (qr8Var2 != null) {
-                    BdTypeRecyclerView bdTypeRecyclerView2 = this.f;
-                    if (bdTypeRecyclerView2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                        bdTypeRecyclerView2 = null;
-                    }
-                    bdTypeRecyclerView2.removeHeaderView(qr8Var2.m());
-                    BdTypeRecyclerView bdTypeRecyclerView3 = this.f;
-                    if (bdTypeRecyclerView3 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                    } else {
-                        bdTypeRecyclerView = bdTypeRecyclerView3;
-                    }
-                    bdTypeRecyclerView.addHeaderView(qr8Var2.m());
-                    qr8Var2.m().setVisibility(0);
-                }
-            }
-        }
-    }
-
-    public final void T() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.j == null) {
-            cp8 cp8Var = new cp8(this.e.getPageContext(), true);
-            cp8Var.h(new cp8.b() { // from class: com.baidu.tieba.lr8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.cp8.b
-                public final void onClose() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        rr8.U(rr8.this);
-                    }
-                }
-            });
-            View f = cp8Var.f();
-            f.setPadding(f.getPaddingLeft(), f.getPaddingTop(), f.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_W_X003));
-            BdTypeRecyclerView bdTypeRecyclerView = this.f;
-            if (bdTypeRecyclerView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
-                bdTypeRecyclerView = null;
-            }
-            bdTypeRecyclerView.addHeaderView(cp8Var.f(), 0);
-            this.j = cp8Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.hg8
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            View view2 = this.h;
-            BdTypeRecyclerView bdTypeRecyclerView = null;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mNavBarView");
-                view2 = null;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            WebPManager.setMaskDrawable(O(), R.drawable.obfuscated_res_0x7f0811f1, WebPManager.ResourceStateType.NORMAL);
+            RoundRelativeLayout roundRelativeLayout = this.m;
+            RoundRelativeLayout roundRelativeLayout2 = null;
+            if (roundRelativeLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
+                roundRelativeLayout = null;
             }
-            EMManager.from(view2).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
-            EMTextView eMTextView = this.g;
-            if (eMTextView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTitle");
-                eMTextView = null;
-            }
-            EMManager.from(eMTextView).setTextSize(R.dimen.T_X04).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
-            cp8 cp8Var = this.j;
-            if (cp8Var != null) {
-                cp8Var.g(i, true);
-            }
-            BdTypeRecyclerView bdTypeRecyclerView2 = this.f;
-            if (bdTypeRecyclerView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mMsgList");
+            roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this.e.getContext(), R.dimen.tbds31));
+            RoundRelativeLayout roundRelativeLayout3 = this.m;
+            if (roundRelativeLayout3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
             } else {
-                bdTypeRecyclerView = bdTypeRecyclerView2;
+                roundRelativeLayout2 = roundRelativeLayout3;
             }
-            EMManager.from(bdTypeRecyclerView).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(roundRelativeLayout2).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            WebPManager.setPureDrawable(Q(), R.drawable.obfuscated_res_0x7f08089c, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
+            EMManager.from(U()).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
+            EMManager.from(P()).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07);
         }
     }
 }

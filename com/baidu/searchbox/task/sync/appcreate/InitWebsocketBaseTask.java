@@ -18,15 +18,15 @@ import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tieba.ag5;
 import com.baidu.tieba.hm5;
-import com.baidu.tieba.hv5;
 import com.baidu.tieba.ia;
+import com.baidu.tieba.iv5;
 import com.baidu.tieba.kb;
 import com.baidu.tieba.na;
 import com.baidu.tieba.pa;
 import com.baidu.tieba.qa;
 import com.baidu.tieba.sf5;
-import com.baidu.tieba.vr5;
 import com.baidu.tieba.wf5;
+import com.baidu.tieba.wr5;
 import com.baidu.tieba.yf5;
 import com.baidu.tieba.zf5;
 import java.util.ArrayList;
@@ -78,8 +78,8 @@ public class InitWebsocketBaseTask extends LaunchTask {
         BdSocketDaemonService.setLinkServiceDisconnectCallBack(new qa() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3
             @Override // com.baidu.tieba.qa
             public void onLinkServiceDisconnect() {
-                hv5.e().c(new hv5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
-                    @Override // com.baidu.tieba.hv5.b
+                iv5.e().c(new iv5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
+                    @Override // com.baidu.tieba.iv5.b
                     public void onResult(boolean z) {
                         if (!z) {
                             hm5.b(0, 0, 0, 1, 8);
@@ -125,7 +125,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
         zf5.j().k();
         yf5.y().z();
         initSocket();
-        vr5.a().r(System.currentTimeMillis() - currentTimeMillis);
+        wr5.a().r(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public static TbSocketMessageTask registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {

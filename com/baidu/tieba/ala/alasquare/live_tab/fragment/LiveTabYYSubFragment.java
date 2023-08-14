@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveYYSubTabModel;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.i96;
 import com.baidu.tieba.j95;
+import com.baidu.tieba.j96;
 import com.baidu.tieba.om5;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     public View k;
     public BdSwipeRefreshLayout l;
     public BdTypeRecyclerView m;
-    public i96 n;
+    public j96 n;
     public j95 o;
     public PbListView p;
     public AlaLiveYYSubTabModel q;
@@ -433,7 +433,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.m.setFadingEdgeLength(0);
             this.m.setOverScrollMode(2);
-            this.n = new i96(getPageContext(), this.m, this.f, this.i, this.g);
+            this.n = new j96(getPageContext(), this.m, this.f, this.i, this.g);
             PbListView pbListView = new PbListView(this.a);
             this.p = pbListView;
             pbListView.a();
@@ -509,9 +509,9 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
                 pbListView.J(SkinManager.getColor(R.color.CAM_X0109));
                 this.p.e(i);
             }
-            i96 i96Var = this.n;
-            if (i96Var != null) {
-                i96Var.b();
+            j96 j96Var = this.n;
+            if (j96Var != null) {
+                j96Var.b();
             }
         }
     }

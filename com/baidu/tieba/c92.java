@@ -28,14 +28,14 @@ public class c92 implements z82.c {
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final z82.b a;
-    public tzb b;
+    public uzb b;
     public InspectorNativeClient c;
     public gi2 d;
     public LinkedBlockingQueue<String> e;
     public String f;
 
     /* loaded from: classes5.dex */
-    public class b extends tzb {
+    public class b extends uzb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c92 a;
@@ -81,12 +81,12 @@ public class c92 implements z82.c {
 
         /* renamed from: com.baidu.tieba.c92$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0258b implements Runnable {
+        public class RunnableC0259b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0258b(b bVar) {
+            public RunnableC0259b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class c92 implements z82.c {
                         xa3 K = xa3.K();
                         SwanAppActivity w = K.w();
                         if (K.E() && w != null) {
-                            w.runOnUiThread(new RunnableC0258b(this));
+                            w.runOnUiThread(new RunnableC0259b(this));
                         }
                     }
                 } catch (JSONException e) {
@@ -153,10 +153,10 @@ public class c92 implements z82.c {
             }
         }
 
-        @Override // com.baidu.tieba.tzb
-        public void onOpen(n0c n0cVar) {
+        @Override // com.baidu.tieba.uzb
+        public void onOpen(o0c o0cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, n0cVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, o0cVar) == null) {
                 y72.i("V8InspectorClient", "V8 inspector opened");
                 uc2 W = sh2.U().W();
                 if (W instanceof yc2) {
@@ -223,7 +223,7 @@ public class c92 implements z82.c {
             }
         }
 
-        @Override // com.baidu.tieba.tzb
+        @Override // com.baidu.tieba.uzb
         public void onClose(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -231,7 +231,7 @@ public class c92 implements z82.c {
             }
         }
 
-        @Override // com.baidu.tieba.tzb
+        @Override // com.baidu.tieba.uzb
         public void onError(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
@@ -239,7 +239,7 @@ public class c92 implements z82.c {
             }
         }
 
-        @Override // com.baidu.tieba.tzb
+        @Override // com.baidu.tieba.uzb
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -343,10 +343,10 @@ public class c92 implements z82.c {
 
     @Override // com.baidu.tieba.z82.c
     public void stop() {
-        tzb tzbVar;
+        uzb uzbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tzbVar = this.b) != null) {
-            tzbVar.close();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (uzbVar = this.b) != null) {
+            uzbVar.close();
             this.b = null;
         }
     }

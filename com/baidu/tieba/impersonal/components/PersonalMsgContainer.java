@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
-import com.baidu.tieba.n97;
-import com.baidu.tieba.nt8;
-import com.baidu.tieba.yt8;
+import com.baidu.tieba.o97;
+import com.baidu.tieba.ot8;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u0001*\b\b\u0001\u0010\u0002*\u00020\u00032\u00020\u00042\u00020\u0005B#\b\u0007\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t\u0012\n\b\u0002\u0010\n\u001a\u0004\u0018\u00010\u000b¢\u0006\u0002\u0010\fJ\u0013\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u000f\u001a\u00028\u0001¢\u0006\u0002\u0010\u001aJ\r\u0010\u001b\u001a\u0004\u0018\u00018\u0001¢\u0006\u0002\u0010\u001cJ\u0006\u0010\u001d\u001a\u00020\u0012J\b\u0010\u001e\u001a\u00020\u0019H\u0016J\u0014\u0010\u001f\u001a\u00020\u00192\f\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000!R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u000f\u001a\u0004\u0018\u00018\u0001X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/impersonal/components/PersonalMsgContainer;", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Landroid/view/View;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "left", "", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(ZLandroid/content/Context;Landroid/util/AttributeSet;)V", "avatar", "Lcom/baidu/tbadk/core/view/HeadImageView;", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "Landroid/view/View;", "container", "Landroid/widget/LinearLayout;", "nickName", "Landroid/widget/TextView;", "resend", "Landroid/widget/ImageView;", "rootContainer", "addChild", "", "(Landroid/view/View;)V", "getChild", "()Landroid/view/View;", "getChildContainer", "onChangeSkin", "updateState", "state", "Lcom/baidu/tieba/impersonal/components/uistate/BasePersonalMsgUiState;", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes6.dex */
-public final class PersonalMsgContainer<T, V extends View> extends ConstraintLayout implements n97 {
+public final class PersonalMsgContainer<T, V extends View> extends ConstraintLayout implements o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
@@ -90,7 +90,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         }
         LayoutInflater.from(context).inflate(i, this);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091f73);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091f79);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.root_container)");
         this.b = (ConstraintLayout) findViewById;
         View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090316);
@@ -105,7 +105,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         View findViewById5 = findViewById(R.id.btn_msgitem_resend);
         Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.btn_msgitem_resend)");
         this.f = (ImageView) findViewById5;
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gt8
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ht8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 }
             }
         });
-        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kt8
+        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lt8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +129,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 }
             }
         });
-        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lt8
+        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mt8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,11 +156,11 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         }
     }
 
-    public static final void k(nt8 state, View it) {
+    public static final void k(ot8 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<View, yt8<T>, Unit> e = state.e();
+            Function2<View, zt8<T>, Unit> e = state.e();
             if (e != null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 e.invoke(it, state.c());
@@ -168,7 +168,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         }
     }
 
-    @Override // com.baidu.tieba.n97
+    @Override // com.baidu.tieba.o97
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -181,9 +181,9 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
             headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             headImageView.setDrawBorder(true);
             if (this.a) {
-                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081194);
+                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081197);
             } else {
-                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081193);
+                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081196);
             }
         }
     }
@@ -216,7 +216,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         return (LinearLayout) invokeV.objValue;
     }
 
-    public final void h(final nt8<T> state) {
+    public final void h(final ot8<T> state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -227,7 +227,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
             } else {
                 this.f.setVisibility(8);
             }
-            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.it8
+            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -235,7 +235,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PersonalMsgContainer.k(nt8.this, view2);
+                        PersonalMsgContainer.k(ot8.this, view2);
                     }
                 }
             });

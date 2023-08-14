@@ -50,7 +50,7 @@ public class ke5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public YYLiveConfig A;
-    public a0b B;
+    public b0b B;
     public NewGodData C;
     public sc5 D;
     public wb5 E;
@@ -144,7 +144,7 @@ public class ke5 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "sync返回预热H5:" + this.a);
-                lx5.e(this.a);
+                mx5.e(this.a);
             }
         }
     }
@@ -330,9 +330,9 @@ public class ke5 {
             YYLiveConfig yYLiveConfig = new YYLiveConfig();
             this.A = yYLiveConfig;
             yYLiveConfig.parseJson(B(jSONObject, "yy_live_config"));
-            a0b a0bVar = new a0b();
-            this.B = a0bVar;
-            a0bVar.b(A(jSONObject, "yy_live_tab"));
+            b0b b0bVar = new b0b();
+            this.B = b0bVar;
+            b0bVar.b(A(jSONObject, "yy_live_tab"));
             this.n.c(jSONObject.optJSONObject("hot_notify_config"));
             TbSingleton.getInstance().setHotNotifyConfig(this.n);
             l05.b().f(this.y);
@@ -354,22 +354,22 @@ public class ke5 {
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray A = A(jSONObject, "offpack");
             if (A != null && A.length() > 0 && (jSONObject2 = A.getJSONObject(0)) != null) {
-                mw9 mw9Var = new mw9();
-                mw9Var.e(jSONObject2.optString("mod_name"));
+                nw9 nw9Var = new nw9();
+                nw9Var.e(jSONObject2.optString("mod_name"));
                 if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
                     z6 = true;
                 } else {
                     z6 = false;
                 }
-                mw9Var.f(z6);
+                nw9Var.f(z6);
                 if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
                     z7 = true;
                 } else {
                     z7 = false;
                 }
-                mw9Var.d(z7);
-                if (!TextUtils.isEmpty(mw9Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(mw9Var);
+                nw9Var.d(z7);
+                if (!TextUtils.isEmpty(nw9Var.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(nw9Var);
                 }
             }
             String optString2 = jSONObject.optString("proxy_ip");
@@ -421,7 +421,7 @@ public class ke5 {
             }
             tbSingleton3.showStampMissionDialog = z4;
             int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            a2a d = a2a.d();
+            b2a d = b2a.d();
             if (optInt4 == 1) {
                 z5 = true;
             } else {
@@ -443,7 +443,7 @@ public class ke5 {
             } else {
                 TbSingleton.getInstance().mLiveActivityGuide = null;
             }
-            lx5.c(jSONObject.optJSONArray("support_cache_url_list"));
+            mx5.c(jSONObject.optJSONArray("support_cache_url_list"));
             JSONArray optJSONArray = jSONObject.optJSONArray("cache_url_list");
             if (optJSONArray != null) {
                 SharedPrefHelper.getInstance().putString("key_cache_url_list", optJSONArray.toString());
@@ -460,8 +460,8 @@ public class ke5 {
                 SharedPrefHelper.getInstance().remove("key_home_color_header_config");
             }
             TbSingleton.getInstance().setColourHeaderConfig(gg5.s(optJSONObject7));
-            g46.e().k(jSONObject.optJSONObject("member_guide"));
-            g46.e().j(jSONObject.optJSONObject("close_ad_tips"));
+            h46.e().k(jSONObject.optJSONObject("member_guide"));
+            h46.e().j(jSONObject.optJSONObject("close_ad_tips"));
             JSONArray optJSONArray2 = jSONObject.optJSONArray("interact_memes");
             if (optJSONArray2 != null) {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
@@ -718,13 +718,13 @@ public class ke5 {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public a0b y() {
+    public b0b y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.B;
         }
-        return (a0b) invokeV.objValue;
+        return (b0b) invokeV.objValue;
     }
 
     public String z() {

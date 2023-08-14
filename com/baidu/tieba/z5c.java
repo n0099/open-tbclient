@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes8.dex */
-public final class z5c implements e1c {
+public final class z5c implements f1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SequentialSubscription a;
@@ -29,7 +29,7 @@ public final class z5c implements e1c {
         this.a = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.e1c
+    @Override // com.baidu.tieba.f1c
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class z5c implements e1c {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.e1c
+    @Override // com.baidu.tieba.f1c
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -47,11 +47,11 @@ public final class z5c implements e1c {
         }
     }
 
-    public void a(e1c e1cVar) {
+    public void a(f1c f1cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e1cVar) == null) {
-            if (e1cVar != null) {
-                this.a.update(e1cVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, f1cVar) == null) {
+            if (f1cVar != null) {
+                this.a.replace(f1cVar);
                 return;
             }
             throw new IllegalArgumentException("Subscription can not be null");

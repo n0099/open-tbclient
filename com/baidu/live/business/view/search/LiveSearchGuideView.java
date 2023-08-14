@@ -45,16 +45,16 @@ public class LiveSearchGuideView extends FrameLayout {
     public void b(String str, boolean z) {
         if (this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f1a);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f18);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f1d);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1b);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f19);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f17);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f1c);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1a);
                 this.b.setTextColor(-1);
             } else if ("night".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f1a);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f18);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080f1d);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1b);
                 this.b.setTextColor(-1);
             }
         }

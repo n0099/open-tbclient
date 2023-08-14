@@ -18,7 +18,7 @@ import com.baidu.tieba.mm;
 import com.baidu.tieba.nm;
 import com.baidu.tieba.pm;
 import com.baidu.tieba.qm;
-import com.baidu.tieba.tqb;
+import com.baidu.tieba.uqb;
 import com.baidu.tieba.zm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -441,14 +441,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof tqb) {
-                        int c = firstVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof uqb) {
+                        int c = firstVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -682,14 +682,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof tqb) {
-                        int c = firstVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof uqb) {
+                        int c = firstVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -923,14 +923,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i32 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof tqb) {
-                        int c = firstVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof uqb) {
+                        int c = firstVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((tqb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((uqb) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -1198,8 +1198,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                        if (this.this$0.mAdapter instanceof tqb) {
-                            i2 = ((tqb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof uqb) {
+                            i2 = ((uqb) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1267,8 +1267,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof tqb) {
-                            i2 = ((tqb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof uqb) {
+                            i2 = ((uqb) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1394,8 +1394,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     ListAdapter listAdapter;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof tqb) {
-                            i2 = ((tqb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof uqb) {
+                            i2 = ((uqb) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1411,8 +1411,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                         }
                         int i3 = i - i2;
-                        if (this.this$0.mAdapter instanceof tqb) {
-                            listAdapter = ((tqb) this.this$0.mAdapter).getWrappedAdapter();
+                        if (this.this$0.mAdapter instanceof uqb) {
+                            listAdapter = ((uqb) this.this$0.mAdapter).getWrappedAdapter();
                         } else {
                             listAdapter = this.this$0.mAdapter;
                         }

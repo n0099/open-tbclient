@@ -2,38 +2,37 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
+import com.baidu.tieba.memberCenter.bubble.BubbleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class y39 extends BdBaseView<BubbleChooseActivity> {
+public class y39 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NavigationBar a;
-    public ViewGroup b;
-    public GridView c;
-    public View d;
-    public x39 e;
-    public BubbleChooseActivity f;
-    public ProgressBar g;
+    public List<BubbleListData.BubbleData> a;
+    public TbPageContext<BubbleChooseActivity> b;
+    public int c;
+    public int d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    }
+
     public y39(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,104 +42,110 @@ public class y39 extends BdBaseView<BubbleChooseActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
-        this.f = orignalPage;
-        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0185);
-        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
-        this.a = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setTitleText(R.string.editor_privilege);
-        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0186, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907b1);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ed7);
-        x39 x39Var = new x39(tbPageContext);
-        this.e = x39Var;
-        this.c.setAdapter((ListAdapter) x39Var);
-        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090514);
+        this.a = new ArrayList();
+        this.b = tbPageContext;
+        this.c = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
+        this.d = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
     }
 
-    public void A() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public BubbleListData.BubbleData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.setVisibility(8);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<BubbleListData.BubbleData> list = this.a;
+            if (list != null) {
+                if (i >= 0 || i < list.size()) {
+                    return this.a.get(i);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
+    }
+
+    public void c(List<BubbleListData.BubbleData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a.clear();
+            BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
+            bubbleData.setBcode(0);
+            this.a.add(bubbleData);
+            this.a.addAll(list);
+            notifyDataSetChanged();
         }
     }
 
-    public void E() {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.setVisibility(0);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public x39 u() {
+    public List<BubbleListData.BubbleData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+            List<BubbleListData.BubbleData> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
-        return (x39) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public View x() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        BubbleView bubbleView;
+        BubbleView bubbleView2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public GridView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (GridView) invokeV.objValue;
-    }
-
-    public void D(List<BubbleListData.BubbleData> list, boolean z) {
-        x39 x39Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) && (x39Var = this.e) != null) {
-            x39Var.d(z);
-            this.e.c(list);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
-            BDLayoutMode layoutMode = this.f.getLayoutMode();
-            if (i == 4) {
-                z = true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bubbleView2 = new BubbleView(this.b.getPageActivity());
+                bubbleView = bubbleView2;
             } else {
-                z = false;
+                bubbleView = view2;
+                bubbleView2 = (BubbleView) view2;
             }
-            layoutMode.setNightMode(z);
-            this.f.getLayoutMode().onModeChanged(this.b);
-        }
-    }
-
-    public BubbleListData.BubbleData z(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            x39 x39Var = this.e;
-            if (x39Var == null) {
-                return null;
+            if (i == 0 || i == 1) {
+                bubbleView2.setPadding(0, this.d, 0, 0);
             }
-            return x39Var.getItem(i);
+            if (getCount() % 2 == 0) {
+                if (i == getCount() - 1 || i == getCount() - 2) {
+                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
+                }
+            } else if (i == getCount() - 1) {
+                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
+            }
+            BubbleListData.BubbleData item = getItem(i);
+            if (item != null) {
+                bubbleView2.setShowName(true);
+                bubbleView2.setData(item, this.e);
+            }
+            bubbleView2.a(this.b);
+            return bubbleView;
         }
-        return (BubbleListData.BubbleData) invokeI.objValue;
+        return (View) invokeILL.objValue;
     }
 }

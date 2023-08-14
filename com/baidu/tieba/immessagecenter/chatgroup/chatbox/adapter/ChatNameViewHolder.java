@@ -4,11 +4,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ai8;
-import com.baidu.tieba.hh8;
-import com.baidu.tieba.lh8;
-import com.baidu.tieba.oh8;
-import com.baidu.tieba.tg8;
+import com.baidu.tieba.bi8;
+import com.baidu.tieba.ih8;
+import com.baidu.tieba.mh8;
+import com.baidu.tieba.ph8;
+import com.baidu.tieba.ug8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ChatNameViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ai8 e;
-    public lh8 f;
+    public bi8 e;
+    public mh8 f;
     public String g;
-    public hh8 h;
-    public oh8 i;
+    public ih8 h;
+    public ph8 i;
     public View j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,21 +45,21 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         this.g = str;
         this.j = view2;
         if (str.equals("message_tab")) {
-            this.i = oh8.f(view2);
+            this.i = ph8.f(view2);
         } else {
-            this.h = hh8.f(view2);
+            this.h = ih8.f(view2);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull ug8 ug8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, tg8Var, tbPageContext, i) == null) && (tg8Var instanceof ai8)) {
-            this.e = (ai8) tg8Var;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, ug8Var, tbPageContext, i) == null) && (ug8Var instanceof bi8)) {
+            this.e = (bi8) ug8Var;
             if (this.g.equals("message_tab")) {
-                this.f = new lh8(this.e, this.i, this.j, this, this.g);
+                this.f = new mh8(this.e, this.i, this.j, this, this.g);
             } else {
-                this.f = new lh8(this.e, this.h, this.j, this, this.g);
+                this.f = new mh8(this.e, this.h, this.j, this, this.g);
             }
             this.f.f(this.e);
         }

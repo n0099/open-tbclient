@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.f96;
+import com.baidu.tieba.g96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements f96 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements g96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -41,7 +41,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f96 {
     public PollingModel h;
     public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.f96
+    @Override // com.baidu.tieba.g96
     public boolean V0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f96 {
         this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.f96
+    @Override // com.baidu.tieba.g96
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

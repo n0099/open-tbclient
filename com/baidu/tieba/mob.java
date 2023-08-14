@@ -1,36 +1,38 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fob;
+import com.baidu.tieba.gob;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mob extends gob {
+public class mob implements eob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context c;
-    public final String d;
-    public hob e;
-    public volatile nob f;
-    public final Object g;
-    public aob h;
+    public final String a;
+    public final Context b;
+    public final String c;
+    public final bob d;
+    public final oob e;
+    public final pob f;
+    public final Map<String, String> g;
+    public final List<wob> h;
     public final Map<String, String> i;
-    public volatile oob j;
 
-    public mob(Context context, String str) {
+    public mob(Context context, String str, bob bobVar, InputStream inputStream, Map<String, String> map, List<wob> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context, str, bobVar, inputStream, map, list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,131 +42,115 @@ public class mob extends gob {
                 return;
             }
         }
-        this.g = new Object();
-        this.h = aob.b;
         this.i = new HashMap();
-        this.c = context;
-        this.d = str;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
-                }
-            }
-            return WebvttCueParser.CHAR_SLASH + str.substring(i);
+        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
+        this.b = context;
+        str = str == null ? context.getPackageName() : str;
+        this.c = str;
+        if (inputStream != null) {
+            this.e = new sob(inputStream, str);
+            kob.a(inputStream);
+        } else {
+            this.e = new vob(this.b, str);
         }
-        return (String) invokeL.objValue;
+        this.f = new pob(this.e);
+        if (bobVar != bob.b && "1.0".equals(this.e.a("/configuration_version", null))) {
+            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
+        }
+        this.d = (bobVar == null || bobVar == bob.b) ? kob.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : bobVar;
+        this.g = kob.d(map);
+        this.h = list;
+        this.a = str2 == null ? e() : str2;
     }
 
-    @Override // com.baidu.tieba.dob
+    @Override // com.baidu.tieba.eob
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dob
-    public aob b() {
+    @Override // com.baidu.tieba.eob
+    public bob b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.h == null) {
-                this.h = aob.b;
-            }
-            if (this.h == aob.b && this.f == null) {
-                f();
-            }
-            aob aobVar = this.h;
-            return aobVar == null ? aob.b : aobVar;
+            bob bobVar = this.d;
+            return bobVar == null ? bob.b : bobVar;
         }
-        return (aob) invokeV.objValue;
+        return (bob) invokeV.objValue;
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
-            synchronized (this.g) {
-                if (this.f == null) {
-                    if (this.e != null) {
-                        this.f = new rob(this.e.b());
-                        this.e.a();
-                        throw null;
-                    }
-                    this.f = new uob(this.c, this.d);
-                    this.j = new oob(this.f);
-                }
-                h();
-            }
-        }
-    }
-
-    public final String g(String str) {
+    public final String c(String str) {
         InterceptResult invokeL;
-        fob.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Map<String, fob.a> a = fob.a();
-            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
-                return aVar.a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Map<String, gob.a> a = gob.a();
+            if (a.containsKey(str)) {
+                if (this.i.containsKey(str)) {
+                    return this.i.get(str);
+                }
+                gob.a aVar = a.get(str);
+                if (aVar == null) {
+                    return null;
+                }
+                String a2 = aVar.a(this);
+                this.i.put(str, a2);
+                return a2;
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gob, com.baidu.tieba.dob
+    public List<wob> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (str == null) {
+                return str2;
+            }
+            String e = kob.e(str);
+            String str3 = this.g.get(e);
+            if (str3 != null) {
+                return str3;
+            }
+            String c = c(e);
+            if (c != null) {
+                return c;
+            }
+            String a = this.e.a(e, str2);
+            return pob.c(a) ? this.f.a(a, str2) : a;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eob
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gob, com.baidu.tieba.dob
+    @Override // com.baidu.tieba.eob
     public String getIdentifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == aob.b) {
-            if (this.f != null) {
-                this.h = job.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
-            } else {
-                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
-            }
-        }
-    }
-
-    public String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            if (str != null) {
-                if (this.f == null) {
-                    f();
-                }
-                String e = e(str);
-                String str3 = this.i.get(e);
-                if (str3 != null) {
-                    return str3;
-                }
-                String g = g(e);
-                if (g != null) {
-                    return g;
-                }
-                String a = this.f.a(e, str2);
-                return oob.c(a) ? this.j.a(a, str2) : a;
-            }
-            throw new NullPointerException("path must not be null.");
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

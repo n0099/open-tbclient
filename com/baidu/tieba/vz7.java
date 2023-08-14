@@ -1,42 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class vz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<lm> c;
-    public a08 d;
-    public xz7 e;
-    public yz7 f;
-    public zz7 g;
+    public int a;
+    public boolean b;
+    public boolean c;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public vz7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public vz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,115 +26,28 @@ public class vz7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        this.a = -1;
+        this.b = false;
+        this.c = false;
     }
 
-    public List<ym> a() {
-        InterceptResult invokeV;
+    public void a(qz7 qz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        xz7 xz7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (xz7Var = this.e) != null) {
-            xz7Var.onPause();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new a08(this.a, rn6.E0);
-            this.e = new xz7(this.a, sn6.U);
-            this.f = new yz7(this.a, rn6.N0);
-            this.g = new zz7(this.a, rn6.L0);
-            this.d.A(this.b);
-            this.e.C(this.b);
-            this.f.z(this.b);
-            this.g.B(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void f(List<ym> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            a08 a08Var = this.d;
-            if (a08Var != null) {
-                a08Var.y(i);
-            }
-            xz7 xz7Var = this.e;
-            if (xz7Var != null) {
-                xz7Var.A(i);
-            }
-            yz7 yz7Var = this.f;
-            if (yz7Var != null) {
-                yz7Var.x(i);
-            }
-            zz7 zz7Var = this.g;
-            if (zz7Var != null) {
-                zz7Var.z(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, qz7Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i != -1 && this.c) {
+                qz7Var.a(i);
             }
         }
     }
 
-    public void h(NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
-        zz7 zz7Var;
+    public void b(int i, qz7 qz7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, nEGFeedbackEventCallback) == null) && (zz7Var = this.g) != null) {
-            zz7Var.y(nEGFeedbackEventCallback);
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            a08 a08Var = this.d;
-            if (a08Var != null) {
-                a08Var.z(bdUniqueId);
-            }
-            xz7 xz7Var = this.e;
-            if (xz7Var != null) {
-                xz7Var.B(bdUniqueId);
-            }
-            yz7 yz7Var = this.f;
-            if (yz7Var != null) {
-                yz7Var.y(bdUniqueId);
-            }
-            zz7 zz7Var = this.g;
-            if (zz7Var != null) {
-                zz7Var.A(bdUniqueId);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, qz7Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                qz7Var.a(i);
             }
         }
     }

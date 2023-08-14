@@ -257,7 +257,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
 
     public SwanAppWebPopWindow p0() {
         ImageView imageView = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f0901a8);
-        imageView.setImageDrawable(imageView.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813ee));
+        imageView.setImageDrawable(imageView.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813f1));
         imageView.setVisibility(0);
         return this;
     }

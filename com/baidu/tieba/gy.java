@@ -53,9 +53,9 @@ public class gy extends dx {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
             if (!A(q05Var) && q05Var != null && q05Var.getThreadData() != null && !z(q05Var) && ListUtils.getCount(q05Var.getThreadData().getLinkDataList()) + ListUtils.getCount(q05Var.getThreadData().getGoodsDataList()) == 1) {
                 if (q05Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((kn6) ListUtils.getItem(q05Var.getThreadData().getLinkDataList(), 0));
+                    this.h.a((ln6) ListUtils.getItem(q05Var.getThreadData().getLinkDataList(), 0));
                 } else if (q05Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((kn6) ListUtils.getItem(q05Var.getThreadData().getGoodsDataList(), 0));
+                    this.h.a((ln6) ListUtils.getItem(q05Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;

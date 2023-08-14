@@ -19,8 +19,8 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h55;
-import com.baidu.tieba.oy6;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.py6;
+import com.baidu.tieba.rb8;
 import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import java.util.Set;
 public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oy6 g;
+    public py6 g;
     public NewPagerSlidingTabBaseStrip.c h;
     public CustomMessageListener i;
     public CustomMessageListener j;
@@ -264,9 +264,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.changeSkinType(i);
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.onChangeSkinType(i);
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.onChangeSkinType(i);
             }
         }
     }
@@ -285,9 +285,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.onChangeSkinType(this.mSkinType);
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -297,7 +297,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.g = new oy6(this);
+            this.g = new py6(this);
             registerListener(this.i);
             registerListener(this.j);
         }
@@ -308,9 +308,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.setPrimary(z);
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.i0(z);
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.i0(z);
             }
         }
     }
@@ -359,9 +359,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                return oy6Var.N();
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                return py6Var.N();
             }
             return null;
         }
@@ -383,11 +383,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            qb8.l().c();
+            rb8.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.Z();
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.Z();
             }
         }
     }
@@ -430,9 +430,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.Y(i, i2, intent);
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.Y(i, i2, intent);
             }
         }
     }
@@ -450,9 +450,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vz4 {
             } else {
                 YunDialogManager.onHidden(h55.k);
             }
-            oy6 oy6Var = this.g;
-            if (oy6Var != null) {
-                oy6Var.i0(isPrimary());
+            py6 py6Var = this.g;
+            if (py6Var != null) {
+                py6Var.i0(isPrimary());
             }
         }
     }

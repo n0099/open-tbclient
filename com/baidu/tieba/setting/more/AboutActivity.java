@@ -21,12 +21,12 @@ import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.ke5;
-import com.baidu.tieba.n2a;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.o2a;
+import com.baidu.tieba.r2a;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.v2a;
 import com.baidu.tieba.w2a;
-import com.baidu.tieba.ww8;
+import com.baidu.tieba.x2a;
+import com.baidu.tieba.xw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n2a a;
+    public o2a a;
     public AboutModel b;
     public c c;
     public String d;
-    public v2a e;
-    public w2a f;
+    public w2a e;
+    public x2a f;
     public int g;
 
     /* loaded from: classes7.dex */
-    public class a implements q2a {
+    public class a implements r2a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.q2a
+        @Override // com.baidu.tieba.r2a
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -98,7 +98,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     } else if (i == 5) {
                         if (this.a.e == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.e = new v2a(aboutActivity.getActivity());
+                            aboutActivity.e = new w2a(aboutActivity.getActivity());
                             this.a.e.create(this.a.getPageContext());
                         }
                         this.a.e.show();
@@ -210,7 +210,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ww8.b().a(true);
+            xw8.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -218,9 +218,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.R();
-            n2a n2aVar = this.a;
-            if (n2aVar != null) {
-                n2aVar.T();
+            o2a o2aVar = this.a;
+            if (o2aVar != null) {
+                o2aVar.T();
             }
         }
     }
@@ -235,17 +235,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            n2a n2aVar = this.a;
-            if (n2aVar != null) {
-                n2aVar.U();
+            o2a o2aVar = this.a;
+            if (o2aVar != null) {
+                o2aVar.U();
             }
-            v2a v2aVar = this.e;
-            if (v2aVar != null) {
-                v2aVar.dismiss();
-            }
-            w2a w2aVar = this.f;
+            w2a w2aVar = this.e;
             if (w2aVar != null) {
-                w2aVar.i();
+                w2aVar.dismiss();
+            }
+            x2a x2aVar = this.f;
+            if (x2aVar != null) {
+                x2aVar.i();
                 this.f = null;
             }
         }
@@ -256,9 +256,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            n2a n2aVar = this.a;
-            if (n2aVar != null) {
-                n2aVar.a0(i);
+            o2a o2aVar = this.a;
+            if (o2aVar != null) {
+                o2aVar.a0(i);
             }
         }
     }
@@ -268,10 +268,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new w2a();
-            n2a n2aVar = new n2a(this, new a(this));
-            this.a = n2aVar;
-            n2aVar.Y();
+            this.f = new x2a();
+            o2a o2aVar = new o2a(this, new a(this));
+            this.a = o2aVar;
+            o2aVar.Y();
             F1();
         }
     }
@@ -280,9 +280,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         ke5 ke5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            n2a n2aVar = this.a;
-            if (n2aVar != null) {
-                n2aVar.U();
+            o2a o2aVar = this.a;
+            if (o2aVar != null) {
+                o2aVar.U();
             }
             if (obj != null) {
                 ke5Var = (ke5) obj;
@@ -302,9 +302,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                n2a n2aVar2 = this.a;
-                if (n2aVar2 != null) {
-                    n2aVar2.Y();
+                o2a o2aVar2 = this.a;
+                if (o2aVar2 != null) {
+                    o2aVar2.Y();
                     return;
                 }
                 return;
@@ -343,9 +343,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            n2a n2aVar = this.a;
-            if (n2aVar != null) {
-                n2aVar.Y();
+            o2a o2aVar = this.a;
+            if (o2aVar != null) {
+                o2aVar.Y();
             }
         }
     }

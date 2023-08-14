@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class ti5 {
     public ri5 a;
 
     /* loaded from: classes8.dex */
-    public class a extends jw5<Object> {
+    public class a extends kw5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ri5 a;
@@ -43,12 +43,12 @@ public class ti5 {
             this.a = ri5Var;
         }
 
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(yb8.w().j(this.a.a().a));
+                return Long.valueOf(zb8.w().j(this.a.a().a));
             }
             return invokeV.objValue;
         }
@@ -72,14 +72,14 @@ public class ti5 {
         this.a = ri5Var;
     }
 
-    public void d(uaa.h hVar) {
+    public void d(vaa.h hVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
             return;
         }
         ri5 ri5Var = this.a;
         if (ri5Var != null && ri5Var.a() != null) {
-            uaa.n(this.a.a().a, hVar);
+            vaa.n(this.a.a().a, hVar);
         } else {
             hVar.a(null);
         }
@@ -89,7 +89,7 @@ public class ti5 {
         ri5 ri5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ri5Var = this.a) != null && ri5Var.a() != null) {
-            uaa.x(this.a.a().a, str);
+            vaa.x(this.a.a().a, str);
         }
     }
 
@@ -105,7 +105,7 @@ public class ti5 {
             b.setCustomGroupType(2);
             b.setMsgType(1);
             b.setContent(str);
-            long b2 = te8.b(j);
+            long b2 = ue8.b(j);
             b.setMsgId(b2);
             b.setRecordId(b2);
             b.setTime(System.currentTimeMillis() / 1000);
@@ -156,7 +156,7 @@ public class ti5 {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            ed8.k().t(a(str, ((Long) obj).longValue()));
+            fd8.k().t(a(str, ((Long) obj).longValue()));
             e("");
         }
     }
@@ -165,11 +165,11 @@ public class ti5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, ri5Var, str) == null) {
             this.a = ri5Var;
-            nw5.c(new a(this, ri5Var), new ov5() { // from class: com.baidu.tieba.si5
+            ow5.c(new a(this, ri5Var), new pv5() { // from class: com.baidu.tieba.si5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ov5
+                @Override // com.baidu.tieba.pv5
                 public final void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

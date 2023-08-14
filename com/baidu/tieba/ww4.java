@@ -41,7 +41,7 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.controller.TransmitShareController;
-import com.baidu.tieba.dpa;
+import com.baidu.tieba.epa;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,11 +83,11 @@ public class ww4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public tm9 y;
+    public um9 y;
     public u45 z;
 
     /* loaded from: classes8.dex */
-    public class a implements dpa.c {
+    public class a implements epa.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ww4 a;
@@ -110,7 +110,7 @@ public class ww4 {
             this.a = ww4Var;
         }
 
-        @Override // com.baidu.tieba.dpa.c
+        @Override // com.baidu.tieba.epa.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -436,7 +436,7 @@ public class ww4 {
     }
 
     /* loaded from: classes8.dex */
-    public class k implements dpa.d {
+    public class k implements epa.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ww4 a;
@@ -459,7 +459,7 @@ public class ww4 {
             this.a = ww4Var;
         }
 
-        @Override // com.baidu.tieba.dpa.d
+        @Override // com.baidu.tieba.epa.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -811,16 +811,16 @@ public class ww4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                dpa dpaVar = new dpa(this.a);
+                epa epaVar = new epa(this.a);
                 ArrayList arrayList = new ArrayList();
-                dpa.b bVar = new dpa.b(this.a.getString(R.string.report_text), dpaVar);
+                epa.b bVar = new epa.b(this.a.getString(R.string.report_text), epaVar);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                dpaVar.g(new a(this));
-                dpaVar.f(arrayList);
-                tm9 tm9Var = new tm9(this.a, dpaVar.b());
-                this.y = tm9Var;
-                tm9Var.a(0.7f);
+                epaVar.g(new a(this));
+                epaVar.f(arrayList);
+                um9 um9Var = new um9(this.a, epaVar.b());
+                this.y = um9Var;
+                um9Var.a(0.7f);
             }
             this.y.show();
         }
@@ -833,7 +833,7 @@ public class ww4 {
             if (this.o == null) {
                 ProgressBar progressBar = new ProgressBar(this.a.getActivity(), null, 16842871);
                 this.o = progressBar;
-                progressBar.setIndeterminateDrawable(ResourcesCompat.getDrawable(this.a.getActivity().getResources(), R.drawable.obfuscated_res_0x7f081259, null));
+                progressBar.setIndeterminateDrawable(ResourcesCompat.getDrawable(this.a.getActivity().getResources(), R.drawable.obfuscated_res_0x7f08125c, null));
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 this.o.setLayoutParams(layoutParams);
@@ -1054,7 +1054,7 @@ public class ww4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.a.setContentView(R.layout.base_webview_activity_new);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091f81);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091f87);
             this.c = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.B = this.a.findViewById(R.id.night_mode_overlay);
             this.s = (FrameLayout) this.b.findViewById(R.id.webview_progress_container);

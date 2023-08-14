@@ -3,17 +3,13 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class a66 implements CustomMessageTask.CustomRunnable<String> {
+public class a66 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,26 +28,14 @@ public class a66 implements CustomMessageTask.CustomRunnable<String> {
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
-                List<we5> e = d66.f().e();
-                if (e != null) {
-                    Iterator<we5> it = e.iterator();
-                    while (it.hasNext()) {
-                        we5 next = it.next();
-                        if ((bi.isEmpty(next.e()) && bi.isEmpty(next.f())) || next.h() == 1) {
-                            it.remove();
-                        }
-                    }
-                }
-                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-                getContactListResponsedMessage.setContacts(e);
-                return getContactListResponsedMessage;
+            if (customMessage == null) {
+                return null;
             }
-            return null;
+            return new CustomResponsedMessage<>(2001178, e66.f().e());
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

@@ -98,10 +98,10 @@ public class ImPersonInputView extends RelativeLayout {
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092768);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09276e);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092769);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09276f);
         this.d = textView;
         textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f03a1));
         EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0920);

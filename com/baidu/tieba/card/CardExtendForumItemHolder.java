@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.l88;
-import com.baidu.tieba.on6;
+import com.baidu.tieba.m88;
+import com.baidu.tieba.pn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public BarImageView b;
     public TextView c;
     public EntelechyUserLikeButton d;
-    public on6 e;
+    public pn6 e;
     public int f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,13 +69,13 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(l88 l88Var) {
+    public void b(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l88Var) == null) {
-            if (l88Var != null && (l88Var instanceof on6)) {
-                on6 on6Var = (on6) l88Var;
-                this.e = on6Var;
-                this.b.setTag(on6Var.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, m88Var) == null) {
+            if (m88Var != null && (m88Var instanceof pn6)) {
+                pn6 pn6Var = (pn6) m88Var;
+                this.e = pn6Var;
+                this.b.setTag(pn6Var.b);
                 this.b.setTag(R.id.tag_forum_name, this.e.c);
                 this.b.startLoad(this.e.b, 15, false);
                 TextView textView = this.c;

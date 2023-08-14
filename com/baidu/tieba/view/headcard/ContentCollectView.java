@@ -249,7 +249,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = BdUtilHelper.getDimens(getContext(), R.dimen.tbds115);
             this.m = BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
             u = (((BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 5)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092560);
             this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
             this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090342);

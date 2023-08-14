@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface m20<T> {
     void onError(int i, Throwable th, Bundle bundle);
 

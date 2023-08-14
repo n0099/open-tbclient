@@ -75,7 +75,7 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         View findViewById = T1().findViewById(R.id.close_img);
         Intrinsics.checkNotNullExpressionValue(findViewById, "dialogContent.findViewById(R.id.close_img)");
         AdImageView adImageView = (AdImageView) findViewById;
-        View findViewById2 = T1().findViewById(R.id.obfuscated_res_0x7f09255a);
+        View findViewById2 = T1().findViewById(R.id.obfuscated_res_0x7f092560);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.title)");
         TextView textView3 = (TextView) findViewById2;
         View findViewById3 = T1().findViewById(R.id.btn_container);

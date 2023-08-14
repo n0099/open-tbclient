@@ -451,13 +451,13 @@ public class SignAllForumProgressView extends FrameLayout {
             Context context = getContext();
             this.b = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b6, this);
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092205);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921f5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092208);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092206);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921f1);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921f2);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09220b);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09220e);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09220c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09220d);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921f7);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921f8);
             m();
             this.h = new Scroller(this.b, new DecelerateInterpolator());
             BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0802a0));
@@ -481,9 +481,9 @@ public class SignAllForumProgressView extends FrameLayout {
             removeCallbacks(this.m);
             removeCallbacks(this.n);
             if (this.l) {
-                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081568));
+                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08156b));
             } else {
-                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813aa));
+                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813ad));
             }
             int i = this.a;
             if (i != 0) {

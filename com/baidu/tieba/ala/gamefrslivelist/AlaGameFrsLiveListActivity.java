@@ -33,7 +33,7 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationFilter;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hg7;
+import com.baidu.tieba.ig7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -227,11 +227,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hg7)) {
-                hg7 hg7Var = (hg7) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ig7)) {
+                ig7 ig7Var = (ig7) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (hg7Var.e() != null) {
-                    for (FragmentDelegate fragmentDelegate : hg7Var.e()) {
+                if (ig7Var.e() != null) {
+                    for (FragmentDelegate fragmentDelegate : ig7Var.e()) {
                         if (fragmentDelegate.getFragmentTabStructure().frag != null) {
                             arrayList.add(fragmentDelegate.getFragmentTabStructure().frag);
                         }
@@ -408,11 +408,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            hg7 hg7Var = new hg7(getPageContext().getPageActivity());
-            hg7Var.g(this.g);
-            hg7Var.h(this.h);
-            hg7Var.f(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, hg7Var));
+            ig7 ig7Var = new ig7(getPageContext().getPageActivity());
+            ig7Var.g(this.g);
+            ig7Var.h(this.h);
+            ig7Var.f(this.i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, ig7Var));
         }
     }
 

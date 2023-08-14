@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class t0a extends u0a {
+public abstract class t0a implements z97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.y97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "c11823" : (String) invokeV.objValue;
-    }
 
     public t0a() {
         Interceptable interceptable = $ic;
@@ -29,5 +27,34 @@ public final class t0a extends u0a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.z97
+    public Map<String, String> a(m57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str = "";
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str2 = a.get("live_type");
+            if (str2 == null) {
+                str2 = "";
+            }
+            hashMap.put("obj_param1", str2);
+            String str3 = a.get("live_app_id");
+            if (str3 != null) {
+                str = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

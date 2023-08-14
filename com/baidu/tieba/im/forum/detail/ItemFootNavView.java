@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bba;
 import com.baidu.tieba.bi;
+import com.baidu.tieba.cba;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.tbadkCore.LikeModel;
@@ -71,7 +71,7 @@ public class ItemFootNavView extends LinearLayout {
         public final /* synthetic */ ItemFootNavView b;
 
         /* loaded from: classes6.dex */
-        public class a implements bba.a {
+        public class a implements cba.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -94,7 +94,7 @@ public class ItemFootNavView extends LinearLayout {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.bba.a
+            @Override // com.baidu.tieba.cba.a
             public void a(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -110,7 +110,7 @@ public class ItemFootNavView extends LinearLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.bba.a
+            @Override // com.baidu.tieba.cba.a
             public void b(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -152,10 +152,10 @@ public class ItemFootNavView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
                 this.b.j.dismiss();
-                bba bbaVar = new bba();
-                bbaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
-                bbaVar.b(new a(this));
-                bbaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
+                cba cbaVar = new cba();
+                cbaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
+                cbaVar.b(new a(this));
+                cbaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
             }
         }
     }

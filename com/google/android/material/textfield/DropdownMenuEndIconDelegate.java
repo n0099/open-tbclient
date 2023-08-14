@@ -361,9 +361,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
         this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
         if (IS_LOLLIPOP) {
-            i = R.drawable.obfuscated_res_0x7f080fc8;
+            i = R.drawable.obfuscated_res_0x7f080fcb;
         } else {
-            i = R.drawable.obfuscated_res_0x7f080fc9;
+            i = R.drawable.obfuscated_res_0x7f080fcc;
         }
         this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, i));
         TextInputLayout textInputLayout = this.textInputLayout;

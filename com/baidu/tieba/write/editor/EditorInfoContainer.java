@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ita;
+import com.baidu.tieba.jta;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.m45;
@@ -153,7 +153,7 @@ public class EditorInfoContainer extends LinearLayout implements yh5 {
                         }
                         this.a.b.G(i);
                         if ("2".equals(this.a.b.i)) {
-                            ita.b(this.a.b.k, i);
+                            jta.b(this.a.b.k, i);
                         }
                     }
                 }
@@ -521,7 +521,7 @@ public class EditorInfoContainer extends LinearLayout implements yh5 {
     }
 
     /* loaded from: classes8.dex */
-    public class j implements ita.c {
+    public class j implements jta.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -544,7 +544,7 @@ public class EditorInfoContainer extends LinearLayout implements yh5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.ita.c
+        @Override // com.baidu.tieba.jta.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -730,7 +730,7 @@ public class EditorInfoContainer extends LinearLayout implements yh5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048603, this, str, i2) == null) && "2".equals(this.i)) {
             this.k = str;
-            ita.a(str, i2, new j(this));
+            jta.a(str, i2, new j(this));
         }
     }
 

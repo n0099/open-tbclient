@@ -70,12 +70,12 @@ public class w84 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.baidu.tieba.w84$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0513a implements Runnable {
+        public class RunnableC0516a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0513a(a aVar) {
+            public RunnableC0516a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +192,7 @@ public class w84 extends UnitedSchemeBaseInterceptor {
                 if (w84.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                so3.e0(new RunnableC0513a(this));
+                so3.e0(new RunnableC0516a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 vv2 d = this.e.d(this.b);

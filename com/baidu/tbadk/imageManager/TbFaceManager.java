@@ -15,8 +15,8 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.widget.VCenterTextSpan;
 import com.baidu.tieba.di5;
 import com.baidu.tieba.g95;
-import com.baidu.tieba.m06;
-import com.baidu.tieba.m17;
+import com.baidu.tieba.n06;
+import com.baidu.tieba.n17;
 import com.baidu.tieba.pl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -143,22 +143,22 @@ public class TbFaceManager {
         return (Bitmap) invokeL.objValue;
     }
 
-    public m06 c(String str) {
+    public n06 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new m06(TbadkCoreApplication.getInst().getContext(), e(str));
+            return new n06(TbadkCoreApplication.getInst().getContext(), e(str));
         }
-        return (m06) invokeL.objValue;
+        return (n06) invokeL.objValue;
     }
 
-    public m06 d(String str) {
+    public n06 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return new m06(TbadkCoreApplication.getInst().getContext(), l(str));
+            return new n06(TbadkCoreApplication.getInst().getContext(), l(str));
         }
-        return (m06) invokeL.objValue;
+        return (n06) invokeL.objValue;
     }
 
     public final int e(String str) {
@@ -325,7 +325,7 @@ public class TbFaceManager {
                 String group = matcher.group();
                 int f = this.b.f(group);
                 if (f > 0 && (h = h(f, String.valueOf(f))) != null) {
-                    ImageSpan b = m17.b(h, EmotionGroupType.LOCAL, null, null);
+                    ImageSpan b = n17.b(h, EmotionGroupType.LOCAL, null, null);
                     int length = group.length();
                     int start = matcher.start();
                     spannableString.setSpan(b, start, length + start, 33);

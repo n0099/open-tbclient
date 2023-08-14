@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes5.dex */
-public class dq6 implements k77<Message> {
+public class dq6 extends k77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,22 +27,38 @@ public class dq6 implements k77<Message> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.k77
-    /* renamed from: a */
-    public u97<?> b(Message message) {
-        InterceptResult invokeL;
+    @Nullable
+    public Object e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof LiveAnswer)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
-            a48 a48Var = new a48();
-            a48Var.c((LiveAnswer) message);
-            v67 v67Var = new v67();
-            v67Var.a = a48Var;
-            return new v97(new i37(v67Var), "recommend_banner");
+            if (c != 0) {
+                return super.e(str, str2);
+            }
+            return k45.b(str2);
         }
-        return (u97) invokeL.objValue;
+        return invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.k77
+    @NonNull
+    public v97<?> h(@NonNull n57<?> n57Var, @NonNull b67 b67Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n57Var, b67Var)) == null) {
+            u57 u57Var = new u57();
+            u57Var.c = n57Var;
+            u57Var.b = b67Var.a();
+            u57Var.a = b67Var.c();
+            return u57Var;
+        }
+        return (v97) invokeLL.objValue;
     }
 }

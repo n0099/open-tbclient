@@ -40,11 +40,11 @@ import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.eca;
 import com.baidu.tieba.fca;
 import com.baidu.tieba.gca;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.q25;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tm5;
@@ -61,7 +61,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
+public class FrsTabWebFragment extends BaseWebViewFragment implements ng7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -71,25 +71,25 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
     public View i;
     public NestedScrollWebView j;
     public FrameLayout k;
-    public eca l;
+    public fca l;
     public boolean m;
     public boolean n;
     public boolean o;
     public boolean p;
     public FrsViewData q;
-    public gca r;
+    public hca r;
     public CustomMessageListener s;
     public NestedScrollWebView.a t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -107,7 +107,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements gca {
+    public class a implements hca {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabWebFragment a;
@@ -130,7 +130,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
             this.a = frsTabWebFragment;
         }
 
-        @Override // com.baidu.tieba.gca
+        @Override // com.baidu.tieba.hca
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -521,7 +521,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            js5.a(getPageContext(), this.i);
+            ks5.a(getPageContext(), this.i);
             k0();
         }
     }
@@ -557,7 +557,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -608,9 +608,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            eca ecaVar = this.l;
-            if (ecaVar != null) {
-                ecaVar.h();
+            fca fcaVar = this.l;
+            if (fcaVar != null) {
+                fcaVar.h();
             }
             tm5.e().b();
         }
@@ -653,20 +653,20 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
         }
     }
 
-    public final fca j2() {
+    public final gca j2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, fca.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gca.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (fca) runTask.getData();
+                return (gca) runTask.getData();
             }
             return null;
         }
-        return (fca) invokeV.objValue;
+        return (gca) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -754,9 +754,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
             }
             l2();
             this.a = this.g;
-            eca ecaVar = new eca();
-            this.l = ecaVar;
-            ecaVar.a(new XiubaTbJsBridge(getPageContext()));
+            fca fcaVar = new fca();
+            this.l = fcaVar;
+            fcaVar.a(new XiubaTbJsBridge(getPageContext()));
             this.l.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.l.a(j2());
             registerListener(this.s);
@@ -777,7 +777,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mg7 {
             if (this.i == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a9, (ViewGroup) null);
                 this.i = inflate;
-                this.j = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929e4);
+                this.j = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929ea);
                 if (getBaseFragmentActivity() != null && getBaseFragmentActivity().isSwipeBackEnabled()) {
                     this.j.setOnHandleTouchEventListener(this.t);
                 }

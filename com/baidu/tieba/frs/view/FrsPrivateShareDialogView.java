@@ -26,11 +26,11 @@ import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.jt7;
+import com.baidu.tieba.kt7;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.view.ImageOverlayView;
-import com.baidu.tieba.wf7;
+import com.baidu.tieba.xf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumActiveInfo;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsPrivateShareDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,10 +66,10 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public m45 t;
     public ForumActiveInfo u;
     public String v;
-    public wf7 w;
-    public wf7.e x;
+    public xf7 w;
+    public xf7.e x;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,8 +102,8 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements wf7.e {
+    /* loaded from: classes6.dex */
+    public class b implements xf7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.wf7.e
+        @Override // com.baidu.tieba.xf7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(jt7.c(frsViewData.getForum()));
+            e(kt7.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -274,7 +274,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d59);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0811c2);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0811c5);
             this.d.setRadius(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
@@ -294,7 +294,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             barImageView.setShowOval(true);
             this.g.setStrokeWith(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds3));
             this.g.setStrokeColorResId(R.color.CAM_X0201);
-            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c61);
+            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c67);
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d91);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
@@ -304,9 +304,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                wf7 wf7Var = new wf7(this.s);
-                this.w = wf7Var;
-                wf7Var.o(this.b, this.m, null);
+                xf7 xf7Var = new xf7(this.s);
+                this.w = xf7Var;
+                xf7Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
             this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090d4b);

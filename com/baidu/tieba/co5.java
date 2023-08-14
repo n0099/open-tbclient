@@ -30,7 +30,7 @@ public class co5 {
     public int f;
     public int g;
     @Nullable
-    public qba h;
+    public rba h;
     @NonNull
     public HotTopicStat.Locate i;
     @Nullable
@@ -91,11 +91,11 @@ public class co5 {
     }
 
     @NonNull
-    public co5 c(@Nullable qba qbaVar) {
+    public co5 c(@Nullable rba rbaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qbaVar)) == null) {
-            this.h = qbaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rbaVar)) == null) {
+            this.h = rbaVar;
             return this;
         }
         return (co5) invokeL.objValue;
@@ -208,11 +208,11 @@ public class co5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            qba qbaVar = this.h;
-            if (qbaVar == null) {
+            rba rbaVar = this.h;
+            if (rbaVar == null) {
                 return null;
             }
-            return qbaVar.S();
+            return rbaVar.S();
         }
         return (String) invokeV.objValue;
     }

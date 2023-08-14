@@ -29,7 +29,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.r35;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
-import com.baidu.tieba.u8a;
+import com.baidu.tieba.v8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public u8a b;
+    public v8a b;
     public List<ImageView> c;
 
     /* loaded from: classes8.dex */
@@ -283,7 +283,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z8a
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a9a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -319,9 +319,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        u8a u8aVar = this.b;
-        if (u8aVar != null) {
-            u8aVar.a(aVar);
+        v8a v8aVar = this.b;
+        if (v8aVar != null) {
+            v8aVar.a(aVar);
         }
     }
 
@@ -399,10 +399,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(u8a u8aVar) {
+    public void setSignStampIconClickListener(v8a v8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, u8aVar) == null) {
-            this.b = u8aVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, v8aVar) == null) {
+            this.b = v8aVar;
         }
     }
 }

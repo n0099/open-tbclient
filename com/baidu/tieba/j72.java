@@ -158,7 +158,7 @@ public final class j72 extends e62<SwanEditText, k72> {
                     this.d.k = i;
                     this.d.n = this.a.getHeight();
                     this.d.F0(this.a, AddFriendActivityConfig.TYPE_FOCUS);
-                    boolean z = k72Var.f1125T;
+                    boolean z = k72Var.f1128T;
                     if (k72Var.S) {
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                         i2 = po3.g(38.0f);
@@ -734,7 +734,7 @@ public final class j72 extends e62<SwanEditText, k72> {
             if (!TextUtils.equals(str, k72Var.b)) {
                 r72.a("Component-TextArea", "keyBoardShow with different id");
             }
-            boolean z = k72Var.f1125T;
+            boolean z = k72Var.f1128T;
             if (swanEditText.hasFocus() && !k72Var.R) {
                 if (this.k > 0 && z && this.p) {
                     int scrollY = this.j.z3().getScrollY() + (swanEditText.getHeight() - this.n);

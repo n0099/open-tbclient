@@ -98,7 +98,7 @@ public class cc4 implements ns1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, nka.c);
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, oka.c);
         }
         return (File) invokeV.objValue;
     }

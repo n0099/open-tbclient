@@ -1,221 +1,257 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbCornersImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fh8 implements gh8 {
+public class fh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int n;
-    public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public FrameLayout b;
-    public FrameLayout c;
-    public HeadImageView d;
-    public TbCornersImageView e;
-    public BarImageView f;
-    public RelativeLayout g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public LinearLayout k;
-    public TextView l;
-    public fh8 m;
+    public LinearLayoutManager a;
+    public jh8 b;
+    public long c;
+    public sg8 d;
+    public boolean e;
+    public int f;
+    public int g;
+    public int h;
+    public ci8 i;
+    public bi8 j;
+    public RecyclerView k;
+    public final RecyclerView.OnScrollListener l;
+    public Runnable m;
 
-    @Override // com.baidu.tieba.gh8
-    public void a(@NonNull bi8 bi8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bi8Var) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fh8 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764243, "Lcom/baidu/tieba/fh8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(fh8 fh8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947764243, "Lcom/baidu/tieba/fh8;");
+            this.a = fh8Var;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLII(1048576, this, recyclerView, i, i2) != null) || !this.a.e || this.a.b.n() == null) {
                 return;
             }
+            this.a.e = false;
+            if (this.a.a.findViewByPosition(this.a.g) != null) {
+                fh8 fh8Var = this.a;
+                fh8Var.h = fh8Var.a.findViewByPosition(this.a.g).getTop();
+            }
+            this.a.b.n().scrollBy(0, (this.a.p() - this.a.n()) + this.a.h);
+            this.a.h = 0;
+            this.a.q();
         }
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds4);
-        o = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds450);
     }
 
-    public fh8() {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fh8 a;
+
+        public b(fh8 fh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fh8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.k != null && this.a.i != null && this.a.i.a() != null) {
+                this.a.i.a().setLocationScrolled(false);
+                this.a.k.getAdapter().notifyItemChanged(this.a.f);
+            }
+        }
+    }
+
+    public fh8(@NonNull LinearLayoutManager linearLayoutManager, jh8 jh8Var, long j, sg8 sg8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {linearLayoutManager, jh8Var, Long.valueOf(j), sg8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = false;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.k = null;
+        this.l = new a(this);
+        this.m = new b(this);
+        this.a = linearLayoutManager;
+        this.b = jh8Var;
+        this.c = j;
+        this.d = sg8Var;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = -1L;
+            this.e = false;
         }
     }
 
-    @Override // com.baidu.tieba.gh8
-    public HeadImageView b() {
+    public void r() {
+        Runnable runnable;
+        RecyclerView recyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (runnable = this.m) != null && (recyclerView = this.k) != null) {
+            recyclerView.removeCallbacks(runnable);
+        }
+    }
+
+    public final int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m.d;
-        }
-        return (HeadImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public TextView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m.l;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public TextView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m.i;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m.j;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public TextView f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m.h;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public FrameLayout g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.m.c;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return o;
+            if (this.b.r() != null && this.b.n() != null) {
+                return (this.b.r().getHeight() / 2) - this.b.n().getTop();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public static fh8 k(@NonNull View view2) {
-        InterceptResult invokeL;
+    public final int o() {
+        InterceptResult invokeV;
+        sg8 sg8Var;
+        ci8 ci8Var;
+        ChatRoomInfo a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            fh8 fh8Var = new fh8();
-            fh8Var.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e98);
-            fh8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e94);
-            fh8Var.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090eb9);
-            fh8Var.d = (HeadImageView) view2.findViewById(R.id.chat_head);
-            fh8Var.e = (TbCornersImageView) view2.findViewById(R.id.svg_head);
-            fh8Var.f = (BarImageView) view2.findViewById(R.id.forum_head);
-            fh8Var.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e85);
-            fh8Var.h = (TextView) view2.findViewById(R.id.chat_name);
-            fh8Var.i = (TextView) view2.findViewById(R.id.last_chat_content);
-            fh8Var.j = (TextView) view2.findViewById(R.id.new_message);
-            fh8Var.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e87);
-            fh8Var.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906b8);
-            fh8Var.m = fh8Var;
-            return fh8Var;
-        }
-        return (fh8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh8
-    public void h(@NonNull bi8 bi8Var) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bi8Var) == null) {
-            EMManager.from(this.m.h).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
-            if (bi8Var.a() != null && bi8Var.a().isLocationScrolled()) {
-                i = R.color.CAM_X0313;
-                i2 = R.string.A_X03;
-            } else {
-                i = R.color.CAM_X0201;
-                i2 = R.string.A_X06;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c > 0 && (sg8Var = this.d) != null && !ListUtils.isEmpty(sg8Var.d())) {
+                List<ug8> d = this.d.d();
+                for (ug8 ug8Var : d) {
+                    if (ug8Var != null && (ug8Var instanceof bi8)) {
+                        bi8 bi8Var = (bi8) ug8Var;
+                        List<ug8> subItems = bi8Var.getSubItems();
+                        if (ListUtils.isEmpty(subItems)) {
+                            continue;
+                        } else {
+                            for (ug8 ug8Var2 : subItems) {
+                                if (ug8Var2 != null && (ug8Var2 instanceof ci8) && (a2 = (ci8Var = (ci8) ug8Var2).a()) != null && this.c == a2.getRoomId()) {
+                                    this.f = subItems.indexOf(ug8Var2);
+                                    this.g = d.indexOf(ug8Var);
+                                    this.i = ci8Var;
+                                    this.j = bi8Var;
+                                    bi8Var.g(false);
+                                    return d.indexOf(ug8Var);
+                                }
+                            }
+                            continue;
+                        }
+                    }
+                }
             }
-            EMManager.from(this.m.a).setCorner(R.string.J_X06).setAlpha(i2).setBackGroundColor(i);
-            EMManager.from(this.m.j).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0108);
-            EMManager.from(this.m.i).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08);
-            this.m.d.setBorderWidth(n);
-            this.m.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.m.d.setIsRound(true);
-            this.m.d.setDrawBorder(true);
-            this.m.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.m.d.setPlaceHolder(1);
-            this.m.d.setDrawBorder(true);
-            EMManager.from(this.m.l).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0301);
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int p() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d.getItemsCount() <= 0 || this.f <= 0 || this.b.n() == null || (viewGroup = (ViewGroup) this.b.n().getChildAt(0)) == null || viewGroup.findViewById(R.id.obfuscated_res_0x7f090eaf) == null || (viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f090eaf)) == null || viewGroup2.getChildAt(0) == null) {
+                return 0;
+            }
+            return viewGroup2.getChildAt(0).getHeight() * (this.f + 1);
+        }
+        return invokeV.intValue;
+    }
+
+    public final void q() {
+        ViewGroup viewGroup;
+        ci8 ci8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (viewGroup = (ViewGroup) this.a.findViewByPosition(this.g)) != null) {
+            RecyclerView recyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090eaf);
+            this.k = recyclerView;
+            if (recyclerView != null && recyclerView.getChildAt(this.f) != null && (ci8Var = this.i) != null && ci8Var.a() != null) {
+                this.i.a().setLocationScrolled(true);
+                this.k.getAdapter().notifyItemChanged(this.f);
+                this.k.postDelayed(this.m, 3000L);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void j() {
+    public void s() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.m.i.setMaxLines(1);
-            this.m.i.setEllipsize(TextUtils.TruncateAt.END);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(3, R.id.chat_name);
-            layoutParams.topMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds162);
-            this.m.k.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int o = o();
+            if (o >= 0 && this.b.n() != null) {
+                int findFirstVisibleItemPosition = this.a.findFirstVisibleItemPosition();
+                int findLastVisibleItemPosition = this.a.findLastVisibleItemPosition();
+                if (o >= findFirstVisibleItemPosition && o <= findLastVisibleItemPosition) {
+                    this.e = false;
+                    if (this.a.findViewByPosition(o) != null) {
+                        i = this.a.findViewByPosition(o).getTop();
+                    } else {
+                        i = 0;
+                    }
+                    this.b.n().scrollBy(0, (i - n()) + p());
+                    q();
+                    return;
+                }
+                this.e = true;
+                this.a.scrollToPosition(o);
+            } else if (this.a != null && this.b.n() != null) {
+                this.a.scrollToPosition(0);
+            }
         }
     }
 }

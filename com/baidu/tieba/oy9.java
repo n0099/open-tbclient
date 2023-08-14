@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class oy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public String a;
+    public String b;
 
     public oy9() {
         Interceptable interceptable = $ic;
@@ -33,36 +29,17 @@ public class oy9 {
         }
     }
 
-    public static oy9 a(JSONObject jSONObject) {
+    @Nullable
+    public static oy9 a(@Nullable JSONObject jSONObject) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
             oy9 oy9Var = new oy9();
-            if (jSONObject.optInt("label_measure") == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            oy9Var.a = z;
-            oy9Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        cy8.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            oy9Var.c = arrayList;
-            oy9Var.d = jSONObject.optInt("width");
-            oy9Var.e = jSONObject.optInt("height");
+            oy9Var.a = jSONObject.optString("text");
+            oy9Var.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
             return oy9Var;
         }
         return (oy9) invokeL.objValue;

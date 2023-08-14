@@ -59,7 +59,7 @@ public class OpenLocationMenuItem {
         this.c = new TextView(context);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ef));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810f2));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

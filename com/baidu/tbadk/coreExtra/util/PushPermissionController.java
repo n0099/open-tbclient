@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.de5;
 import com.baidu.tieba.iz4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.tv9;
+import com.baidu.tieba.uv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -164,7 +164,7 @@ public class PushPermissionController {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
                 return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 7);
             }
-            return tv9.e().b("user_follow");
+            return uv9.e().b("user_follow");
         }
         return invokeV.booleanValue;
     }
@@ -199,7 +199,7 @@ public class PushPermissionController {
                 b bVar = new b(this, m, areNotificationsEnabled);
                 if (checkShouldShowUserFollowPush()) {
                     PushOpenUtil.showPushPermissionDialogV2(this.mContext, this.mActivity, 10, bVar);
-                    tv9.e().h("user_follow");
+                    uv9.e().h("user_follow");
                 }
             }
         }

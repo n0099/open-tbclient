@@ -145,8 +145,8 @@ public class BdTimePicker extends LinearLayout {
         this.m = po3.f(context, 16.0f);
         this.n = po3.f(context, 14.0f);
         j();
-        this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09252c);
-        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a02);
+        this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092532);
+        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a08);
         this.c = wheelView3d;
         wheelView3d.setLineSpacingMultiplier(3.0f);
         this.c.setCenterTextSize(this.m);
@@ -159,7 +159,7 @@ public class BdTimePicker extends LinearLayout {
         this.c.setDividerType(WheelView3d.DividerType.FILL);
         this.c.setDividerColor(0);
         this.c.setOnItemSelectedListener(new a());
-        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a03);
+        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092a09);
         this.d = wheelView3d2;
         wheelView3d2.setLineSpacingMultiplier(3.0f);
         this.d.setCenterTextSize(this.m);

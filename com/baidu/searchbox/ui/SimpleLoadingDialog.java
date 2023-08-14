@@ -33,7 +33,7 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     public void initView() {
         int i;
         setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0242);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f73);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f79);
         this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091631);
         this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091740);
         this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09072f);

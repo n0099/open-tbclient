@@ -9,16 +9,8 @@ import java.util.List;
 public class xaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public yaa f;
-    public String g;
-    public int h;
-    public List<String> i;
-    public String j;
+    public int a;
+    public List<yaa> b;
 
     public xaa() {
         Interceptable interceptable = $ic;

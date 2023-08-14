@@ -934,14 +934,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == R.id.obfuscated_res_0x7f091a42) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f091a48) {
             h();
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f091a41) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f091a47) {
             this.L.setVisibility(8);
             this.K.setVisibility(8);
             this.M = Boolean.TRUE;
             i();
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f091a45) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f091a4b) {
             startActivity(new Intent(this, YYProtocolActivity.class));
         }
     }
@@ -1453,31 +1453,31 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
 
     private void m() {
         PassBioDisplayUtil.enableNavigationBarTint(this, getResources().getColor(17170445));
-        this.f = (CircleProgressView) findViewById(R.id.obfuscated_res_0x7f091a43);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091a44);
+        this.f = (CircleProgressView) findViewById(R.id.obfuscated_res_0x7f091a49);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091a4a);
         this.f.setNormalColor(Color.parseColor("#FFE0E0E0"));
         this.f.setOnChangeListener(new k());
         this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914a9);
         this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091227);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092752);
-        this.k = (CameraSurfaceView) findViewById(R.id.obfuscated_res_0x7f091a38);
-        this.l = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091a3a);
-        this.m = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091a39);
-        this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a47);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092758);
+        this.k = (CameraSurfaceView) findViewById(R.id.obfuscated_res_0x7f091a3e);
+        this.l = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091a40);
+        this.m = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091a3f);
+        this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a4d);
         setBrightness(this, 255);
-        ((ImageView) findViewById(R.id.obfuscated_res_0x7f091a42)).setOnClickListener(this);
+        ((ImageView) findViewById(R.id.obfuscated_res_0x7f091a48)).setOnClickListener(this);
         PassFaceRecogDTO passFaceRecogDTO = this.mPassFaceRecogDTO;
         if (passFaceRecogDTO != null && passFaceRecogDTO.needAuthorizeCertInfo) {
             this.N = passFaceRecogDTO.extraParamsMap.get("yyOrderId");
             this.M = Boolean.FALSE;
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f09208e)).setText(R.string.obfuscated_res_0x7f0f09db);
-            this.K = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a3b);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a46);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f092094)).setText(R.string.obfuscated_res_0x7f0f09db);
+            this.K = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a41);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a4c);
             this.L = relativeLayout;
             relativeLayout.setVisibility(0);
             this.K.setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f091a45).setOnClickListener(this);
-            findViewById(R.id.obfuscated_res_0x7f091a41).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091a4b).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091a47).setOnClickListener(this);
             this.g.setText(R.string.obfuscated_res_0x7f0f09d7);
         }
     }

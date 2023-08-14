@@ -6,19 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import tbclient.FrsPage.HeadCardCover;
-import tbclient.FrsPage.HeaderCard;
 import tbclient.ThemeColorInfo;
-import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
 public final class tqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<ThreadInfo> b;
-    public ThemeColorInfo c;
-    public sqa d;
+    public sqa a;
+    public ThemeColorInfo b;
+    public vqa c;
 
     public tqa() {
         Interceptable interceptable = $ic;
@@ -30,79 +26,68 @@ public final class tqa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new sqa();
     }
 
     public final ThemeColorInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (ThemeColorInfo) invokeV.objValue;
     }
 
-    public final String b() {
+    public final sqa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final sqa c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
         return (sqa) invokeV.objValue;
     }
 
-    public final List<ThreadInfo> d() {
+    public final vqa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (vqa) invokeV.objValue;
     }
 
-    public final void e(HeaderCard headerCard) {
+    public final void d(HeadCardCover headCardCover) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, headerCard) != null) || headerCard == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, headCardCover) != null) || headCardCover == null) {
             return;
         }
-        this.a = headerCard.card_title;
-        this.b = headerCard.thread_list;
-        this.c = headerCard.card_background;
-        HeadCardCover headCardCover = headerCard.cover;
-        if (headCardCover != null) {
-            sqa sqaVar = new sqa();
-            this.d = sqaVar;
-            if (sqaVar != null) {
-                sqaVar.d(headCardCover);
-            }
+        sqa sqaVar = new sqa();
+        this.a = sqaVar;
+        sqaVar.d(headCardCover.freq);
+        this.b = headCardCover.card_background;
+        vqa vqaVar = new vqa();
+        this.c = vqaVar;
+        if (vqaVar != null) {
+            vqaVar.q(headCardCover.match_info);
         }
     }
 
-    public final void f(tbclient.Personalized.HeaderCard headerCard) {
+    public final void e(tbclient.Personalized.HeadCardCover headCardCover) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headCardCover) != null) || headCardCover == null) {
             return;
         }
-        this.a = headerCard.card_title;
-        this.b = headerCard.thread_list;
-        this.c = headerCard.card_background;
-        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
-        if (headCardCover != null) {
-            sqa sqaVar = new sqa();
-            this.d = sqaVar;
-            if (sqaVar != null) {
-                sqaVar.e(headCardCover);
-            }
+        sqa sqaVar = new sqa();
+        this.a = sqaVar;
+        sqaVar.e(headCardCover.freq);
+        this.b = headCardCover.card_background;
+        vqa vqaVar = new vqa();
+        this.c = vqaVar;
+        if (vqaVar != null) {
+            vqaVar.r(headCardCover.match_info);
         }
     }
 }

@@ -25,8 +25,8 @@ import com.baidu.tbadk.data.HotEventData;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.kr6;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.lr6;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.tieba.vd5;
@@ -84,9 +84,9 @@ public class hf5 {
     public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kr6.e a;
+        public final /* synthetic */ lr6.e a;
 
-        public b(kr6.e eVar) {
+        public b(lr6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,9 +181,9 @@ public class hf5 {
     public static class d implements vd5.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kr6.e a;
+        public final /* synthetic */ lr6.e a;
 
-        public d(kr6.e eVar) {
+        public d(lr6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public class hf5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = hf5.a = false;
-                kr6.e eVar = this.a;
+                lr6.e eVar = this.a;
                 if (eVar != null) {
                     eVar.onDismiss();
                 }
@@ -415,7 +415,7 @@ public class hf5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 83;
-            if (ho6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
+            if (io6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
                 i = R.dimen.tbds95;
             } else {
                 i = R.dimen.tbds141;
@@ -437,7 +437,7 @@ public class hf5 {
                 curGlobalActivity = TbadkCoreApplication.getInst();
             }
             if (hotEventData != null && hotEventData.getWindowType() == 3) {
-                t1a.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+                u1a.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
             }
         }
     }
@@ -507,7 +507,7 @@ public class hf5 {
         return invokeL.booleanValue;
     }
 
-    public static vd5 p(HotEventData hotEventData, kr6.e eVar) {
+    public static vd5 p(HotEventData hotEventData, lr6.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
@@ -545,7 +545,7 @@ public class hf5 {
         return (vd5) invokeLL.objValue;
     }
 
-    public static SpriteAnimationTipManager t(HotEventData hotEventData, kr6.e eVar) {
+    public static SpriteAnimationTipManager t(HotEventData hotEventData, lr6.e eVar) {
         InterceptResult invokeLL;
         boolean z;
         String str;
@@ -565,12 +565,12 @@ public class hf5 {
             r(hotEventData);
             Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
             if (currentActivity != null && !currentActivity.isFinishing()) {
-                if (currentActivity instanceof gfa) {
+                if (currentActivity instanceof hfa) {
                     DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
-                    rr6.b().b(new g9a(new h9a(hotEventData, eVar), 1));
+                    sr6.b().b(new h9a(new i9a(hotEventData, eVar), 1));
                     return null;
                 }
-                if (ho6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
+                if (io6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
                 }
                 SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
@@ -584,13 +584,13 @@ public class hf5 {
                 } else {
                     str = "funny_sprite_appear_dark";
                 }
-                zr6 a2 = um5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+                as6 a2 = um5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
                 if (z) {
                     str2 = "funny_sprite_show_day";
                 } else {
                     str2 = "funny_sprite_show_dark";
                 }
-                zr6 a3 = um5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+                as6 a3 = um5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
                 if (z) {
                     str3 = "funny_sprite_exit_day";
                 } else {

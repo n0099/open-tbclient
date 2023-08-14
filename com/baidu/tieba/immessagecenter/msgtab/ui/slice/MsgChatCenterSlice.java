@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.cw5;
+import com.baidu.tieba.dw5;
 import com.baidu.tieba.hq5;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
@@ -342,7 +342,7 @@ public final class MsgChatCenterSlice extends Slice implements hq5 {
     public void U(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
-            cw5.b(view2);
+            dw5.b(view2);
             getLifecycle().addObserver(this.n);
             Z().addEventDelegate(this);
             e0();

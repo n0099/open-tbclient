@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fa5;
 import com.baidu.tieba.lm;
-import com.baidu.tieba.vd9;
+import com.baidu.tieba.wd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ApkDetail;
 import tbclient.Item;
 /* loaded from: classes7.dex */
-public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder> {
+public class PbFirstFloorItemAdapter extends lm<wd9, PbFirstFloorItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
@@ -55,15 +55,15 @@ public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder>
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ vd9 a;
+            public final /* synthetic */ wd9 a;
             public final /* synthetic */ PbFirstFloorItemViewHolder b;
 
-            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, vd9 vd9Var) {
+            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, wd9 wd9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {pbFirstFloorItemViewHolder, vd9Var};
+                    Object[] objArr = {pbFirstFloorItemViewHolder, wd9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -74,7 +74,7 @@ public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder>
                     }
                 }
                 this.b = pbFirstFloorItemViewHolder;
-                this.a = vd9Var;
+                this.a = wd9Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -137,15 +137,15 @@ public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder>
             }
         }
 
-        public void c(vd9 vd9Var) {
+        public void c(wd9 wd9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd9Var) == null) {
-                if (vd9Var != null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd9Var) == null) {
+                if (wd9Var != null) {
                     this.a.setText(this.d.mContext.getText(R.string.related_recommendation));
                     ItemData itemData = new ItemData();
-                    itemData.parseProto(vd9Var.a);
-                    this.b.setData(itemData, 17, vd9Var.b);
-                    this.b.setOnClickListener(new a(this, vd9Var));
+                    itemData.parseProto(wd9Var.a);
+                    this.b.setData(itemData, 17, wd9Var.b);
+                    this.b.setOnClickListener(new a(this, wd9Var));
                 }
                 if (this.d.a != null) {
                     this.b.setOnClickListenerOfRightBtn(this.d.a);
@@ -215,8 +215,8 @@ public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder>
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.lm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vd9 vd9Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
-        x(i, view2, viewGroup, vd9Var, pbFirstFloorItemViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wd9 wd9Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+        x(i, view2, viewGroup, wd9Var, pbFirstFloorItemViewHolder);
         return view2;
     }
 
@@ -260,18 +260,18 @@ public class PbFirstFloorItemAdapter extends lm<vd9, PbFirstFloorItemViewHolder>
         return (PbFirstFloorItemViewHolder) invokeL.objValue;
     }
 
-    public View x(int i, View view2, ViewGroup viewGroup, vd9 vd9Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+    public View x(int i, View view2, ViewGroup viewGroup, wd9 wd9Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vd9Var, pbFirstFloorItemViewHolder})) == null) {
-            if (vd9Var != null && vd9Var.a != null) {
-                pbFirstFloorItemViewHolder.c(vd9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wd9Var, pbFirstFloorItemViewHolder})) == null) {
+            if (wd9Var != null && wd9Var.a != null) {
+                pbFirstFloorItemViewHolder.c(wd9Var);
             }
             pbFirstFloorItemViewHolder.a();
             StatisticItem statisticItem = new StatisticItem("c14070");
-            if (vd9Var != null) {
-                statisticItem.param("tid", vd9Var.b);
-                statisticItem.param("obj_locate", vd9Var.a.item_id.longValue());
+            if (wd9Var != null) {
+                statisticItem.param("tid", wd9Var.b);
+                statisticItem.param("obj_locate", wd9Var.a.item_id.longValue());
             }
             TiebaStatic.log(statisticItem);
             return view2;

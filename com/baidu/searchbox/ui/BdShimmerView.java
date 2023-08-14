@@ -51,9 +51,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements LoadingViewHold
         int i = this.mType;
         if (i != 0) {
             if (i == 1) {
-                Drawable preloadedDrawable = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08157b);
+                Drawable preloadedDrawable = PreloadUIResUtil.getPreloadedDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08157e);
                 if (preloadedDrawable == null) {
-                    this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08157b));
+                    this.mShimmerContent.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08157e));
                 } else {
                     this.mShimmerContent.setImageDrawable(preloadedDrawable);
                 }

@@ -1,65 +1,160 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.safe.SafeHandler;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import com.baidu.tieba.impersonal.sprite.ImSpriteSysLog;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.TreeSet;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iv8 {
+public final class iv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    @NonNull
-    public hv8 b;
+    public final Context a;
+    public final dn5 b;
+    public final int c;
+    public BroadcastReceiver d;
+    public final SpriteMsgProcessor e;
+    public final bw5<String> f;
+    public final String g;
+    public final HashSet<b> h;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public interface b {
+        static {
+            a aVar = a.a;
+        }
+
+        void a(List<? extends ut8> list);
+
+        void b(int i, String str, zt8<?> zt8Var);
+
+        void c(int i);
+
+        void d(String str);
+
+        void e(int i);
+
+        void onError(int i);
+
+        /* loaded from: classes6.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static final /* synthetic */ a a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(613747619, "Lcom/baidu/tieba/iv8$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(613747619, "Lcom/baidu/tieba/iv8$b$a;");
+                        return;
+                    }
+                }
+                a = new a();
+            }
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ iv8 b;
 
-        public a(iv8 iv8Var, String str) {
+        @Override // com.baidu.tieba.iv8.b
+        public void b(int i, String errorMsg, zt8<?> msg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, errorMsg, msg) == null) {
+                Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
+                Intrinsics.checkNotNullParameter(msg, "msg");
+            }
+        }
+
+        @Override // com.baidu.tieba.iv8.b
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.iv8.b
+        public void d(String msgKey) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msgKey) == null) {
+                Intrinsics.checkNotNullParameter(msgKey, "msgKey");
+            }
+        }
+
+        @Override // com.baidu.tieba.iv8.b
+        public void e(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.iv8.b
+        public void onError(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iv8Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.b = iv8Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a);
             }
         }
     }
 
-    public iv8(Context context, @NonNull hv8 hv8Var) {
+    public iv8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, hv8Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -69,44 +164,433 @@ public class iv8 {
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
         this.a = context;
-        this.b = hv8Var;
+        this.b = cn5.a();
+        this.c = 20;
+        this.e = new SpriteMsgProcessor(this.a);
+        this.f = bw5.c();
+        this.g = "fetchMsgFirst";
+        this.h = new HashSet<>();
     }
 
-    public void b(@Nullable String str, @Nullable String str2, Boolean bool) {
+    public static final void c(final iv8 this$0, String key, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
+        Integer num;
+        List<ChatMsg> msgs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, bool) == null) {
-            int i = JavaTypesHelper.toInt(str, 0);
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{this$0, key, Integer.valueOf(i), str, personFetchMsgResponse}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(key, "$key");
+            if (i == 0) {
+                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
+                treeSet.addAll(personFetchMsgResponse.getMsgs());
+                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(1));
+                lg.g(new Runnable() { // from class: com.baidu.tieba.bv8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            iv8.d(iv8.this);
+                        }
                     }
-                } else if (TextUtils.isEmpty(str2)) {
-                    return;
+                });
+            } else {
+                TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
+                String r = this$0.e.r();
+                StringBuilder sb = new StringBuilder();
+                sb.append("fetchHistoryMsg ： responseCode : ");
+                sb.append(i);
+                sb.append("errMsg : ");
+                sb.append(str);
+                sb.append("response : ");
+                if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
+                    num = Integer.valueOf(msgs.size());
                 } else {
-                    SafeHandler.getInst().postDelayed(new a(this, str2), 1000L);
-                    return;
+                    num = null;
                 }
+                sb.append(num);
+                imSpriteSysLog.i(r, sb.toString());
+                lg.g(new Runnable() { // from class: com.baidu.tieba.su8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            iv8.e(iv8.this);
+                        }
+                    }
+                });
             }
-            if (bool.booleanValue()) {
+            this$0.f.d(key);
+        }
+    }
+
+    public static final void n(final iv8 this$0, String key, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
+        Integer num;
+        List<ChatMsg> msgs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{this$0, key, Integer.valueOf(i), str, personFetchMsgResponse}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(key, "$key");
+            BdLog.e(StatConstants.KEY_EXT_ERR_MSG + str);
+            if (i == 0) {
+                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
+                treeSet.addAll(personFetchMsgResponse.getMsgs());
+                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(0));
+                lg.g(new Runnable() { // from class: com.baidu.tieba.vu8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            iv8.o(iv8.this);
+                        }
+                    }
+                });
+            } else {
+                TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
+                String r = this$0.e.r();
+                StringBuilder sb = new StringBuilder();
+                sb.append("firstFetchMsg ： responseCode : ");
+                sb.append(i);
+                sb.append("errMsg : ");
+                sb.append(str);
+                sb.append("response : ");
+                if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
+                    num = Integer.valueOf(msgs.size());
+                } else {
+                    num = null;
+                }
+                sb.append(num);
+                imSpriteSysLog.i(r, sb.toString());
+                lg.g(new Runnable() { // from class: com.baidu.tieba.ev8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            iv8.p(iv8.this);
+                        }
+                    }
+                });
+            }
+            this$0.f.d(key);
+        }
+    }
+
+    public static final void d(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.c(1);
+            }
+        }
+    }
+
+    public static final void e(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.onError(1);
+            }
+        }
+    }
+
+    public static final void f(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.e(1);
+            }
+        }
+    }
+
+    public static final void h(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.e(2);
+            }
+        }
+    }
+
+    public static final void j(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.c(2);
+            }
+        }
+    }
+
+    public static final void k(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.onError(2);
+            }
+        }
+    }
+
+    public static final void m(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.e(0);
+            }
+        }
+    }
+
+    public static final void o(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.c(0);
+            }
+        }
+    }
+
+    public static final void p(iv8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            for (b bVar : this$0.h) {
+                bVar.onError(0);
+            }
+        }
+    }
+
+    public final void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (bVar != null) {
+                this.h.add(bVar);
+            }
+            this.e.e(bVar);
+        }
+    }
+
+    public final void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            lg.g(new Runnable() { // from class: com.baidu.tieba.zu8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        iv8.h(iv8.this);
+                    }
+                }
+            });
+            this.b.b(this.a, j, Long.MAX_VALUE, this.c, SpriteMsgProcessor.m.a(), new en5() { // from class: com.baidu.tieba.wu8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.en5
+                public final void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, personFetchMsgResponse) == null) {
+                        iv8.i(iv8.this, i, str, personFetchMsgResponse);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void t(zt8<?> msg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, msg) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            this.e.E(msg);
+        }
+    }
+
+    public final void u(SpriteMsgProcessor.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
+            this.e.F(dVar);
+        }
+    }
+
+    public static final void i(final iv8 this$0, int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
+        Integer num;
+        List<ChatMsg> msgs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65542, null, this$0, i, str, personFetchMsgResponse) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            if (i == 0) {
+                TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.e.l());
+                treeSet.addAll(personFetchMsgResponse.getMsgs());
+                this$0.e.v(SpriteMsgProcessor.m.a(), treeSet, new SpriteMsgProcessor.e(2));
+                lg.g(new Runnable() { // from class: com.baidu.tieba.dv8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            iv8.j(iv8.this);
+                        }
+                    }
+                });
                 return;
             }
-            c();
+            TbLog imSpriteSysLog = ImSpriteSysLog.getInstance();
+            String r = this$0.e.r();
+            StringBuilder sb = new StringBuilder();
+            sb.append("fetchNextMsg ： responseCode : ");
+            sb.append(i);
+            sb.append("errMsg : ");
+            sb.append(str);
+            sb.append("response : ");
+            if (personFetchMsgResponse != null && (msgs = personFetchMsgResponse.getMsgs()) != null) {
+                num = Integer.valueOf(msgs.size());
+            } else {
+                num = null;
+            }
+            sb.append(num);
+            imSpriteSysLog.i(r, sb.toString());
+            lg.g(new Runnable() { // from class: com.baidu.tieba.gv8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        iv8.k(iv8.this);
+                    }
+                }
+            });
         }
     }
 
-    public final void c() {
+    public final void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            um5.l(2);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.f.b(this.g) && this.f.a("fetchHistoryMsg")) {
+            lg.g(new Runnable() { // from class: com.baidu.tieba.xu8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        iv8.f(iv8.this);
+                    }
+                }
+            });
+            this.b.b(this.a, 0L, j, -this.c, SpriteMsgProcessor.m.a(), new en5() { // from class: com.baidu.tieba.qu8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.en5
+                public final void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, personFetchMsgResponse) == null) {
+                        iv8.c(iv8.this, r2, i, str, personFetchMsgResponse);
+                    }
+                }
+            });
         }
     }
 
-    public final void d(@NonNull String str) {
+    public final void q(Object msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b.t(cu8.a(str));
+        if (interceptable == null || interceptable.invokeL(1048580, this, msg) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            if (msg instanceof zt8) {
+                zt8 zt8Var = (zt8) msg;
+                if (zt8Var.h() instanceof ChatMsg) {
+                    SpriteMsgProcessor spriteMsgProcessor = this.e;
+                    Object h = zt8Var.h();
+                    if (h != null) {
+                        spriteMsgProcessor.y((ChatMsg) h);
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.android.imsdk.chatmessage.messages.ChatMsg");
+                }
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            final String str = this.g;
+            if (!this.f.a(str)) {
+                return;
+            }
+            lg.g(new Runnable() { // from class: com.baidu.tieba.hv8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        iv8.m(iv8.this);
+                    }
+                }
+            });
+            this.b.b(this.a, 0L, Long.MAX_VALUE, this.c, SpriteMsgProcessor.m.a(), new en5() { // from class: com.baidu.tieba.fv8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.en5
+                public final void a(int i, String str2, PersonFetchMsgResponse personFetchMsgResponse) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, personFetchMsgResponse) == null) {
+                        iv8.n(iv8.this, str, i, str2, personFetchMsgResponse);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = this.b.a(this.a, this.e);
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.D();
+        }
+    }
+
+    public final void v() {
+        BroadcastReceiver broadcastReceiver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (broadcastReceiver = this.d) != null) {
+            dn5 dn5Var = this.b;
+            Context context = this.a;
+            Intrinsics.checkNotNull(broadcastReceiver);
+            dn5Var.c(context, broadcastReceiver);
         }
     }
 }

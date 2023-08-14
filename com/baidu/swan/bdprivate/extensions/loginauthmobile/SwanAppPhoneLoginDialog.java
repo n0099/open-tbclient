@@ -261,7 +261,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         AccountSmsLoginView accountSmsLoginView = new AccountSmsLoginView(getContext());
         this.l = accountSmsLoginView;
         this.m.addView(accountSmsLoginView);
-        this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f091c59);
+        this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f091c5f);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, po3.g(80.0f));
         layoutParams.setMargins(po3.g(40.0f), 0, po3.g(40.0f), 0);
         this.m.addView(this.t, layoutParams);
@@ -274,11 +274,11 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         this.d = linearLayout;
         this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09072f);
         this.k = (BdBaseImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090323);
-        this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c60);
+        this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c66);
         this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091660);
         this.t = new View(getContext());
-        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09255a);
-        this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092848);
+        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092560);
+        this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09284e);
         a2();
         this.j.setOnClickListener(new b());
         if (this.q) {
@@ -295,7 +295,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         if (resources == null) {
             return;
         }
-        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
+        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08145a));
         this.k.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08011d));
         TextView textView = this.o;
         boolean z = this.c;

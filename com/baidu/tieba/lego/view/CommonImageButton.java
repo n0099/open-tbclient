@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kx8;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.ay8;
+import com.baidu.tieba.lx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,26 +101,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(zx8 zx8Var) {
+    public void b(ay8 ay8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zx8Var) != null) || zx8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ay8Var) != null) || ay8Var == null) {
             return;
         }
-        if (!zx8Var.i()) {
-            kx8.a().d(zx8Var, zx8Var.g());
+        if (!ay8Var.i()) {
+            lx8.a().d(ay8Var, ay8Var.g());
         }
-        if (zx8Var.a()) {
-            c(zx8Var);
+        if (ay8Var.a()) {
+            c(ay8Var);
         } else {
-            d(zx8Var);
+            d(ay8Var);
         }
     }
 
-    public final void c(zx8 zx8Var) {
+    public final void c(ay8 ay8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ay8Var) == null) {
             this.d.setVisibility(8);
-            int e = zx8Var.e();
+            int e = ay8Var.e();
             if (e != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, e);
@@ -130,12 +130,12 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(zx8 zx8Var) {
+    public final void d(ay8 ay8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zx8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ay8Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            this.d.startLoad(zx8Var.d(), 10, false);
+            this.d.startLoad(ay8Var.d(), 10, false);
         }
     }
 }

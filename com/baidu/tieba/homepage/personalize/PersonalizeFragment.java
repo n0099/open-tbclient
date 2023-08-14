@@ -25,17 +25,17 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.dt4;
-import com.baidu.tieba.e28;
 import com.baidu.tieba.et4;
-import com.baidu.tieba.h6a;
-import com.baidu.tieba.j6a;
-import com.baidu.tieba.lz7;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.f28;
+import com.baidu.tieba.i6a;
+import com.baidu.tieba.k6a;
 import com.baidu.tieba.mz7;
-import com.baidu.tieba.rr6;
-import com.baidu.tieba.t9a;
+import com.baidu.tieba.ng7;
+import com.baidu.tieba.nz7;
+import com.baidu.tieba.sr6;
 import com.baidu.tieba.tm5;
-import com.baidu.tieba.y36;
+import com.baidu.tieba.u9a;
+import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
-public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManager.i {
+public class PersonalizeFragment extends BaseFragment implements ng7, VoiceManager.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizePageView a;
     public VoiceManager b;
-    public lz7 c;
+    public mz7 c;
     public boolean d;
     public final Object e;
     public CustomMessageListener f;
@@ -58,14 +58,14 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
     public final CustomMessageListener h;
     public final CustomMessageListener i;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -315,7 +315,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            t9a.g().k(getUniqueId());
+            u9a.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
             MessageManager.getInstance().unRegisterListener(this.i);
@@ -323,7 +323,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
             this.a.T0();
             this.d = true;
             tm5.e().b();
-            rr6.b().unregister(this.e);
+            sr6.b().unregister(this.e);
         }
     }
 
@@ -400,19 +400,19 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
         SpeedStatsManager.getInstance().addStatsTimeStamp(5047);
     }
 
-    public void P1(lz7 lz7Var) {
+    public void P1(mz7 mz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lz7Var) == null) {
-            this.c = lz7Var;
-            this.a.setCallback(lz7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, mz7Var) == null) {
+            this.c = mz7Var;
+            this.a.setCallback(mz7Var);
         }
     }
 
-    public void Q1(mz7 mz7Var) {
+    public void Q1(nz7 nz7Var) {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, mz7Var) == null) && (personalizePageView = this.a) != null) {
-            personalizePageView.setScrollFragmentTabHost(mz7Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, nz7Var) == null) && (personalizePageView = this.a) != null) {
+            personalizePageView.setScrollFragmentTabHost(nz7Var);
         }
     }
 
@@ -438,7 +438,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            t9a.g().i(getUniqueId());
+            u9a.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -451,7 +451,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -462,7 +462,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
     public final void L1() {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && e28.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && f28.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
             personalizePageView.b1();
         }
     }
@@ -509,7 +509,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -543,7 +543,7 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.onStop();
-            t9a.g().h(getUniqueId(), false);
+            u9a.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -621,11 +621,11 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
                 L1();
                 R1();
                 this.a.f1();
-                y36.c().e("page_recommend");
+                z36.c().e("page_recommend");
                 return;
             }
             this.a.X0();
-            y36.c().d("page_recommend");
+            z36.c().d("page_recommend");
             IdleHandlerManager.getInstance().runIdleTaskImmediately();
         }
     }
@@ -657,8 +657,8 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
             registerListener(this.f);
             registerListener(this.g);
             registerListener(this.i);
-            rr6.b().a(this.e, new j6a());
-            rr6.b().a(this.e, new h6a());
+            sr6.b().a(this.e, new k6a());
+            sr6.b().a(this.e, new i6a());
         }
     }
 
@@ -677,9 +677,9 @@ public class PersonalizeFragment extends BaseFragment implements mg7, VoiceManag
             }
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
-                lz7 lz7Var = this.c;
-                if (lz7Var != null) {
-                    this.a.setCallback(lz7Var);
+                mz7 mz7Var = this.c;
+                if (mz7Var != null) {
+                    this.a.setCallback(mz7Var);
                 }
             }
             this.a.setPageUniqueId(getUniqueId());

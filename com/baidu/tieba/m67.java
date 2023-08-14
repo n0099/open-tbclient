@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface m67 {
-    void c(boolean z);
+    void setPosition(int i);
 }

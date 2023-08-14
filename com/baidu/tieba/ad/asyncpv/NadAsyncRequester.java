@@ -19,22 +19,22 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.cy8;
+import com.baidu.tieba.dy8;
 import com.baidu.tieba.e05;
 import com.baidu.tieba.ft0;
 import com.baidu.tieba.gt0;
 import com.baidu.tieba.hk0;
-import com.baidu.tieba.l36;
+import com.baidu.tieba.m36;
 import com.baidu.tieba.mt0;
 import com.baidu.tieba.nt0;
 import com.baidu.tieba.pj0;
-import com.baidu.tieba.q46;
+import com.baidu.tieba.r46;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.us0;
-import com.baidu.tieba.xu5;
 import com.baidu.tieba.yo5;
 import com.baidu.tieba.yu5;
 import com.baidu.tieba.zo5;
+import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class NadAsyncRequester {
                 if (str == null) {
                     return null;
                 }
-                return q46.a(str);
+                return r46.a(str);
             }
             return (List) invokeLLI.objValue;
         }
@@ -202,7 +202,7 @@ public class NadAsyncRequester {
             replace = sampleId.replace(SignatureImpl.SEP, ',');
         }
         d("eid", replace);
-        d("app_transmit_data", yu5.a());
+        d("app_transmit_data", zu5.a());
         d("is_https", "1");
         d("flr", "1");
         d(TbConfig.SW_APID, "0");
@@ -268,8 +268,8 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (l36.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(e(AdExtParam.KEY_IADEX, xu5.e()));
+            if (m36.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(e(AdExtParam.KEY_IADEX, yu5.e()));
                 String f = hk0.c().f(false);
                 if (!TextUtils.isEmpty(f)) {
                     jSONArray.put(e("oaid_v", f));
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.90"));
-            if (!cy8.f(map)) {
+            if (!dy8.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }

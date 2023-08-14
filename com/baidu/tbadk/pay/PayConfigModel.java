@@ -14,8 +14,8 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ir5;
-import com.baidu.tieba.kr5;
+import com.baidu.tieba.jr5;
+import com.baidu.tieba.lr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir5 a;
+    public jr5 a;
     public final NetMessageListener b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,13 +107,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, ir5 ir5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, jr5 jr5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ir5Var};
+            Object[] objArr = {tbPageContext, jr5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,7 +126,7 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = ir5Var;
+        this.a = jr5Var;
         registerListener(aVar);
     }
 
@@ -148,19 +148,19 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    ir5 ir5Var = this.a;
-                    if (ir5Var != null) {
-                        ir5Var.b();
+                    jr5 jr5Var = this.a;
+                    if (jr5Var != null) {
+                        jr5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    ir5 ir5Var2 = this.a;
-                    if (ir5Var2 != null) {
-                        ir5Var2.a();
+                    jr5 jr5Var2 = this.a;
+                    if (jr5Var2 != null) {
+                        jr5Var2.a();
                     }
                 } else {
-                    ir5 ir5Var3 = this.a;
-                    if (ir5Var3 != null) {
-                        ir5Var3.onError("");
+                    jr5 jr5Var3 = this.a;
+                    if (jr5Var3 != null) {
+                        jr5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
@@ -172,15 +172,15 @@ public class PayConfigModel extends BdBaseModel {
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!kr5.c().d()) {
-                ir5 ir5Var = this.a;
-                if (ir5Var != null) {
-                    ir5Var.a();
+            if (!lr5.c().d()) {
+                jr5 jr5Var = this.a;
+                if (jr5Var != null) {
+                    jr5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                ir5 ir5Var2 = this.a;
-                if (ir5Var2 != null) {
-                    ir5Var2.b();
+                jr5 jr5Var2 = this.a;
+                if (jr5Var2 != null) {
+                    jr5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

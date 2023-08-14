@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.hj5;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,11 +95,11 @@ public class qi5 {
         if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (ti5Var = this.e) == null) {
             return;
         }
-        ti5Var.d(new uaa.h() { // from class: com.baidu.tieba.mi5
+        ti5Var.d(new vaa.h() { // from class: com.baidu.tieba.mi5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.uaa.h
+            @Override // com.baidu.tieba.vaa.h
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -115,7 +115,7 @@ public class qi5 {
             EditorTools b = ((yi5) new zi5(this.d).a(this.b)).b();
             this.a = b;
             b.setId(R.id.local_input_tool);
-            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oi5
+            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pi5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +129,7 @@ public class qi5 {
             });
             Context context = this.b;
             if (context instanceof Activity) {
-                hj5.b((Activity) context, this.a.b, new hj5.b() { // from class: com.baidu.tieba.pi5
+                hj5.b((Activity) context, this.a.b, new hj5.b() { // from class: com.baidu.tieba.oi5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

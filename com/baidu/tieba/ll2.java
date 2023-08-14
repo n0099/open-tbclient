@@ -27,12 +27,12 @@ public class ll2 {
 
         /* renamed from: com.baidu.tieba.ll2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0386a implements rp3<Exception> {
+        public class C0387a implements rp3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0386a(a aVar) {
+            public C0387a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class ll2 {
                     return;
                 }
                 y72.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                dk3.o(this.b, new C0386a(this));
+                dk3.o(this.b, new C0387a(this));
             }
         }
     }

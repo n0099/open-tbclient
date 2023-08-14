@@ -52,7 +52,7 @@ public class QuestionTagAdapter extends lm<QuestionTagListData.QuestionTag, Ques
                 }
             }
             this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fef);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
             this.a.setDrawerType(1);
             this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setDrawCorner(true);

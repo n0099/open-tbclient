@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bq6 implements k77<Object> {
+public class bq6 implements l77<l57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +26,15 @@ public class bq6 implements k77<Object> {
         }
     }
 
-    @Override // com.baidu.tieba.k77
-    public u97<?> b(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l77
+    /* renamed from: a */
+    public v97<?> b(@NonNull l57 l57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ThreadData)) {
-                return null;
-            }
-            v67 v67Var = new v67();
-            v67Var.a = obj;
-            return new v97(new i37(v67Var), "fake_wall");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l57Var)) == null) {
+            return new w97(new BrowseLocationUiState(l57Var), "browse_location");
         }
-        return (u97) invokeL.objValue;
+        return (v97) invokeL.objValue;
     }
 }

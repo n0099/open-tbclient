@@ -29,7 +29,7 @@ public class xz3 {
 
         /* renamed from: com.baidu.tieba.xz3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0542a extends ResponseCallback<hz3> {
+        public class C0545a extends ResponseCallback<hz3> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -43,18 +43,18 @@ public class xz3 {
 
             /* renamed from: com.baidu.tieba.xz3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0543a implements Runnable {
+            public class RunnableC0546a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ hz3 a;
-                public final /* synthetic */ C0542a b;
+                public final /* synthetic */ C0545a b;
 
-                public RunnableC0543a(C0542a c0542a, hz3 hz3Var) {
+                public RunnableC0546a(C0545a c0545a, hz3 hz3Var) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0542a, hz3Var};
+                        Object[] objArr = {c0545a, hz3Var};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -64,7 +64,7 @@ public class xz3 {
                             return;
                         }
                     }
-                    this.b = c0542a;
+                    this.b = c0545a;
                     this.a = hz3Var;
                 }
 
@@ -77,7 +77,7 @@ public class xz3 {
                 }
             }
 
-            public C0542a(a aVar) {
+            public C0545a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class xz3 {
                 if ((interceptable != null && interceptable.invokeLI(1048576, this, hz3Var, i) != null) || hz3Var == null) {
                     return;
                 }
-                n04.c(new RunnableC0543a(this, hz3Var));
+                n04.c(new RunnableC0546a(this, hz3Var));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -154,9 +154,9 @@ public class xz3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0542a c0542a = new C0542a(this);
+                C0545a c0545a = new C0545a(this);
                 if (NetworkUtils.f(this.c.b)) {
-                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0542a);
+                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0545a);
                 }
             }
         }

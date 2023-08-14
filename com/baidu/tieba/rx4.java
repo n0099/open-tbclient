@@ -26,18 +26,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rx4 implements pk6 {
+public class rx4 implements qk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ok6.a(this, webView, str, jSONObject);
+        pk6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public /* synthetic */ void onDestroy() {
-        ok6.b(this);
+        pk6.b(this);
     }
 
     public rx4() {
@@ -54,7 +54,7 @@ public class rx4 implements pk6 {
         }
     }
 
-    @Override // com.baidu.tieba.pk6
+    @Override // com.baidu.tieba.qk6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public class rx4 implements pk6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public jca c(WebView webView, String str, String str2, String str3, String str4) {
+    public kca c(WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -94,52 +94,52 @@ public class rx4 implements pk6 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return jcaVar;
+                return kcaVar;
             }
-            jcaVar.p();
-            return jcaVar;
+            kcaVar.p();
+            return kcaVar;
         }
-        return (jca) invokeLLLLL.objValue;
+        return (kca) invokeLLLLL.objValue;
     }
 
     @NonNull
-    public jca d(WebView webView, @NonNull String str, @Nullable String str2) {
+    public kca d(WebView webView, @NonNull String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            jca jcaVar = new jca();
-            jcaVar.y(0);
-            jcaVar.o(hx5.b().c(str, str2));
-            return jcaVar;
+            kca kcaVar = new kca();
+            kcaVar.y(0);
+            kcaVar.o(ix5.b().c(str, str2));
+            return kcaVar;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    public jca e(WebView webView) {
+    public kca e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             String string = SharedPrefHelper.getInstance().getString("key_match_id_list_football", "");
             String string2 = SharedPrefHelper.getInstance().getString("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                 jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
-                jcaVar.o(jSONObject.toString());
+                kcaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeL.objValue;
+        return (kca) invokeL.objValue;
     }
 
-    public jca f(WebView webView, String str, String str2, boolean z) {
+    public kca f(WebView webView, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
-            jca jcaVar = new jca();
+            kca kcaVar = new kca();
             if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
                 if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
@@ -195,14 +195,14 @@ public class rx4 implements pk6 {
             MutiProcessManager.publishEvent(hybridNotifyEvent);
             if (z) {
                 try {
-                    qk6.a().g(str, new JSONObject(str2), webView);
+                    rk6.a().g(str, new JSONObject(str2), webView);
                 } catch (Exception e3) {
                     TbLog hybridLog = HybridLog.getInstance();
                     hybridLog.e("NotifyDataChanged", "H5通知H5异常:" + e3);
                 }
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeCommon.objValue;
+        return (kca) invokeCommon.objValue;
     }
 }

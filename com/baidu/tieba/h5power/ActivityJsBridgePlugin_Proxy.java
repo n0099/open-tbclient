@@ -5,11 +5,11 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.gx4;
-import com.baidu.tieba.hca;
 import com.baidu.tieba.ica;
 import com.baidu.tieba.jca;
-import com.baidu.tieba.lca;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.mca;
+import com.baidu.tieba.qk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ActivityJsBridgePlugin_Proxy extends hca {
+public class ActivityJsBridgePlugin_Proxy extends ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public gx4 mJsBridge;
@@ -51,134 +51,134 @@ public class ActivityJsBridgePlugin_Proxy extends hca {
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_POST_WALL);
     }
 
-    @Override // com.baidu.tieba.hca
-    public jca dispatch(WebView webView, lca lcaVar, jca jcaVar) {
+    @Override // com.baidu.tieba.ica
+    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, lcaVar, jcaVar)) == null) {
-            if (jcaVar == null) {
-                jcaVar = new jca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
+            if (kcaVar == null) {
+                kcaVar = new kca();
             }
-            String b = lcaVar.b();
-            JSONObject e = lcaVar.e();
+            String b = mcaVar.b();
+            JSONObject e = mcaVar.e();
             if (b.equals("activity/updateSearchForumInfo")) {
-                jcaVar.s(true);
-                jca h = this.mJsBridge.h(webView, e.optString("forumParams"));
+                kcaVar.s(true);
+                kca h = this.mJsBridge.h(webView, e.optString("forumParams"));
                 if (h != null) {
-                    jcaVar.y(h.f());
-                    jcaVar.u(h.b());
-                    jcaVar.o(h.a());
-                    jcaVar.x(h.e());
+                    kcaVar.y(h.f());
+                    kcaVar.u(h.b());
+                    kcaVar.o(h.a());
+                    kcaVar.x(h.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/personlizedSwitchChange")) {
-                jcaVar.s(true);
-                jca d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
+                kcaVar.s(true);
+                kca d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
                 if (d != null) {
-                    jcaVar.y(d.f());
-                    jcaVar.u(d.b());
-                    jcaVar.o(d.a());
-                    jcaVar.x(d.e());
+                    kcaVar.y(d.f());
+                    kcaVar.u(d.b());
+                    kcaVar.o(d.a());
+                    kcaVar.x(d.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/updateTailStyle")) {
-                jcaVar.s(true);
-                jca i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
+                kcaVar.s(true);
+                kca i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
                 if (i != null) {
-                    jcaVar.y(i.f());
-                    jcaVar.u(i.b());
-                    jcaVar.o(i.a());
-                    jcaVar.x(i.e());
+                    kcaVar.y(i.f());
+                    kcaVar.u(i.b());
+                    kcaVar.o(i.a());
+                    kcaVar.x(i.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/oneKeyDeletion")) {
-                jcaVar.s(true);
-                jca g = this.mJsBridge.g(webView);
+                kcaVar.s(true);
+                kca g = this.mJsBridge.g(webView);
                 if (g != null) {
-                    jcaVar.y(g.f());
-                    jcaVar.u(g.b());
-                    jcaVar.o(g.a());
-                    jcaVar.x(g.e());
+                    kcaVar.y(g.f());
+                    kcaVar.u(g.b());
+                    kcaVar.o(g.a());
+                    kcaVar.x(g.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/completeTask")) {
-                jcaVar.s(true);
-                jca f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
+                kcaVar.s(true);
+                kca f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
                 if (f != null) {
-                    jcaVar.y(f.f());
-                    jcaVar.u(f.b());
-                    jcaVar.o(f.a());
-                    jcaVar.x(f.e());
+                    kcaVar.y(f.f());
+                    kcaVar.u(f.b());
+                    kcaVar.o(f.a());
+                    kcaVar.x(f.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/finishTestAnswer")) {
-                jcaVar.s(true);
-                jca c = this.mJsBridge.c(webView, e.optLong("testId"));
+                kcaVar.s(true);
+                kca c = this.mJsBridge.c(webView, e.optLong("testId"));
                 if (c != null) {
-                    jcaVar.y(c.f());
-                    jcaVar.u(c.b());
-                    jcaVar.o(c.a());
-                    jcaVar.x(c.e());
+                    kcaVar.y(c.f());
+                    kcaVar.u(c.b());
+                    kcaVar.o(c.a());
+                    kcaVar.x(c.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("activity/worldCupRaiseSuccess")) {
-                jcaVar.s(true);
-                jca j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
+                kcaVar.s(true);
+                kca j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
                 if (j != null) {
-                    jcaVar.y(j.f());
-                    jcaVar.u(j.b());
-                    jcaVar.o(j.a());
-                    jcaVar.x(j.e());
+                    kcaVar.y(j.f());
+                    kcaVar.u(j.b());
+                    kcaVar.o(j.a());
+                    kcaVar.x(j.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public pk6 getJsBridge() {
+    @Override // com.baidu.tieba.ica
+    public qk6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (pk6) invokeV.objValue;
+        return (qk6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public List<jca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.ica
+    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            jca jcaVar = null;
+            kca kcaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("writePostSuccess")) {
-                jcaVar = this.mJsBridge.k(webView, hashMap);
+                kcaVar = this.mJsBridge.k(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_POST_WALL)) {
-                jcaVar = this.mJsBridge.e(webView, hashMap);
+                kcaVar = this.mJsBridge.e(webView, hashMap);
             }
-            if (jcaVar != null) {
-                jcaVar.z(0);
+            if (kcaVar != null) {
+                kcaVar.z(0);
             }
-            List<ica> list = this.mAsyncCallBackMethodList.get(str);
-            if (jcaVar != null && list != null) {
-                Iterator<ica> it = list.iterator();
-                if (!TextUtils.isEmpty(jcaVar.e())) {
+            List<jca> list = this.mAsyncCallBackMethodList.get(str);
+            if (kcaVar != null && list != null) {
+                Iterator<jca> it = list.iterator();
+                if (!TextUtils.isEmpty(kcaVar.e())) {
                     while (it.hasNext()) {
-                        ica next = it.next();
-                        if (next.b().equals(jcaVar.e())) {
-                            jca jcaVar2 = new jca();
-                            jcaVar2.w(next.a());
-                            jcaVar2.y(jcaVar.f());
-                            jcaVar2.u(jcaVar.b());
-                            jcaVar2.o(jcaVar.a());
-                            jcaVar2.A(jcaVar.l());
-                            arrayList.add(jcaVar2);
+                        jca next = it.next();
+                        if (next.b().equals(kcaVar.e())) {
+                            kca kcaVar2 = new kca();
+                            kcaVar2.w(next.a());
+                            kcaVar2.y(kcaVar.f());
+                            kcaVar2.u(kcaVar.b());
+                            kcaVar2.o(kcaVar.a());
+                            kcaVar2.A(kcaVar.l());
+                            arrayList.add(kcaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -186,14 +186,14 @@ public class ActivityJsBridgePlugin_Proxy extends hca {
                     }
                 } else {
                     while (it.hasNext()) {
-                        ica next2 = it.next();
-                        jca jcaVar3 = new jca();
-                        jcaVar3.w(next2.a());
-                        jcaVar3.y(jcaVar.f());
-                        jcaVar3.u(jcaVar.b());
-                        jcaVar3.o(jcaVar.a());
-                        jcaVar3.A(jcaVar.l());
-                        arrayList.add(jcaVar3);
+                        jca next2 = it.next();
+                        kca kcaVar3 = new kca();
+                        kcaVar3.w(next2.a());
+                        kcaVar3.y(kcaVar.f());
+                        kcaVar3.u(kcaVar.b());
+                        kcaVar3.o(kcaVar.a());
+                        kcaVar3.A(kcaVar.l());
+                        arrayList.add(kcaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

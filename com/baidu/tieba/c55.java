@@ -33,12 +33,12 @@ public class c55 {
 
         /* renamed from: com.baidu.tieba.c55$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0257a implements Runnable {
+        public class RunnableC0258a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0257a(a aVar) {
+            public RunnableC0258a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class c55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    c55.d.post(new RunnableC0257a(this));
+                    c55.d.post(new RunnableC0258a(this));
                 } else {
                     c55.d.post(new b(this));
                 }

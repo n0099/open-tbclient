@@ -70,13 +70,13 @@ public final class z73 {
 
         /* renamed from: com.baidu.tieba.z73$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0552a implements rp3<v73> {
+        public class C0553a implements rp3<v73> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ x73 b;
 
-            public C0552a(a aVar, String str, x73 x73Var) {
+            public C0553a(a aVar, String str, x73 x73Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class z73 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + x73Var.b);
                 }
                 synchronized (this.a.g) {
-                    qp3.a(xa3.M(), new C0552a(this, str, x73Var), this.a.g);
+                    qp3.a(xa3.M(), new C0553a(this, str, x73Var), this.a.g);
                 }
             }
         }

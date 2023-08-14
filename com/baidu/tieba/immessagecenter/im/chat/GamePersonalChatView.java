@@ -26,21 +26,21 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo8;
+import com.baidu.tieba.co8;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.mh5;
-import com.baidu.tieba.nw5;
-import com.baidu.tieba.ov5;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.pv5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.gameim.GameContactsView;
 import com.baidu.tieba.view.gameim.GamePersonalChatTitleView;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.zb8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class GamePersonalChatView extends PersonalChatView {
     public String z;
 
     /* loaded from: classes6.dex */
-    public class a implements ov5<Void> {
+    public class a implements pv5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -98,7 +98,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -319,10 +319,10 @@ public class GamePersonalChatView extends PersonalChatView {
                 this.a.u.h(gameMatchUser);
                 this.a.r.K = false;
                 this.a.M0(gameMatchUser);
-                bo8.h(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                co8.h(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
             }
             if (i != 1) {
-                bo8.e(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                co8.e(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
             }
         }
     }
@@ -355,7 +355,7 @@ public class GamePersonalChatView extends PersonalChatView {
         public void a(@NonNull GameMatchUser gameMatchUser) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gameMatchUser) == null) {
-                bo8.a(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                co8.a(this.a.B, this.a.A, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
                 if (gameMatchUser.isFree()) {
                     if (this.a.r.D1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.D1().sendTextMessage(this.a.z);
@@ -496,7 +496,7 @@ public class GamePersonalChatView extends PersonalChatView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, lh5Var) == null) && lh5Var != null && this.a.C != null) {
                 int i = lh5Var.a;
                 if (i == 14) {
-                    bo8.d(this.a.B, this.a.A, this.a.C.getPos(), this.a.C.isFree());
+                    co8.d(this.a.B, this.a.A, this.a.C.getPos(), this.a.C.isFree());
                     return;
                 }
                 int i2 = 1;
@@ -511,7 +511,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        bo8.f(str, str2, pos, isFree, i2);
+                        co8.f(str, str2, pos, isFree, i2);
                     }
                 } else if (i == 62) {
                     Object obj2 = lh5Var.c;
@@ -524,10 +524,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        bo8.c(str3, str4, pos2, isFree2, i2);
+                        co8.c(str3, str4, pos2, isFree2, i2);
                     }
                 } else if (i == 64) {
-                    bo8.b(this.a.B, this.a.A, this.a.C.getPos(), this.a.C.isFree());
+                    co8.b(this.a.B, this.a.A, this.a.C.getPos(), this.a.C.isFree());
                 }
             }
         }
@@ -569,7 +569,7 @@ public class GamePersonalChatView extends PersonalChatView {
     }
 
     /* loaded from: classes6.dex */
-    public class l extends jw5<Void> {
+    public class l extends kw5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -593,13 +593,13 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return yb8.w().a(this.a);
+                return zb8.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }
@@ -937,7 +937,7 @@ public class GamePersonalChatView extends PersonalChatView {
             userData.setUserIdLong(JavaTypesHelper.toLong(gameMatchUser.getUserId(), 0L));
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            nw5.c(new l(this, linkedList), new a(this, userData));
+            ow5.c(new l(this, linkedList), new a(this, userData));
         }
     }
 }

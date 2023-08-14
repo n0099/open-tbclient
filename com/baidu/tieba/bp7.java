@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
@@ -64,16 +65,21 @@ public class bp7 extends PriorityOrganizer.Task {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            boolean z = false;
             if (YunDialogManager.isShowingDialog()) {
                 return false;
             }
-            haa frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            uh7 uh7Var = new uh7(this.b.getPageContext());
-            this.a.U4(uh7Var);
-            boolean j = uh7Var.j(frsResponseData);
-            this.a.S4(j);
-            this.a.X4(j);
-            return j;
+            iaa frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
+                z = true;
+            }
+            if (z) {
+                boolean j = et7.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
+                this.a.T4(j);
+                this.a.X4(j);
+                return j;
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }

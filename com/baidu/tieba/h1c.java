@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public final class h1c {
+public class h1c {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<h1c> b;
+    public static final h1c a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a1c a;
+
+    public b1c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (b1c) invokeV.objValue;
+    }
+
+    public l1c c(l1c l1cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l1cVar)) == null) ? l1cVar : (l1c) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,33 +42,7 @@ public final class h1c {
                 return;
             }
         }
-        b = new AtomicReference<>();
-    }
-
-    public static h1c a() {
-        h1c h1cVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                h1c h1cVar2 = b.get();
-                if (h1cVar2 != null) {
-                    return h1cVar2;
-                }
-                h1cVar = new h1c();
-            } while (!b.compareAndSet(null, h1cVar));
-            return h1cVar;
-        }
-        return (h1c) invokeV.objValue;
-    }
-
-    public static a1c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
-        }
-        return (a1c) invokeV.objValue;
+        a = new h1c();
     }
 
     public h1c() {
@@ -68,14 +55,16 @@ public final class h1c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        a1c b2 = f1c.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new i1c(Looper.getMainLooper());
+    }
+
+    public static h1c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (h1c) invokeV.objValue;
     }
 }

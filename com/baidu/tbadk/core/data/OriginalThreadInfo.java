@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f45;
 import com.baidu.tieba.l25;
-import com.baidu.tieba.n06;
-import com.baidu.tieba.nv5;
+import com.baidu.tieba.o06;
+import com.baidu.tieba.ov5;
 import com.baidu.tieba.u25;
-import com.baidu.tieba.v06;
 import com.baidu.tieba.video.ActivityItemData;
+import com.baidu.tieba.w06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class OriginalThreadInfo {
     public final List<PbContent> t;
     public SpannableString u;
     @Nullable
-    public List<v06> v;
+    public List<w06> v;
     @Nullable
     public ThreadData w;
     public boolean x;
@@ -179,7 +179,7 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public List<v06> h() {
+    public List<w06> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -259,7 +259,7 @@ public class OriginalThreadInfo {
             if (this.v == null) {
                 this.v = new ArrayList();
             }
-            this.u = new SpannableString(n06.J(this.s, this.E, true, this.w, this.v));
+            this.u = new SpannableString(o06.J(this.s, this.E, true, this.w, this.v));
         }
     }
 
@@ -394,7 +394,7 @@ public class OriginalThreadInfo {
                     PbContent pbContent = this.s.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && m() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = nv5.d(pbContent.text);
+                        activityItemData.link_url = ov5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;

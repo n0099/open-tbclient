@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.home.BfbInfoModel;
 import com.baidu.tieba.m45;
-import com.baidu.tieba.ww7;
+import com.baidu.tieba.xw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public ww7 b;
+    public xw7 b;
     public BfbInfoModel c;
     public BfbInfoModel.b d;
 
@@ -163,9 +163,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            ww7 ww7Var = this.b;
-            if (ww7Var != null) {
-                ww7Var.g();
+            xw7 xw7Var = this.b;
+            if (xw7Var != null) {
+                xw7Var.g();
                 this.b = null;
             }
             this.c.N();
@@ -177,9 +177,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            ww7 ww7Var = this.b;
-            if (ww7Var != null) {
-                ww7Var.f();
+            xw7 xw7Var = this.b;
+            if (xw7Var != null) {
+                xw7Var.f();
             }
         }
     }
@@ -197,9 +197,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.c = bfbInfoModel;
             bfbInfoModel.R(this.d);
-            ww7 ww7Var = new ww7(this);
-            this.b = ww7Var;
-            ww7Var.e();
+            xw7 xw7Var = new xw7(this);
+            this.b = xw7Var;
+            xw7Var.e();
             showLoadingView(this.b.d());
             this.c.loadData();
             TiebaStatic.log("c11222");

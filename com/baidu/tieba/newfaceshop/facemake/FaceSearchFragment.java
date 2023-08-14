@@ -26,11 +26,11 @@ import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.face.view.AutoLineWrapLayout;
 import com.baidu.tieba.face.view.SearchEditView;
-import com.baidu.tieba.m99;
-import com.baidu.tieba.n17;
+import com.baidu.tieba.n99;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel;
-import com.baidu.tieba.o99;
+import com.baidu.tieba.o17;
+import com.baidu.tieba.p99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public View f;
     public AutoLineWrapLayout g;
     public BdListView h;
-    public o99 i;
+    public p99 i;
     public List<EmotionImageData> j;
     public SearchEmotionModel k;
     public GetHotWordsModel l;
@@ -61,7 +61,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public int n;
     public boolean o;
     public String p;
-    public m99 q;
+    public n99 q;
     public Activity r;
     public final SearchEmotionModel.b s;
     public final BdListView.p t;
@@ -207,22 +207,22 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, n17 n17Var) {
+        public void a(String str, o17 o17Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, n17Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, o17Var) == null) {
                 this.a.getBaseFragmentActivity().hideProgressBar();
-                if (n17Var != null && n17Var.a() != null && !n17Var.a().isEmpty()) {
-                    this.a.n = n17Var.c();
+                if (o17Var != null && o17Var.a() != null && !o17Var.a().isEmpty()) {
+                    this.a.n = o17Var.c();
                     boolean z = true;
                     if (this.a.n == 1) {
                         this.a.j.clear();
                     }
                     FaceSearchFragment faceSearchFragment = this.a;
-                    if (n17Var.b() == 0) {
+                    if (o17Var.b() == 0) {
                         z = false;
                     }
                     faceSearchFragment.o = z;
-                    this.a.j.addAll(n17Var.a());
+                    this.a.j.addAll(o17Var.a());
                     this.a.i.notifyDataSetChanged();
                     this.a.g2();
                     BdUtilHelper.hideSoftKeyPad(this.a.getActivity(), this.a.a);
@@ -298,9 +298,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            o99 o99Var = this.i;
-            if (o99Var != null) {
-                return o99Var.i();
+            p99 p99Var = this.i;
+            if (p99Var != null) {
+                return p99Var.i();
             }
             return null;
         }
@@ -334,9 +334,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            o99 o99Var = this.i;
-            if (o99Var != null) {
-                o99Var.k();
+            p99 p99Var = this.i;
+            if (p99Var != null) {
+                p99Var.k();
             }
             this.k.cancelLoadData();
             this.l.cancelLoadData();
@@ -351,13 +351,13 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         }
     }
 
-    public void d2(m99 m99Var) {
+    public void d2(n99 n99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, m99Var) == null) {
-            this.q = m99Var;
-            o99 o99Var = this.i;
-            if (o99Var != null) {
-                o99Var.l(m99Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, n99Var) == null) {
+            this.q = n99Var;
+            p99 p99Var = this.i;
+            if (p99Var != null) {
+                p99Var.l(n99Var);
             }
         }
     }
@@ -367,9 +367,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && str.length() == 0) {
             this.j.clear();
-            o99 o99Var = this.i;
-            if (o99Var != null) {
-                o99Var.notifyDataSetChanged();
+            p99 p99Var = this.i;
+            if (p99Var != null) {
+                p99Var.notifyDataSetChanged();
             }
             e2();
         }
@@ -422,7 +422,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             FaceImageLayout faceImageLayout = (FaceImageLayout) view2.findViewById(R.id.layout_content);
             this.d = faceImageLayout;
             faceImageLayout.setListener(new a(this));
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f092946);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09294c);
             SearchEditView searchEditView = (SearchEditView) view2.findViewById(R.id.obfuscated_res_0x7f090988);
             this.a = searchEditView;
             searchEditView.setCallback(this);
@@ -435,9 +435,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             this.h = bdListView;
             bdListView.setOnSrollToBottomListener(this.t);
             this.j = new ArrayList();
-            o99 o99Var = new o99(this.j, 10);
-            this.i = o99Var;
-            o99Var.l(this.q);
+            p99 p99Var = new p99(this.j, 10);
+            this.i = p99Var;
+            p99Var.l(this.q);
             this.h.setAdapter((ListAdapter) this.i);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();

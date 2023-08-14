@@ -1,11 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ForumRuleBaseData;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface rk7 {
-    void U0(ForumRuleBaseData forumRuleBaseData, boolean z);
+    void a(tk7 tk7Var);
 
-    void h1(int i, ForumRuleBaseData forumRuleBaseData, String str);
+    void b(List<vk7> list);
 
-    void p1(int i, String str, boolean z);
+    void c(boolean z, String str);
+
+    void d(uk7 uk7Var);
+
+    void e(String str);
+
+    void f();
+
+    void finish();
 }

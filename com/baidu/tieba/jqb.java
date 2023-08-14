@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class jqb {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public static boolean a(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                return false;
+            }
+            return true;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && context != null && a == null) {
-            a = context.getApplicationContext();
-        }
+        return invokeL.booleanValue;
     }
 }

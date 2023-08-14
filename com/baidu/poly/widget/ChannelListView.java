@@ -1000,7 +1000,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     @Override // com.baidu.poly.widget.digitalbank.DigitalBankPayView.b
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i2) == null) && R.id.obfuscated_res_0x7f091cbf == i2) {
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i2) == null) && R.id.obfuscated_res_0x7f091cc5 == i2) {
             P(this.k.getSelectedChildrenEntity());
         }
     }
@@ -1132,14 +1132,14 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             }
             if (this.N == null) {
                 View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d0246, null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cdf)).setText(EventAlias.PayEventAlias.PAY_FAIL);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cde)).setText(str.trim());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ce5)).setText(EventAlias.PayEventAlias.PAY_FAIL);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ce4)).setText(str.trim());
                 PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
                 this.N = popupWindow;
                 popupWindow.w(false);
                 this.N.B(false);
                 this.N.v(new ColorDrawable(0));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd6)).setOnClickListener(new i(this));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cdc)).setOnClickListener(new i(this));
                 this.N.A(new j(this));
             }
             PolyActivity polyActivity = (PolyActivity) getContext();
@@ -1443,34 +1443,34 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09ea, this);
             this.a = findViewById(R.id.bg_view);
             this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906b4);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ce1);
-            this.E = findViewById(R.id.obfuscated_res_0x7f091a56);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ce7);
+            this.E = findViewById(R.id.obfuscated_res_0x7f091a5c);
             this.F = findViewById(R.id.obfuscated_res_0x7f0906ab);
-            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092556);
+            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906ac);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091a57);
-            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091cc0);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091a5d);
+            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091cc6);
             this.k = digitalBankPayView;
             digitalBankPayView.setOptionListener(this);
-            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f091cc1);
-            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a54);
+            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f091cc7);
+            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a5a);
             View findViewById = findViewById(R.id.close_button);
             this.i = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091cbe);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091cc4);
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092971);
-            this.x = findViewById(R.id.obfuscated_res_0x7f092939);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092977);
+            this.x = findViewById(R.id.obfuscated_res_0x7f09293f);
             this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090f8f);
             CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f0907f2);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
             this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091776);
             this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f09084b);
-            this.B = findViewById(R.id.obfuscated_res_0x7f09295b);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09273e);
+            this.B = findViewById(R.id.obfuscated_res_0x7f092961);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092744);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);
         }
@@ -1619,7 +1619,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 lh1 lh1Var = new lh1("6");
                 lh1Var.c(jSONObject);
                 oh1.e(lh1Var);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a54) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a5a) {
                 if (this.s == 0) {
                     return;
                 }
@@ -1664,10 +1664,10 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0907f2) {
                 c0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09273e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092744) {
                 this.b0 = true;
                 j0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cbe) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cc4) {
                 this.k.a();
                 this.m.setText("支付");
                 this.j.setVisibility(8);

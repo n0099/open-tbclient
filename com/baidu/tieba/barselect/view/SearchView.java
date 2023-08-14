@@ -93,12 +93,12 @@ public class SearchView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f09211b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09211a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092119);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0920ea);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e3);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092116);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092121);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092120);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09211f);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0920f0);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e9);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09211c);
         }
     }
 

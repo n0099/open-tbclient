@@ -89,7 +89,7 @@ public class oz2 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements l1c<Boolean> {
+    public class b implements m1c<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oz2 a;
@@ -113,7 +113,7 @@ public class oz2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l1c
+        @Override // com.baidu.tieba.m1c
         public void call(Boolean bool) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, bool) != null) || bool.booleanValue()) {
@@ -126,7 +126,7 @@ public class oz2 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements p1c<String, Boolean> {
+    public class c implements q1c<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oz2 a;
@@ -150,7 +150,7 @@ public class oz2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p1c
+        @Override // com.baidu.tieba.q1c
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -592,7 +592,7 @@ public class oz2 {
                     } else {
                         e(kz2.f, "recorderResume");
                     }
-                    x0c.n("").J(Schedulers.io()).p(new c(this)).s(h1c.b()).H(new b(this));
+                    y0c.n("").J(Schedulers.io()).p(new c(this)).s(i1c.b()).H(new b(this));
                 } catch (IllegalStateException e2) {
                     f();
                     y72.d("recorder", "can't start", e2);

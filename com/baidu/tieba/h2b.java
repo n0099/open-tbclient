@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface h2b {
-    void a(boolean z, b2b b2bVar);
+    void setUBCConfigStatisticData(JSONObject jSONObject);
 }

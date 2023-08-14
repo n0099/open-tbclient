@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.d1c;
+import com.baidu.tieba.a1c;
 import com.baidu.tieba.e1c;
-import com.baidu.tieba.k5c;
-import com.baidu.tieba.m3c;
-import com.baidu.tieba.r1c;
-import com.baidu.tieba.s3c;
-import com.baidu.tieba.t1c;
-import com.baidu.tieba.x0c;
-import com.baidu.tieba.z0c;
+import com.baidu.tieba.f1c;
+import com.baidu.tieba.l5c;
+import com.baidu.tieba.n3c;
+import com.baidu.tieba.s1c;
+import com.baidu.tieba.t3c;
+import com.baidu.tieba.u1c;
+import com.baidu.tieba.y0c;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,37 +18,37 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* loaded from: classes2.dex */
-public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
-    public final x0c<? extends T>[] a;
-    public final Iterable<? extends x0c<? extends T>> b;
-    public final r1c<? extends R> c;
+public final class OnSubscribeCombineLatest<T, R> implements y0c.a<R> {
+    public final y0c<? extends T>[] a;
+    public final Iterable<? extends y0c<? extends T>> b;
+    public final s1c<? extends R> c;
     public final int d;
     public final boolean e;
 
     /* loaded from: classes2.dex */
-    public static final class LatestCoordinator<T, R> extends AtomicInteger implements z0c, e1c {
+    public static final class LatestCoordinator<T, R> extends AtomicInteger implements a1c, f1c {
         public static final Object MISSING = new Object();
         public static final long serialVersionUID = 8567835998786448817L;
         public int active;
-        public final d1c<? super R> actual;
+        public final e1c<? super R> actual;
         public final int bufferSize;
         public volatile boolean cancelled;
-        public final r1c<? extends R> combiner;
+        public final s1c<? extends R> combiner;
         public int complete;
         public final boolean delayError;
         public volatile boolean done;
         public final AtomicReference<Throwable> error;
         public final Object[] latest;
-        public final s3c<Object> queue;
+        public final t3c<Object> queue;
         public final AtomicLong requested;
         public final a<T, R>[] subscribers;
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public boolean isUnsubscribed() {
             return this.cancelled;
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public void unsubscribe() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -58,16 +58,16 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             }
         }
 
-        public LatestCoordinator(d1c<? super R> d1cVar, r1c<? extends R> r1cVar, int i, int i2, boolean z) {
-            this.actual = d1cVar;
-            this.combiner = r1cVar;
+        public LatestCoordinator(e1c<? super R> e1cVar, s1c<? extends R> s1cVar, int i, int i2, boolean z) {
+            this.actual = e1cVar;
+            this.combiner = s1cVar;
             this.bufferSize = i2;
             this.delayError = z;
             Object[] objArr = new Object[i];
             this.latest = objArr;
             Arrays.fill(objArr, MISSING);
             this.subscribers = new a[i];
-            this.queue = new s3c<>(i2);
+            this.queue = new t3c<>(i2);
             this.requested = new AtomicLong();
             this.error = new AtomicReference<>();
         }
@@ -79,12 +79,12 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             }
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.a1c
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
-                    t1c.b(this.requested, j);
+                    u1c.b(this.requested, j);
                     drain();
                     return;
                 }
@@ -93,7 +93,7 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             throw new IllegalArgumentException("n >= required but it was " + j);
         }
 
-        public void subscribe(x0c<? extends T>[] x0cVarArr) {
+        public void subscribe(y0c<? extends T>[] y0cVarArr) {
             a<T, R>[] aVarArr = this.subscribers;
             int length = aVarArr.length;
             for (int i = 0; i < length; i++) {
@@ -103,11 +103,11 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             this.actual.b(this);
             this.actual.f(this);
             for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-                x0cVarArr[i2].F(aVarArr[i2]);
+                y0cVarArr[i2].F(aVarArr[i2]);
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, d1c<?> d1cVar, Queue<?> queue, boolean z3) {
+        public boolean checkTerminated(boolean z, boolean z2, e1c<?> e1cVar, Queue<?> queue, boolean z3) {
             if (this.cancelled) {
                 cancel(queue);
                 return true;
@@ -116,9 +116,9 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
                     if (z2) {
                         Throwable th = this.error.get();
                         if (th != null) {
-                            d1cVar.onError(th);
+                            e1cVar.onError(th);
                         } else {
-                            d1cVar.onCompleted();
+                            e1cVar.onCompleted();
                         }
                         return true;
                     }
@@ -127,10 +127,10 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
                 Throwable th2 = this.error.get();
                 if (th2 != null) {
                     cancel(queue);
-                    d1cVar.onError(th2);
+                    e1cVar.onError(th2);
                     return true;
                 } else if (z2) {
-                    d1cVar.onCompleted();
+                    e1cVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -192,7 +192,7 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             if (r13 == Long.MAX_VALUE) goto L36;
          */
         /* JADX WARN: Code restructure failed: missing block: B:35:0x009e, code lost:
-            com.baidu.tieba.t1c.g(r10, r3);
+            com.baidu.tieba.u1c.g(r10, r3);
          */
         /* JADX WARN: Code restructure failed: missing block: B:36:0x00a1, code lost:
             r12 = addAndGet(-r12);
@@ -212,47 +212,47 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             if (getAndIncrement() != 0) {
                 return;
             }
-            s3c<Object> s3cVar = this.queue;
-            d1c<? super R> d1cVar = this.actual;
+            t3c<Object> t3cVar = this.queue;
+            e1c<? super R> e1cVar = this.actual;
             boolean z2 = this.delayError;
             AtomicLong atomicLong = this.requested;
             int i = 1;
-            while (!checkTerminated(this.done, s3cVar.isEmpty(), d1cVar, s3cVar, z2)) {
+            while (!checkTerminated(this.done, t3cVar.isEmpty(), e1cVar, t3cVar, z2)) {
                 long j2 = atomicLong.get();
                 long j3 = 0;
                 while (true) {
                     if (j3 != j2) {
                         boolean z3 = this.done;
-                        a aVar = (a) s3cVar.peek();
+                        a aVar = (a) t3cVar.peek();
                         if (aVar == null) {
                             z = true;
                         } else {
                             z = false;
                         }
                         long j4 = j3;
-                        if (checkTerminated(z3, z, d1cVar, s3cVar, z2)) {
+                        if (checkTerminated(z3, z, e1cVar, t3cVar, z2)) {
                             return;
                         }
                         if (z) {
                             j = j4;
                             break;
                         }
-                        s3cVar.poll();
-                        Object[] objArr = (Object[]) s3cVar.poll();
+                        t3cVar.poll();
+                        Object[] objArr = (Object[]) t3cVar.poll();
                         if (objArr == null) {
                             this.cancelled = true;
-                            cancel(s3cVar);
-                            d1cVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
+                            cancel(t3cVar);
+                            e1cVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
                             return;
                         }
                         try {
-                            d1cVar.onNext((R) this.combiner.call(objArr));
+                            e1cVar.onNext((R) this.combiner.call(objArr));
                             aVar.g(1L);
                             j3 = j4 + 1;
                         } catch (Throwable th) {
                             this.cancelled = true;
-                            cancel(s3cVar);
-                            d1cVar.onError(th);
+                            cancel(t3cVar);
+                            e1cVar.onError(th);
                             return;
                         }
                     } else {
@@ -285,7 +285,7 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class a<T, R> extends d1c<T> {
+    public static final class a<T, R> extends e1c<T> {
         public final LatestCoordinator<T, R> e;
         public final int f;
         public boolean g;
@@ -300,10 +300,10 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             e(j);
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onError(Throwable th) {
             if (this.g) {
-                k5c.j(th);
+                l5c.j(th);
                 return;
             }
             this.e.onError(th);
@@ -311,7 +311,7 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             this.e.combine(null, this.f);
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onNext(T t) {
             if (this.g) {
                 return;
@@ -319,7 +319,7 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
             this.e.combine(NotificationLite.i(t), this.f);
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onCompleted() {
             if (this.g) {
                 return;
@@ -329,14 +329,14 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
         }
     }
 
-    public OnSubscribeCombineLatest(Iterable<? extends x0c<? extends T>> iterable, r1c<? extends R> r1cVar) {
-        this(null, iterable, r1cVar, m3c.c, false);
+    public OnSubscribeCombineLatest(Iterable<? extends y0c<? extends T>> iterable, s1c<? extends R> s1cVar) {
+        this(null, iterable, s1cVar, n3c.c, false);
     }
 
-    public OnSubscribeCombineLatest(x0c<? extends T>[] x0cVarArr, Iterable<? extends x0c<? extends T>> iterable, r1c<? extends R> r1cVar, int i, boolean z) {
-        this.a = x0cVarArr;
+    public OnSubscribeCombineLatest(y0c<? extends T>[] y0cVarArr, Iterable<? extends y0c<? extends T>> iterable, s1c<? extends R> s1cVar, int i, boolean z) {
+        this.a = y0cVarArr;
         this.b = iterable;
-        this.c = r1cVar;
+        this.c = s1cVar;
         this.d = i;
         this.e = z;
     }
@@ -346,48 +346,48 @@ public final class OnSubscribeCombineLatest<T, R> implements x0c.a<R> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void call(d1c<? super R> d1cVar) {
+    public void call(e1c<? super R> e1cVar) {
         int length;
         int i;
-        x0c<? extends T>[] x0cVarArr = this.a;
-        if (x0cVarArr == null) {
-            Iterable<? extends x0c<? extends T>> iterable = this.b;
+        y0c<? extends T>[] y0cVarArr = this.a;
+        if (y0cVarArr == null) {
+            Iterable<? extends y0c<? extends T>> iterable = this.b;
             if (iterable instanceof List) {
                 List list = (List) iterable;
-                x0cVarArr = (x0c[]) list.toArray(new x0c[list.size()]);
-                length = x0cVarArr.length;
+                y0cVarArr = (y0c[]) list.toArray(new y0c[list.size()]);
+                length = y0cVarArr.length;
             } else {
-                x0c<? extends T>[] x0cVarArr2 = new x0c[8];
+                y0c<? extends T>[] y0cVarArr2 = new y0c[8];
                 int i2 = 0;
-                for (x0c<? extends T> x0cVar : iterable) {
-                    if (i2 == x0cVarArr2.length) {
-                        x0c<? extends T>[] x0cVarArr3 = new x0c[(i2 >> 2) + i2];
-                        System.arraycopy(x0cVarArr2, 0, x0cVarArr3, 0, i2);
-                        x0cVarArr2 = x0cVarArr3;
+                for (y0c<? extends T> y0cVar : iterable) {
+                    if (i2 == y0cVarArr2.length) {
+                        y0c<? extends T>[] y0cVarArr3 = new y0c[(i2 >> 2) + i2];
+                        System.arraycopy(y0cVarArr2, 0, y0cVarArr3, 0, i2);
+                        y0cVarArr2 = y0cVarArr3;
                     }
-                    x0cVarArr2[i2] = x0cVar;
+                    y0cVarArr2[i2] = y0cVar;
                     i2++;
                 }
-                x0cVarArr = x0cVarArr2;
+                y0cVarArr = y0cVarArr2;
                 i = i2;
                 if (i != 0) {
-                    d1cVar.onCompleted();
+                    e1cVar.onCompleted();
                     return;
                 } else {
-                    new LatestCoordinator(d1cVar, this.c, i, this.d, this.e).subscribe(x0cVarArr);
+                    new LatestCoordinator(e1cVar, this.c, i, this.d, this.e).subscribe(y0cVarArr);
                     return;
                 }
             }
         } else {
-            length = x0cVarArr.length;
+            length = y0cVarArr.length;
         }
         i = length;
         if (i != 0) {
         }
     }
 
-    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
+    @Override // com.baidu.tieba.y0c.a, com.baidu.tieba.m1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((d1c) ((d1c) obj));
+        call((e1c) ((e1c) obj));
     }
 }

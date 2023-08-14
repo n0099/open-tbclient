@@ -54,12 +54,12 @@ public class wz1 extends rz1 {
 
         /* renamed from: com.baidu.tieba.wz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class DialogInterface$OnCancelListenerC0528a implements DialogInterface.OnCancelListener {
+        public class DialogInterface$OnCancelListenerC0530a implements DialogInterface.OnCancelListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public DialogInterface$OnCancelListenerC0528a(a aVar) {
+            public DialogInterface$OnCancelListenerC0530a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class wz1 extends rz1 {
                 aVar.g(this.f);
                 aVar.h(R.string.obfuscated_res_0x7f0f0146, new c(this));
                 aVar.d(R.string.obfuscated_res_0x7f0f013e, new b(this));
-                aVar.f(new DialogInterface$OnCancelListenerC0528a(this));
+                aVar.f(new DialogInterface$OnCancelListenerC0530a(this));
                 aVar.k();
             }
         }
@@ -261,12 +261,12 @@ public class wz1 extends rz1 {
 
         /* renamed from: com.baidu.tieba.wz1$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class DialogInterface$OnClickListenerC0529b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0531b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public DialogInterface$OnClickListenerC0529b(b bVar) {
+            public DialogInterface$OnClickListenerC0531b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -379,7 +379,7 @@ public class wz1 extends rz1 {
                 aVar.c(true);
                 aVar.g(this.f);
                 aVar.h(R.string.obfuscated_res_0x7f0f0146, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f013e, new DialogInterface$OnClickListenerC0529b(this));
+                aVar.d(R.string.obfuscated_res_0x7f0f013e, new DialogInterface$OnClickListenerC0531b(this));
                 aVar.f(new a(this));
                 aVar.k();
             }
@@ -515,12 +515,12 @@ public class wz1 extends rz1 {
 
         /* renamed from: com.baidu.tieba.wz1$d$d  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0530d implements BdMultiPicker.b {
+        public class C0532d implements BdMultiPicker.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
 
-            public C0530d(d dVar) {
+            public C0532d(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -586,7 +586,7 @@ public class wz1 extends rz1 {
                 aVar.l(this.a);
                 aVar.m(this.b);
                 aVar.o(this.c);
-                aVar.n(new C0530d(this));
+                aVar.n(new C0532d(this));
                 aVar.c(true);
                 aVar.g(this.e);
                 aVar.h(R.string.obfuscated_res_0x7f0f0146, new c(this));

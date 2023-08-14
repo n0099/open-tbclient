@@ -140,18 +140,18 @@ public final class um5 {
         }
     }
 
-    public static final zr6 a(String resPath, boolean z, int i) {
+    public static final as6 a(String resPath, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{resPath, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             Intrinsics.checkNotNullParameter(resPath, "resPath");
-            zr6 zr6Var = new zr6();
-            zr6Var.d(resPath);
-            zr6Var.c(z);
-            zr6Var.e(i);
-            return zr6Var;
+            as6 as6Var = new as6();
+            as6Var.d(resPath);
+            as6Var.c(z);
+            as6Var.e(i);
+            return as6Var;
         }
-        return (zr6) invokeCommon.objValue;
+        return (as6) invokeCommon.objValue;
     }
 
     public static final String c(String spriteTalk, int i, String str) {
@@ -204,8 +204,8 @@ public final class um5 {
             if (currentActivity == null || currentActivity.isFinishing()) {
                 return false;
             }
-            if (currentActivity instanceof gfa) {
-                return cha.h.a().h();
+            if (currentActivity instanceof hfa) {
+                return dha.h.a().h();
             }
             if ((!z && !FunnySpriteSwitch.Companion.isOn()) || !FunnySpriteResDownloadUtil.k().invoke().booleanValue()) {
                 return false;
@@ -233,7 +233,7 @@ public final class um5 {
     public static final void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
-            if (i != 2 && 2 == cha.h.a().b().a().c && 1 == cha.h.a().b().b().c && 6 == cha.h.a().b().c().c) {
+            if (i != 2 && 2 == dha.h.a().b().a().c && 1 == dha.h.a().b().b().c && 6 == dha.h.a().b().c().c) {
                 DefaultLog.getInstance().i("SpriteTip", "requestSpriteTip：直播tab不请求轻互动");
             } else {
                 l(i);

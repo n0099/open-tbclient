@@ -24,7 +24,7 @@ public interface jx0 {
 
         /* renamed from: com.baidu.tieba.jx0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0368a implements lx0 {
+        public class C0369a implements lx0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface jx0 {
                 }
             }
 
-            public C0368a(a aVar) {
+            public C0369a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface jx0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0368a(this);
+                return new C0369a(this);
             }
             return (lx0) invokeLL.objValue;
         }

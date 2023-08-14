@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.en6;
 import com.baidu.tieba.fn6;
+import com.baidu.tieba.gn6;
 import com.baidu.tieba.h85;
 import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -180,8 +180,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e70);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e72);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e76);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e78);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -302,7 +302,7 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = true;
             this.a.c.setVisibility(8);
             this.a.b.setVisibility(0);
-            TiebaStatic.log(en6.c("c13620", 7));
+            TiebaStatic.log(fn6.c("c13620", 7));
             un5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(true);
@@ -339,7 +339,7 @@ public class SecondFloorFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null && !list.isEmpty()) {
             this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11f6), Integer.valueOf(list.size())));
-            this.a.b.setData(new fn6(getUniqueId(), list, this.f));
+            this.a.b.setData(new gn6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
                 tbSingleton.setFirstEnterBigPicPage(false);

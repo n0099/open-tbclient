@@ -44,13 +44,13 @@ public class yo3 {
 
         /* renamed from: com.baidu.tieba.yo3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0547a implements Runnable {
+        public class RunnableC0550a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0547a(a aVar, Activity activity) {
+            public RunnableC0550a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class yo3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0547a runnableC0547a = new RunnableC0547a(this, activity);
+                RunnableC0550a runnableC0550a = new RunnableC0550a(this, activity);
                 if (fn3.a()) {
-                    runnableC0547a.run();
+                    runnableC0550a.run();
                 } else {
-                    sn3.j(runnableC0547a, "moveTaskToFront");
+                    sn3.j(runnableC0550a, "moveTaskToFront");
                 }
             }
         }

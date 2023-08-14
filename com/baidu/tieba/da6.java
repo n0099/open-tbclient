@@ -1,34 +1,31 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class da6 extends lm<ha6, LiveTabConcernOfflineViewHolder> {
+public class da6 extends lm<ha6, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public bn6<ha6> b;
+    public boolean b;
+    public cn6<ha6> c;
 
     /* loaded from: classes5.dex */
-    public class a extends bn6<ha6> {
+    public class a extends cn6<ha6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ da6 b;
@@ -52,19 +49,27 @@ public class da6 extends lm<ha6, LiveTabConcernOfflineViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, ha6 ha6Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ha6Var) == null) {
-                this.b.t(ha6Var);
+                if (view2.getId() == R.id.obfuscated_res_0x7f09102f) {
+                    if (!this.b.b) {
+                        this.b.b = true;
+                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091030) {
+                    ka6.b(this.b.a);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public da6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ha6.g);
+        super(tbPageContext.getPageActivity(), ha6.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,56 +86,37 @@ public class da6 extends lm<ha6, LiveTabConcernOfflineViewHolder> {
                 return;
             }
         }
-        this.b = new a(this);
+        this.b = false;
+        this.c = new a(this);
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
-    /* renamed from: u */
-    public LiveTabConcernOfflineViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: x */
+    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             qa6 qa6Var = new qa6(this.a, viewGroup);
-            qa6Var.k(this.b);
-            return new LiveTabConcernOfflineViewHolder(qa6Var);
+            qa6Var.k(this.c);
+            return new LiveTabConcernNotificationViewHolder(qa6Var);
         }
-        return (LiveTabConcernOfflineViewHolder) invokeL.objValue;
-    }
-
-    public final void t(ha6 ha6Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ha6Var) != null) || ha6Var == null) {
-            return;
-        }
-        String str = ha6Var.a;
-        if (!StringUtils.isNull(str) && JavaTypesHelper.toLong(str, 0L) != 0) {
-            if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-                return;
-            }
-            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageActivity()).createNormalConfig(JavaTypesHelper.toLong(str, 0L), z, false)));
-        }
+        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ha6 ha6Var, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ha6 ha6Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         InterceptResult invokeCommon;
         qa6 qa6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ha6Var, liveTabConcernOfflineViewHolder})) == null) {
-            if (liveTabConcernOfflineViewHolder != null && (qa6Var = liveTabConcernOfflineViewHolder.a) != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ha6Var, liveTabConcernNotificationViewHolder})) == null) {
+            if (liveTabConcernNotificationViewHolder != null && (qa6Var = liveTabConcernNotificationViewHolder.a) != null) {
+                this.b = false;
                 qa6Var.i(ha6Var);
-                return liveTabConcernOfflineViewHolder.getView();
+                return liveTabConcernNotificationViewHolder.getView();
             }
             return null;
         }

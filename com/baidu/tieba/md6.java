@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
+public class md6 extends hf7<ThreadData, FrsPageAlaVideoHolder> implements an6, b46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wd6 l;
+    public xd6 l;
     public String m;
     public String n;
-    public bn6<ThreadData> o;
+    public cn6<ThreadData> o;
 
-    @Override // com.baidu.tieba.zm6
+    @Override // com.baidu.tieba.an6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -32,7 +32,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends bn6<ThreadData> {
+    public class a extends cn6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ md6 b;
@@ -56,7 +56,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -64,7 +64,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 if (view2.getId() == R.id.layout_root) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.card_home_page_normal_thread_user_name && view2.getId() != R.id.card_home_page_normal_thread_user_header && view2.getId() != R.id.user_avatar) {
+                } else if (view2.getId() != R.id.card_home_page_normal_thread_user_name && view2.getId() != R.id.card_home_page_normal_thread_user_header) {
                     if (view2.getId() == R.id.video_container) {
                         customMessage = new CustomMessage(2921019);
                     } else {
@@ -103,7 +103,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.zm6
+    @Override // com.baidu.tieba.an6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -111,7 +111,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
         }
     }
 
-    @Override // com.baidu.tieba.a46
+    @Override // com.baidu.tieba.b46
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -130,9 +130,9 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
             if (tbPageContext == null) {
                 return null;
             }
-            wd6 wd6Var = new wd6(tbPageContext, this.mPageId);
-            this.l = wd6Var;
-            wd6Var.W(this.mPageId);
+            xd6 xd6Var = new xd6(tbPageContext, this.mPageId);
+            this.l = xd6Var;
+            xd6Var.W(this.mPageId);
             this.l.a(this.m);
             this.l.k(this.o);
             return new FrsPageAlaVideoHolder(this.l);
@@ -141,13 +141,13 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    @Override // com.baidu.tieba.hf7, com.baidu.tieba.lm
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w35 w35Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w35Var, frsPageAlaVideoHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaVideoHolder})) == null) {
             TiebaStatic.log("c11842");
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.b;
@@ -156,19 +156,18 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
             } else {
                 i2 = 0;
             }
-            ThreadData threadData = w35Var.t;
             threadData.statFloor = (i + 1) - i2;
             customMessage.setData(threadData);
             this.c.sendMessage(customMessage);
-            if (w35Var != null) {
-                wd6 wd6Var = frsPageAlaVideoHolder.b;
-                if (wd6Var instanceof z36) {
-                    wd6Var.b(this.n);
+            if (threadData != null) {
+                xd6 xd6Var = frsPageAlaVideoHolder.b;
+                if (xd6Var instanceof a46) {
+                    xd6Var.b(this.n);
                 }
                 frsPageAlaVideoHolder.b.a(this.m);
                 frsPageAlaVideoHolder.b.X(u());
-                frsPageAlaVideoHolder.b.i(w35Var.t);
-                w35Var.t.updateShowStatus();
+                frsPageAlaVideoHolder.b.i(threadData);
+                threadData.updateShowStatus();
             }
             this.e = (en) viewGroup;
             return frsPageAlaVideoHolder.getView();
@@ -176,7 +175,7 @@ public class md6 extends gf7<w35, FrsPageAlaVideoHolder> implements zm6, a46 {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.gf7, com.baidu.tieba.ym6
+    @Override // com.baidu.tieba.hf7, com.baidu.tieba.zm6
     public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {

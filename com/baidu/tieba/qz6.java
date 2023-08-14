@@ -50,8 +50,10 @@ public class qz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         @Override // com.baidu.tieba.in
         public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ymVar instanceof rn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((q05) ((rn6) ymVar), view2.getContext(), 2, false);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ymVar instanceof w35) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadData threadData = ((w35) ymVar).t;
+                threadData.objType = 1;
+                ThreadCardUtils.jumpToPB((q05) threadData, view2.getContext(), 2, false);
                 ((ThreadCardViewHolder) view2.getTag()).b().p(new vy.a(1));
             }
         }
@@ -95,7 +97,10 @@ public class qz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.b.getPageActivity(), false);
-            bVar.h(new ay(this.b.getPageActivity()));
+            tx txVar = new tx(this.b.getPageActivity());
+            txVar.D(true);
+            txVar.z();
+            bVar.h(txVar);
             ky k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
             k.s(2);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);

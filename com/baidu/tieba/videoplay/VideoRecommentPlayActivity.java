@@ -35,7 +35,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b36;
+import com.baidu.tieba.c36;
 import com.baidu.tieba.dt4;
 import com.baidu.tieba.et4;
 import com.baidu.tieba.video.VideoItemData;
@@ -60,7 +60,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> f;
     public VideoVerticalPageFragment g;
     public ImageView h;
-    public b36 i;
+    public c36 i;
     public boolean j;
     public CustomMessageListener k;
 
@@ -336,9 +336,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            b36 b36Var = this.i;
-            if (b36Var != null) {
-                b36Var.h();
+            c36 c36Var = this.i;
+            if (c36Var != null) {
+                c36Var.h();
             }
         }
     }
@@ -482,7 +482,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d09e4);
-            this.i = new b36(getPageContext(), "client_videomiddle");
+            this.i = new c36(getPageContext(), "client_videomiddle");
             x1();
             addNoAdjustSoftInputHeightListener();
             if (!J1() && !L1() && !I1() && !z1() && !y1() && !K1() && !E1() && !B1() && !M1() && !G1() && !F1() && !A1() && !D1() && getWindow() != null) {
@@ -583,7 +583,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.g = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092918, this.g);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09291e, this.g);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());

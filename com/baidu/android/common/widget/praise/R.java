@@ -86,9 +86,9 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int video_detail_like = 0x7f0928a5;
-        public static final int video_detail_like_icon = 0x7f0928a6;
-        public static final int video_detail_like_text = 0x7f0928a7;
+        public static final int video_detail_like = 0x7f0928ab;
+        public static final int video_detail_like_icon = 0x7f0928ac;
+        public static final int video_detail_like_text = 0x7f0928ad;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

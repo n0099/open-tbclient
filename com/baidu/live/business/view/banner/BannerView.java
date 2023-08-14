@@ -421,7 +421,7 @@ public class BannerView extends FrameLayout {
                 new l(this).a(oa0.b(getContext(), this.b));
                 this.b = 0;
             }
-            this.l.setImageResource(R.drawable.obfuscated_res_0x7f080f04);
+            this.l.setImageResource(R.drawable.obfuscated_res_0x7f080f07);
         }
     }
 
@@ -628,7 +628,7 @@ public class BannerView extends FrameLayout {
             z = false;
         }
         view2.setSelected(z);
-        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f1f);
+        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f22);
         if (i2 == i3) {
             layoutParams = new LinearLayout.LayoutParams(this.n, this.o);
         } else {

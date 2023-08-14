@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b48;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.c48;
+import com.baidu.tieba.vka;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
     public View d;
     public BarImageView e;
     public TbImage f;
-    public b48 g;
+    public c48 g;
     public ImageView h;
 
     public final void c() {
@@ -135,7 +135,7 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
             this.d = findViewById(R.id.obfuscated_res_0x7f09044f);
             this.e = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090be0);
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be1);
-            this.f = (TbImage) findViewById(R.id.obfuscated_res_0x7f0921e5);
+            this.f = (TbImage) findViewById(R.id.obfuscated_res_0x7f0921eb);
             b();
             c();
         }
@@ -155,22 +155,22 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b48 b48Var = this.g;
+            c48 c48Var = this.g;
             int i2 = Integer.MAX_VALUE;
-            if (b48Var != null && b48Var.g() != null) {
-                i2 = x9a.f(uka.d(this.g.g()));
-                i = x9a.f(uka.f(this.g.g()));
+            if (c48Var != null && c48Var.g() != null) {
+                i2 = y9a.f(vka.d(this.g.g()));
+                i = y9a.f(vka.f(this.g.g()));
             } else {
                 i = Integer.MAX_VALUE;
             }
-            if (x9a.e(i2) || x9a.e(i)) {
+            if (y9a.e(i2) || y9a.e(i)) {
                 if (TbadkApplication.getInst().getSkinType() == 4) {
-                    f = x9a.f("#4D4070FF");
+                    f = y9a.f("#4D4070FF");
                 } else {
-                    f = x9a.f("#324070FF");
+                    f = y9a.f("#324070FF");
                 }
                 i2 = f;
-                i = x9a.f("#004070FF");
+                i = y9a.f("#004070FF");
             }
             EMManager.from(this.d).setCorner(R.string.J_X05).setGradientColorValue(new int[]{i2, i}, Direction.TOP);
         }
@@ -194,31 +194,31 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            b48 b48Var = this.g;
-            if (b48Var != null) {
-                f("c15375", b48Var.e(), this.g.b(), this.g.d(), this.g.h());
+            c48 c48Var = this.g;
+            if (c48Var != null) {
+                f("c15375", c48Var.e(), this.g.b(), this.g.d(), this.g.h());
             }
         }
     }
 
-    public void setData(b48 b48Var) {
+    public void setData(c48 c48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, b48Var) == null) {
-            if (b48Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, c48Var) == null) {
+            if (c48Var == null) {
                 ViewCommonUtil.setVisibility(this, 8);
                 return;
             }
-            this.g = b48Var;
-            String c = b48Var.c();
+            this.g = c48Var;
+            String c = c48Var.c();
             String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0774);
             if (!bi.isEmpty(c) && !c.endsWith(string)) {
                 c = c + string;
             }
             this.c.setText(c);
             this.e.startLoad(this.g.a(), 10, false);
-            if (!bi.isEmpty(b48Var.d())) {
+            if (!bi.isEmpty(c48Var.d())) {
                 ViewCommonUtil.setVisibility(this.f, 0);
-                this.f.k(b48Var.d());
+                this.f.k(c48Var.d());
             } else {
                 ViewCommonUtil.setVisibility(this.f, 8);
             }

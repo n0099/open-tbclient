@@ -1,68 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.lac;
-import com.baidu.tieba.nac;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class c8c implements lac.a {
+public class c8c implements yac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public e7c c;
-    public a9c d;
-    public w8c e;
-    public Dialog f;
-    public gac g;
-    public AppCustomExpand h;
-    public nac.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
+    public int a;
+    public int b;
 
-    public c8c(Activity activity, Dialog dialog, e7c e7cVar, w8c w8cVar, a9c a9cVar, Dialog dialog2, gac gacVar, AppCustomExpand appCustomExpand, nac.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @Override // com.baidu.tieba.yac
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public c8c(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, e7cVar, w8cVar, a9cVar, dialog2, gacVar, appCustomExpand, bVar, iPayCallback};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = e7cVar;
-        this.d = a9cVar;
-        this.e = w8cVar;
-        this.f = dialog2;
-        this.g = gacVar;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.lac.a
-    public void b() {
+    @Override // com.baidu.tieba.yac
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.k(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            p9c.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                h9c.b(this.a, this.b, "64", "", "", "");
+            }
         }
     }
 }

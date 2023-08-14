@@ -41,7 +41,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ApkSignatureSchemeV2Verifier {
     public static final int APK_SIGNATURE_SCHEME_V2_BLOCK_ID = 1896449818;
     public static final long APK_SIG_BLOCK_MAGIC_HI = 3617552046287187010L;
@@ -60,7 +60,7 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SIGNATURE_RSA_PSS_WITH_SHA256 = 257;
     public static final int SIGNATURE_RSA_PSS_WITH_SHA512 = 258;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DataSource {
         void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
 
@@ -82,7 +82,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
@@ -111,7 +111,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
@@ -138,7 +138,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
@@ -155,7 +155,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
@@ -168,7 +168,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
@@ -183,7 +183,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 
@@ -406,6 +406,27 @@ public class ApkSignatureSchemeV2Verifier {
             }
             throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i2);
         }
+    }
+
+    public static ByteBuffer getByteBuffer(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
+        if (i >= 0) {
+            int limit = byteBuffer.limit();
+            int position = byteBuffer.position();
+            int i2 = i + position;
+            if (i2 >= position && i2 <= limit) {
+                byteBuffer.limit(i2);
+                try {
+                    ByteBuffer slice = byteBuffer.slice();
+                    slice.order(byteBuffer.order());
+                    byteBuffer.position(i2);
+                    return slice;
+                } finally {
+                    byteBuffer.limit(limit);
+                }
+            }
+            throw new BufferUnderflowException();
+        }
+        throw new IllegalArgumentException("size: " + i);
     }
 
     public static int compareSignatureAlgorithm(int i, int i2) {
@@ -632,27 +653,6 @@ public class ApkSignatureSchemeV2Verifier {
             throw new IOException("Underflow while reading length-prefixed value. Length: " + i + ", available: " + byteBuffer.remaining());
         }
         throw new IOException("Negative length");
-    }
-
-    public static ByteBuffer getByteBuffer(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
-        if (i >= 0) {
-            int limit = byteBuffer.limit();
-            int position = byteBuffer.position();
-            int i2 = i + position;
-            if (i2 >= position && i2 <= limit) {
-                byteBuffer.limit(i2);
-                try {
-                    ByteBuffer slice = byteBuffer.slice();
-                    slice.order(byteBuffer.order());
-                    byteBuffer.position(i2);
-                    return slice;
-                } finally {
-                    byteBuffer.limit(limit);
-                }
-            }
-            throw new BufferUnderflowException();
-        }
-        throw new IllegalArgumentException("size: " + i);
     }
 
     public static long getCentralDirOffset(ByteBuffer byteBuffer, long j) throws SignatureNotFoundException {

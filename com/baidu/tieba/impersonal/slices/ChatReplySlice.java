@@ -23,19 +23,19 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au8;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.cu8;
-import com.baidu.tieba.ft8;
-import com.baidu.tieba.hv8;
+import com.baidu.tieba.du8;
+import com.baidu.tieba.gt8;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tieba.iv8;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.tt8;
 import com.baidu.tieba.um5;
-import com.baidu.tieba.yt8;
+import com.baidu.tieba.ut8;
 import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,7 +52,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hv8 j;
+    public final iv8 j;
     public final String k;
     public final String l;
     public final String m;
@@ -81,7 +81,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends hv8.a {
+    public static final class a extends iv8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -104,15 +104,15 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.hv8.b
-        public void a(List<? extends tt8> list) {
+        @Override // com.baidu.tieba.iv8.b
+        public void a(List<? extends ut8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (tt8 tt8Var : list) {
+                for (ut8 ut8Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + tt8Var.b());
-                    if (bi.isEquals(tt8Var.b(), um5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + ut8Var.b());
+                    if (bi.isEquals(ut8Var.b(), um5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
@@ -170,7 +170,7 @@ public final class ChatReplySlice extends Slice {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    ft8.a("c15230", currentAccount, questionData.getQuestion());
+                    gt8.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -237,7 +237,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(hv8 repo, String talkType, String talkPrologue, String str) {
+    public ChatReplySlice(iv8 repo, String talkType, String talkPrologue, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public final class ChatReplySlice extends Slice {
     public final void h0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            yt8<zt8> a2 = cu8.a(str);
+            zt8<au8> a2 = du8.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }

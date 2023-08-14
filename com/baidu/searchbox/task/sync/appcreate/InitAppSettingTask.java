@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.de5;
 import com.baidu.tieba.je5;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.tv5;
 import com.baidu.tieba.uf5;
-import com.baidu.tieba.vr5;
+import com.baidu.tieba.wr5;
 /* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,8 +28,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        sv5.c();
-        vr5.a().q(System.currentTimeMillis() - currentTimeMillis);
+        tv5.c();
+        wr5.a().q(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -40,7 +40,7 @@ public class InitAppSettingTask extends LaunchTask {
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
         de5.d().q();
-        vr5.a().x(System.currentTimeMillis() - currentTimeMillis);
+        wr5.a().x(System.currentTimeMillis() - currentTimeMillis);
         BdActivityStack.getInst().setActivityStackMaxSize(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));

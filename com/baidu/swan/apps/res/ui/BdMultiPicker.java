@@ -90,7 +90,7 @@ public class BdMultiPicker extends LinearLayout {
     public final void d(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c1, this);
-        this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092a00);
+        this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092a06);
         this.g = po3.f(context, this.g);
         this.j = po3.f(context, this.j);
     }

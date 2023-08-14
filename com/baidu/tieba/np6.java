@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compact.RecommendTopicCardView;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public class np6 extends d97<RecommendTopicCardView, vy7> {
+public class np6 implements m97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public np6() {
-        super("recommend_topic_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,34 +23,28 @@ public class np6 extends d97<RecommendTopicCardView, vy7> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @Override // com.baidu.tieba.m97
     @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<u97<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            hb7.h(a);
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new vo6());
+            arrayList.add(new jp6());
+            arrayList.add(new xo6());
+            arrayList.add(new lp6());
+            arrayList.add(new kp6());
+            arrayList.add(new ap6());
+            arrayList.add(new op6());
+            return arrayList;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t97
-    /* renamed from: e */
-    public void b(@NonNull RecommendTopicCardView recommendTopicCardView, @NonNull vy7 vy7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendTopicCardView, vy7Var) == null) {
-            recommendTopicCardView.update(vy7Var);
-        }
+        return (List) invokeV.objValue;
     }
 }

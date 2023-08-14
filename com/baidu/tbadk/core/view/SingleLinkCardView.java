@@ -32,7 +32,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.d95;
-import com.baidu.tieba.kn6;
+import com.baidu.tieba.ln6;
 import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
     public TextView f;
     public ImageView g;
     public ImageView h;
-    public kn6 i;
+    public ln6 i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -144,14 +144,14 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
         d();
     }
 
-    public void a(kn6 kn6Var) {
+    public void a(ln6 ln6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kn6Var) == null) {
-            this.i = kn6Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ln6Var) == null) {
+            this.i = ln6Var;
             this.a.setPlaceHolder(2);
             this.a.setUseNightOrDarkMask(false);
-            if (kn6Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) kn6Var;
+            if (ln6Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) ln6Var;
                 this.a.setPlaceHolder(2);
                 this.a.startLoad(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -215,8 +215,8 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (kn6Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) kn6Var;
+            } else if (ln6Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) ln6Var;
                 this.a.startLoad(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
@@ -250,17 +250,17 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                     this.b.setMaxLines(1);
                 }
             }
-            c(kn6Var);
+            c(ln6Var);
         }
     }
 
-    public final void c(@Nullable kn6 kn6Var) {
+    public final void c(@Nullable ln6 ln6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kn6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ln6Var) == null) {
             View.OnClickListener onClickListener = this.j;
             if (onClickListener != null) {
                 setOnClickListener(onClickListener);
-            } else if ((kn6Var instanceof PbLinkData) && ((PbLinkData) kn6Var).urlType == 5) {
+            } else if ((ln6Var instanceof PbLinkData) && ((PbLinkData) ln6Var).urlType == 5) {
                 setOnClickListener(this);
             } else {
                 setClickable(false);

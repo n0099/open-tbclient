@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.cq5;
-import com.baidu.tieba.wz6;
+import com.baidu.tieba.xz6;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements cq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wz6 enterForumTabFeedData;
+    public xz6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -80,9 +80,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (tabfeedlistResIdl.data == null) {
                 return tabfeedlistResIdl;
             }
-            wz6 wz6Var = new wz6();
-            this.enterForumTabFeedData = wz6Var;
-            wz6Var.g(tabfeedlistResIdl.data);
+            xz6 xz6Var = new xz6();
+            this.enterForumTabFeedData = xz6Var;
+            xz6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;

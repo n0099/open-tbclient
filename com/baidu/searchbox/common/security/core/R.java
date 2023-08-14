@@ -9,8 +9,8 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int safe_dialog_content = 0x7f091fa3;
-        public static final int safe_dialog_sub_content = 0x7f091fa4;
+        public static final int safe_dialog_content = 0x7f091fa9;
+        public static final int safe_dialog_sub_content = 0x7f091faa;
     }
 
     /* loaded from: classes3.dex */

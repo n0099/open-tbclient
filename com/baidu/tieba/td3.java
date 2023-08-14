@@ -158,9 +158,9 @@ public class td3 extends vc3 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141d));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081420));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141c));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08141f));
                 }
             }
         }
@@ -183,7 +183,7 @@ public class td3 extends vc3 {
                 if (view2 == null) {
                     view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d2, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092454);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245a);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 b(view2, i);

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface sq9 {
-    vs9 c();
+    void a(boolean z);
 
-    void e();
-
-    void f(String str);
+    void b(int i);
 }

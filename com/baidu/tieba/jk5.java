@@ -397,7 +397,7 @@ public class jk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = ika.a(2002);
+            layoutParams.type = jka.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             int i = this.i;

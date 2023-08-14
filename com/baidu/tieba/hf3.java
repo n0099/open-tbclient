@@ -63,12 +63,12 @@ public class hf3 extends za3 {
 
         /* renamed from: com.baidu.tieba.hf3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0333a implements rp3<bg3<dg3.e>> {
+        public class C0323a implements rp3<bg3<dg3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0333a(a aVar) {
+            public C0323a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class hf3 extends za3 {
                         z2 = true;
                     }
                     if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0333a(this));
+                        this.e.c(this.d, this.b, this.c, new C0323a(this));
                         return;
                     }
                     if (yf3Var.j > 0) {

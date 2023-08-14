@@ -23,7 +23,7 @@ public final class k72 extends f62 {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1125T;
+    public boolean f1128T;
     public int U;
     public int V;
     public boolean W;
@@ -94,7 +94,7 @@ public final class k72 extends f62 {
             e13Var2.i(optBoolean2);
         }
         this.S = jSONObject.optBoolean("showConfirmBar", true);
-        this.f1125T = jSONObject.optBoolean("adjustPosition", true);
+        this.f1128T = jSONObject.optBoolean("adjustPosition", true);
         this.W = jSONObject.optBoolean("disabled", false);
         if (jSONObject.optInt("confirmHold") == 1) {
             z = true;
@@ -113,7 +113,7 @@ public final class k72 extends f62 {
             this.t = jSONObject.optString("value", this.t);
             this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
             this.S = jSONObject.optBoolean("showConfirmBar", this.S);
-            this.f1125T = jSONObject.optBoolean("adjustPosition", this.f1125T);
+            this.f1128T = jSONObject.optBoolean("adjustPosition", this.f1128T);
             n(jSONObject);
             p(jSONObject);
             o(jSONObject);

@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.i95;
 import com.baidu.tieba.j95;
-import com.baidu.tieba.k78;
 import com.baidu.tieba.l78;
+import com.baidu.tieba.m78;
 import com.baidu.tieba.om5;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,10 +35,10 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public k78 c;
+    public l78 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public l78 f;
+    public m78 f;
     public j95 g;
     public LoadingView h;
     public om5 i;
@@ -100,9 +100,9 @@ public class TopicListView extends FrameLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            l78 l78Var = this.f;
-            if (l78Var != null) {
-                l78Var.c(bdUniqueId);
+            m78 m78Var = this.f;
+            if (m78Var != null) {
+                m78Var.c(bdUniqueId);
             }
             j95 j95Var = this.g;
             if (j95Var != null) {
@@ -111,10 +111,10 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(k78 k78Var) {
+    public void setPresenter(l78 l78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, k78Var) == null) {
-            this.c = k78Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, l78Var) == null) {
+            this.c = l78Var;
         }
     }
 
@@ -267,9 +267,9 @@ public class TopicListView extends FrameLayout {
         if (om5Var != null) {
             om5Var.onChangeSkinType();
         }
-        l78 l78Var = this.f;
-        if (l78Var != null) {
-            l78Var.a();
+        m78 m78Var = this.f;
+        if (m78Var != null) {
+            m78Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {

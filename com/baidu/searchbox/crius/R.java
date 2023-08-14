@@ -114,18 +114,18 @@ public final class R {
         public static final int ltr = 0x7f091689;
         public static final int no_wrap = 0x7f09196e;
         public static final int none = 0x7f091971;
-        public static final int relative = 0x7f091e98;
-        public static final int root = 0x7f091f6b;
-        public static final int row = 0x7f091f91;
-        public static final int row_reverse = 0x7f091f93;
-        public static final int rtl = 0x7f091f94;
-        public static final int scroll = 0x7f0920cd;
-        public static final int space_around = 0x7f09223b;
-        public static final int space_between = 0x7f09223c;
-        public static final int stretch = 0x7f0922bc;
-        public static final int text = 0x7f092454;
-        public static final int visible = 0x7f092992;
-        public static final int wrap = 0x7f092a3f;
+        public static final int relative = 0x7f091e9e;
+        public static final int root = 0x7f091f71;
+        public static final int row = 0x7f091f97;
+        public static final int row_reverse = 0x7f091f99;
+        public static final int rtl = 0x7f091f9a;
+        public static final int scroll = 0x7f0920d3;
+        public static final int space_around = 0x7f092241;
+        public static final int space_between = 0x7f092242;
+        public static final int stretch = 0x7f0922c2;
+        public static final int text = 0x7f09245a;
+        public static final int visible = 0x7f092998;
+        public static final int wrap = 0x7f092a45;
     }
 
     /* loaded from: classes3.dex */

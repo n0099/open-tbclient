@@ -59,15 +59,15 @@ import com.baidu.tieba.hm5;
 import com.baidu.tieba.kk5;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.play.VideoPostionCacheManager;
-import com.baidu.tieba.q2a;
 import com.baidu.tieba.r2a;
-import com.baidu.tieba.rja;
+import com.baidu.tieba.s2a;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
 import com.baidu.tieba.setting.model.MoreDiscoveryModel;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel;
+import com.baidu.tieba.sja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ import java.util.List;
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r2a a;
+    public s2a a;
     public MoreModel b;
     public MoreDiscoveryModel c;
     public g d;
@@ -228,7 +228,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes7.dex */
-    public class d implements q2a {
+    public class d implements r2a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -251,7 +251,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.baidu.tieba.q2a
+        @Override // com.baidu.tieba.r2a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.b2(i)) {
@@ -482,7 +482,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 BdLog.e(e2);
             }
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-            startActivity(rja.a());
+            startActivity(sja.a());
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SUGGEST_FEEDBACK_CLICK);
             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -572,7 +572,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new r2a(this, O1());
+            this.a = new s2a(this, O1());
             a2(bundle);
             e2();
             registerListener(this.g);
@@ -598,22 +598,22 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (this.k != null) {
                     this.k = new GetImageWatermarkTypeModel(this);
                 }
-                r2a r2aVar = this.a;
-                if (r2aVar != null) {
-                    r2aVar.c0();
+                s2a s2aVar = this.a;
+                if (s2aVar != null) {
+                    s2aVar.c0();
                     this.a.e0();
                 }
             }
         }
     }
 
-    public final q2a O1() {
+    public final r2a O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return new d(this);
         }
-        return (q2a) invokeV.objValue;
+        return (r2a) invokeV.objValue;
     }
 
     public final void P1() {
@@ -694,9 +694,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             f2();
-            r2a r2aVar = this.a;
-            if (r2aVar != null) {
-                r2aVar.P();
+            s2a s2aVar = this.a;
+            if (s2aVar != null) {
+                s2aVar.P();
             }
         }
     }
@@ -715,9 +715,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onResume();
-            r2a r2aVar = this.a;
-            if (r2aVar != null) {
-                r2aVar.Z();
+            s2a s2aVar = this.a;
+            if (s2aVar != null) {
+                s2aVar.Z();
                 this.a.X();
             }
         }
@@ -803,12 +803,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void b0(View view2, BdSwitchView.SwitchState switchState) {
-        r2a r2aVar;
+        s2a s2aVar;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, view2, switchState) == null) && view2 != null && (r2aVar = this.a) != null) {
-            if (view2 == r2aVar.R()) {
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, view2, switchState) == null) && view2 != null && (s2aVar = this.a) != null) {
+            if (view2 == s2aVar.R()) {
                 this.a.T().h();
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     UtilHelper.showSkinChangeAnimation(this);

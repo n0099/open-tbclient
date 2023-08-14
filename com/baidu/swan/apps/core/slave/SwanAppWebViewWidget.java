@@ -897,7 +897,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements hx1<NgW
                 if (((ma2) m).j() == null || m.b0() == null) {
                     return;
                 }
-                view2 = m.b0().findViewById(R.id.obfuscated_res_0x7f0922fb);
+                view2 = m.b0().findViewById(R.id.obfuscated_res_0x7f092301);
             }
             if (view2 == null) {
                 return;

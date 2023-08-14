@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.data.HotEventData;
 import com.baidu.tieba.b55;
-import com.baidu.tieba.kr6;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.lr6;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ public class d55 extends b55 {
     public SpriteAnimationTipManager e;
 
     /* loaded from: classes5.dex */
-    public class a implements kr6.e {
+    public class a implements lr6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d55 a;
@@ -46,7 +46,7 @@ public class d55 extends b55 {
             this.a = d55Var;
         }
 
-        @Override // com.baidu.tieba.kr6.e
+        @Override // com.baidu.tieba.lr6.e
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -56,7 +56,7 @@ public class d55 extends b55 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements kr6.e {
+    public class b implements lr6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d55 a;
@@ -79,7 +79,7 @@ public class d55 extends b55 {
             this.a = d55Var;
         }
 
-        @Override // com.baidu.tieba.kr6.e
+        @Override // com.baidu.tieba.lr6.e
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -122,7 +122,7 @@ public class d55 extends b55 {
                 spriteAnimationTipManager.p();
             }
             hf5.s(false);
-            rr6.b().b(new g9a(null, 1));
+            sr6.b().b(new h9a(null, 1));
         }
     }
 
@@ -134,7 +134,7 @@ public class d55 extends b55 {
                 aVar.callback(false);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
-            } else if (2 == cha.a().b().a().c && 1 == cha.a().b().b().c && 6 == cha.a().b().c().c) {
+            } else if (2 == dha.a().b().a().c && 1 == dha.a().b().b().c && 6 == dha.a().b().c().c) {
                 DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
                 aVar.callback(false);
             } else {

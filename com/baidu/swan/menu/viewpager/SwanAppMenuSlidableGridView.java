@@ -43,7 +43,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     public void a(Context context) {
-        PointPageIndicator e = new jh4(context).e(R.drawable.obfuscated_res_0x7f080f9a, R.drawable.obfuscated_res_0x7f080f9b);
+        PointPageIndicator e = new jh4(context).e(R.drawable.obfuscated_res_0x7f080f9d, R.drawable.obfuscated_res_0x7f080f9e);
         e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024c));
         this.h = e;
         this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e4);

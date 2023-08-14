@@ -192,10 +192,10 @@ public class PictureView extends FrameLayout {
 
     public final void g(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0914, this);
-        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092a8e);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091c76);
-        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091e9a);
-        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091c77);
+        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092a94);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091c7c);
+        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091ea0);
+        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091c7d);
         this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
         this.d.setZoomRange(1.0f, 3.0f);
         this.d.setDoubleTapEnabled(true);

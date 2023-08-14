@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface paa {
-    boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i);
+    void a(int i);
+
+    void b();
+
+    void c(iaa iaaVar);
+
+    void d(int i, boolean z, aaa aaaVar);
 }

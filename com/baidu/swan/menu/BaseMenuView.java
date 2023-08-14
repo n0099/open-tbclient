@@ -61,7 +61,7 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public void setMode() {
         Resources resources = getResources();
-        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081404));
+        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081407));
         this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0603eb));
         this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603ec));
         this.c.setAlpha(1.0f);

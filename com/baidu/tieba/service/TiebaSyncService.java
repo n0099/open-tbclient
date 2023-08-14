@@ -46,14 +46,14 @@ import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.performanceLog.PerformanceLogger;
 import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.a0b;
-import com.baidu.tieba.a26;
 import com.baidu.tieba.ad5;
 import com.baidu.tieba.b05;
+import com.baidu.tieba.b0b;
+import com.baidu.tieba.b26;
 import com.baidu.tieba.bd5;
 import com.baidu.tieba.de5;
-import com.baidu.tieba.dv9;
-import com.baidu.tieba.iv7;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.jv7;
 import com.baidu.tieba.ke5;
 import com.baidu.tieba.lc5;
 import com.baidu.tieba.log.TbLog;
@@ -61,13 +61,13 @@ import com.baidu.tieba.nd5;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.sb5;
 import com.baidu.tieba.sh;
-import com.baidu.tieba.sja;
-import com.baidu.tieba.su5;
 import com.baidu.tieba.tja;
 import com.baidu.tieba.tu5;
-import com.baidu.tieba.u36;
+import com.baidu.tieba.uja;
+import com.baidu.tieba.uu5;
+import com.baidu.tieba.v36;
 import com.baidu.tieba.wallet.YYLiveConfig;
-import com.baidu.tieba.ww8;
+import com.baidu.tieba.xw8;
 import com.baidu.tieba.yc5;
 import com.baidu.tieba.zc5;
 import com.baidu.tieba.zj;
@@ -227,23 +227,23 @@ public class TiebaSyncService extends BdBaseService {
             ke5 ke5Var = null;
             try {
                 this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
-                if (dv9.b()) {
+                if (ev9.b()) {
                     this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     this.a.addPostData("brand", Build.BRAND);
                     this.a.addPostData("model", DeviceInfoHelper.getModel());
                 } else {
-                    this.a.addPostData(HttpRequest.NEED_DECRYPT, dv9.c());
-                    String g = dv9.g(HttpRequest.OS_VERSION);
+                    this.a.addPostData(HttpRequest.NEED_DECRYPT, ev9.c());
+                    String g = ev9.g(HttpRequest.OS_VERSION);
                     if (!TextUtils.isEmpty(g)) {
-                        this.a.addPostData(g, dv9.j());
+                        this.a.addPostData(g, ev9.j());
                     }
-                    String g2 = dv9.g("brand");
+                    String g2 = ev9.g("brand");
                     if (!TextUtils.isEmpty(g2)) {
-                        this.a.addPostData(g2, dv9.e());
+                        this.a.addPostData(g2, ev9.e());
                     }
-                    String g3 = dv9.g("model");
+                    String g3 = ev9.g("model");
                     if (!TextUtils.isEmpty(g3)) {
-                        this.a.addPostData(g3, dv9.h());
+                        this.a.addPostData(g3, ev9.h());
                     }
                 }
                 this.a.addPostData(HttpConstants.HTTP_BOARD, Build.BOARD);
@@ -280,7 +280,7 @@ public class TiebaSyncService extends BdBaseService {
                 NetWork netWork = this.a;
                 netWork.addPostData("versioncode", versionCode + "");
                 this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.a.addPostData(PackageTable.MD5, u36.a());
+                this.a.addPostData(PackageTable.MD5, v36.a());
                 NetWork netWork2 = this.a;
                 String str3 = "64";
                 if (sh.a()) {
@@ -345,9 +345,9 @@ public class TiebaSyncService extends BdBaseService {
             }
             this.b.mSyncTask = null;
             if (ke5Var != null) {
-                tu5.j().x();
+                uu5.j().x();
                 this.b.mModel = ke5Var;
-                a26.b(this.b.mModel.h());
+                b26.b(this.b.mModel.h());
                 this.b.onPostExecuteUpdateData();
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 if (1 == this.b.mModel.q()) {
@@ -381,14 +381,14 @@ public class TiebaSyncService extends BdBaseService {
                     TbadkCoreApplication.getInst().setActivitySwitch(this.b.mModel.d());
                 }
                 if (this.b.mModel.a() != null) {
-                    su5.d().e(this.b.mModel.a());
+                    tu5.d().e(this.b.mModel.a());
                 }
                 if (this.b.mModel.b() != null) {
-                    su5.d().f(this.b.mModel.b());
+                    tu5.d().f(this.b.mModel.b());
                 }
                 ABTestSwitchManager.getInstance().parseJSONArray(this.b.mModel.c());
                 UbsABTestDataManager.getInstance().parseJSONArray(this.b.mModel.t());
-                iv7.e().k(this.b.mModel.m());
+                jv7.e().k(this.b.mModel.m());
                 TbSingleton.getInstance().setAdFloatViewData(this.b.mModel.f());
                 TbSingleton.getInstance().setHotNotifyConfig(this.b.mModel.n());
                 SyncDataEvent syncDataEvent = new SyncDataEvent();
@@ -572,7 +572,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        a0b y;
+        b0b y;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && (y = this.mModel.y()) != null) {
             TbSingleton.getInstance().setYYLiveTabConfig(y);
@@ -682,14 +682,14 @@ public class TiebaSyncService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             if (!PermissionUtil.isBrowseMode()) {
-                ww8.b().a(false);
+                xw8.b().a(false);
             }
             VersionData v = this.mModel.v();
             if (v != null && v.hasNewVer() && TbConfig.COULD_UPDATE) {
                 if (TbSingleton.getInstance().isSplashShowing()) {
-                    sja.c().e(this.mModel);
+                    tja.c().e(this.mModel);
                 } else {
-                    tja.b(this.mModel);
+                    uja.b(this.mModel);
                 }
             }
         }

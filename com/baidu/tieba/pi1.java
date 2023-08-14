@@ -54,9 +54,9 @@ public class pi1 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091b5d);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b61);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b60);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091b63);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b67);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b66);
         }
     }
 
@@ -129,13 +129,13 @@ public class pi1 extends BaseAdapter {
                     aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06093e));
                     aVar.b.setTextSize(1, 10.0f);
                     aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06093e));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08117c));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08117f));
                 } else {
                     aVar.a.setTextSize(1, 14.0f);
                     aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060b4a));
                     aVar.b.setTextSize(1, 10.0f);
                     aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06093f));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08117b));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08117e));
                 }
             }
             return view2;

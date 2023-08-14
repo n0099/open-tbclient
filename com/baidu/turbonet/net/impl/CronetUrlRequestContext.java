@@ -7,10 +7,10 @@ import android.os.PowerManager;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c0b;
+import com.baidu.tieba.a1b;
 import com.baidu.tieba.d0b;
-import com.baidu.tieba.h0b;
-import com.baidu.tieba.z0b;
+import com.baidu.tieba.e0b;
+import com.baidu.tieba.i0b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import org.chromium.base.annotations.UsedByReflection;
 @JNINamespace("cronet")
 @VisibleForTesting
 /* loaded from: classes9.dex */
-public class CronetUrlRequestContext extends c0b {
+public class CronetUrlRequestContext extends d0b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String s = "CronetUrlRequestContext";
     public static volatile PowerManager t;
@@ -232,7 +232,7 @@ public class CronetUrlRequestContext extends c0b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 CronetLibraryLoader.b();
                 synchronized (this.a.b) {
-                    h0b.h().d(this.a.e, this.a);
+                    i0b.h().d(this.a.e, this.a);
                 }
             }
         }
@@ -518,12 +518,12 @@ public class CronetUrlRequestContext extends c0b {
     }
 
     @UsedByReflection("TurbonetEngine.java")
-    public CronetUrlRequestContext(d0b d0bVar) {
+    public CronetUrlRequestContext(e0b e0bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d0bVar};
+            Object[] objArr = {e0bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -546,24 +546,24 @@ public class CronetUrlRequestContext extends c0b {
         this.n = new ObserverList<>();
         this.o = new Object();
         this.p = new HashMap();
-        v = d0bVar.n();
+        v = e0bVar.n();
         try {
-            t = (PowerManager) d0bVar.getContext().getSystemService("power");
+            t = (PowerManager) e0bVar.getContext().getSystemService("power");
         } catch (Exception e2) {
             Log.e(s, e2.getMessage(), new Object[0]);
             t = null;
         }
         try {
-            u = (ActivityManager) d0bVar.getContext().getSystemService("activity");
+            u = (ActivityManager) e0bVar.getContext().getSystemService("activity");
         } catch (Exception e3) {
             Log.e(s, e3.getMessage(), new Object[0]);
             u = null;
         }
-        d0bVar.w();
-        CronetLibraryLoader.a(d0bVar.getContext(), d0bVar);
-        h0b.h().g(o());
-        if (d0bVar.u() == 1) {
-            this.r = d0bVar.D();
+        e0bVar.w();
+        CronetLibraryLoader.a(e0bVar.getContext(), e0bVar);
+        i0b.h().g(o());
+        if (e0bVar.u() == 1) {
+            this.r = e0bVar.D();
             synchronized (x) {
                 if (!x.add(this.r)) {
                     throw new IllegalStateException("Disk cache storage path already in use");
@@ -573,7 +573,7 @@ public class CronetUrlRequestContext extends c0b {
             this.r = null;
         }
         synchronized (this.b) {
-            long a2 = h0b.h().a(n(d0bVar));
+            long a2 = i0b.h().a(n(e0bVar));
             this.e = a2;
             if (a2 == 0) {
                 throw new NullPointerException("Context Adapter creation failed.");
@@ -718,16 +718,16 @@ public class CronetUrlRequestContext extends c0b {
     }
 
     @VisibleForTesting
-    public static long n(d0b d0bVar) {
+    public static long n(e0b e0bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, d0bVar)) == null) {
-            long e2 = h0b.h().e(d0bVar.r(), d0bVar.D(), d0bVar.x(), "", d0bVar.s(), d0bVar.h(), d0bVar.i(), d0bVar.u(), d0bVar.t(), "", 0L, false, false, d0bVar.E(10));
-            if (d0bVar.o() != null) {
-                h0b.h().f(e2, d0bVar.o());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, e0bVar)) == null) {
+            long e2 = i0b.h().e(e0bVar.r(), e0bVar.D(), e0bVar.x(), "", e0bVar.s(), e0bVar.h(), e0bVar.i(), e0bVar.u(), e0bVar.t(), "", 0L, false, false, e0bVar.E(10));
+            if (e0bVar.o() != null) {
+                i0b.h().f(e2, e0bVar.o());
             }
-            if (d0bVar.p() != null) {
-                h0b.h().b(e2, d0bVar.p());
+            if (e0bVar.p() != null) {
+                i0b.h().b(e2, e0bVar.p());
             }
             return e2;
         }
@@ -854,7 +854,7 @@ public class CronetUrlRequestContext extends c0b {
                 try {
                     try {
                         m();
-                        h0b.h().c(this.e, this, str, str2, i, i2, j, j2, j3, j4);
+                        i0b.h().c(this.e, this, str, str2, i, i2, j, j2, j3, j4);
                     } catch (Throwable th) {
                         th = th;
                         throw th;
@@ -867,8 +867,8 @@ public class CronetUrlRequestContext extends c0b {
         }
     }
 
-    @Override // com.baidu.tieba.c0b
-    public z0b g(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, RequestFinishedInfo.Listener listener, int i4) {
+    @Override // com.baidu.tieba.d0b
+    public a1b g(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, RequestFinishedInfo.Listener listener, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, callback, executor, Integer.valueOf(i), collection, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i2), Boolean.valueOf(z5), Integer.valueOf(i3), listener, Integer.valueOf(i4)})) == null) {
@@ -886,7 +886,7 @@ public class CronetUrlRequestContext extends c0b {
                 }
             }
         } else {
-            return (z0b) invokeCommon.objValue;
+            return (a1b) invokeCommon.objValue;
         }
     }
 

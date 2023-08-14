@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface vk6 {
-    boolean shouldOverrideUrlLoading(WebView webView, String str);
+    void j(View view2, MotionEvent motionEvent);
 }

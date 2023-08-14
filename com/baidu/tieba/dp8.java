@@ -1,47 +1,65 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.coreExtra.util.DialogUtil;
-import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
-import com.baidu.tieba.immessagecenter.msgtab.adapt.ChatTabFragmentAdapt;
-import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatTabFragmentAdapt a;
+    public BdPageContext a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TextView e;
+    public ImageView f;
+    public b g;
+    public RelativeLayout h;
+    public View.OnClickListener i;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public interface b {
+        void onClose();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dp8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dp8 dp8Var, int i) {
-            super(i);
+        public a(dp8 dp8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Integer.valueOf(i)};
+                Object[] objArr = {dp8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,294 +68,30 @@ public class dp8 {
             this.a = dp8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int[] iArr;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
-                int i = iArr[0];
-                int i2 = iArr[1];
-                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
-                if (pageContext == null || pageContext.getUniqueId() == null || pageContext.getUniqueId().getId() != i) {
-                    return;
-                }
-                this.a.d(i2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements iz4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.iz4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public b(dp8 dp8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.iz4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).S(1, true, null);
-                }
-                if (this.c) {
-                    PushOpenUtil.showPushPermissionSucToast(this.d);
-                } else {
-                    DialogUtil.jumpSystemNotificationSetting(this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.e.getId()) {
+                    DialogUtil.jumpSystemNotificationSetting(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.f.getId()) {
+                    SharedPrefHelper.getInstance().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.g != null) {
+                        this.a.g.onClose();
+                    }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements iz4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.iz4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public c(dp8 dp8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.iz4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).S(2, true, null);
-                }
-                if (this.c) {
-                    PushOpenUtil.showPushPermissionSucToast(this.d);
-                } else {
-                    DialogUtil.jumpSystemNotificationSetting(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements iz4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.iz4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public d(dp8 dp8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.iz4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).S(20, true, null);
-                }
-                if (this.c) {
-                    PushOpenUtil.showPushPermissionSucToast(this.d);
-                } else {
-                    DialogUtil.jumpSystemNotificationSetting(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements iz4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.iz4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public e(dp8 dp8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.iz4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).S(3, true, null);
-                }
-                if (this.c) {
-                    PushOpenUtil.showPushPermissionSucToast(this.d);
-                } else {
-                    DialogUtil.jumpSystemNotificationSetting(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements iz4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        @Override // com.baidu.tieba.iz4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public f(dp8 dp8Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp8Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.iz4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).S(10, true, null);
-                }
-                if (this.c) {
-                    PushOpenUtil.showPushPermissionSucToast(this.d);
-                } else {
-                    DialogUtil.jumpSystemNotificationSetting(this.b);
-                }
-            }
-        }
-    }
-
-    public dp8(ChatTabFragmentAdapt chatTabFragmentAdapt) {
+    public dp8(BdPageContext bdPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {chatTabFragmentAdapt};
+            Object[] objArr = {bdPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -347,85 +101,66 @@ public class dp8 {
                 return;
             }
         }
-        BaseFragment I1 = chatTabFragmentAdapt.I1();
-        if (I1 instanceof ChatTabFragmentAdapt) {
-            this.a = (ChatTabFragmentAdapt) I1;
+        this.i = new a(this);
+        this.a = bdPageContext;
+        View inflate = LayoutInflater.from(bdPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0752, (ViewGroup) null);
+        this.b = inflate;
+        this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0919da);
+        this.c = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d7);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919d7);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904da);
+        this.e = textView;
+        textView.setOnClickListener(this.i);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.img_close);
+        this.f = imageView;
+        imageView.setOnClickListener(this.i);
+        TiebaStatic.log("c13704");
+        g(TbadkCoreApplication.getInst().getSkinType(), z);
+        if (!z) {
+            e();
         }
     }
 
-    public void c() {
+    public void g(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (z) {
+                TBSelector.makeDrawableSelector().setShape(0).radius((float) R.string.J_X06).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.open_notify_start_color, R.color.open_notify_start_color, R.color.open_notify_end_color).into(this.h);
+            } else {
+                SkinManager.setBackgroundResource(this.b, R.color.CAM_X0204);
+            }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0110, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            EMManager.from(this.d).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
+            EMManager.from(this.e).setTextSize(R.dimen.tbds36).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
         }
-        this.a.registerListener(new a(this, 2921700));
     }
 
-    public final void d(int i) {
-        ChatTabFragmentAdapt chatTabFragmentAdapt;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (chatTabFragmentAdapt = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.g = bVar;
         }
-        FragmentActivity fragmentActivity = chatTabFragmentAdapt.getFragmentActivity();
-        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
-        if (fragmentActivity != null && pageContext != null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
-            if (i == 3) {
-                boolean A = de5.d().A();
-                if (areNotificationsEnabled && A) {
-                    return;
-                }
-                b bVar = new b(this, A, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (ip8.e()) {
-                    PushOpenUtil.showPushPermissionDialogV2(pageContext, 3, bVar);
-                    tv9.e().h("reply_message_bar");
-                }
-            }
-            if (i == 6) {
-                boolean v = de5.d().v();
-                if (areNotificationsEnabled && v) {
-                    return;
-                }
-                c cVar = new c(this, v, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (ip8.b()) {
-                    PushOpenUtil.showPushPermissionDialogV2(pageContext, 6, cVar);
-                    tv9.e().h("at_message_bar");
-                }
-            }
-            if (i == 7) {
-                boolean D = de5.d().D();
-                if (areNotificationsEnabled && D) {
-                    return;
-                }
-                d dVar = new d(this, D, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (ip8.a()) {
-                    PushOpenUtil.showPushPermissionDialogV2(pageContext, 7, dVar);
-                    tv9.e().h("agree_message_bar");
-                }
-            }
-            if (i == 8) {
-                boolean y = de5.d().y();
-                if (areNotificationsEnabled && y) {
-                    return;
-                }
-                e eVar = new e(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (ip8.c()) {
-                    PushOpenUtil.showPushPermissionDialogV2(pageContext, 8, eVar);
-                    tv9.e().h("fan_message_bar");
-                }
-            }
-            if (i == 2) {
-                boolean r = de5.d().r();
-                if (areNotificationsEnabled && r) {
-                    return;
-                }
-                f fVar = new f(this, r, pageContext, areNotificationsEnabled, fragmentActivity);
-                if (ip8.d()) {
-                    PushOpenUtil.showPushPermissionDialogV2(pageContext, 2, fVar);
-                    tv9.e().h("im");
-                }
-            }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X004);
+            this.h.setLayoutParams(layoutParams);
+            int dimens = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_W_X007);
+            this.f.setLeft(dimens);
+            this.f.setRight(dimens);
         }
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
     }
 }

@@ -64,7 +64,7 @@ public class s85 {
         public final /* synthetic */ s85 b;
 
         /* loaded from: classes7.dex */
-        public class a extends jw5<Object> {
+        public class a extends kw5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -87,7 +87,7 @@ public class s85 {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.jw5
+            @Override // com.baidu.tieba.kw5
             public Object doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class s85 {
         }
 
         /* loaded from: classes7.dex */
-        public class b implements ov5<Object> {
+        public class b implements pv5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -129,7 +129,7 @@ public class s85 {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.ov5
+            @Override // com.baidu.tieba.pv5
             public void onReturnDataInUI(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -167,7 +167,7 @@ public class s85 {
             }
             this.b.B("fix");
             this.b.z(this.a);
-            nw5.b(new a(this), new b(this));
+            ow5.b(new a(this), new b(this));
         }
     }
 

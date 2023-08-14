@@ -38,7 +38,7 @@ public class ch5 implements gh5 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            ay9 n = ay9.n();
+            by9 n = by9.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class ch5 implements gh5 {
                 n.B(downloadData);
             }
             dh5.a(downloadData);
-            ay9.n().y(downloadData);
+            by9.n().y(downloadData);
         }
     }
 
@@ -62,7 +62,7 @@ public class ch5 implements gh5 {
         }
         dh5.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        ay9.n().y(downloadData);
+        by9.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             if (downloadData.getApkDownloadData() != null) {
@@ -113,7 +113,7 @@ public class ch5 implements gh5 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        ay9.n().C(downloadData);
-        ay9.n().y(downloadData);
+        by9.n().C(downloadData);
+        by9.n().y(downloadData);
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.l17;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.m17;
+import com.baidu.tieba.n17;
 import com.baidu.tieba.nc5;
-import com.baidu.tieba.pw5;
+import com.baidu.tieba.qw5;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
 
         /* renamed from: com.baidu.tbadk.editortools.inputtool.InputView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0226a implements m17.i {
+        public class C0226a implements n17.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -88,7 +88,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.m17.i
+            @Override // com.baidu.tieba.n17.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -122,10 +122,10 @@ public class InputView extends SpanGroupEditText implements yh5 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && editable != null && editable.toString().trim() != null) {
                 String obj = editable.toString();
-                if (pw5.a.d(editable.toString()) > this.a.m) {
-                    String a = pw5.a.a(obj, this.a.m, "");
+                if (qw5.a.d(editable.toString()) > this.a.m) {
+                    String a = qw5.a.a(obj, this.a.m, "");
                     if (!bi.isEquals(editable.toString(), a)) {
-                        m17.h(this.a.getContext(), a, new C0226a(this));
+                        n17.h(this.a.getContext(), a, new C0226a(this));
                     }
                 }
                 this.a.F(new lh5(4, -1, editable.toString()));
@@ -136,7 +136,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) && charSequence != null && !StringUtils.isNull(charSequence.toString())) {
-                this.a.n = pw5.a.d(charSequence.toString());
+                this.a.n = qw5.a.d(charSequence.toString());
             }
         }
 
@@ -199,7 +199,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements m17.i {
+    public class c implements n17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -222,7 +222,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
             this.a = inputView;
         }
 
-        @Override // com.baidu.tieba.m17.i
+        @Override // com.baidu.tieba.n17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -422,7 +422,7 @@ public class InputView extends SpanGroupEditText implements yh5 {
                     Object obj5 = lh5Var.c;
                     if (obj5 != null && (obj5 instanceof ArrayList)) {
                         ArrayList<AtSelectData> arrayList = (ArrayList) obj5;
-                        if (this.n + pw5.a.c(arrayList) <= this.m) {
+                        if (this.n + qw5.a.c(arrayList) <= this.m) {
                             q(arrayList);
                             return;
                         }
@@ -448,12 +448,12 @@ public class InputView extends SpanGroupEditText implements yh5 {
                 if (TextUtils.isEmpty((String) obj6)) {
                     setText((CharSequence) null);
                 } else {
-                    m17.h(getContext(), (String) lh5Var.c, new c(this));
+                    n17.h(getContext(), (String) lh5Var.c, new c(this));
                 }
             }
         } else if (getSelectionStart() > 0) {
             String substring = getText().toString().substring(0, getSelectionStart());
-            Matcher matcher = l17.b.matcher(substring);
+            Matcher matcher = m17.b.matcher(substring);
             if (matcher.find()) {
                 getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
             } else {
@@ -513,10 +513,10 @@ public class InputView extends SpanGroupEditText implements yh5 {
                 return;
             }
             String obj = getText().toString();
-            if (this.h && l17.a(obj) >= 10 && getContext() != null) {
+            if (this.h && m17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                m17.c(getContext(), nc5Var, this);
+                n17.c(getContext(), nc5Var, this);
             }
         }
     }
@@ -525,10 +525,10 @@ public class InputView extends SpanGroupEditText implements yh5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, nc5Var) == null) && nc5Var != null && !TextUtils.isEmpty(nc5Var.d()) && !TextUtils.isEmpty(nc5Var.g())) {
             String obj = getText().toString();
-            if (this.h && l17.a(obj) >= 10 && getContext() != null) {
+            if (this.h && m17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                m17.d(getContext(), nc5Var, this);
+                n17.d(getContext(), nc5Var, this);
             }
         }
     }

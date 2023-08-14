@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b05;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.im;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
@@ -48,7 +48,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements qx<q0
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public bn6<q05> e;
+    public cn6<q05> e;
 
     public void setPreloadSizeReadyCallback(im imVar) {
         Interceptable interceptable = $ic;
@@ -186,10 +186,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements qx<q0
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bn6Var) == null) {
-            this.e = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cn6Var) == null) {
+            this.e = cn6Var;
         }
     }
 
@@ -219,13 +219,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements qx<q0
         }
     }
 
-    public bn6<q05> getSubClickListener() {
+    public cn6<q05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

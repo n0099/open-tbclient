@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.aba;
 import com.baidu.tieba.e25;
-import com.baidu.tieba.lw7;
-import com.baidu.tieba.zaa;
+import com.baidu.tieba.mw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,14 +29,14 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean e;
     public long f;
     public String g;
-    public lw7 h;
+    public mw7 h;
     public b i;
     public NetMessageListener j;
     public int mUserType;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, boolean z, lw7 lw7Var);
+        void a(int i, String str, boolean z, mw7 mw7Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -129,8 +129,8 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         aVar.getHttpMessageListener().setSelfListener(true);
         this.j.getSocketMessageListener().setSelfListener(true);
         registerListener(this.j);
-        zaa.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        zaa.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        aba.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        aba.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public void X(b bVar) {
@@ -231,35 +231,35 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void W(lw7 lw7Var) {
+    public final void W(mw7 mw7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, lw7Var) != null) || lw7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, mw7Var) != null) || mw7Var == null) {
             return;
         }
         if (this.h == null) {
-            this.h = new lw7();
+            this.h = new mw7();
         }
         if (this.h.c() == null) {
-            this.h.i(new lw7.b());
+            this.h.i(new mw7.b());
         }
         if (this.h.d() == null) {
-            this.h.j(new lw7.c());
+            this.h.j(new mw7.c());
         }
         if (this.h.a() == null) {
             this.h.g(new ArrayList<>());
         }
-        this.h.h(lw7Var.b());
-        this.h.k(lw7Var.e());
-        this.h.i(lw7Var.c());
-        this.h.j(lw7Var.d());
-        lw7 lw7Var2 = this.h;
-        lw7Var2.h = lw7Var.h;
-        lw7Var2.f = lw7Var.f;
-        if (lw7Var.g != null) {
-            lw7Var2.g = new e25();
+        this.h.h(mw7Var.b());
+        this.h.k(mw7Var.e());
+        this.h.i(mw7Var.c());
+        this.h.j(mw7Var.d());
+        mw7 mw7Var2 = this.h;
+        mw7Var2.h = mw7Var.h;
+        mw7Var2.f = mw7Var.f;
+        if (mw7Var.g != null) {
+            mw7Var2.g = new e25();
             e25 e25Var = this.h.g;
-            e25 e25Var2 = lw7Var.g;
+            e25 e25Var2 = mw7Var.g;
             e25Var.a = e25Var2.a;
             e25Var.b = e25Var2.b;
         }
@@ -272,12 +272,12 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             }
             this.a = z;
         }
-        if (lw7Var.a() != null && lw7Var.a().size() > 0) {
+        if (mw7Var.a() != null && mw7Var.a().size() > 0) {
             if (this.c) {
-                ArrayList<lw7.a> a2 = lw7Var.a();
+                ArrayList<mw7.a> a2 = mw7Var.a();
                 int size = this.h.a().size() + 1;
                 for (int i = 0; i < a2.size(); i++) {
-                    lw7.a aVar = a2.get(i);
+                    mw7.a aVar = a2.get(i);
                     if (aVar != null) {
                         aVar.h = size;
                         size++;
@@ -287,7 +287,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
                 return;
             }
             this.h.a().clear();
-            this.h.a().addAll(lw7Var.a());
+            this.h.a().addAll(mw7Var.a());
         }
     }
 

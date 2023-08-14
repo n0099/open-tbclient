@@ -2,7 +2,7 @@ package com.kwad.components.ad.e.a;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class j extends com.kwad.components.ad.e.kwai.a {
     public View ki;
 

@@ -214,10 +214,10 @@ public class p83 extends BaseAdapter {
             if (view2 == null) {
                 bVar = new b();
                 view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d092d, viewGroup, false);
-                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091d88);
-                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091d85);
-                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091d8e);
-                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091d8f);
+                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091d8e);
+                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091d8b);
+                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091d94);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091d95);
                 bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 int o = po3.o(this.e) - po3.g(30.0f);
                 int i2 = this.a;
@@ -227,7 +227,7 @@ public class p83 extends BaseAdapter {
                 layoutParams.width = i4;
                 layoutParams.height = i4;
                 bVar.a.setLayoutParams(layoutParams);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081479));
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08147c));
                 view3.setTag(bVar);
             } else {
                 view3 = view2;
@@ -235,12 +235,12 @@ public class p83 extends BaseAdapter {
             }
             int o2 = po3.o(this.e) / 3;
             int o3 = po3.o(this.e) / 3;
-            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f081478);
+            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08147b);
             bVar.b.setVisibility(8);
             if (e(i)) {
                 bVar.c.setVisibility(8);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081475));
-                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081473);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081478));
+                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081476);
             } else {
                 bVar.b.setVisibility(0);
                 String item = getItem(i);

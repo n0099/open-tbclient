@@ -1049,7 +1049,7 @@ public class fa2 extends ea2 {
                 case 0:
                     rh3.w(this.I0, "offline");
                     r3 = r3();
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081454));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081457));
                     textView.setVisibility(8);
                     str = r3;
                     break;
@@ -1060,7 +1060,7 @@ public class fa2 extends ea2 {
                     } else {
                         r3 = this.I0.forbiddenInformation;
                     }
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081451));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081454));
                     if (o3(this.G0, "app_page_banned")) {
                         textView.setVisibility(0);
                         textView.setText(Z2(this.G0));
@@ -1075,7 +1075,7 @@ public class fa2 extends ea2 {
                 case 2:
                     rh3.w(this.I0, "neterror");
                     r3 = c3(this.G0, "net_conn_failed");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081453));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081456));
                     if (o3(this.G0, "net_conn_failed")) {
                         textView.setVisibility(0);
                         textView.setText(Z2(this.G0));
@@ -1088,7 +1088,7 @@ public class fa2 extends ea2 {
                 case 3:
                     rh3.w(this.I0, "commonerror");
                     r3 = c3(this.G0, "app_open_failed");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081452));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081455));
                     if (o3(this.G0, "app_open_failed")) {
                         textView.setVisibility(0);
                         textView.setText(Z2(this.G0));
@@ -1111,7 +1111,7 @@ public class fa2 extends ea2 {
                 case 5:
                     rh3.w(this.I0, "lackresources");
                     String c3 = c3(this.G0, "0049");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081450));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081453));
                     if (o3(this.G0, "0049")) {
                         textView.setVisibility(0);
                         textView.setText(Z2(this.G0));
@@ -1123,7 +1123,7 @@ public class fa2 extends ea2 {
                 case 6:
                     rh3.w(this.I0, "outdisk");
                     String c32 = c3(this.G0, "2205");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081450));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081453));
                     if (so3.G()) {
                         textView.setVisibility(0);
                     } else {

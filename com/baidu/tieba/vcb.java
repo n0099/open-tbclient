@@ -1,137 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Canvas;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class vcb {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final Method b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
 
-    public vcb(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948237396, "Lcom/baidu/tieba/vcb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948237396, "Lcom/baidu/tieba/vcb;");
                 return;
             }
         }
-        this.b = j;
-        this.a = i;
+        try {
+            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
+            b = Canvas.class.getMethod("save", Integer.TYPE);
+        } catch (Throwable th) {
+            b(th);
+            throw null;
+        }
     }
 
-    public static vcb b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    public static void a(Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
+            try {
+                b.invoke(canvas, Integer.valueOf(i));
+            } catch (Throwable th) {
+                b(th);
+                throw null;
             }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt >= '0' && charAt <= '9') {
-                    j2 = (j2 * 16) + (charAt - '0');
-                } else {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
-                    } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
-                    }
-                    j2 = j + i3 + 10;
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
-            }
-            if (i4 == i) {
-                return null;
-            }
-            return new vcb(j2, i4);
         }
-        return (vcb) invokeLII.objValue;
     }
 
-    public static vcb c(String str, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public static RuntimeException b(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i >= i2) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (th == null) {
+                throw new NullPointerException("t");
             }
-            boolean z2 = false;
-            if (z) {
-                char charAt = str.charAt(i);
-                if (charAt != '+') {
-                    if (charAt == '-') {
-                        z2 = true;
-                    }
-                }
-                i++;
-            }
-            long j = 0;
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt2 = str.charAt(i3);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    break;
-                }
-                if (z2) {
-                    j = (j * 10) - (charAt2 - '0');
-                    if (j < -2147483648L) {
-                        return null;
-                    }
-                } else {
-                    j = (j * 10) + (charAt2 - '0');
-                    if (j > 2147483647L) {
-                        return null;
-                    }
-                }
-                i3++;
-            }
-            if (i3 == i) {
-                return null;
-            }
-            return new vcb(j, i3);
+            c(th);
+            throw null;
         }
-        return (vcb) invokeCommon.objValue;
+        return (RuntimeException) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static <T extends Throwable> T c(Throwable th) throws Throwable {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            throw th;
         }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.b;
-        }
-        return invokeV.intValue;
+        return (T) invokeL.objValue;
     }
 }

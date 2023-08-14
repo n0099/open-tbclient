@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class PbListView extends mm {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int E = 2131235006;
+    public static final int E = 2131235009;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
@@ -604,7 +604,7 @@ public class PbListView extends mm {
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091d64);
             this.v = (ImageView) this.i.findViewById(R.id.pb_more_view_top_line);
             this.j = this.i.findViewById(R.id.empty_view);
             this.x = (LinearLayout) this.i.findViewById(R.id.pb_more_top_extra_view);

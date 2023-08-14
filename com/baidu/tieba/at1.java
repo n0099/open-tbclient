@@ -31,7 +31,7 @@ public class at1 implements dv1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new fyb(inputStream);
+            return new gyb(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

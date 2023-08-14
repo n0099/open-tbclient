@@ -32,7 +32,7 @@ public class qa4 extends y63 implements v73 {
     public int f;
 
     /* loaded from: classes7.dex */
-    public class a implements l1c<String> {
+    public class a implements m1c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class qa4 extends y63 implements v73 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l1c
+        @Override // com.baidu.tieba.m1c
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class qa4 extends y63 implements v73 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            x0c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+            y0c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
         }
     }
 }

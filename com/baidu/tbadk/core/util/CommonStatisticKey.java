@@ -181,6 +181,8 @@ public class CommonStatisticKey {
     public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW = "c14528";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK = "c14519";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW = "c14518";
+    public static final String KEY_PB_NOVEL_JUMP_STORY_CHANNEL_CLICK = "c15405";
+    public static final String KEY_PB_NOVEL_JUMP_STORY_CHANNEL_SHOW = "c15404";
     public static final String KEY_PB_OPTIMIZE_LOAD_DURATION = "c14610";
     public static final String KEY_PB_PAGE_CONTENT_COLLECTION_SHOW = "c15140";
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_JUMP = "c14875";

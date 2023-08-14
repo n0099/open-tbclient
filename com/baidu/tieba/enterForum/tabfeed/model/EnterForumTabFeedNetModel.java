@@ -31,12 +31,12 @@ import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMess
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.iz6;
+import com.baidu.tieba.jz6;
 import com.baidu.tieba.n35;
 import com.baidu.tieba.w35;
-import com.baidu.tieba.wz6;
 import com.baidu.tieba.xz6;
 import com.baidu.tieba.ym;
+import com.baidu.tieba.yz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,11 +60,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public String d;
     public int e;
     public boolean f;
-    public iz6 g;
+    public jz6 g;
     public int h;
     public HashMap<String, Integer> i;
-    public xz6 j;
-    public wz6 k;
+    public yz6 j;
+    public xz6 k;
     public ThreadData l;
     public NetMessageListener m;
     public CustomMessageListener n;
@@ -112,33 +112,33 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            wz6 wz6Var;
+            xz6 xz6Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.a = false;
                 if (responsedMessage != null && this.a.j != null && this.a.j.b != null) {
                     if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                        wz6Var = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
+                        xz6Var = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
                     } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                        wz6Var = ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData;
+                        xz6Var = ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData;
                     } else {
-                        wz6Var = null;
+                        xz6Var = null;
                     }
-                    this.a.k = wz6Var;
+                    this.a.k = xz6Var;
                     this.a.mErrorCode = responsedMessage.getError();
                     this.a.mErrorString = responsedMessage.getErrorString();
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(this.a.mErrorCode);
                     errorData.setError_msg(this.a.mErrorString);
-                    if (this.a.mErrorCode == 0 && wz6Var != null) {
-                        if (wz6Var != null && this.a.l != null) {
-                            wz6Var.e().add(0, this.a.l);
+                    if (this.a.mErrorCode == 0 && xz6Var != null) {
+                        if (xz6Var != null && this.a.l != null) {
+                            xz6Var.e().add(0, this.a.l);
                             if (this.a.i != null && this.a.i.containsKey(this.a.l.getTid())) {
                                 this.a.i.remove(this.a.l.getTid());
                             }
                             this.a.l = null;
                         }
-                        this.a.i0(wz6Var, true);
+                        this.a.i0(xz6Var, true);
                         return;
                     }
                     this.a.g.f(errorData);
@@ -371,13 +371,13 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, iz6 iz6Var, BdUniqueId bdUniqueId) {
+    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, jz6 jz6Var, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, iz6Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, jz6Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -401,8 +401,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         this.m.getSocketMessageListener().setSelfListener(true);
         registerListener(this.m);
         this.i = new HashMap<>();
-        this.j = new xz6();
-        this.g = iz6Var;
+        this.j = new yz6();
+        this.g = jz6Var;
         this.e = SharedPrefHelper.getInstance().getInt("home_page_max_thread_count", 300);
         registerListener(this.n);
         registerListener(this.o);
@@ -476,11 +476,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            xz6 xz6Var = this.j;
-            if (xz6Var == null) {
+            yz6 yz6Var = this.j;
+            if (yz6Var == null) {
                 return false;
             }
-            return !ListUtils.isEmpty(xz6Var.b);
+            return !ListUtils.isEmpty(yz6Var.b);
         }
         return invokeV.booleanValue;
     }
@@ -514,8 +514,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xz6 xz6Var = this.j;
-            if (xz6Var != null && xz6Var.b != null) {
+            yz6 yz6Var = this.j;
+            if (yz6Var != null && yz6Var.b != null) {
                 int i2 = 30;
                 if (this.f) {
                     i2 = this.h - 60;
@@ -559,11 +559,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public final void e0(CustomResponsedMessage<?> customResponsedMessage) {
-        xz6 xz6Var;
+        yz6 yz6Var;
         w35 w35Var;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.h > 0 && (xz6Var = this.j) != null && !ListUtils.isEmpty(xz6Var.b)) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.h > 0 && (yz6Var = this.j) != null && !ListUtils.isEmpty(yz6Var.b)) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             if (!StringUtils.isNull(optString) && this.i.containsKey(optString)) {
                 Iterator<ym> it = this.j.b.iterator();
@@ -638,14 +638,14 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    public final void i0(wz6 wz6Var, boolean z) {
+    public final void i0(xz6 xz6Var, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048586, this, wz6Var, z) == null) && wz6Var != null && this.j != null) {
-            ArrayList<ym> e2 = wz6Var.e();
-            xz6 xz6Var = this.j;
+        if ((interceptable == null || interceptable.invokeLZ(1048586, this, xz6Var, z) == null) && xz6Var != null && this.j != null) {
+            ArrayList<ym> e2 = xz6Var.e();
+            yz6 yz6Var = this.j;
             boolean z2 = this.f;
-            xz6Var.h = z2;
+            yz6Var.h = z2;
             if (!z2) {
                 this.b++;
             } else {
@@ -654,8 +654,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 } else {
                     i = -1;
                 }
-                xz6Var.f = i;
-                g0(e2, wz6Var.d());
+                yz6Var.f = i;
+                g0(e2, xz6Var.d());
             }
             if (this.h + ListUtils.getCount(e2) > this.e) {
                 this.j.e = d0();
@@ -669,12 +669,12 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 this.j.b.addAll(m0);
                 this.j.c = !ListUtils.isEmpty(e2);
             }
-            this.j.d = wz6Var.f();
-            this.j.g = wz6Var.b();
-            this.j.a = wz6Var.c();
-            iz6 iz6Var = this.g;
-            if (iz6Var != null) {
-                iz6Var.r1(this.j);
+            this.j.d = xz6Var.f();
+            this.j.g = xz6Var.b();
+            this.j.a = xz6Var.c();
+            jz6 jz6Var = this.g;
+            if (jz6Var != null) {
+                jz6Var.r1(this.j);
             }
         }
     }

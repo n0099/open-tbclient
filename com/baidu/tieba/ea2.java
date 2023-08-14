@@ -401,7 +401,7 @@ public abstract class ea2 extends Fragment implements SlideInterceptor {
                         y72.b("SwanAppBaseFragment", "view为null");
                         return;
                     }
-                    ea2Var.s0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0922fc);
+                    ea2Var.s0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f092302);
                 }
                 this.d.s0.setVisibility(0);
                 if (this.a) {
@@ -1882,7 +1882,7 @@ public abstract class ea2 extends Fragment implements SlideInterceptor {
         }
         this.f0 = (SwanAppActionBar) view2.findViewById(R.id.obfuscated_res_0x7f090190);
         this.e0 = view2.findViewById(R.id.obfuscated_res_0x7f090191);
-        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f092582);
+        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f092588);
         this.f0.setLeftBackViewMinWidth(po3.f(this.c0, 38.0f));
         g gVar = new g(this);
         this.f0.setLeftBackViewClickListener(gVar);

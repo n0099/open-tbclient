@@ -3,7 +3,7 @@ package com.baidu.tbadk.util.gson;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dx5;
+import com.baidu.tieba.ex5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -286,7 +286,7 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
             if (rawType.isLocalClass() || rawType.isInterface() || rawType.isEnum() || rawType.isAnnotationPresent(JsonAdapter.class) || !rawType.isAnnotationPresent(c)) {
                 return null;
             }
-            KClass d = dx5.d(type);
+            KClass d = ex5.d(type);
             boolean z = true;
             if (!d.isInner()) {
                 KFunction primaryConstructor = KClasses.getPrimaryConstructor(d);
@@ -303,15 +303,15 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
                 LinkedHashSet linkedHashSet = new LinkedHashSet();
                 LinkedHashMap linkedHashMap3 = new LinkedHashMap();
                 for (KParameter kParameter : primaryConstructor.getParameters()) {
-                    List<String> b2 = dx5.b(kParameter, declaringClass);
+                    List<String> b2 = ex5.b(kParameter, declaringClass);
                     if (b2.isEmpty() ^ z) {
-                        TypeAdapter<T> adapter = gson.getAdapter(dx5.c(type, kParameter));
+                        TypeAdapter<T> adapter = gson.getAdapter(ex5.c(type, kParameter));
                         Intrinsics.checkNotNullExpressionValue(adapter, "gson.getAdapter(type.res…ParameterType(parameter))");
                         linkedHashMap.put(kParameter, adapter);
                     }
                     if (!kParameter.isOptional()) {
                         if (this.a) {
-                            obj = dx5.a(kParameter);
+                            obj = ex5.a(kParameter);
                         } else {
                             obj = null;
                         }

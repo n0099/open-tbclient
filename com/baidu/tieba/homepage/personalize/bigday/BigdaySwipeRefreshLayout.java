@@ -28,9 +28,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f58;
+import com.baidu.tieba.g58;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.p38;
+import com.baidu.tieba.q38;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1253,8 +1253,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof p38) {
-                ((p38) kVar).O(new c(this, kVar));
+            if (kVar instanceof q38) {
+                ((q38) kVar).O(new c(this, kVar));
             }
         }
     }
@@ -1311,7 +1311,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         int paddingTop;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            if (this.D && !f58.a()) {
+            if (this.D && !g58.a()) {
                 boolean z2 = TbSingleton.getInstance().mIsForceLayoutMaintab;
                 TbSingleton.getInstance().mIsForceLayoutMaintab = false;
                 if (!(getContext() instanceof TbadkCoreApplication) && getContext() != TbadkApplication.getInst().getCurrentActivity() && TbadkApplication.getInst().getCurrentActivity() != null && !z2) {

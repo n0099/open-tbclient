@@ -17,20 +17,20 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a56;
 import com.baidu.tieba.el0;
-import com.baidu.tieba.w46;
-import com.baidu.tieba.z46;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ApkDownloadView extends FrameLayout implements w46 {
+public class ApkDownloadView extends FrameLayout implements x46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z46 a;
-    public w46.a b;
+    public a56 a;
+    public x46.a b;
     public CustomMessageListener c;
     public CustomMessageListener d;
 
@@ -129,12 +129,12 @@ public class ApkDownloadView extends FrameLayout implements w46 {
         d(context);
     }
 
-    @Override // com.baidu.tieba.w46
+    @Override // com.baidu.tieba.x46
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            w46.a aVar = this.b;
+            x46.a aVar = this.b;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -146,12 +146,12 @@ public class ApkDownloadView extends FrameLayout implements w46 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (z46) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090af9);
+            this.a = (a56) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090af9);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.w46
+    @Override // com.baidu.tieba.x46
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -162,9 +162,9 @@ public class ApkDownloadView extends FrameLayout implements w46 {
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            z46 z46Var = this.a;
-            if (z46Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) z46Var).setBackgroundSkin(i);
+            a56 a56Var = this.a;
+            if (a56Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) a56Var).setBackgroundSkin(i);
             }
         }
     }
@@ -172,23 +172,23 @@ public class ApkDownloadView extends FrameLayout implements w46 {
     public void setForegroundSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            z46 z46Var = this.a;
-            if (z46Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) z46Var).setForeground(i);
+            a56 a56Var = this.a;
+            if (a56Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) a56Var).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        z46 z46Var;
+        a56 a56Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && (z46Var = this.a) != null) {
-            z46Var.setInitText(str);
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && (a56Var = this.a) != null) {
+            a56Var.setInitText(str);
         }
     }
 
-    @Override // com.baidu.tieba.w46
-    public void setOnClickInterceptListener(w46.a aVar) {
+    @Override // com.baidu.tieba.x46
+    public void setOnClickInterceptListener(x46.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
             this.b = aVar;
@@ -205,9 +205,9 @@ public class ApkDownloadView extends FrameLayout implements w46 {
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            z46 z46Var = this.a;
-            if (z46Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) z46Var).setTextColorInitSkin(i);
+            a56 a56Var = this.a;
+            if (a56Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) a56Var).setTextColorInitSkin(i);
             }
         }
     }
@@ -215,9 +215,9 @@ public class ApkDownloadView extends FrameLayout implements w46 {
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            z46 z46Var = this.a;
-            if (z46Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) z46Var).setTextColorSkin(i);
+            a56 a56Var = this.a;
+            if (a56Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) a56Var).setTextColorSkin(i);
             }
         }
     }

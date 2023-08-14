@@ -1,38 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsPage.MatchCardInfo;
-import tbclient.FrsPage.MatchPlayerInfo;
+import tbclient.FrsPage.HeadCardCover;
+import tbclient.FrsPage.HeaderCard;
+import tbclient.ThemeColorInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
 public final class uqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Integer b;
-    public String c;
-    public long d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public Long j;
-    public Long k;
-    public List<ThreadInfo> l;
-    public String m;
-    public ArrayList<vqa> n;
-    public String o;
-    public String p;
+    public List<ThreadInfo> b;
+    public ThemeColorInfo c;
+    public tqa d;
 
     public uqa() {
         Interceptable interceptable = $ic;
@@ -48,229 +34,75 @@ public final class uqa {
         }
     }
 
-    public final String a() {
+    public final ThemeColorInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String e() {
+    public final tqa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.p;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (tqa) invokeV.objValue;
     }
 
-    public final String f() {
+    public final List<ThreadInfo> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Integer g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ArrayList<vqa> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.n;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final Long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.j;
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public final Long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public final List<ThreadInfo> o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.l;
         }
         return (List) invokeV.objValue;
     }
 
-    public final long p() {
-        InterceptResult invokeV;
+    public final void e(HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void q(MatchCardInfo matchCardInfo) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, matchCardInfo) != null) || matchCardInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headerCard) != null) || headerCard == null) {
             return;
         }
-        this.a = matchCardInfo.name;
-        this.b = matchCardInfo.status;
-        this.c = matchCardInfo.card_title;
-        Long l = matchCardInfo.topic_id;
-        Intrinsics.checkNotNullExpressionValue(l, "matchCardInfo.topic_id");
-        this.d = l.longValue();
-        this.e = matchCardInfo.team_name_a;
-        this.f = matchCardInfo.team_name_b;
-        this.g = matchCardInfo.team_icon_a;
-        this.h = matchCardInfo.team_icon_b;
-        this.i = matchCardInfo.start_desc;
-        this.j = matchCardInfo.team_score_a;
-        this.k = matchCardInfo.team_score_b;
-        this.l = matchCardInfo.thread_list;
-        this.m = matchCardInfo.icon_text;
-        List<MatchPlayerInfo> list = matchCardInfo.team_player_list;
-        if (list != null && !list.isEmpty()) {
-            z = false;
-        } else {
-            z = true;
-        }
-        if (!z) {
-            this.n = new ArrayList<>();
-            for (MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
-                vqa vqaVar = new vqa();
-                vqaVar.r(matchPlayerInfo);
-                ArrayList<vqa> arrayList = this.n;
-                Intrinsics.checkNotNull(arrayList);
-                arrayList.add(vqaVar);
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        this.c = headerCard.card_background;
+        HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            tqa tqaVar = new tqa();
+            this.d = tqaVar;
+            if (tqaVar != null) {
+                tqaVar.d(headCardCover);
             }
         }
-        this.o = matchCardInfo.match_link;
-        this.p = matchCardInfo.schedule_link;
     }
 
-    public final void r(tbclient.Personalized.MatchCardInfo matchCardInfo) {
-        boolean z;
+    public final void f(tbclient.Personalized.HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, matchCardInfo) != null) || matchCardInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
             return;
         }
-        this.a = matchCardInfo.name;
-        this.b = matchCardInfo.status;
-        this.c = matchCardInfo.card_title;
-        Long l = matchCardInfo.topic_id;
-        Intrinsics.checkNotNullExpressionValue(l, "matchCardInfo.topic_id");
-        this.d = l.longValue();
-        this.e = matchCardInfo.team_name_a;
-        this.f = matchCardInfo.team_name_b;
-        this.g = matchCardInfo.team_icon_a;
-        this.h = matchCardInfo.team_icon_b;
-        this.i = matchCardInfo.start_desc;
-        this.j = matchCardInfo.team_score_a;
-        this.k = matchCardInfo.team_score_b;
-        this.l = matchCardInfo.thread_list;
-        this.m = matchCardInfo.icon_text;
-        List<tbclient.Personalized.MatchPlayerInfo> list = matchCardInfo.team_player_list;
-        if (list != null && !list.isEmpty()) {
-            z = false;
-        } else {
-            z = true;
-        }
-        if (!z) {
-            this.n = new ArrayList<>();
-            for (tbclient.Personalized.MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
-                vqa vqaVar = new vqa();
-                vqaVar.s(matchPlayerInfo);
-                ArrayList<vqa> arrayList = this.n;
-                Intrinsics.checkNotNull(arrayList);
-                arrayList.add(vqaVar);
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        this.c = headerCard.card_background;
+        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            tqa tqaVar = new tqa();
+            this.d = tqaVar;
+            if (tqaVar != null) {
+                tqaVar.e(headCardCover);
             }
         }
-        this.o = matchCardInfo.match_link;
-        this.p = matchCardInfo.schedule_link;
     }
 }

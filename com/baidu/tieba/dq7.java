@@ -1,31 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: NavBarLogic.java */
 /* loaded from: classes5.dex */
-public interface dq7 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
-
-    void b(@NonNull ThemeElement themeElement);
-
-    void c(float f);
-
-    void d(int i, boolean z);
+public final /* synthetic */ class dq7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    NavigationBar e();
-
-    void f(boolean z);
-
-    int g();
-
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    void onChangeSkinType(int i);
+    public static eq7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new fq7();
+        }
+        return (eq7) invokeV.objValue;
+    }
 }

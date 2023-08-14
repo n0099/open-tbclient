@@ -21,7 +21,7 @@ public class vp9 extends lm<gr9, CardViewHolder<js9>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vp9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), gr9.d);
+        super(tbPageContext.getPageActivity(), gr9.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class vp9 extends lm<gr9, CardViewHolder<js9>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gr9Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(gr9Var);
             cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().i(gr9Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

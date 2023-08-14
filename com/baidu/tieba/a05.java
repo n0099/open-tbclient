@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a05 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ow6 a;
+    public pw6 a;
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
@@ -97,7 +97,7 @@ public class a05 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = new ow6();
+        this.a = new pw6();
     }
 
     public final void a(Activity activity) {
@@ -254,10 +254,10 @@ public class a05 implements Application.ActivityLifecycleCallbacks {
             c(activity, Lifecycle.Event.ON_DESTROY);
             if (activity instanceof TbPageContextSupport) {
                 TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                rr6.b().unregister(pageContext);
+                sr6.b().unregister(pageContext);
                 BdUniqueId uniqueId = pageContext.getUniqueId();
                 if (uniqueId != null) {
-                    rr6.a(uniqueId);
+                    sr6.a(uniqueId);
                 }
             }
         }

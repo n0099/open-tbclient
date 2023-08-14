@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.qia;
+import com.baidu.tieba.ria;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
-import com.baidu.tieba.vha;
-import com.baidu.tieba.xha;
+import com.baidu.tieba.wha;
+import com.baidu.tieba.yha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,8 +24,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public xha c;
-    public vha d;
+    public yha c;
+    public wha d;
     public BackgroundListModel.c e;
     public BdListView.p f;
     public final i95.g g;
@@ -62,9 +62,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, qia qiaVar, List<DressItemData> list) {
+        public void a(int i, String str, ria riaVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qiaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, riaVar, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
@@ -73,7 +73,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     this.a.c.h();
                     return;
                 }
-                this.a.c.i(qiaVar, list, this.a.b.g0());
+                this.a.c.i(riaVar, list, this.a.b.g0());
             }
         }
     }
@@ -180,9 +180,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            xha xhaVar = this.c;
-            if (xhaVar != null) {
-                xhaVar.d();
+            yha yhaVar = this.c;
+            if (yhaVar != null) {
+                yhaVar.d();
             }
         }
     }
@@ -215,10 +215,10 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        xha xhaVar;
+        yha yhaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (xhaVar = this.c) != null) {
-            showLoadingView(xhaVar.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (yhaVar = this.c) != null) {
+            showLoadingView(yhaVar.c());
             this.b.loadData();
         }
     }
@@ -242,12 +242,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.i0(this.e);
-            vha vhaVar = new vha(this.a, this.b.getUniqueId());
-            this.d = vhaVar;
-            vhaVar.c(0);
-            xha xhaVar = new xha(this, this.d);
-            this.c = xhaVar;
-            xhaVar.g(this.f, this.g);
+            wha whaVar = new wha(this.a, this.b.getUniqueId());
+            this.d = whaVar;
+            whaVar.c(0);
+            yha yhaVar = new yha(this, this.d);
+            this.c = yhaVar;
+            yhaVar.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }

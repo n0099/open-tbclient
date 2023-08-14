@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ohb;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes7.dex */
-public class rhb implements ohb.e {
+public class rhb {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    public rhb(shb shbVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {shbVar, gdtADStatusChangeListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123037, "Lcom/baidu/tieba/rhb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948123037, "Lcom/baidu/tieba/rhb;");
                 return;
             }
         }
-        this.a = gdtADStatusChangeListener;
-    }
-
-    @Override // com.baidu.tieba.ohb.e
-    public void onADStatusChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.onADStatusChanged();
-        }
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("gdt_ad_forbid", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 }

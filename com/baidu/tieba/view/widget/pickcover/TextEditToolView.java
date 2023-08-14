@@ -23,10 +23,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bab;
-import com.baidu.tieba.bsa;
+import com.baidu.tieba.aab;
+import com.baidu.tieba.cab;
+import com.baidu.tieba.csa;
 import com.baidu.tieba.x95;
-import com.baidu.tieba.z9b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public bsa g;
+    public csa g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -192,9 +192,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 j();
-                bsa bsaVar = this.g;
-                if (bsaVar != null) {
-                    bsaVar.g(obj);
+                csa csaVar = this.g;
+                if (csaVar != null) {
+                    csaVar.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -237,7 +237,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, z9b.l(R.string.obfuscated_res_0x7f0f1764))) {
+        if (!TextUtils.equals(str, aab.l(R.string.obfuscated_res_0x7f0f1764))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -272,7 +272,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         View findViewById = findViewById(R.id.obfuscated_res_0x7f09149c);
         this.d = findViewById;
         EMManager.from(findViewById).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092480);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092486);
         x95 x95Var = new x95();
         x95Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
         this.f.setConfig(x95Var);
@@ -295,10 +295,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(bsa bsaVar) {
+    public void setOnTextWordsEditListener(csa csaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bsaVar) == null) {
-            this.g = bsaVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, csaVar) == null) {
+            this.g = csaVar;
         }
     }
 
@@ -359,9 +359,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(z9b.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(aab.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, bab.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, cab.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             int i2 = 0;
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
@@ -371,9 +371,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                 i2 = this.b.getText().length();
             }
             this.b.setSelection(i2);
-            bsa bsaVar = this.g;
-            if (bsaVar != null && this.m) {
-                bsaVar.k(str);
+            csa csaVar = this.g;
+            if (csaVar != null && this.m) {
+                csaVar.k(str);
             }
         }
     }

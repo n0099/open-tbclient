@@ -12,7 +12,7 @@ import com.baidu.tieba.c10;
 import com.baidu.tieba.hk1;
 import com.baidu.tieba.lk1;
 import com.baidu.tieba.s80;
-import com.baidu.tieba.xbb;
+import com.baidu.tieba.ybb;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -43,9 +43,9 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        xbb xbbVar;
-        if (z && (xbbVar = (xbb) ServiceManager.getService(xbb.a)) != null) {
-            xbbVar.retry();
+        ybb ybbVar;
+        if (z && (ybbVar = (ybb) ServiceManager.getService(ybb.a)) != null) {
+            ybbVar.retry();
         }
     }
 

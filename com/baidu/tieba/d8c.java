@@ -1,65 +1,68 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Dialog;
+import com.baidu.tieba.mac;
+import com.baidu.tieba.oac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class d8c implements xac {
+public class d8c implements mac.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
-    public AbsViewEventHandler b;
-    public e7c c;
-    public mac d;
+    public Dialog b;
+    public f7c c;
+    public b9c d;
+    public x8c e;
+    public Dialog f;
+    public hac g;
+    public AppCustomExpand h;
+    public oac.b i;
+    public IPayCallback<CurrencyChargeMessage> j;
 
-    @Override // com.baidu.tieba.xac
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public d8c(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, e7c e7cVar, mac macVar) {
+    public d8c(Activity activity, Dialog dialog, f7c f7cVar, x8c x8cVar, b9c b9cVar, Dialog dialog2, hac hacVar, AppCustomExpand appCustomExpand, oac.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, e7cVar, macVar};
+            Object[] objArr = {activity, dialog, f7cVar, x8cVar, b9cVar, dialog2, hacVar, appCustomExpand, bVar, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
         this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = e7cVar;
-        this.d = macVar;
+        this.b = dialog;
+        this.c = f7cVar;
+        this.d = b9cVar;
+        this.e = x8cVar;
+        this.f = dialog2;
+        this.g = hacVar;
+        this.h = appCustomExpand;
+        this.i = bVar;
+        this.j = iPayCallback;
     }
 
-    @Override // com.baidu.tieba.xac
-    public void a(CancelType cancelType) {
+    @Override // com.baidu.tieba.mac.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
-            }
-            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
-            this.c.g(cancelType, this.b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PaySignViewCallback", "onBtnConfirm");
+            this.c.k(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
+            q9c.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
         }
     }
 }

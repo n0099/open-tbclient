@@ -520,8 +520,8 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
             this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f09260c)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092612)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a40);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09111f);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09080f);
@@ -546,12 +546,12 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             frameLayout.setOnClickListener(this.l);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107a);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d5e);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d69);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d64);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d6f);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f0921db).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f0921e1).setOnTouchListener(new c(this));
         }
     }
 

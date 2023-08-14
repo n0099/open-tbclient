@@ -52,34 +52,34 @@ public class p15 implements Comparable<p15> {
         this.b = i2;
     }
 
-    public static p15 b(TbLinkSpanGroup tbLinkSpanGroup, pw7 pw7Var) {
+    public static p15 b(TbLinkSpanGroup tbLinkSpanGroup, qw7 qw7Var) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, pw7Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, qw7Var)) == null) {
             if (tbLinkSpanGroup == null) {
                 return null;
             }
             p15 p15Var = new p15(tbLinkSpanGroup.e(), 2);
-            if (pw7Var == null) {
+            if (qw7Var == null) {
                 return p15Var;
             }
-            if (TextUtils.isEmpty(pw7Var.f())) {
+            if (TextUtils.isEmpty(qw7Var.f())) {
                 str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
             } else {
-                str = pw7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+                str = qw7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
             }
             p15Var.d = str;
-            p15Var.c = pw7Var.c();
-            p15Var.m = pw7Var.a();
-            if (!ListUtils.isEmpty(pw7Var.b()) && pw7Var.b().get(0) != null) {
-                p15Var.e = pw7Var.b().get(0).a();
+            p15Var.c = qw7Var.c();
+            p15Var.m = qw7Var.a();
+            if (!ListUtils.isEmpty(qw7Var.b()) && qw7Var.b().get(0) != null) {
+                p15Var.e = qw7Var.b().get(0).a();
             }
-            p15Var.l = pw7Var.f();
-            p15Var.f = pw7Var.d();
-            if (pw7Var.e() != null) {
-                p15Var.j = pw7Var.e().a();
-                p15Var.k = pw7Var.e().b();
+            p15Var.l = qw7Var.f();
+            p15Var.f = qw7Var.d();
+            if (qw7Var.e() != null) {
+                p15Var.j = qw7Var.e().a();
+                p15Var.k = qw7Var.e().b();
             }
             tbLinkSpanGroup.B(p15Var);
             return p15Var;

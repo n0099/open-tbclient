@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092533);
         }
     }
 

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.oh9;
 import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,13 +47,13 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public w25 o;
     public TbPageContext p;
     public int q;
-    public nh9 r;
+    public oh9 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(nh9 nh9Var);
+        void a(oh9 oh9Var);
     }
 
     /* loaded from: classes7.dex */
@@ -130,12 +130,12 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.t = new a(this);
         this.p = tbPageContext;
         this.s = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091afe);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2b);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b04);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b31);
         this.c = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e4);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ea);
         this.e = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e1);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e7);
         this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091932);
         this.h = (ImageView) view2.findViewById(R.id.news_info_img);
         this.i = (TextView) view2.findViewById(R.id.news_info_text);
@@ -170,23 +170,23 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void h(nh9 nh9Var) {
+    public void h(oh9 oh9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, nh9Var) != null) || nh9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, oh9Var) != null) || oh9Var == null) {
             return;
         }
-        this.r = nh9Var;
-        w25 w25Var = nh9Var.f1;
+        this.r = oh9Var;
+        w25 w25Var = oh9Var.f1;
         this.m = w25Var;
-        this.n = nh9Var.g1;
-        this.o = nh9Var.h1;
+        this.n = oh9Var.g1;
+        this.o = oh9Var.h1;
         if (w25Var != null) {
             this.c.startLoad(w25Var.d, 10, false);
             this.e.setText(this.m.b);
             this.f.setText(this.m.e);
             this.d.setText(this.m.f);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f081370);
-            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f0810c7);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f081373);
+            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f0810ca);
         } else {
             this.b.setVisibility(8);
         }
@@ -208,6 +208,6 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(nh9Var);
+        this.a.setTag(oh9Var);
     }
 }

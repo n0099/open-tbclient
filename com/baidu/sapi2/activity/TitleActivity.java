@@ -537,24 +537,24 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             childAt.setFitsSystemWindows(true);
         }
         if (this.useTitle) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092575);
-            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092566);
-            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f092565);
-            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f092567);
-            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920ab);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920aa);
-            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f09256d);
-            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f092581);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09257b);
+            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09256c);
+            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f09256b);
+            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f09256d);
+            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920b1);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920b0);
+            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f092573);
+            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f092587);
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.showBottomBack) {
                 if (sapiConfiguration.isShowBottomBackText) {
-                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0922be)) != null) {
+                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0922c4)) != null) {
                         this.bottomBackView = viewStub2.inflate();
-                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fc7);
-                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
-                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fca);
-                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f092013);
+                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fcd);
+                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920af);
+                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fd0);
+                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f092019);
                         ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
                         ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
                         ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);

@@ -35,10 +35,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.q25;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.rk6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tm5;
 import com.baidu.tieba.tw4;
@@ -54,7 +54,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
+public class NewFrsTabWebFragment extends BaseWebViewFragment implements ng7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -72,14 +72,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
     public CustomMessageListener q;
     public final View.OnClickListener r;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -439,7 +439,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            js5.a(getPageContext(), this.i);
+            ks5.a(getPageContext(), this.i);
             k0();
         }
     }
@@ -471,11 +471,11 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
         if ((interceptable == null || interceptable.invokeLL(1048583, this, q25Var, jSONObject) == null) && this.h == 102) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("threadInfo", jSONObject);
-            qk6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
+            rk6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -514,14 +514,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0202);
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-            qk6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+            rk6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
         }
     }
 
@@ -666,7 +666,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mg7 {
             if (this.i == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06fc, (ViewGroup) null);
                 this.i = inflate;
-                this.j = (TbWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929e4);
+                this.j = (TbWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929ea);
                 this.k = (FrameLayout) this.i.findViewById(R.id.load_state_container);
                 l2();
             }

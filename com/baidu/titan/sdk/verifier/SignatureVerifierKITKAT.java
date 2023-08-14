@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SignatureVerifierKITKAT extends SignatureVerifier {
     public static final String TAG = "SigVerifier";
     public Context mContext;

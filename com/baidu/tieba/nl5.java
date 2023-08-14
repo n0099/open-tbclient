@@ -34,7 +34,7 @@ public class nl5 {
     }
 
     /* loaded from: classes7.dex */
-    public static class a extends jw5<Boolean> {
+    public static class a extends kw5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class nl5 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class nl5 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ov5<Boolean> {
+    public static class b implements pv5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public class nl5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class nl5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                nw5.b(new a(), new b());
+                ow5.b(new a(), new b());
             } else if (!BdTokenController.J().L()) {
                 c();
             }

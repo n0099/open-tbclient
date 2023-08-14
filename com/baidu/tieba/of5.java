@@ -56,7 +56,7 @@ public class of5 {
                 str3 = "";
             }
             while (str.length() > 0 && measureText > f) {
-                str = qw5.m(str, qw5.e(str) - 1);
+                str = rw5.m(str, rw5.e(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str + str3;

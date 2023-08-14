@@ -13,18 +13,15 @@ import java.util.List;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Ref;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class pv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final List<String> c;
-    public final int d;
+    public final List<tv9> a;
+    public final List<qv9> b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,19 +36,19 @@ public final class pv9 {
                 return;
             }
         }
-        e = new a(null);
+        c = new a(null);
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof pv9) {
                 pv9 pv9Var = (pv9) obj;
-                return Intrinsics.areEqual(this.a, pv9Var.a) && this.b == pv9Var.b && Intrinsics.areEqual(this.c, pv9Var.c) && this.d == pv9Var.d;
+                return Intrinsics.areEqual(this.a, pv9Var.a) && Intrinsics.areEqual(this.b, pv9Var.b);
             }
             return false;
         }
@@ -61,14 +58,14 @@ public final class pv9 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "PushSceneGroup(groupName=" + this.a + ", groupNo=" + this.b + ", groupList=" + this.c + ", limit=" + this.d + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "PushSceneConfig(scenes=" + this.a + ", groups=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
@@ -104,104 +101,86 @@ public final class pv9 {
                 if (jSONObject == null) {
                     return null;
                 }
-                List<String> b = b(jSONObject.optJSONArray("group"));
-                String optString = jSONObject.optString("group_name");
-                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"group_name\")");
-                return new pv9(optString, jSONObject.optInt("group_no"), b, jSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT));
+                return new pv9(c(jSONObject.optJSONArray("scene")), b(jSONObject.optJSONArray("group_config")));
             }
             return (pv9) invokeL.objValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x002f, code lost:
-            if (r5 == true) goto L13;
-         */
-        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.util.ArrayList] */
-        /* JADX WARN: Type inference failed for: r1v3, types: [java.util.List, T, java.util.ArrayList] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final List<String> b(JSONArray jSONArray) {
+        public final List<qv9> b(JSONArray jSONArray) {
             InterceptResult invokeL;
-            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                objectRef.element = new ArrayList();
+                ArrayList arrayList = new ArrayList();
                 if (jSONArray != null) {
-                    ?? arrayList = new ArrayList();
                     int length = jSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        String optString = jSONArray.optString(i);
-                        boolean z2 = true;
-                        if (optString != null) {
-                            if (optString.length() > 0) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                        }
-                        z2 = false;
-                        if (z2) {
-                            String optString2 = jSONArray.optString(i);
-                            Intrinsics.checkNotNullExpressionValue(optString2, "array.optString(i)");
-                            arrayList.add(optString2);
+                        qv9 a = qv9.e.a(jSONArray.optJSONObject(i));
+                        if (a != null) {
+                            arrayList.add(a);
                         }
                     }
-                    objectRef.element = arrayList;
                 }
-                return (List) objectRef.element;
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        public final List<tv9> c(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (jSONArray != null) {
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        tv9 a = tv9.h.a(jSONArray.optJSONObject(i));
+                        if (a != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                }
+                return arrayList;
             }
             return (List) invokeL.objValue;
         }
     }
 
-    public pv9(String groupName, int i, List<String> groupList, int i2) {
+    public pv9(List<tv9> scenes, List<qv9> groups) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {groupName, Integer.valueOf(i), groupList, Integer.valueOf(i2)};
+            Object[] objArr = {scenes, groups};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(groupName, "groupName");
-        Intrinsics.checkNotNullParameter(groupList, "groupList");
-        this.a = groupName;
-        this.b = i;
-        this.c = groupList;
-        this.d = i2;
+        Intrinsics.checkNotNullParameter(scenes, "scenes");
+        Intrinsics.checkNotNullParameter(groups, "groups");
+        this.a = scenes;
+        this.b = groups;
     }
 
-    public final List<String> a() {
+    public final List<qv9> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (List) invokeV.objValue;
     }
 
-    public final int b() {
+    public final List<tv9> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 }

@@ -46,7 +46,7 @@ public class px3 {
 
         /* renamed from: com.baidu.tieba.px3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0447a extends RequestBody {
+        public class C0449a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
@@ -61,7 +61,7 @@ public class px3 {
                 return invokeV.longValue;
             }
 
-            public C0447a(a aVar, RequestBody requestBody) {
+            public C0449a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class px3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-                return new C0447a(this, requestBody);
+                return new C0449a(this, requestBody);
             }
             return (RequestBody) invokeL.objValue;
         }

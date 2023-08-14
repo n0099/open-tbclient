@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ob6;
 import com.baidu.tieba.pb6;
+import com.baidu.tieba.qb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public pb6 mSpecialActivityListData;
+    public qb6 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new pb6();
+        this.mSpecialActivityListData = new qb6();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -72,17 +72,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                pb6 pb6Var = this.mSpecialActivityListData;
-                if (pb6Var != null && pb6Var.a == null) {
-                    pb6Var.a = new ArrayList();
+                qb6 qb6Var = this.mSpecialActivityListData;
+                if (qb6Var != null && qb6Var.a == null) {
+                    qb6Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            ob6 ob6Var = new ob6();
-                            ob6Var.c(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(ob6Var);
+                            pb6 pb6Var = new pb6();
+                            pb6Var.c(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(pb6Var);
                         }
                     }
                 }

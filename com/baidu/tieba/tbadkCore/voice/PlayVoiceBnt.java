@@ -28,7 +28,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.so5;
-import com.baidu.tieba.yda;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.IPlayVi
             }
         }
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, yda.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zda.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         b(context);
@@ -305,9 +305,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.IPlayVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.play_voice_bnt, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ca4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c91);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091caa);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c97);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d64);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);

@@ -64,9 +64,9 @@ public final class tn2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.size() > 0) {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0813f5));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0813f8));
                 } else {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0813f4));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0813f7));
                 }
             }
         }
@@ -250,7 +250,7 @@ public final class tn2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, ya3Var, str, list, fVar, onCancelListener})) == null) {
             View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d091b, null);
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922f5);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922fb);
             Resources resources = activity.getResources();
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, so3.i(ya3Var.W(), "SwanSubscribeMsgDialog", false)));
@@ -258,9 +258,9 @@ public final class tn2 {
             }
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902fe);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ff);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922f7)).setText(ya3Var.Z());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092557)).setText(str);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092446);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922fd)).setText(ya3Var.Z());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09255d)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09244c);
             ArrayList arrayList = new ArrayList(list);
             if (list.size() > 0) {
                 for (un2 un2Var : list) {

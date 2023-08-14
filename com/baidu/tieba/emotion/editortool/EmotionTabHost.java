@@ -22,7 +22,7 @@ import com.baidu.tieba.ei5;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 import com.baidu.tieba.emotion.editortool.EmotionTabWidgetView;
 import com.baidu.tieba.lh5;
-import com.baidu.tieba.rx6;
+import com.baidu.tieba.sx6;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -338,7 +338,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList<ei5> arrayList = new ArrayList<>();
-            Iterator<ei5> it = rx6.k().i().iterator();
+            Iterator<ei5> it = sx6.k().i().iterator();
             while (it.hasNext()) {
                 ei5 next = it.next();
                 if (next.h() != EmotionGroupType.BIG_EMOTION || this.h) {
@@ -426,13 +426,13 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c = rx6.k().i();
+            this.c = sx6.k().i();
             if (this.h && this.i && this.j) {
-                this.d = rx6.k().i();
+                this.d = sx6.k().i();
             } else {
                 this.d = g();
                 if ((!this.i || !this.j) && this.c != null) {
-                    ArrayList<ei5> arrayList = new ArrayList<>(rx6.k().i());
+                    ArrayList<ei5> arrayList = new ArrayList<>(sx6.k().i());
                     this.c = arrayList;
                     ListIterator<ei5> listIterator = arrayList.listIterator();
                     while (listIterator.hasNext()) {
@@ -449,7 +449,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
             ArrayList<ei5> arrayList2 = this.c;
             if ((arrayList2 == null || arrayList2.size() <= 0) && (i = this.k) < 3) {
                 this.k = i + 1;
-                rx6.k().v();
+                sx6.k().v();
                 return;
             }
             this.b.setDatas(this.c);

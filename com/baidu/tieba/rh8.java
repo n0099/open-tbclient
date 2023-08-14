@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface rh8 {
-    void a(int i, @Nullable Map<String, Object> map);
+    void g(@NonNull List<Reaction> list);
 }

@@ -1,8 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tieba.external.music.data.MusicData;
-import java.util.List;
 /* loaded from: classes5.dex */
 public interface f17 {
-    void setMusicData(List<MusicData> list);
+    void a(float f);
+
+    void b();
+
+    String c();
+
+    void d(MusicData musicData, Object obj);
+
+    void e();
+
+    void f(TbMusicData tbMusicData);
+
+    void g(String str, String str2);
+
+    boolean h();
+
+    void onPause();
+
+    void onResume();
+
+    void pause();
+
+    void reset();
 }

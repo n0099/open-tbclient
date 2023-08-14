@@ -108,12 +108,12 @@ public final class e90 extends Observable {
 
         /* renamed from: com.baidu.tieba.e90$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0276a implements Runnable {
+        public class RunnableC0278a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0276a(a aVar) {
+            public RunnableC0278a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,7 +202,7 @@ public final class e90 extends Observable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && e90.L.a != -2 && !this.a.w.hasMessages(303030)) {
                 this.a.w.removeCallbacks(this.a.t);
-                Message obtain = Message.obtain(this.a.w, new RunnableC0276a(this));
+                Message obtain = Message.obtain(this.a.w, new RunnableC0278a(this));
                 obtain.what = 303030;
                 this.a.w.sendMessage(obtain);
             }

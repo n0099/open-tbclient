@@ -22,15 +22,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi9;
 import com.baidu.tieba.bn;
+import com.baidu.tieba.ci9;
 import com.baidu.tieba.dt4;
 import com.baidu.tieba.et4;
 import com.baidu.tieba.h55;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.qh9;
-import com.baidu.tieba.sd9;
+import com.baidu.tieba.rh9;
+import com.baidu.tieba.td9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -224,36 +224,36 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void B1(sd9 sd9Var) {
+    public void B1(td9 td9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sd9Var) == null) {
-            super.B1(sd9Var);
-            if (this.a != null && a2(sd9Var)) {
-                this.a.o3(sd9Var);
-                this.b.setArguments(this.x.g(sd9Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, td9Var) == null) {
+            super.B1(td9Var);
+            if (this.a != null && a2(td9Var)) {
+                this.a.r3(td9Var);
+                this.b.setArguments(this.x.g(td9Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String G1(sd9 sd9Var) {
+    public String G1(td9 td9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sd9Var)) == null) {
-            if (sd9Var != null && sd9Var.x0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, td9Var)) == null) {
+            if (td9Var != null && td9Var.x0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.G1(sd9Var);
+            return super.G1(td9Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean a2(sd9 sd9Var) {
+    public final boolean a2(td9 td9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, sd9Var)) == null) {
-            return "video_pb_fragment_tag".equals(G1(sd9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, td9Var)) == null) {
+            return "video_pb_fragment_tag".equals(G1(td9Var));
         }
         return invokeL.booleanValue;
     }
@@ -287,7 +287,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new qh9(this));
+            registerListener(new rh9(this));
             W1();
         }
     }
@@ -482,9 +482,9 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048588, this, i, bdTypeRecyclerView) == null) && !this.u && J1() != null) {
             this.u = true;
-            if (J1() != null && J1().q1() == 7) {
+            if (J1() != null && J1().r1() == 7) {
                 i2 = 2;
-            } else if (J1() != null && J1().Z1()) {
+            } else if (J1() != null && J1().b2()) {
                 i2 = 1;
             } else {
                 i2 = 3;
@@ -497,20 +497,20 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void d2(int i, bi9 bi9Var) {
+    public void d2(int i, ci9 ci9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, bi9Var) == null) && !this.u && J1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, ci9Var) == null) && !this.u && J1() != null) {
             int i2 = 1;
             this.u = true;
-            if (J1() != null && J1().q1() == 7) {
+            if (J1() != null && J1().r1() == 7) {
                 i2 = 2;
-            } else if (J1() == null || !J1().Z1()) {
+            } else if (J1() == null || !J1().b2()) {
                 i2 = 3;
             }
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            bi9Var.G2(new b(this, i, i2));
+            ci9Var.G2(new b(this, i, i2));
         }
     }
 

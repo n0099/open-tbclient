@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy8;
-import com.baidu.tieba.oy9;
+import com.baidu.tieba.dy8;
+import com.baidu.tieba.py9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -129,17 +129,17 @@ public class AdCardMultiPicView extends AdCardBaseView {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
-            oy9 oy9Var = adCard.picInfo;
-            if (oy9Var == null) {
+            py9 py9Var = adCard.picInfo;
+            if (py9Var == null) {
                 list = null;
             } else {
-                list = oy9Var.c;
+                list = py9Var.c;
             }
-            if (!cy8.e(list) && oy9Var != null) {
-                int i = cy8.i(oy9Var.c);
+            if (!dy8.e(list) && py9Var != null) {
+                int i = dy8.i(py9Var.c);
                 int dimensionPixelSize = (int) ((this.x - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = oy9Var.e;
-                int i3 = oy9Var.d;
+                int i2 = py9Var.e;
+                int i3 = py9Var.d;
                 if (i2 != 0 && i3 != 0) {
                     f = i2 / i3;
                 } else {
@@ -156,21 +156,21 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 z0(this.i0, dimensionPixelSize, max);
                 z0(this.r0, dimensionPixelSize, max);
                 if (i == 1) {
-                    this.g0.b((String) cy8.d(list, 0));
+                    this.g0.b((String) dy8.d(list, 0));
                     this.g0.setVisibility(0);
                     A0(this.f0, 4);
                 } else if (i == 2) {
-                    this.g0.b((String) cy8.d(list, 0));
+                    this.g0.b((String) dy8.d(list, 0));
                     this.g0.setVisibility(0);
-                    this.i0.b((String) cy8.d(list, 1));
+                    this.i0.b((String) dy8.d(list, 1));
                     this.i0.setVisibility(0);
                     A0(this.h0, 3);
                 } else if (i >= 3) {
-                    this.g0.b((String) cy8.d(list, 0));
+                    this.g0.b((String) dy8.d(list, 0));
                     this.g0.setVisibility(0);
-                    this.i0.b((String) cy8.d(list, 1));
+                    this.i0.b((String) dy8.d(list, 1));
                     this.i0.setVisibility(0);
-                    this.r0.b((String) cy8.d(list, 2));
+                    this.r0.b((String) dy8.d(list, 2));
                     this.r0.setVisibility(0);
                 }
                 this.o.setVisibility(0);
@@ -185,11 +185,11 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public void d0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f41);
+            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f47);
             this.g0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090155);
-            this.h0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f40);
+            this.h0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f46);
             this.i0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090154);
-            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f42);
+            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f48);
             this.r0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090156);
             this.s0 = X(R.string.J_X05)[0];
             this.g0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));

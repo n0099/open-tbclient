@@ -69,8 +69,8 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public OneFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092716);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092717);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271c);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271d);
             this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
             this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09031b);
             this.f = (LinearLayout) view2.findViewById(R.id.right_container);
@@ -111,11 +111,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public TwoFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.i = "";
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f73);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092716);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f79);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271c);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090321);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b93);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092715);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271b);
             this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
             this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09031b);
             this.h = (LinearLayout) view2.findViewById(R.id.right_container);
@@ -142,12 +142,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public final void d(Context context) {
             if (!LiveFeedPageSdk.IMMERSION.equals(this.j) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.j) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                 if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f11);
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f14);
                 } else {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f12);
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f15);
                 }
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f13);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f16);
             }
             if (LiveFeedPageSdk.VIDEO_BAR.equals(this.j) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
@@ -182,7 +182,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public ViewHolder(View view2, String str, String str2) {
             super(view2);
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092716);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271c);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090321);
             this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b93);
             this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
@@ -541,12 +541,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     n(viewHolder2);
                     if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                         if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f06);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f09);
                         } else {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f08);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f0b);
                         }
                     } else {
-                        viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f07);
+                        viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080f0a);
                     }
                     viewHolder2.e.setVisibility(0);
                     viewHolder2.b.setVisibility(4);

@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.sd9;
+import com.baidu.tieba.td9;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.we9;
+import com.baidu.tieba.xe9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,13 +154,13 @@ public final class VideoFragmentController {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final we9 d() {
+    public final xe9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (we9) this.a.getValue();
+            return (xe9) this.a.getValue();
         }
-        return (we9) invokeV.objValue;
+        return (xe9) invokeV.objValue;
     }
 
     public final ImageView e() {
@@ -184,7 +184,7 @@ public final class VideoFragmentController {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ue9
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ve9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -277,7 +277,7 @@ public final class VideoFragmentController {
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             ImageView imageView2 = this.b;
             Intrinsics.checkNotNull(imageView2);
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ve9
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.we9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -296,14 +296,14 @@ public final class VideoFragmentController {
         }
     }
 
-    public final Bundle g(sd9 sd9Var) {
+    public final Bundle g(td9 td9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sd9Var)) == null) {
-            if (sd9Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, td9Var)) == null) {
+            if (td9Var == null) {
                 return null;
             }
-            ThreadData O = sd9Var.O();
+            ThreadData O = td9Var.O();
             Intrinsics.checkNotNullExpressionValue(O, "pbData.thread");
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(O);

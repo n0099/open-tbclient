@@ -96,8 +96,8 @@ public class ProgressButton extends FrameLayout {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             this.e = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0191, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092496);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d65);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09249c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d6b);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, eg1.ProgressButton);
             this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
             obtainStyledAttributes.recycle();

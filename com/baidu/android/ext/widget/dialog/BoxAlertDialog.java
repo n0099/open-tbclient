@@ -1017,11 +1017,11 @@ public class BoxAlertDialog extends BaseDialog {
             this.mPositiveBtnTextColor = -1;
             this.mNegativeBtnTextColor = -1;
             this.mRoot = viewGroup;
-            this.mTitlePanel = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.mTitlePanel = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092582);
             this.mTitle = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.mMessage = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.mMessageContent = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ba);
-            this.mPositiveButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.mPositiveButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cee);
             this.mNegativeButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.mNeutralButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091904);
             this.mDivider3 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f8);
@@ -1029,7 +1029,7 @@ public class BoxAlertDialog extends BaseDialog {
             this.mDialogContentPanel = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.mDialogContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908af);
             this.mIcon = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
-            this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09211e);
+            this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092124);
             this.mDivider2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f7);
             this.mScrollView = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091752);
             this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904dc);

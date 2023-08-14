@@ -52,6 +52,14 @@ public class cp7 extends PriorityOrganizer.Task {
     }
 
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void onExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            finish();
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public boolean isNeedExecute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,16 +67,14 @@ public class cp7 extends PriorityOrganizer.Task {
             if (YunDialogManager.isShowingDialog()) {
                 return false;
             }
-            return vs7.a(TbSingleton.getInstance().getFrsResponseData(), this.a);
+            iaa frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            vh7 vh7Var = new vh7(this.b.getPageContext());
+            this.a.U4(vh7Var);
+            boolean j = vh7Var.j(frsResponseData);
+            this.a.S4(j);
+            this.a.X4(j);
+            return j;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            finish();
-        }
     }
 }

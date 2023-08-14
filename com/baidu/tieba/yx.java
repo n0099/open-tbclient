@@ -52,11 +52,11 @@ public class yx extends ww<q05> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    nm6.a(this.a.g.getThreadData().getId());
+                    om6.a(this.a.g.getThreadData().getId());
                     yx yxVar = this.a;
-                    nm6.l(yxVar.f.a, yxVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    om6.l(yxVar.f.a, yxVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     yx yxVar2 = this.a;
-                    nm6.l(yxVar2.f.b, yxVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    om6.l(yxVar2.f.b, yxVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -93,10 +93,10 @@ public class yx extends ww<q05> {
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bn6Var) == null) {
-            this.f.setSubClickListener(bn6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, cn6Var) == null) {
+            this.f.setSubClickListener(cn6Var);
         }
     }
 

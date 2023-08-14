@@ -170,11 +170,11 @@ public class ry extends dx {
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bn6Var) == null) {
-            super.p(bn6Var);
-            this.m.setOnCardSubClickListener(bn6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cn6Var) == null) {
+            super.p(cn6Var);
+            this.m.setOnCardSubClickListener(cn6Var);
         }
     }
 

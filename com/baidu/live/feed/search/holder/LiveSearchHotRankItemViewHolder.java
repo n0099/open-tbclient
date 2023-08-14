@@ -25,11 +25,11 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchHotRankItemViewHolder(@NonNull View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09275f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092765);
         this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091678);
         this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0911f4);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09273a);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09270d);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092740);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092713);
         this.e.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         this.f.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
         if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {

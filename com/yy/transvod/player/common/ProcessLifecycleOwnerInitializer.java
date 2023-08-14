@@ -8,7 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import com.baidu.tieba.tub;
+import com.baidu.tieba.uub;
 import com.yy.transvod.player.log.TLog;
 import java.util.HashSet;
 /* loaded from: classes10.dex */
@@ -78,7 +78,7 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider implements
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         TLog.g(this, "onActivityStarted " + activity);
-        tub.a(true);
+        uub.a(true);
         this.a.add(Integer.valueOf(activity.hashCode()));
     }
 
@@ -86,7 +86,7 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider implements
     public void onActivityStopped(Activity activity) {
         TLog.g(this, "onActivityStopped " + activity);
         if (this.a.contains(Integer.valueOf(activity.hashCode()))) {
-            tub.a(false);
+            uub.a(false);
             this.a.remove(Integer.valueOf(activity.hashCode()));
         }
     }

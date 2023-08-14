@@ -1,11 +1,11 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.iwb;
+import com.baidu.tieba.jwb;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
-public final class NativeIttiam extends iwb {
+public final class NativeIttiam extends jwb {
     public long c = 0;
 
     /* loaded from: classes10.dex */

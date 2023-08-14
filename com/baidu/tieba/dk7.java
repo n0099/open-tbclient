@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface dk7 {
-    boolean a();
+    void a(boolean z);
+
+    void b(boolean z, boolean z2);
+
+    boolean c();
+
+    void onChangeSkinType(int i);
 }

@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Animatable;
-import com.facebook.imagepipeline.image.ImageInfo;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface ty5 {
-    void a(String str, ImageInfo imageInfo, Animatable animatable);
+    void a(View view2);
 
-    void b(String str, Throwable th);
+    void b(View view2);
+
+    View getView();
 }

@@ -1,8 +1,5 @@
 package com.baidu.tieba;
-
-import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
-public interface qh6<R> extends Callable<R> {
-    @Override // java.util.concurrent.Callable
-    R call();
+public interface qh6<T1, T2> {
+    void call(T1 t1, T2 t2);
 }

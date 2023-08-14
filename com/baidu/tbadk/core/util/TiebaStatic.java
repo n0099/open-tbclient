@@ -25,13 +25,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.dv5;
 import com.baidu.tieba.fi;
-import com.baidu.tieba.lv5;
+import com.baidu.tieba.mv5;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.su5;
-import com.baidu.tieba.ur5;
+import com.baidu.tieba.tu5;
+import com.baidu.tieba.vr5;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -725,7 +725,7 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
                 cg.g();
-                ur5.c();
+                vr5.c();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -752,12 +752,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = su5.d().c();
+        String c = tu5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        cr5.f().e(statisticItem);
-        statisticItem.addParam("session_id", lv5.g().i());
+        dr5.f().e(statisticItem);
+        statisticItem.addParam("session_id", mv5.g().i());
     }
 
     public static String getCua(Context context) {
@@ -1006,13 +1006,13 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     ngVar.i = TbadkCoreApplication.getInst().getImei();
                     ngVar.j = TbConfig.getSubappType();
-                    ngVar.r = cv5.c().f(context) + "_" + cv5.c().e(context);
+                    ngVar.r = dv5.c().f(context) + "_" + dv5.c().e(context);
                     ngVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     ngVar.s = getCua(context);
                     ngVar.t = PermissionUtil.getLastCachedOid(context);
                     ngVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ngVar.w = cv5.c().a();
-                    ngVar.x = cv5.c().g() + "_" + cv5.c().h();
+                    ngVar.w = dv5.c().a();
+                    ngVar.x = dv5.c().g() + "_" + dv5.c().h();
                     ngVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     ngVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     ngVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());

@@ -15,7 +15,7 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw7;
+import com.baidu.tieba.bw7;
 import com.baidu.tieba.j71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -216,8 +216,8 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) aw7.a.get(Integer.valueOf(intExtra));
-            aw7.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) bw7.a.get(Integer.valueOf(intExtra));
+            bw7.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
                     t1();

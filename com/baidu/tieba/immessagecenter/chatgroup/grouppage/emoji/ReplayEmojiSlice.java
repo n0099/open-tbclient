@@ -23,15 +23,15 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj8;
-import com.baidu.tieba.gk8;
+import com.baidu.tieba.gj8;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiGroupAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiGroupData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.kk8;
+import com.baidu.tieba.lk8;
 import com.baidu.tieba.pn5;
 import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class ReplayEmojiSlice extends Slice {
     @NonNull
     public final GroupChatFragment n;
     public EmojiGroupAdapter o;
-    public final kk8 p;
+    public final lk8 p;
     public final View.OnClickListener q;
     @Nullable
     public List<Reaction> r;
@@ -63,11 +63,11 @@ public class ReplayEmojiSlice extends Slice {
     @Nullable
     public BaseMsg t;
     @NonNull
-    public final fj8 u;
+    public final gj8 u;
     public final BdUniqueId v;
 
     /* loaded from: classes6.dex */
-    public class a implements kk8 {
+    public class a implements lk8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplayEmojiSlice a;
@@ -90,11 +90,11 @@ public class ReplayEmojiSlice extends Slice {
             this.a = replayEmojiSlice;
         }
 
-        @Override // com.baidu.tieba.kk8
+        @Override // com.baidu.tieba.lk8
         public void a(@NonNull Reaction reaction) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
-                gk8.g(this.a.u, reaction, this.a.t, 1);
+                hk8.g(this.a.u, reaction, this.a.t, 1);
                 this.a.j0();
             }
         }
@@ -127,7 +127,7 @@ public class ReplayEmojiSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ea8) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091eae) {
                 int i = this.a.s;
                 if (i != 1) {
                     if (i == 2) {
@@ -214,12 +214,12 @@ public class ReplayEmojiSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ea8);
-                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
+                dVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eae);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eaf);
                 RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090994);
                 dVar.d = recyclerView;
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
-                int i = gk8.a;
+                int i = hk8.a;
                 layoutParams.leftMargin = i;
                 layoutParams.rightMargin = i;
                 dVar.d.setLayoutParams(layoutParams);
@@ -229,12 +229,12 @@ public class ReplayEmojiSlice extends Slice {
         }
     }
 
-    public ReplayEmojiSlice(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull GroupChatFragment groupChatFragment, @NonNull fj8 fj8Var) {
+    public ReplayEmojiSlice(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull GroupChatFragment groupChatFragment, @NonNull gj8 gj8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, groupChatFragment, fj8Var};
+            Object[] objArr = {tbPageContext, groupChatFragment, gj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -251,7 +251,7 @@ public class ReplayEmojiSlice extends Slice {
         this.v = BdUniqueId.gen();
         this.m = tbPageContext;
         this.n = groupChatFragment;
-        this.u = fj8Var;
+        this.u = gj8Var;
     }
 
     public void k0(int i, @NonNull BaseMsg baseMsg, @Nullable List<Reaction> list) {
@@ -274,7 +274,7 @@ public class ReplayEmojiSlice extends Slice {
                 l0();
                 return;
             }
-            zm5.b().e(this.m.getPageActivity(), true, -gk8.a(), new c(this));
+            zm5.b().e(this.m.getPageActivity(), true, -hk8.a(), new c(this));
         }
     }
 

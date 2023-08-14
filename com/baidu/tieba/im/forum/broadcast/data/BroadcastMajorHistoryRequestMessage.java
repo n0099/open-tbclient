@@ -26,7 +26,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1114common;
+    public CommonReq f1116common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -57,7 +57,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1329common = this.f1114common;
+            builder.f1329common = this.f1116common;
             builder.query_type = Integer.valueOf(this.queryType);
             builder.forum_id = Long.valueOf(this.forumId);
             builder.need_cnt = Integer.valueOf(this.needCount);
@@ -77,7 +77,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1114common = commonReq;
+            this.f1116common = commonReq;
         }
     }
 }

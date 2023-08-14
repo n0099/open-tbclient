@@ -1,28 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.activity.LegoListFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ky8<T extends ICardInfo> {
-    void d();
+public class ky8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e();
+    public static jy8 a(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof zw8)) {
+                return ((zw8) tbPageContext.getPageActivity()).h0();
+            }
+            return null;
+        }
+        return (jy8) invokeL.objValue;
+    }
 
-    void g();
+    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof zw8)) {
+                return ((zw8) tbPageContext.getPageActivity()).p0();
+            }
+            return null;
+        }
+        return (LegoListFragment) invokeL.objValue;
+    }
 
-    void h();
-
-    void i(BdUniqueId bdUniqueId);
-
-    void setAfterClickSchemeListener(px8 px8Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    public static oy8 c(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof zw8)) {
+                return ((zw8) tbPageContext.getPageActivity()).c1();
+            }
+            return null;
+        }
+        return (oy8) invokeL.objValue;
+    }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k56;
+import com.baidu.tieba.l56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -129,7 +129,7 @@ public class NoAdFloatContainer extends RelativeLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(k56.b + (k56.c * 2), k56.a + (k56.c * 2));
+            a(l56.b + (l56.c * 2), l56.a + (l56.c * 2));
         }
     }
 
@@ -137,7 +137,7 @@ public class NoAdFloatContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.width = k56.a + (k56.c * 2);
+            layoutParams.width = l56.a + (l56.c * 2);
             setLayoutParams(layoutParams);
         }
     }
@@ -145,7 +145,7 @@ public class NoAdFloatContainer extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(k56.a + (k56.c * 2), k56.b + (k56.c * 2));
+            a(l56.a + (l56.c * 2), l56.b + (l56.c * 2));
         }
     }
 }

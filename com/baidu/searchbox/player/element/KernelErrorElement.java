@@ -33,7 +33,7 @@ public class KernelErrorElement extends AbsElement {
     public void initElement() {
         LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d016b, null);
         this.mRootView = linearLayout;
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c98);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c9e);
         this.mTextNetError = textView;
         textView.setOnClickListener(this.mParent);
     }

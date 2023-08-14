@@ -351,7 +351,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
     public final void R() {
         ArrayList<MediaModel> e2;
-        this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09250c);
+        this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092512);
         this.q = findViewById(R.id.obfuscated_res_0x7f09026b);
         a aVar = new a(this);
         aVar.setOrientation(0);
@@ -389,14 +389,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         if (py2.g(mediaModel)) {
             this.v.setVisibility(0);
             this.v.setText(Q(this.H.get(this.C)));
-            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08143a);
+            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08143d);
             return;
         }
         this.v.setVisibility(8);
         if (oy2.f(oy2.d, mediaModel)) {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143c);
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143f);
         } else {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143b);
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143e);
         }
     }
 
@@ -424,7 +424,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         this.z.x(this);
         this.n.setCurrentItem(this.C);
         this.s.setOnClickListener(this);
-        this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081439);
+        this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f08143c);
         this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060af5));
         if (py2.d() != 0) {
             string = getString(R.string.obfuscated_res_0x7f0f150a) + "(" + py2.d() + SmallTailInfo.EMOTION_SUFFIX;
@@ -576,7 +576,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                         this.A.q(null);
                     }
                     this.v.setVisibility(8);
-                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143b);
+                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f08143e);
                     if (py2.d() > 0) {
                         string = getString(R.string.obfuscated_res_0x7f0f150a) + "(" + py2.d() + SmallTailInfo.EMOTION_SUFFIX;
                     } else {
@@ -603,7 +603,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                     this.p.smoothScrollToPosition(d3);
                     this.v.setVisibility(0);
                     this.v.setText(Q(mediaModel));
-                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08143a);
+                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08143d);
                     this.u.setText(getString(R.string.obfuscated_res_0x7f0f150a) + "(" + py2.d() + SmallTailInfo.EMOTION_SUFFIX);
                     this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060af5));
                     Z();

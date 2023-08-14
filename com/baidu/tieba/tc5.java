@@ -171,7 +171,7 @@ public class tc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                xy5.a.a().b(str);
+                yy5.a.a().b(str);
             }
             return str;
         }

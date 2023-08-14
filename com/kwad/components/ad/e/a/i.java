@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.R;
 import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.video.DetailVideoView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public DetailVideoView mDetailVideoView;
 

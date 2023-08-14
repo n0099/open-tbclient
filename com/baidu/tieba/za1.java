@@ -841,7 +841,7 @@ public class za1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, sslCertificate, sslError)) == null) {
             View m2 = m(sslCertificate);
-            LinearLayout linearLayout = (LinearLayout) m2.findViewById(R.id.obfuscated_res_0x7f091c8f);
+            LinearLayout linearLayout = (LinearLayout) m2.findViewById(R.id.obfuscated_res_0x7f091c95);
             m2.findViewById(R.id.ssl_divider).setBackgroundColor(this.a.getResources().getColor(R.color.nad_dialog_gray));
             if (sslError == null) {
                 c(linearLayout, R.string.nad_ssl_certificate_is_valid);
@@ -930,7 +930,7 @@ public class za1 {
             SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
             if (issuedTo != null) {
                 ((TextView) inflate.findViewById(R.id.to_common)).setText(issuedTo.getCName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b3)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b9)).setText(issuedTo.getOName());
                 ((TextView) inflate.findViewById(R.id.to_org_unit)).setText(issuedTo.getUName());
             }
             SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();
@@ -980,7 +980,7 @@ public class za1 {
                 return false;
             } else {
                 View inflate = View.inflate(this.a, R.layout.nad_js_prompt, null);
-                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092870);
+                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092876);
                 editText.setText(str3);
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091740)).setText(str2);
                 uc1.a aVar = new uc1.a(this.a);

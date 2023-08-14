@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.arch.base;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wf8;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public final class BaseRepository$asyncRequest$2 extends SuspendLambda implement
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Function2<String, Continuation<? super Unit>, Object> $failCallback;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Function0<wf8<T>> $request;
+    public final /* synthetic */ Function0<xf8<T>> $request;
     public final /* synthetic */ Function1<T, Unit> $successCallback;
     public int label;
 
@@ -59,7 +59,7 @@ public final class BaseRepository$asyncRequest$2 extends SuspendLambda implement
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseRepository$asyncRequest$2(Function0<? extends wf8<T>> function0, Function1<? super T, Unit> function1, Function2<? super String, ? super Continuation<? super Unit>, ? extends Object> function2, Continuation<? super BaseRepository$asyncRequest$2> continuation) {
+    public BaseRepository$asyncRequest$2(Function0<? extends xf8<T>> function0, Function1<? super T, Unit> function1, Function2<? super String, ? super Continuation<? super Unit>, ? extends Object> function2, Continuation<? super BaseRepository$asyncRequest$2> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,14 +114,14 @@ public final class BaseRepository$asyncRequest$2 extends SuspendLambda implement
             } else {
                 ResultKt.throwOnFailure(obj);
                 try {
-                    wf8 wf8Var = (wf8) this.$request.invoke();
-                    int i2 = a.$EnumSwitchMapping$0[wf8Var.d().ordinal()];
+                    xf8 xf8Var = (xf8) this.$request.invoke();
+                    int i2 = a.$EnumSwitchMapping$0[xf8Var.d().ordinal()];
                     if (i2 != 1) {
-                        if (i2 == 2 && (c = wf8Var.c()) != null) {
+                        if (i2 == 2 && (c = xf8Var.c()) != null) {
                             throw new IllegalStateException(c.toString());
                         }
                     } else {
-                        Object b = wf8Var.b();
+                        Object b = xf8Var.b();
                         if (b != null) {
                             this.$successCallback.invoke(b);
                         }

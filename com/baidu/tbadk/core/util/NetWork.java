@@ -28,7 +28,7 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.m25;
 import com.baidu.tieba.ob5;
 import com.baidu.tieba.pb5;
-import com.baidu.tieba.rw7;
+import com.baidu.tieba.sw7;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -473,7 +473,7 @@ public class NetWork {
                     return null;
                 }
             }
-            rw7.b(this);
+            sw7.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;

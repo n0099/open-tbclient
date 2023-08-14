@@ -4,23 +4,23 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.idlehelp.IdleHandlerManager;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.hf9;
+import com.baidu.tieba.if9;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.tblauncher.SchemaRouteActivity;
-import com.baidu.tieba.vv5;
+import com.baidu.tieba.wv5;
 import com.baidu.tieba.yunpush.YunPushProxyActivity;
 import java.util.Set;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(vv5 vv5Var) {
+    public void onFinish(wv5 wv5Var) {
         String str;
-        if (vv5Var == null) {
+        if (wv5Var == null) {
             return;
         }
-        Intent intent = vv5Var.b;
+        Intent intent = wv5Var.b;
         boolean z = false;
         if (intent != null) {
             String action = intent.getAction();
@@ -37,13 +37,13 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
             if (TextUtils.equals(str, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = hf9.a().b();
+                    z = if9.a().b();
                     n75.a().a = z;
                 }
             }
             if (TextUtils.equals(str, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = hf9.a().b();
+                    z = if9.a().b();
                     n75.a().a = z;
                 }
             }

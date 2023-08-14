@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface qtb {
-    void a(int i, int i2, int i3, int i4);
 
-    void b(int i, int i2, String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public abstract class qtb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

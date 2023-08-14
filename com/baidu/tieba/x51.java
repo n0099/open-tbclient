@@ -45,7 +45,7 @@ public final class x51 {
 
         /* renamed from: com.baidu.tieba.x51$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static final class C0535a implements qo0 {
+        public static final class C0536a implements qo0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ref.ObjectRef a;
@@ -58,7 +58,7 @@ public final class x51 {
                 }
             }
 
-            public C0535a(Ref.ObjectRef objectRef, Context context) {
+            public C0536a(Ref.ObjectRef objectRef, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class x51 {
                 Intrinsics.checkNotNullParameter(url, "url");
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 objectRef.element = null;
-                po0.a().c(url, new C0535a(objectRef, context));
+                po0.a().c(url, new C0536a(objectRef, context));
                 return (Drawable) objectRef.element;
             }
             return (Drawable) invokeLL.objValue;

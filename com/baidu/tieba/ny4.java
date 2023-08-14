@@ -47,7 +47,7 @@ public final class ny4 extends AbsJsInterface {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.i("TbNativeInvokeJsInterface", "js注入端能力开始执行失败:" + this.a + " " + this.b.mWebView);
-                qk6.a().c(this.b.mWebView, this.a, null);
+                rk6.a().c(this.b.mWebView, this.a, null);
             }
         }
     }

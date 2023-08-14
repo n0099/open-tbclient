@@ -41,13 +41,13 @@ public class se3 extends vc3 {
 
         /* renamed from: com.baidu.tieba.se3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0472a implements Runnable {
+        public class RunnableC0474a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0472a(a aVar, Bitmap bitmap) {
+            public RunnableC0474a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class se3 extends vc3 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    sn3.k(new RunnableC0472a(this, y), "savescreenshot");
+                    sn3.k(new RunnableC0474a(this, y), "savescreenshot");
                 }
             }
         }

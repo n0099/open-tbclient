@@ -4,22 +4,18 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class gm8 extends fn8 {
+public class gm8 extends gn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int d;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final EmojiData a;
-    @NonNull
-    public final BaseMsg b;
-    public int c;
+    public final BaseMsg a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,51 +30,26 @@ public class gm8 extends fn8 {
                 return;
             }
         }
-        d = BdUniqueId.gen().getId();
+        b = BdUniqueId.gen().getId();
     }
 
-    @Override // com.baidu.tieba.fn8
+    @Override // com.baidu.tieba.gn8
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public BaseMsg b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (BaseMsg) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return b;
         }
         return invokeV.intValue;
     }
 
     @NonNull
-    public EmojiData d() {
+    public BaseMsg b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (EmojiData) invokeV.objValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
+        return (BaseMsg) invokeV.objValue;
     }
 }

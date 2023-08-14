@@ -1,53 +1,31 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public abstract class wsb {
+public final class wsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public abstract void a(String str);
-
-    public final boolean b(Bitmap bitmap) {
+    public static final String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                usb.b.f("sendBitmap2MainProcess channelId is null");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringsKt__StringsJVMKt.isBlank(str)) {
+                return "";
             }
-            msb a = msb.c.a();
-            String str = this.a;
-            if (str == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.g(str, bitmap);
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            Thread currentThread = Thread.currentThread();
+            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
+            sb.append(currentThread.getName());
+            sb.append("] ");
+            sb.append(str);
+            return sb.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                usb.b.f("sendData2MainProcess: error channelId is empty or null");
-                return false;
-            }
-            msb a = msb.c.a();
-            String str2 = this.a;
-            if (str2 == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.h(str2, str);
-        }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

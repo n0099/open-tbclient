@@ -19,7 +19,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a75;
 import com.baidu.tieba.b75;
-import com.baidu.tieba.bw5;
+import com.baidu.tieba.cw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public bw5 f;
+    public cw5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = bw5.c();
+        this.f = cw5.c();
         i();
     }
 
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(bw5.j)) {
+                        if (next.getValue().equals(cw5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(bw5.k)) {
+                        if (next.getValue().equals(cw5.k)) {
                         }
                     }
                 }
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
     }
 
     public void i() {
-        bw5 bw5Var;
+        cw5 cw5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (bw5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (cw5Var = this.f) == null) {
             return;
         }
-        this.g = bw5Var.e();
+        this.g = cw5Var.e();
         notifyDataSetChanged();
     }
 

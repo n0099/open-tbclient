@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba8;
 import com.baidu.tieba.ca8;
+import com.baidu.tieba.da8;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
@@ -33,7 +33,7 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ba8 l;
+    public ca8 l;
     public String m;
 
     /* loaded from: classes6.dex */
@@ -122,7 +122,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.l = new ba8(this.b.mContext, this.b.m, forumId, null, roomId, false);
+                this.b.l = new ca8(this.b.mContext, this.b.m, forumId, null, roomId, false);
                 this.b.l.execute(new String[0]);
             }
         }
@@ -201,7 +201,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(ca8.d(chatImageWithTailView, thumbUrl, i0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(da8.d(chatImageWithTailView, thumbUrl, i0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }

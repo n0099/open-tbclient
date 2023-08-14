@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.chosen.net;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gd9;
+import com.baidu.tieba.hd9;
 import com.baidu.tieba.l45;
 import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
+public class ChosenPbHttpResponse extends HttpResponsedMessage implements hd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -88,7 +88,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         this.userList = dataRes.user_list;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gd9 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd9
+    @Override // com.baidu.tieba.hd9
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;

@@ -1,269 +1,424 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.ad.incentivevideo.net.GetIncentiveVideoTaskModel;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.ad.incentivevideo.net.GetAdFreeTimeModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
 /* loaded from: classes5.dex */
-public class d56 extends dm6<h56> {
+public class d56 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d56 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public View j;
-    public BarImageView k;
-    public TextView l;
-    public TextView m;
-    public TBSpecificationBtn n;
-    public View o;
-    public View p;
-    public h56 q;
+    public h56 a;
+    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> b;
+    public Object c;
+    public String d;
 
-    @Override // com.baidu.tieba.dm6
-    public int d() {
-        InterceptResult invokeV;
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.ad_incentive_video_view : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d56(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes5.dex */
+    public class a extends fn0<zo0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d56 d56Var, Class cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d56Var, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fn0
+        public void onEvent(@NonNull zo0 zo0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zo0Var) == null) && "0".equals(zo0Var.a)) {
+                new GetAdFreeTimeModel().S();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-908739994, "Lcom/baidu/tieba/d56$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-908739994, "Lcom/baidu/tieba/d56$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public d56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        x(h());
-    }
-
-    public final String r(h56 h56Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h56Var)) == null) {
-            if (h56Var == null) {
-                return "";
-            }
-            int i = h56Var.b;
-            if ((i != 3 && i != 2 && i != 4 && i != 5) || !(getContext() instanceof m85)) {
-                return "";
-            }
-            return ((m85) getContext()).u0();
+        if (this.b == null) {
+            this.b = new Stack<>();
         }
-        return (String) invokeL.objValue;
     }
 
-    public final String t(h56 h56Var) {
-        InterceptResult invokeL;
+    public static d56 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, h56Var)) == null) {
-            if (h56Var == null) {
-                return "";
-            }
-            int i = h56Var.b;
-            if ((i != 3 && i != 2 && i != 4 && i != 5) || !(getContext() instanceof m85)) {
-                return "";
-            }
-            return ((m85) getContext()).q1();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void u(h56 h56Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h56Var) == null) && !h56Var.f()) {
-            h56Var.l(true);
-            int i = h56Var.b;
-            if (i != 3 && i != 2) {
-                if (i == 1) {
-                    c56.i().m(2);
-                    return;
-                } else if (i == 4 || i == 5) {
-                    c56.i().m(4);
-                    return;
-                } else {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (d56.class) {
+                    if (e == null) {
+                        e = new d56();
+                    }
                 }
             }
-            c56.i().m(3);
+            return e;
+        }
+        return (d56) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
+            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
+            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
+            this.b.push(hashMap);
         }
     }
 
-    public final void A(h56 h56Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, h56Var) != null) || h56Var == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.b.isEmpty()) {
+            this.b.pop();
+        }
+    }
+
+    public final AbsDataRecorder j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.a == null) {
+                this.a = new h56();
+            }
+            return this.a;
+        }
+        return (AbsDataRecorder) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && c56.h().n()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || this.c != null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.i.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-        int i = h56Var.b;
-        if (i != 3 && i != 2 && i != 1) {
-            if (i == 4) {
-                layoutParams.leftMargin = 0;
-                layoutParams.rightMargin = 0;
-                layoutParams2.leftMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
-                layoutParams2.rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
-                View view2 = this.j;
-                view2.setPadding(view2.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), this.j.getPaddingRight(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
-                this.o.setVisibility(0);
-                layoutParams3.height = BdUtilHelper.getDimens(this.c, R.dimen.tbds16);
-                this.p.setVisibility(8);
-                return;
-            } else if (i == 5) {
-                layoutParams.leftMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X021);
-                layoutParams.rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
-                layoutParams2.leftMargin = 0;
-                layoutParams2.rightMargin = 0;
-                View view3 = this.j;
-                view3.setPadding(view3.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), this.j.getPaddingRight(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
-                this.o.setVisibility(8);
-                this.p.setVisibility(0);
-                return;
-            } else {
-                return;
-            }
-        }
-        layoutParams.leftMargin = 0;
-        layoutParams.rightMargin = 0;
-        layoutParams2.leftMargin = 0;
-        layoutParams2.rightMargin = 0;
-        View view4 = this.j;
-        view4.setPadding(view4.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
-        this.o.setVisibility(0);
-        layoutParams3.height = BdUtilHelper.getDimens(this.c, R.dimen.tbds21);
-        this.p.setVisibility(8);
+        this.c = new Object();
+        bn0.a().c(this.c, 1, new a(this, zo0.class));
     }
 
-    public final int s(h56 h56Var) {
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            String e2 = e(i);
+            String f = f(i);
+            if (!StringUtils.isNull(e2)) {
+                SharedPrefHelper.getInstance().remove(e2);
+            }
+            if (!StringUtils.isNull(f)) {
+                SharedPrefHelper.getInstance().remove(f);
+            }
+        }
+    }
+
+    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, h56Var)) == null) {
-            if (h56Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
+            int i = b.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    return null;
+                }
+                return h(scene);
+            }
+            return j();
+        }
+        return (AbsDataRecorder) invokeL.objValue;
+    }
+
+    public boolean o(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, scene)) == null) {
+            if (r() && g(scene) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public final i56 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            i56 i56Var = new i56(i);
+            i56Var.i(c56.h().g());
+            i56Var.setTitle(c56.h().e());
+            i56Var.h(c56.h().d());
+            i56Var.g(c56.h().c());
+            return i56Var;
+        }
+        return (i56) invokeI.objValue;
+    }
+
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 1) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_ad_incentive_video_watch_num_");
+            }
+            if (i == 2) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_rec_ad_incentive_video_display_num_");
+            }
+            if (i == 3) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_frs_ad_incentive_video_display_num_");
+            }
+            if (i == 4) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_pb_ad_incentive_video_display_num_");
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_ad_incentive_video_watch_time_");
+            }
+            if (i == 2) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_rec_ad_incentive_video_display_time_");
+            }
+            if (i == 3) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_frs_ad_incentive_video_display_time_");
+            }
+            if (i == 4) {
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_pb_ad_incentive_video_display_time_");
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final int l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            String e2 = e(i);
+            if (!TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(f(i), 0L), System.currentTimeMillis())) {
+                a(i);
                 return 0;
             }
-            int i = h56Var.b;
-            if (i == 1) {
-                return 1;
+            return SharedPrefHelper.getInstance().getInt(e2, 0);
+        }
+        return invokeI.intValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            String e2 = e(i);
+            String f = f(i);
+            if (!StringUtils.isNull(e2)) {
+                SharedPrefHelper.getInstance().putInt(e2, SharedPrefHelper.getInstance().getInt(e2, 0) + 1);
             }
-            if (i != 3 && i != 2) {
-                if (i != 4 && i != 5) {
-                    return 0;
+            if (!StringUtils.isNull(f)) {
+                SharedPrefHelper.getInstance().putLong(f, System.currentTimeMillis());
+            }
+        }
+    }
+
+    public final AbsDataRecorder h(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
+            if (!this.b.isEmpty()) {
+                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.b.peek();
+                if (peek.get(scene) == null) {
+                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
+                        peek.put(scene, new f56());
+                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
+                        peek.put(scene, new g56());
+                    }
                 }
-                return 3;
+                return peek.get(scene);
             }
-            return 2;
+            return null;
         }
-        return invokeL.intValue;
+        return (AbsDataRecorder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dm6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void n(List<ym> list, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            h56 h56Var = this.q;
-            if (h56Var != null) {
-                int i2 = h56Var.b;
-                if (i2 != 3 && i2 != 2 && i2 != 1) {
-                    EMManager.from(this.o).setBackGroundColor(R.color.CAM_X0204);
-                } else {
-                    EMManager.from(this.o).setBackGroundColor(R.color.transparent);
-                }
-            } else {
-                EMManager.from(this.o).setBackGroundColor(R.color.CAM_X0204);
-            }
-            EMManager.from(this.p).setBackGroundColor(R.color.CAM_X0203);
-            EMManager.from(this.j).setCardType(0).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(this.l).setTextColor(R.color.CAM_X0107);
-            EMManager.from(this.m).setTextColor(R.color.CAM_X0109);
-            x95 x95Var = new x95();
-            x95Var.u(R.color.CAM_X0304);
-            this.n.setConfig(x95Var);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            c56.i().v(this.q.b);
-            c56.i().t();
-            new GetIncentiveVideoTaskModel(this.c, this.q.b).V();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_CARD_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", s(this.q)).param("fid", r(this.q)).param("tid", t(this.q)));
-        }
-    }
-
-    public final void x(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.o = view2.findViewById(R.id.ad_incentive_video_divide_top);
-            this.p = view2.findViewById(R.id.ad_incentive_video_divide_bottom);
-            this.i = view2.findViewById(R.id.ad_incentive_video_layout);
-            this.j = view2.findViewById(R.id.ad_incentive_video_content_layout);
-            this.k = (BarImageView) view2.findViewById(R.id.ad_incentive_video_icon);
-            this.l = (TextView) view2.findViewById(R.id.ad_incentive_video_title);
-            this.m = (TextView) view2.findViewById(R.id.ad_incentive_video_content);
-            this.n = (TBSpecificationBtn) view2.findViewById(R.id.ad_incentive_video_btn);
-            this.i.setOnClickListener(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dm6
-    /* renamed from: y */
-    public void i(h56 h56Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, h56Var) != null) || h56Var == null) {
+        if ((interceptable != null && interceptable.invokeLII(1048588, this, list, i, i2) != null) || list == null) {
             return;
         }
-        this.q = h56Var;
-        u(h56Var);
-        z(h56Var);
-        A(h56Var);
-        this.l.setText(h56Var.getTitle());
-        this.m.setText(h56Var.d());
-        this.n.setText(h56Var.c());
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_CARD_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", s(h56Var)).param("fid", r(h56Var)).param("tid", t(h56Var)));
+        if (i < 0) {
+            list.add(d(i2));
+        } else {
+            dy8.b(list, d(i2), i);
+        }
     }
 
-    public final void z(h56 h56Var) {
+    public boolean p(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, h56Var) == null) {
-            this.k.setShowOval(true);
-            this.k.setAutoChangeStyle(true);
-            this.k.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            this.k.setStrokeColorResId(R.color.CAM_X0401);
-            this.k.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.k.setPlaceHolder(1);
-            this.k.startLoad(h56Var.e(), 10, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, scene)) == null) {
+            AbsDataRecorder g = g(scene);
+            if (g == null) {
+                return false;
+            }
+            int c = g.c();
+            int k = c56.h().k(scene);
+            int l = c56.h().l(scene);
+            if (c == k || (c > k && (l <= 0 || (c - k) % l == 0))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (scene != AbsDataRecorder.Scene.RECOMMEND ? (scene == AbsDataRecorder.Scene.FRS_NEW || scene == AbsDataRecorder.Scene.FRS_HOT) && l(3) < c56.h().f() : l(2) < c56.h().j()) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!o(scene) || !z || !z2 || l(1) >= c56.h().m()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (r() && l(4) < c56.h().i() && l(1) < c56.h().m()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            a(1);
+            a(2);
+            a(3);
+            a(4);
+            if (!TbadkCoreApplication.isLogin()) {
+                c56.h().a();
+            }
+            this.a.a();
+            this.b.clear();
         }
     }
 }

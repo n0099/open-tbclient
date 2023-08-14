@@ -34,7 +34,7 @@ import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import com.baidu.tieba.j58;
+import com.baidu.tieba.k58;
 import com.baidu.tieba.mz4;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.rx;
@@ -111,8 +111,8 @@ public class SpecialTopicLayout extends LinearLayout implements rx, qx<SpecialCo
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928e0);
-                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092490);
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928e6);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092496);
                 this.d = (TextView) view2.findViewById(R.id.tv_content);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091212);
                 this.b = tbImageView;
@@ -295,7 +295,7 @@ public class SpecialTopicLayout extends LinearLayout implements rx, qx<SpecialCo
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
-            j58.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            k58.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -319,10 +319,10 @@ public class SpecialTopicLayout extends LinearLayout implements rx, qx<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                j58.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                k58.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            j58.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            k58.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 

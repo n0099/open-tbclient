@@ -71,13 +71,13 @@ public class SwanContextMenuView extends FrameLayout implements ia3.g {
 
         public final void b(View view2, int i) {
             if (getCount() == 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fc));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813ff));
             } else if (i == 0) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fd));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081400));
             } else if (i == getCount() - 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fa));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fd));
             } else {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fb));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fe));
             }
         }
 
@@ -180,7 +180,7 @@ public class SwanContextMenuView extends FrameLayout implements ia3.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813f9));
+        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813fc));
         ListView listView = new ListView(this.a);
         this.c = listView;
         listView.setCacheColorHint(0);

@@ -41,14 +41,14 @@ public class hd3 extends vc3 implements lz1.j {
 
         /* renamed from: com.baidu.tieba.hd3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0331a implements Runnable {
+        public class RunnableC0322a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0331a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0322a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class hd3 extends vc3 implements lz1.j {
                 y72.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     mj3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    so3.e0(new RunnableC0331a(this, parse, string));
+                    so3.e0(new RunnableC0322a(this, parse, string));
                     return;
                 }
                 y72.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

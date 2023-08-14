@@ -75,15 +75,15 @@ public class TitleBarView extends RelativeLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d054e, (ViewGroup) this, true);
-        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09208c);
-        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09208b);
-        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09208e);
-        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09208d);
+        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092092);
+        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092091);
+        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092094);
+        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092093);
     }
 
     public void setDarkMode() {
         this.isDarkMode = true;
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081336);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081339);
         this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
         this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fa));
         this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f7));

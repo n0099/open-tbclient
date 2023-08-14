@@ -1,65 +1,55 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.RecomVertical.DataRes;
-import tbclient.RecomVertical.DislikeReason;
-import tbclient.RecomVertical.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.RecomVertical.SubClassItem;
 /* loaded from: classes5.dex */
-public class f08 {
+public class f08 extends g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
 
-    public static void a(DataRes dataRes, List<ym> list) {
-        jn6 jn6Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public f08() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) && dataRes != null && list != null) {
-            LongSparseArray longSparseArray = new LongSparseArray();
-            for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
-                if (threadPersonalized2 != null) {
-                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
-                }
-            }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                ym ymVar = (ym) ListUtils.getItem(list, i);
-                if ((ymVar instanceof jn6) && (threadData = (jn6Var = (jn6) ymVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(JavaTypesHelper.toLong(threadData.getTid(), 0L))) != null) {
-                    jn6Var.C(threadPersonalized.source);
-                    jn6Var.F(threadPersonalized.weight);
-                    jn6Var.x(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        jn6Var.z(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                    if (list2 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list2) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        jn6Var.feedBackReasonMap = sparseArray;
-                        jn6Var.y(threadPersonalized.extra);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(DataRes dataRes, List<ym> list) {
+    public void a(SubClassItem subClassItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
-            a(dataRes, list);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subClassItem) != null) || subClassItem == null) {
+            return;
         }
+        this.a = subClassItem.sub_class_id.intValue();
+        this.b = subClassItem.sub_class_name;
+        this.c = subClassItem.sub_class_icon;
+        this.d = subClassItem.enable.intValue();
+    }
+
+    @Override // com.baidu.tieba.g15
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("sub_class_id");
+        this.b = jSONObject.optString("sub_class_name");
+        this.c = jSONObject.optString("sub_class_icon");
+        this.d = jSONObject.optInt("enable");
     }
 }

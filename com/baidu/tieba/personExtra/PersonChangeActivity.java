@@ -97,17 +97,17 @@ import com.baidu.tieba.n45;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.personExtra.PersonChangeModel;
 import com.baidu.tieba.qf5;
-import com.baidu.tieba.qw5;
-import com.baidu.tieba.rca;
+import com.baidu.tieba.rw5;
+import com.baidu.tieba.sca;
 import com.baidu.tieba.u45;
-import com.baidu.tieba.uw7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.vw7;
 import com.baidu.tieba.w45;
-import com.baidu.tieba.wb9;
 import com.baidu.tieba.widget.InterestForumTagLayout;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.widget.ManualObservableScrollView;
+import com.baidu.tieba.ww7;
+import com.baidu.tieba.xb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public InputMethodManager A;
     public TextView A0;
     public PersonChangeModel B;
-    public uw7 B0;
+    public vw7 B0;
     public FrameLayout C;
     public boolean C0;
     public HeadImageView D;
@@ -153,7 +153,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public ImageView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public View f1149T;
+    public View f1152T;
     public ViewGroup U;
     public ImageView V;
     public ImageView W;
@@ -608,7 +608,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    rca.j();
+                    sca.j();
                 }
                 return null;
             }
@@ -1422,7 +1422,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class w implements uw7.b {
+    public class w implements vw7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1445,7 +1445,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.uw7.b
+        @Override // com.baidu.tieba.vw7.b
         public void a(Date date, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, date, j) == null) {
@@ -1487,7 +1487,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
-                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, wb9.a(), true);
+                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, xb9.a(), true);
                 m45Var.dismiss();
             }
         }
@@ -1890,7 +1890,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!this.C0) {
                 TiebaStatic.log("c12204");
             } else {
-                vw7.b();
+                ww7.b();
             }
             registerListener(this.J0);
             registerListener(this.K0);
@@ -1928,25 +1928,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    public final uw7 C2() {
+    public final vw7 C2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.B0 == null) {
-                this.B0 = new uw7(this);
+                this.B0 = new vw7(this);
             }
             return this.B0;
         }
-        return (uw7) invokeV.objValue;
+        return (vw7) invokeV.objValue;
     }
 
-    public final uw7.b D2() {
+    public final vw7.b D2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return new w(this);
         }
-        return (uw7.b) invokeV.objValue;
+        return (vw7.b) invokeV.objValue;
     }
 
     public final void F2() {
@@ -2215,7 +2215,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (str == null || str.equals(this.B.R().getNameShow())) {
                 return true;
             }
-            if (qw5.c(this.a0) <= 20 && qw5.c(this.a0) >= 2) {
+            if (rw5.c(this.a0) <= 20 && rw5.c(this.a0) >= 2) {
                 return true;
             }
             return false;
@@ -2380,7 +2380,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.D.refresh();
             SkinManager.setViewTextColor(this.r0, (int) R.color.CAM_X0109);
             WebPManager.setMaskDrawable(this.X, R.drawable.obfuscated_res_0x7f0809e6, null);
-            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080c45, R.color.CAM_X0108, null);
+            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080c48, R.color.CAM_X0108, null);
             TextView textView = this.d;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0302, 1);
@@ -2482,7 +2482,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             }
                             return;
                         } else if (view2 == this.A0) {
-                            vw7.a();
+                            ww7.a();
                             if (!this.M && !this.N) {
                                 finish();
                                 return;
@@ -2636,26 +2636,26 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.X = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c68);
+            this.X = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c6e);
             this.U = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916a7);
             this.X.setOnClickListener(this);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091c61);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091c67);
             this.D = headImageView;
             headImageView.setOnClickListener(this);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a2c);
-            this.k = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f091bad);
-            this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c23);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a32);
+            this.k = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f091bb3);
+            this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c29);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092187);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, this.I0);
-            this.f1149T = addCustomView;
+            this.f1152T = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
             this.V = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0471));
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bab);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0926f9);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0926fa);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ff);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092700);
             this.w.setOnClickListener(this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091176);
             this.x = linearLayout;
@@ -2666,13 +2666,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.m.setOnClickListener(this);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091944);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091643);
-            this.C = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c67);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f09217f);
+            this.C = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c6d);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f092188);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f092185);
             this.x0 = (InterestForumTagLayout) findViewById(R.id.obfuscated_res_0x7f09114a);
-            this.y0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922a7);
-            this.z0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a6);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a8);
+            this.y0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922ad);
+            this.z0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ac);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ae);
             this.A0 = textView;
             textView.setOnClickListener(this);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091178);
@@ -2685,20 +2685,20 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 this.m.setFocusableInTouchMode(false);
                 this.m.setCursorVisible(false);
             }
-            this.t0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb2);
-            this.w0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bb1);
-            this.u0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c25);
-            this.W = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb0);
+            this.t0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb8);
+            this.w0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bb7);
+            this.u0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c2b);
+            this.W = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb6);
             this.w0.setOnClickListener(this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c21);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c27);
             this.R = findViewById;
             findViewById.setOnClickListener(this);
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091943);
             this.S = imageView2;
             imageView2.setOnClickListener(this);
-            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092830);
-            this.P = findViewById(R.id.obfuscated_res_0x7f091c1b);
-            this.Q = findViewById(R.id.obfuscated_res_0x7f09282f);
+            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092836);
+            this.P = findViewById(R.id.obfuscated_res_0x7f091c21);
+            this.Q = findViewById(R.id.obfuscated_res_0x7f092835);
             this.P.setOnClickListener(this);
             this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09117a);
             this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09117d);
@@ -2723,11 +2723,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.J.setPositiveButton(getPageContext().getString(R.string.alert_yes_button), new i(this));
             this.J.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f03ce), new j(this));
             this.J.create(getPageContext());
-            this.d0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b6d);
-            this.e0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b6f);
-            this.f0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b6e);
-            this.g0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd7);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bb4);
+            this.d0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b73);
+            this.e0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b75);
+            this.f0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b74);
+            this.g0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdd);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bba);
             this.v0 = relativeLayout;
             relativeLayout.setOnClickListener(this);
             this.s0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907af);

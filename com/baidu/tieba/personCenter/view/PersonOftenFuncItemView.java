@@ -40,10 +40,11 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
-import com.baidu.tieba.jo9;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.go9;
+import com.baidu.tieba.ko9;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.to9;
-import com.baidu.tieba.wq5;
+import com.baidu.tieba.uo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +56,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
-    public jo9 c;
+    public ko9 c;
     public boolean d;
 
     /* loaded from: classes7.dex */
@@ -189,11 +190,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(jo9 jo9Var) {
+    public void a(ko9 ko9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jo9Var) == null) {
-            this.c = jo9Var;
-            this.b.setText(jo9Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ko9Var) == null) {
+            this.c = ko9Var;
+            this.b.setText(ko9Var.e);
             f();
         }
     }
@@ -207,12 +208,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        jo9 jo9Var;
+        ko9 ko9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (jo9Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ko9Var = this.c) == null) {
             return;
         }
-        int i = jo9Var.a;
+        int i = ko9Var.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -245,11 +246,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            jo9 jo9Var = this.c;
-            if (jo9Var.b > 0) {
+            ko9 ko9Var = this.c;
+            if (ko9Var.b > 0) {
                 this.a.setVisibility(0);
                 SkinManager.setImageResource(this.a, this.c.b);
-            } else if (jo9Var.m && !TextUtils.isEmpty(jo9Var.k)) {
+            } else if (ko9Var.m && !TextUtils.isEmpty(ko9Var.k)) {
                 this.a.setVisibility(0);
                 this.a.startLoad(this.c.k, 10, false);
             } else {
@@ -260,14 +261,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        jo9 jo9Var;
+        ko9 ko9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (jo9Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (ko9Var = this.c) == null) {
             return;
         }
-        if (jo9Var.m && jo9Var.l != 0) {
+        if (ko9Var.m && ko9Var.l != 0) {
             if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
-                to9.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                uo9.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
                 return;
             }
             return;
@@ -304,7 +305,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                                             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
                                             return;
                                         case 54:
-                                            BrowserHelper.startWebActivity(getContext(), wq5.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
+                                            String str2 = this.c.f;
+                                            if (bi.isEmpty(str2)) {
+                                                str2 = go9.w;
+                                            }
+                                            BrowserHelper.startWebActivity(getContext(), str2);
                                             return;
                                         case 55:
                                             e(TbConfig.COMMUNITY_CONVENTION, true);

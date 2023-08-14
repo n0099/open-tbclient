@@ -23,11 +23,11 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.be5;
-import com.baidu.tieba.eo8;
 import com.baidu.tieba.fo8;
-import com.baidu.tieba.ko8;
+import com.baidu.tieba.go8;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.vo8;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.wo8;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,15 +38,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<fo8>, NetModel.k<eo8, fo8> {
+public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<go8>, NetModel.k<fo8, go8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMessageFragment a;
-    public eo8 b;
+    public fo8 b;
     public AtMeNetModel c;
     public AtMeCacheModel d;
     public FeedData e;
-    public ko8 f;
+    public lo8 f;
     public final CustomMessageListener g;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -70,7 +70,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataWrite(WriteCacheRespMsg<List<fo8>> writeCacheRespMsg, WriteCacheMessage<fo8> writeCacheMessage) {
+    public void onCacheDataWrite(WriteCacheRespMsg<List<go8>> writeCacheRespMsg, WriteCacheMessage<go8> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
@@ -133,24 +133,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void H(MvcHttpResponsedMessage<fo8> mvcHttpResponsedMessage, MvcHttpMessage<eo8, fo8> mvcHttpMessage, MvcNetMessage<eo8, fo8> mvcNetMessage) {
-        fo8 fo8Var;
+    public void H(MvcHttpResponsedMessage<go8> mvcHttpResponsedMessage, MvcHttpMessage<fo8, go8> mvcHttpMessage, MvcNetMessage<fo8, go8> mvcNetMessage) {
+        go8 go8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            eo8 eo8Var = null;
+            fo8 fo8Var = null;
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                fo8Var = mvcHttpResponsedMessage.getData();
+                go8Var = mvcHttpResponsedMessage.getData();
                 if (mvcHttpMessage != null) {
-                    eo8Var = mvcHttpMessage.getRequestData();
+                    fo8Var = mvcHttpMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    eo8Var = mvcNetMessage.getRequestData();
+                    fo8Var = mvcNetMessage.getRequestData();
                 }
             } else {
                 be5.p0().g0(0);
-                fo8Var = null;
+                go8Var = null;
             }
-            if (eo8Var != null && fo8Var != null && S(eo8Var, fo8Var, Boolean.FALSE)) {
+            if (fo8Var != null && go8Var != null && S(fo8Var, go8Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcHttpResponsedMessage != null) {
@@ -167,24 +167,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void v(MvcSocketResponsedMessage<fo8, ?> mvcSocketResponsedMessage, MvcSocketMessage<eo8, fo8> mvcSocketMessage, MvcNetMessage<eo8, fo8> mvcNetMessage) {
-        fo8 fo8Var;
+    public void v(MvcSocketResponsedMessage<go8, ?> mvcSocketResponsedMessage, MvcSocketMessage<fo8, go8> mvcSocketMessage, MvcNetMessage<fo8, go8> mvcNetMessage) {
+        go8 go8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            eo8 eo8Var = null;
+            fo8 fo8Var = null;
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                fo8Var = mvcSocketResponsedMessage.getData();
+                go8Var = mvcSocketResponsedMessage.getData();
                 if (mvcSocketMessage != null) {
-                    eo8Var = mvcSocketMessage.getRequestData();
+                    fo8Var = mvcSocketMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    eo8Var = mvcNetMessage.getRequestData();
+                    fo8Var = mvcNetMessage.getRequestData();
                 }
             } else {
                 be5.p0().g0(0);
-                fo8Var = null;
+                go8Var = null;
             }
-            if (eo8Var != null && fo8Var != null && S(eo8Var, fo8Var, Boolean.FALSE)) {
+            if (fo8Var != null && go8Var != null && S(fo8Var, go8Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcSocketResponsedMessage != null) {
@@ -206,8 +206,8 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TbadkCoreApplication.isLogin()) {
-                ko8 ko8Var = this.f;
-                if (ko8Var != null && (arrayList = ko8Var.a) != null) {
+                lo8 lo8Var = this.f;
+                if (lo8Var != null && (arrayList = lo8Var.a) != null) {
                     arrayList.clear();
                     AtMessageFragment atMessageFragment = this.a;
                     if (atMessageFragment != null) {
@@ -254,9 +254,9 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     public void O(int i) {
-        ko8 ko8Var;
+        lo8 lo8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (ko8Var = this.f) != null && ko8Var.a() != null && i < this.f.a().size()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (lo8Var = this.f) != null && lo8Var.a() != null && i < this.f.a().size()) {
             this.f.a().remove(i);
         }
     }
@@ -295,7 +295,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     public void Q(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.b = new eo8();
+            this.b = new fo8();
             AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) l9.a(this.a.getPageContext().getPageActivity()), this.b);
             this.c = atMeNetModel;
             atMeNetModel.p0(this);
@@ -311,29 +311,29 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
                 atMeCacheModel.setCallback(this);
                 this.d.setUniqueId(this.a.getUniqueId());
             }
-            this.f = new ko8();
+            this.f = new lo8();
         }
     }
 
-    public boolean S(eo8 eo8Var, fo8 fo8Var, Boolean bool) {
+    public boolean S(fo8 fo8Var, go8 go8Var, Boolean bool) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, eo8Var, fo8Var, bool)) == null) {
-            if (eo8Var.a() != 4) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, fo8Var, go8Var, bool)) == null) {
+            if (fo8Var.a() != 4) {
                 this.f.a().clear();
             }
-            this.f.c(fo8Var);
+            this.f.c(go8Var);
             boolean z2 = true;
-            if (fo8Var != null && fo8Var.a() != null && fo8Var.a().size() > 0) {
-                this.e = fo8Var.a().get(fo8Var.a().size() - 1);
+            if (go8Var != null && go8Var.a() != null && go8Var.a().size() > 0) {
+                this.e = go8Var.a().get(go8Var.a().size() - 1);
                 if (this.f.b() != null && this.f.b().b() != 1) {
                     z = false;
                 } else {
                     z = true;
                 }
-                if (eo8Var != null) {
-                    eo8Var.d();
+                if (fo8Var != null) {
+                    fo8Var.d();
                 }
             } else {
                 this.e = null;
@@ -347,12 +347,12 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
             ArrayList<ym> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.f.a.iterator();
             while (it.hasNext()) {
-                vo8 vo8Var = new vo8();
-                vo8Var.C(it.next());
+                wo8 wo8Var = new wo8();
+                wo8Var.C(it.next());
                 if (bool.booleanValue()) {
-                    vo8Var.E(false);
+                    wo8Var.E(false);
                 }
-                arrayList.add(vo8Var);
+                arrayList.add(wo8Var);
             }
             this.a.d2(z, arrayList);
             return z2;
@@ -361,7 +361,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataGet(ReadCacheRespMsg<List<fo8>> readCacheRespMsg, ReadCacheMessage<fo8> readCacheMessage) {
+    public void onCacheDataGet(ReadCacheRespMsg<List<go8>> readCacheRespMsg, ReadCacheMessage<go8> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {

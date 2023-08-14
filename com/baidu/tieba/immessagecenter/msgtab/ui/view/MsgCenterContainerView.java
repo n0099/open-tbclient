@@ -35,8 +35,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gpa;
-import com.baidu.tieba.hja;
+import com.baidu.tieba.hpa;
+import com.baidu.tieba.ija;
 import com.baidu.tieba.immessagecenter.arch.utils.SafetyLinearLayoutManager;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
@@ -47,10 +47,10 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgCenterContainerViewModel;
 import com.baidu.tieba.lz4;
-import com.baidu.tieba.ms8;
-import com.baidu.tieba.np8;
 import com.baidu.tieba.ns8;
-import com.baidu.tieba.qs8;
+import com.baidu.tieba.op8;
+import com.baidu.tieba.os8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.tracker.core.data.ErrCode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +70,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\t\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B!\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\nH\u0002J\u0018\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\n2\u0006\u0010'\u001a\u00020(H\u0002J\u0006\u0010)\u001a\u00020%J\f\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00060+J\u0010\u0010,\u001a\u00020%2\u0006\u0010-\u001a\u00020.H\u0014J\u0010\u0010/\u001a\u00020%2\u0006\u0010-\u001a\u00020.H\u0002J\b\u00100\u001a\u00020\u0004H\u0014J\b\u00101\u001a\u00020%H\u0002J\u0010\u00102\u001a\u00020%2\u0006\u00103\u001a\u00020\nH\u0016J\b\u00104\u001a\u00020%H\u0014J\u0010\u00105\u001a\u00020%2\u0006\u00106\u001a\u00020\u0002H\u0014J\u0018\u00107\u001a\u00020%2\u0006\u00108\u001a\u0002092\u0006\u0010&\u001a\u00020\nH\u0002J\u0018\u0010:\u001a\u00020%2\u000e\u0010;\u001a\n\u0012\u0004\u0012\u000209\u0018\u00010<H\u0002J\u0018\u0010=\u001a\u00020%2\u000e\u0010;\u001a\n\u0012\u0004\u0012\u000209\u0018\u00010<H\u0002J\u0006\u0010>\u001a\u00020%J\u0006\u0010?\u001a\u00020%J\u0006\u0010@\u001a\u00020%J\u0006\u0010A\u001a\u00020%J\u0017\u0010B\u001a\u00020%2\b\u0010C\u001a\u0004\u0018\u00010\nH\u0002¢\u0006\u0002\u0010DR\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u001d\u0010\u001c\u001a\u0004\u0018\u00010\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010!\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010\"\u001a\u00020#X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006E"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiIntent;", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgCenterContainerViewModel;", "activity", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "fragment", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "defaultSelectedTabId", "", "(Lcom/baidu/tbadk/core/BaseFragmentActivity;Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;Ljava/lang/Integer;)V", "Ljava/lang/Integer;", "mBgView", "Landroid/widget/ImageView;", "mCurrentPosition", "mEnterChatBtn", "Landroid/widget/TextView;", "mFragmentTabAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabViewPagerAdapter;", "mLeftDrawable", "Landroid/graphics/drawable/Drawable;", "mNavigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "mRecyclerView", "Landroidx/recyclerview/widget/RecyclerView;", "mViewPager", "Landroidx/viewpager2/widget/ViewPager2;", "msgTabGuide", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "getMsgTabGuide", "()Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "msgTabGuide$delegate", "Lkotlin/Lazy;", "msgTabSideNavigationAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabSideNavigationAdapter;", "changeToPage", "", CriusAttrConstants.POSITION, "forceChange", "", "doAfterRender", "getPageContext", "Lcom/baidu/tbadk/TbPageContext;", "init", "context", "Landroid/content/Context;", "initNavigationBar", "initViewModel", "msgGroupEditItemClick", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onFinishInflate", "onRender", "state", "onSelectedViewItem", "itemData", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "renderBodyData", "data", "", "renderHeaderData", "requestData", "requestSilent", "resetSelected", "tryShowGuide", "updateNavigationBar", "type", "(Ljava/lang/Integer;)V", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterContainerViewModel> {
+public final class MsgCenterContainerView extends BaseView<os8, ns8, MsgCenterContainerViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity e;
@@ -153,7 +153,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                     MsgTabGuide d = aVar.d(baseFragmentActivity);
                     if (d != null) {
                         final MsgCenterContainerView msgCenterContainerView = this.this$0;
-                        d.u(new Function2<gpa, Integer, Unit>(msgCenterContainerView) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView$msgTabGuide$2$1$1
+                        d.u(new Function2<hpa, Integer, Unit>(msgCenterContainerView) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView$msgTabGuide$2$1$1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ MsgCenterContainerView this$0;
@@ -182,15 +182,15 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                             @Override // kotlin.jvm.functions.Function2
-                            public /* bridge */ /* synthetic */ Unit invoke(gpa gpaVar, Integer num2) {
-                                invoke(gpaVar, num2.intValue());
+                            public /* bridge */ /* synthetic */ Unit invoke(hpa hpaVar, Integer num2) {
+                                invoke(hpaVar, num2.intValue());
                                 return Unit.INSTANCE;
                             }
 
-                            public final void invoke(gpa gpaVar, int i3) {
+                            public final void invoke(hpa hpaVar, int i3) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gpaVar, i3) == null) {
-                                    Intrinsics.checkNotNullParameter(gpaVar, "<anonymous parameter 0>");
+                                if (interceptable3 == null || interceptable3.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hpaVar, i3) == null) {
+                                    Intrinsics.checkNotNullParameter(hpaVar, "<anonymous parameter 0>");
                                     if (i3 == 2) {
                                         i3++;
                                     }
@@ -229,7 +229,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
         }
     }
 
-    public final void f0(List<np8> list) {
+    public final void f0(List<op8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, list) == null) && list != null) {
             this.n.n(list);
@@ -237,7 +237,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
         }
     }
 
-    public final void g0(List<np8> list) {
+    public final void g0(List<op8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, list) == null) && list != null) {
             this.n.o(list);
@@ -265,7 +265,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
         }
     }
 
-    public static final void X(MsgCenterContainerView this$0, View view2, np8 itemData, int i, long j) {
+    public static final void X(MsgCenterContainerView this$0, View view2, op8 itemData, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -289,9 +289,9 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.m = (ImageView) j(R.id.obfuscated_res_0x7f091f38);
-            this.k = (RecyclerView) j(R.id.obfuscated_res_0x7f091f9f);
-            this.l = (ViewPager2) j(R.id.obfuscated_res_0x7f0929d5);
+            this.m = (ImageView) j(R.id.obfuscated_res_0x7f091f3e);
+            this.k = (RecyclerView) j(R.id.obfuscated_res_0x7f091fa5);
+            this.l = (ViewPager2) j(R.id.obfuscated_res_0x7f0929db);
             NavigationBar navigationBar = (NavigationBar) j(R.id.navigation_bar);
             this.h = navigationBar;
             if (navigationBar == null) {
@@ -332,7 +332,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                     msgTabSideNavigationAdapter = null;
                 }
                 if (msgTabSideNavigationAdapter != null) {
-                    np8 m = msgTabSideNavigationAdapter.m(this.p);
+                    op8 m = msgTabSideNavigationAdapter.m(this.p);
                     if (m != null) {
                         m.e(false);
                     }
@@ -344,7 +344,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                     Intrinsics.throwUninitializedPropertyAccessException("mViewPager");
                     viewPager2 = null;
                 }
-                viewPager2.post(new Runnable() { // from class: com.baidu.tieba.dr8
+                viewPager2.post(new Runnable() { // from class: com.baidu.tieba.er8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -364,12 +364,12 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                     msgTabSideNavigationAdapter2 = null;
                 }
                 if (msgTabSideNavigationAdapter2 != null) {
-                    np8 m2 = msgTabSideNavigationAdapter2.m(i);
+                    op8 m2 = msgTabSideNavigationAdapter2.m(i);
                     if (m2 != null) {
                         m2.e(true);
                     }
                     msgTabSideNavigationAdapter2.notifyItemChanged(i);
-                    np8 m3 = msgTabSideNavigationAdapter2.m(i);
+                    op8 m3 = msgTabSideNavigationAdapter2.m(i);
                     if (m3 != null) {
                         num = Integer.valueOf(m3.getType());
                     }
@@ -383,8 +383,8 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            List<np8> l = this.n.l();
-            Iterator<np8> it = l.iterator();
+            List<op8> l = this.n.l();
+            Iterator<op8> it = l.iterator();
             int i = 0;
             while (true) {
                 if (it.hasNext()) {
@@ -417,7 +417,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
             if (V != null) {
                 V.x(l);
             }
-            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.xq8
+            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -478,21 +478,21 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
     public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            p().k(new ms8.b(W()));
+            p().k(new ns8.b(W()));
         }
     }
 
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            p().k(new ms8.a(W()));
+            p().k(new ns8.a(W()));
         }
     }
 
     public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            p().k(ms8.c.a);
+            p().k(ns8.c.a);
         }
     }
 
@@ -519,7 +519,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mNavigationBar");
                 navigationBar3 = null;
             }
-            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.yq8
+            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.zq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -534,7 +534,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
             TextView textView = new TextView(context);
             textView.setText(context.getString(R.string.im_send_private_msg));
             int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds60);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080afe, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b00, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS);
             this.j = pureDrawable;
             if (pureDrawable != null) {
                 pureDrawable.setBounds(0, 0, dimens, dimens);
@@ -554,7 +554,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
             } else {
                 navigationBar2 = navigationBar4;
             }
-            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, new View.OnClickListener() { // from class: com.baidu.tieba.or8
+            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, new View.OnClickListener() { // from class: com.baidu.tieba.pr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -569,7 +569,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.hg8
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
@@ -581,14 +581,14 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                     Intrinsics.throwUninitializedPropertyAccessException("mBgView");
                     imageView = null;
                 }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810f6);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810f9);
             } else {
                 ImageView imageView2 = this.m;
                 if (imageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mBgView");
                     imageView2 = null;
                 }
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f0810f5);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f0810f8);
             }
             NavigationBar navigationBar = this.h;
             if (navigationBar == null) {
@@ -649,7 +649,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
             viewPager2.setOrientation(1);
             viewPager2.setAdapter(this.o);
             viewPager2.setUserInputEnabled(false);
-            this.n.s(new lz4() { // from class: com.baidu.tieba.hr8
+            this.n.s(new lz4() { // from class: com.baidu.tieba.ir8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -657,7 +657,7 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
                 public final void d(View view2, Object obj, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        MsgCenterContainerView.X(MsgCenterContainerView.this, view2, (np8) obj, i, j);
+                        MsgCenterContainerView.X(MsgCenterContainerView.this, view2, (op8) obj, i, j);
                     }
                 }
             });
@@ -767,49 +767,49 @@ public final class MsgCenterContainerView extends BaseView<ns8, ms8, MsgCenterCo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
     /* renamed from: d0 */
-    public void H(ns8 state) {
+    public void H(os8 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            if (!(state instanceof ns8.c)) {
-                if (state instanceof ns8.b) {
-                    g0(((ns8.b) state).a());
-                } else if (state instanceof ns8.a) {
-                    hja.f(this.f, new Pair[0]);
-                    f0(((ns8.a) state).a());
+            if (!(state instanceof os8.c)) {
+                if (state instanceof os8.b) {
+                    g0(((os8.b) state).a());
+                } else if (state instanceof os8.a) {
+                    ija.f(this.f, new Pair[0]);
+                    f0(((os8.a) state).a());
                 } else {
-                    hja.b(this.f, new Pair(StatConstants.KEY_EXT_ERR_CODE, ErrCode.NET_ERROR.getValue()));
+                    ija.b(this.f, new Pair(StatConstants.KEY_EXT_ERR_CODE, ErrCode.NET_ERROR.getValue()));
                 }
             }
             T();
         }
     }
 
-    public final void e0(np8 np8Var, int i) {
+    public final void e0(op8 op8Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, np8Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, op8Var, i) == null) {
             p().q(null);
-            int type = np8Var.getType();
+            int type = op8Var.getType();
             if (type != 1) {
                 if (type != 2) {
                     if (type != 3) {
                         if (type == 4) {
-                            p().k(new ms8.d(W(), np8Var.c()));
+                            p().k(new ns8.d(W(), op8Var.c()));
                             c0();
                             return;
                         }
                         return;
                     }
-                    qs8.a.b(Long.valueOf(np8Var.c()));
+                    rs8.a.b(Long.valueOf(op8Var.c()));
                     Q(i);
                     i0();
                     return;
                 }
-                qs8.a.d();
+                rs8.a.d();
                 Q(i);
                 return;
             }
-            qs8.a.f();
+            rs8.a.f();
             Q(i);
         }
     }

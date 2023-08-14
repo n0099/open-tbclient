@@ -40,13 +40,13 @@ public class ga4 extends ea4 {
 
         /* renamed from: com.baidu.tieba.ga4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0310a implements Runnable {
+        public class RunnableC0314a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
             public final /* synthetic */ a b;
 
-            public RunnableC0310a(a aVar, JSONObject jSONObject) {
+            public RunnableC0314a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public class ga4 extends ea4 {
                 if (ea4.a) {
                     Log.d("OpenDataApi", "on success");
                 }
-                this.c.b.post(new RunnableC0310a(this, jSONObject));
+                this.c.b.post(new RunnableC0314a(this, jSONObject));
             }
         }
 
@@ -237,12 +237,12 @@ public class ga4 extends ea4 {
 
         /* renamed from: com.baidu.tieba.ga4$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0311b implements Runnable {
+        public class RunnableC0315b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0311b(b bVar) {
+            public RunnableC0315b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -350,7 +350,7 @@ public class ga4 extends ea4 {
                     ma4Var.errNo = YYOption.UrlProtocol.USER;
                     ma4Var.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                 }
-                this.c.b.post(new RunnableC0311b(this));
+                this.c.b.post(new RunnableC0315b(this));
             }
         }
     }

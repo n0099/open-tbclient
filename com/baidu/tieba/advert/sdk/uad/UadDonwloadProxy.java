@@ -18,13 +18,13 @@ import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.tieba.am0;
 import com.baidu.tieba.b31;
 import com.baidu.tieba.el0;
-import com.baidu.tieba.f76;
 import com.baidu.tieba.fl0;
+import com.baidu.tieba.g76;
 import com.baidu.tieba.ml0;
 import com.baidu.tieba.pj0;
 import com.baidu.tieba.qn0;
 import com.baidu.tieba.rk0;
-import com.baidu.tieba.vv6;
+import com.baidu.tieba.wv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                 if (el0Var.k != uri) {
                     return;
                 }
-                el0Var.h = f76.j(pj0.b(), this.model.k);
+                el0Var.h = g76.j(pj0.b(), this.model.k);
                 this.mListener.onSuccess(this.model.b);
             }
         }
@@ -181,7 +181,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                     el0 el0Var = this.a;
                     el0Var.i = 0.0f;
                     el0Var.j = 0.0f;
-                    this.b.b(el0Var.q.e, f76.j(pj0.b(), this.a.k));
+                    this.b.b(el0Var.q.e, g76.j(pj0.b(), this.a.k));
                     return;
                 }
                 am0 am0Var = this.b;
@@ -216,7 +216,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                 am0Var.d(ml0Var);
                 return -1;
             }
-            vv6.a().d(pj0.b(), "ad", e(el0Var), new ListenerFacade(this, el0Var, am0Var), new EventControlInfoForStart(false, false, true), new a(this, el0Var, am0Var));
+            wv6.a().d(pj0.b(), "ad", e(el0Var), new ListenerFacade(this, el0Var, am0Var), new EventControlInfoForStart(false, false, true), new a(this, el0Var, am0Var));
             return el0Var.g.hashCode();
         }
         return invokeLL.intValue;
@@ -226,7 +226,7 @@ public class UadDonwloadProxy implements IAdDownloader {
     public void c(@NonNull el0 el0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, el0Var) == null) {
-            vv6.a().b(el0Var.k);
+            wv6.a().b(el0Var.k);
         }
     }
 
@@ -236,7 +236,7 @@ public class UadDonwloadProxy implements IAdDownloader {
         if (interceptable == null || interceptable.invokeLL(1048579, this, el0Var, am0Var) == null) {
             ListenerFacade listenerFacade = new ListenerFacade(this, el0Var, am0Var);
             a aVar = new a(this, el0Var, am0Var);
-            vv6.a().c(pj0.b(), "ad", el0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
+            wv6.a().c(pj0.b(), "ad", el0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
         }
     }
 

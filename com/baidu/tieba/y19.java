@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class y19 extends sk1<LiveUserSecurityDeviceInfoService> {
+public final class y19 extends sk1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,12 +29,12 @@ public final class y19 extends sk1<LiveUserSecurityDeviceInfoService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sk1
     /* renamed from: a */
-    public LiveUserSecurityDeviceInfoService createService() {
+    public LiveUserSecurityBehaviorService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LiveUserSecurityDeviceInfoServiceImpl();
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

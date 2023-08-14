@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.gb8;
 import com.baidu.tieba.hb8;
+import com.baidu.tieba.ib8;
 import com.baidu.tieba.l45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";
     public transient /* synthetic */ FieldHolder $fh;
-    public hb8 officialBarMenuDatas;
+    public ib8 officialBarMenuDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseOfficialBarMenuMessage() {
@@ -43,20 +43,20 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public hb8 getOfficialBarMenuDatas() {
+    public ib8 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.officialBarMenuDatas;
         }
-        return (hb8) invokeV.objValue;
+        return (ib8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage;
-        hb8 officialBarMenuDatas;
+        ib8 officialBarMenuDatas;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (orginalMessage = getOrginalMessage()) != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.c() && officialBarMenuDatas.a() != null && officialBarMenuDatas.a().size() > 0) {
             l45.e();
@@ -76,34 +76,34 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return forumMenuResIdl;
             }
-            this.officialBarMenuDatas = new hb8();
+            this.officialBarMenuDatas = new ib8();
             if (forumMenuResIdl.data != null) {
                 getOfficialBarMenuDatas().f(forumMenuResIdl.data.update_time.intValue());
                 getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
                 getOfficialBarMenuDatas().e(new ArrayList());
                 int size = forumMenuResIdl.data.parent_menu.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    gb8 gb8Var = new gb8();
+                    hb8 hb8Var = new hb8();
                     Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                    gb8Var.f(menu.action_type.intValue());
-                    gb8Var.g(menu.content);
-                    gb8Var.h(menu.id + "");
-                    gb8Var.i(menu.name);
-                    gb8Var.j(new ArrayList());
+                    hb8Var.f(menu.action_type.intValue());
+                    hb8Var.g(menu.content);
+                    hb8Var.h(menu.id + "");
+                    hb8Var.i(menu.name);
+                    hb8Var.j(new ArrayList());
                     List<SubMenu> list = menu.sub_menu;
                     if (list != null) {
                         int size2 = list.size();
                         for (int i3 = 0; i3 < size2; i3++) {
                             SubMenu subMenu = menu.sub_menu.get(i3);
-                            gb8 gb8Var2 = new gb8();
-                            gb8Var2.f(subMenu.action_type.intValue());
-                            gb8Var2.g(subMenu.content);
-                            gb8Var2.h(subMenu.id + "");
-                            gb8Var2.i(subMenu.name);
-                            gb8Var.e().add(gb8Var2);
+                            hb8 hb8Var2 = new hb8();
+                            hb8Var2.f(subMenu.action_type.intValue());
+                            hb8Var2.g(subMenu.content);
+                            hb8Var2.h(subMenu.id + "");
+                            hb8Var2.i(subMenu.name);
+                            hb8Var.e().add(hb8Var2);
                         }
                     }
-                    getOfficialBarMenuDatas().a().add(gb8Var);
+                    getOfficialBarMenuDatas().a().add(hb8Var);
                 }
             }
             return forumMenuResIdl;

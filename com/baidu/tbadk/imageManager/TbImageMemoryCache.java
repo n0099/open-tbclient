@@ -11,10 +11,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ag;
-import com.baidu.tieba.dz5;
-import com.baidu.tieba.f46;
-import com.baidu.tieba.yy5;
+import com.baidu.tieba.ez5;
+import com.baidu.tieba.g46;
 import com.baidu.tieba.zf;
+import com.baidu.tieba.zy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,11 +29,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
     public zf<String, BdImage> a;
     public zf<String, BdImage> b;
-    public f46<String, BdImage> c;
+    public g46<String, BdImage> c;
     public zf<String, Bitmap> d;
     public zf<String, BdImage> e;
-    public ag<yy5> f;
-    public dz5 g;
+    public ag<zy5> f;
+    public ez5 g;
 
     /* loaded from: classes4.dex */
     public class a extends zf<String, BdImage> {
@@ -196,7 +196,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void J() {
-        ag<yy5> agVar;
+        ag<zy5> agVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (agVar = this.f) != null) {
             agVar.g(0);
@@ -241,7 +241,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new f46<>();
+        this.c = new g46<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
         this.e = new zf<>(Integer.MAX_VALUE);
@@ -350,20 +350,20 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public ag<yy5> H(int i) {
+    public ag<zy5> H(int i) {
         InterceptResult invokeI;
-        dz5 dz5Var;
+        ez5 ez5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.f != null && (dz5Var = this.g) != null) {
-                if (dz5Var.g() == i) {
+            if (this.f != null && (ez5Var = this.g) != null) {
+                if (ez5Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new dz5(i);
+                this.g = new ez5(i);
             }
             if (this.f == null) {
                 this.f = new ag<>(this.g, 6, 0);

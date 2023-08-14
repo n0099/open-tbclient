@@ -34,13 +34,13 @@ public class dy2 extends vc3 {
 
         /* renamed from: com.baidu.tieba.dy2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0273a implements Runnable {
+        public class RunnableC0277a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0273a(a aVar, String str) {
+            public RunnableC0277a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public class dy2 extends vc3 {
                 if (TextUtils.isEmpty(str)) {
                     ei3.b("audio", 3001, "cloud url is null", -1, "");
                 }
-                so3.e0(new RunnableC0273a(this, str));
+                so3.e0(new RunnableC0277a(this, str));
             }
         }
     }

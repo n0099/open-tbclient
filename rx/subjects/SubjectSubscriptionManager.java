@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.a6c;
-import com.baidu.tieba.d1c;
-import com.baidu.tieba.k1c;
+import com.baidu.tieba.b6c;
+import com.baidu.tieba.e1c;
 import com.baidu.tieba.l1c;
-import com.baidu.tieba.x0c;
+import com.baidu.tieba.m1c;
 import com.baidu.tieba.y0c;
+import com.baidu.tieba.z0c;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements x0c.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements y0c.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public l1c<c<T>> onAdded;
-    public l1c<c<T>> onStart;
-    public l1c<c<T>> onTerminated;
+    public m1c<c<T>> onAdded;
+    public m1c<c<T>> onStart;
+    public m1c<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements k1c {
+    public class a implements l1c {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.k1c
+        @Override // com.baidu.tieba.l1c
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements y0c<T> {
-        public final d1c<? super T> a;
+    public static final class c<T> implements z0c<T> {
+        public final e1c<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(d1c<? super T> d1cVar) {
-            this.a = d1cVar;
+        public c(e1c<? super T> e1cVar) {
+            this.a = e1cVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.y0c
+        @Override // com.baidu.tieba.z0c
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(d1c<? super T> d1cVar) {
-        c<T> cVar = new c<>(d1cVar);
-        addUnsubscriber(d1cVar, cVar);
+    public void call(e1c<? super T> e1cVar) {
+        c<T> cVar = new c<>(e1cVar);
+        addUnsubscriber(e1cVar, cVar);
         this.onStart.call(cVar);
-        if (!d1cVar.isUnsubscribed() && add(cVar) && d1cVar.isUnsubscribed()) {
+        if (!e1cVar.isUnsubscribed() && add(cVar) && e1cVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(d1c<? super T> d1cVar, c<T> cVar) {
-        d1cVar.b(a6c.a(new a(cVar)));
+    public void addUnsubscriber(e1c<? super T> e1cVar, c<T> cVar) {
+        e1cVar.b(b6c.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
+    @Override // com.baidu.tieba.y0c.a, com.baidu.tieba.m1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((d1c) ((d1c) obj));
+        call((e1c) ((e1c) obj));
     }
 }

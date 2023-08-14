@@ -120,9 +120,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091e96)).setOnClickListener(new a(this, aVar, context, i));
-            vn3.e(aVar.a, new C0214b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922f5), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922f7)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091e9c)).setOnClickListener(new a(this, aVar, context, i));
+            vn3.e(aVar.a, new C0214b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922fb), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0922fd)).setText(aVar.b);
         }
     }
 

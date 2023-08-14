@@ -50,10 +50,10 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b46;
+import com.baidu.tieba.c46;
 import com.baidu.tieba.d05;
-import com.baidu.tieba.d46;
 import com.baidu.tieba.e05;
+import com.baidu.tieba.e46;
 import com.baidu.tieba.hm5;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.ob5;
@@ -73,10 +73,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public List<AccountData> b;
-    public b46 c;
+    public c46 c;
     public ListView d;
     public RelativeLayout e;
-    public d46 f;
+    public e46 f;
     public NavigationBar g;
     public TextView h;
     public View.OnClickListener i;
@@ -944,7 +944,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d001f);
             u1();
-            this.f = new d46(this);
+            this.f = new e46(this);
             v1();
             registerListener(this.n);
         }
@@ -1113,9 +1113,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f060e));
             SkinManager.setViewTextColor(this.h, R.color.navi_op_text, 1);
             addCustomView.setOnClickListener(new c(this));
-            b46 b46Var = new b46(this, this.i);
-            this.c = b46Var;
-            b46Var.b(this.b);
+            c46 c46Var = new c46(this, this.i);
+            this.c = c46Var;
+            c46Var.b(this.b);
             this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f091532);
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));

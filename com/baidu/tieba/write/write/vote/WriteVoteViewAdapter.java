@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw5;
+import com.baidu.tieba.rw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -270,9 +270,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0929a5);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0929a7);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0929a6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0929ab);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0929ad);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0929ac);
         }
     }
 
@@ -337,10 +337,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (qw5.e(replace) > 28) {
+            if (rw5.e(replace) > 28) {
                 this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f18dc), 14));
             }
-            String m = qw5.m(replace, 28);
+            String m = rw5.m(replace, 28);
             if (!m.equals(editable.toString())) {
                 this.a.a.setText(m);
                 this.a.a.setSelection(m.length());

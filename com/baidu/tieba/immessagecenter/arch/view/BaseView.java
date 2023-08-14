@@ -9,18 +9,18 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.gg8;
-import com.baidu.tieba.h1c;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.hg8;
+import com.baidu.tieba.i1c;
 import com.baidu.tieba.immessagecenter.arch.utils.IMException;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.obs.SkinTypeChangedMonitor;
-import com.baidu.tieba.l1c;
-import com.baidu.tieba.p1c;
-import com.baidu.tieba.x5c;
+import com.baidu.tieba.m1c;
+import com.baidu.tieba.q1c;
+import com.baidu.tieba.y5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\b&\u0018\u0000*\b\b\u0000\u0010\u0001*\u00020\u0002*\b\b\u0001\u0010\u0003*\u00020\u0004*\u0014\b\u0002\u0010\u0005*\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00030\u00062\u00020\u0007B\r\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ#\u0010!\u001a\u0002H\"\"\n\b\u0003\u0010\"*\u0004\u0018\u00010#2\b\b\u0001\u0010$\u001a\u00020\tH\u0004¢\u0006\u0002\u0010%J\u0010\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)H$J\r\u0010*\u001a\u00028\u0002H$¢\u0006\u0002\u0010\u001eJ\b\u0010+\u001a\u00020'H\u0016J\b\u0010,\u001a\u00020'H\u0016J\b\u0010-\u001a\u00020'H$J\u0015\u0010.\u001a\u00020'2\u0006\u0010/\u001a\u00028\u0000H$¢\u0006\u0002\u00100J\u0010\u00101\u001a\u00020'2\u0006\u0010\u000b\u001a\u00020\fH\u0016J*\u00102\u001a\u00020#2\u0006\u0010(\u001a\u00020)2\b\u00103\u001a\u0004\u0018\u0001042\u0006\u00105\u001a\u00020\f2\b\b\u0002\u00106\u001a\u00020\fJ\b\u00107\u001a\u00020'H\u0002R$\u0010\r\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001e\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00020\u0018@BX\u0086.¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u001bR\u001b\u0010\u001c\u001a\u00028\u00028FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001f\u0010 \u001a\u0004\b\u001d\u0010\u001e¨\u00068"}, d2 = {"Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "UiState", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "UiIntent", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "VM", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/view/IView;", "layoutId", "", "(I)V", "value", "", "isSelected", "()Z", "setSelected", "(Z)V", "mSubscriptions", "Lrx/subscriptions/CompositeSubscription;", "getMSubscriptions", "()Lrx/subscriptions/CompositeSubscription;", "setMSubscriptions", "(Lrx/subscriptions/CompositeSubscription;)V", "<set-?>", "Lcom/baidu/tieba/immessagecenter/arch/view/LifecycleRootView;", "rootView", "getRootView", "()Lcom/baidu/tieba/immessagecenter/arch/view/LifecycleRootView;", "viewModel", "getViewModel", "()Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "findViewById", ExifInterface.GPS_DIRECTION_TRUE, "Landroid/view/View;", "id", "(I)Landroid/view/View;", "init", "", "context", "Landroid/content/Context;", "initViewModel", "onAttachedUi", "onDetachedUi", "onFinishInflate", "onRender", "state", "(Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;)V", "onSelected", "syncInflate", "root", "Landroid/view/ViewGroup;", "attachToRoot", "isAutoAttache", "unsubscribeAll", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiIntent, VM extends BaseViewModel<UiState, UiIntent>> implements gg8 {
+public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiIntent, VM extends BaseViewModel<UiState, UiIntent>> implements hg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-    public x5c b;
+    public y5c b;
     public LifecycleRootView c;
     public final Lazy d;
 
@@ -45,7 +45,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
 
     public abstract void H(UiState uistate);
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.hg8
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -145,7 +145,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            cw5.b(m());
+            dw5.b(m());
             return (T) m().findViewById(i);
         }
         return (T) invokeI.objValue;
@@ -198,19 +198,19 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
     public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            x5c x5cVar = this.b;
-            if (x5cVar != null) {
-                x5cVar.unsubscribe();
+            y5c y5cVar = this.b;
+            if (y5cVar != null) {
+                y5cVar.unsubscribe();
             }
-            x5c x5cVar2 = this.b;
-            if (x5cVar2 != null) {
-                x5cVar2.c();
+            y5c y5cVar2 = this.b;
+            if (y5cVar2 != null) {
+                y5cVar2.c();
             }
             this.b = null;
         }
     }
 
-    @Override // com.baidu.tieba.xf8
+    @Override // com.baidu.tieba.yf8
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -219,13 +219,13 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         }
     }
 
-    public final x5c k() {
+    public final y5c k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b;
         }
-        return (x5c) invokeV.objValue;
+        return (y5c) invokeV.objValue;
     }
 
     public final LifecycleRootView m() {
@@ -251,18 +251,18 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         return (VM) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xf8
+    @Override // com.baidu.tieba.yf8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             p().c();
             N();
-            x5c x5cVar = new x5c();
-            x5cVar.a(SkinTypeChangedMonitor.c.a().d().s(h1c.b()).g().H(new l1c() { // from class: com.baidu.tieba.eg8
+            y5c y5cVar = new y5c();
+            y5cVar.a(SkinTypeChangedMonitor.c.a().d().s(i1c.b()).g().H(new m1c() { // from class: com.baidu.tieba.fg8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.l1c
+                @Override // com.baidu.tieba.m1c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -270,32 +270,32 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
                     }
                 }
             }));
-            x5cVar.a(p().f().k(new p1c() { // from class: com.baidu.tieba.cg8
+            y5cVar.a(p().f().k(new q1c() { // from class: com.baidu.tieba.dg8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.p1c
+                @Override // com.baidu.tieba.q1c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? BaseView.C((IUiState) obj) : invokeL.objValue;
                 }
-            }).I(new l1c() { // from class: com.baidu.tieba.fg8
+            }).I(new m1c() { // from class: com.baidu.tieba.gg8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.l1c
+                @Override // com.baidu.tieba.m1c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         BaseView.D(BaseView.this, (IUiState) obj);
                     }
                 }
-            }, new l1c() { // from class: com.baidu.tieba.dg8
+            }, new m1c() { // from class: com.baidu.tieba.eg8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.l1c
+                @Override // com.baidu.tieba.m1c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -303,7 +303,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
                     }
                 }
             }));
-            this.b = x5cVar;
+            this.b = y5cVar;
         }
     }
 }

@@ -5,9 +5,9 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.f6c;
 import com.baidu.tieba.g6c;
 import com.baidu.tieba.h6c;
+import com.baidu.tieba.i6c;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
@@ -61,7 +61,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends g6c {
+    public class b extends h6c {
         public final /* synthetic */ int a;
         public final /* synthetic */ int b;
         public final /* synthetic */ String c;
@@ -80,7 +80,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.baidu.tieba.g6c
+        @Override // com.baidu.tieba.h6c
         public void a(Request request, boolean z, Exception exc) {
             RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.c + " exception: " + exc.getMessage() + " isCanceled:" + z + " cmd:" + this.e.getCmd(), new Object[0]);
             String retryDomain = HttpDataSenderAdapter.this.getRetryDomain(this.f);
@@ -99,7 +99,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             RevenueDataParser.INSTANCE.onRequestError(this.a, this.b, this.c, this.e.getCmd(), ErrorCode.SERVER_ERROR, str);
         }
 
-        @Override // com.baidu.tieba.g6c
+        @Override // com.baidu.tieba.h6c
         public void b(Object obj) {
             HttpDataSenderAdapter.this.onSuccess(this.a, this.b, this.c, this.d, obj, this.e);
         }
@@ -108,8 +108,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
     public void cancelAllRequest(int i, int i2) {
         RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-        f6c.f().d(i, i2);
-        h6c.g(this.payNetStateStaticsApi);
+        g6c.f().d(i, i2);
+        i6c.g(this.payNetStateStaticsApi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -216,7 +216,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         hashMap2.put("data", jSONObject2.toString());
         hashMap2.put("ticket", pSCIMessageRequest.getTicket());
         RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-        f6c.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+        g6c.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
@@ -232,7 +232,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         this.payNetStateStaticsApi = dataSenderConfig.payNetStateStaticsApi;
         this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
         if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-            int h = h6c.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+            int h = i6c.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
             String str = "initHttpDns result " + h;
             RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
             this.delayDnsInitReportRunnable = new a(h, str);
@@ -246,7 +246,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
             return;
         }
-        h6c.a(this.payNetStateStaticsApi);
+        i6c.a(this.payNetStateStaticsApi);
         synchronized (this.runnableLock) {
             if (this.delayDnsInitReportRunnable != null) {
                 this.delayDnsInitReportRunnable.run();

@@ -18,7 +18,7 @@ import rx.subjects.PublishSubject;
 public final class m04 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
-    public static final l1c b;
+    public static final m1c b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -27,7 +27,7 @@ public final class m04 {
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements l1c<Pair<Runnable, String>> {
+    public static class a implements m1c<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public final class m04 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.l1c
+        @Override // com.baidu.tieba.m1c
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -63,7 +63,7 @@ public final class m04 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements p1c<Pair<Runnable, String>, x0c<?>> {
+    public static class b implements q1c<Pair<Runnable, String>, y0c<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,35 +82,35 @@ public final class m04 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p1c
-        public x0c<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.q1c
+        public y0c<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return b1c.g(pair).h(Schedulers.io()).f(m04.b).l();
+                return c1c.g(pair).h(Schedulers.io()).f(m04.b).l();
             }
-            return (x0c) invokeL.objValue;
+            return (y0c) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends u5c<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+    public static class d extends v5c<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(v5c v5cVar) {
-            super(v5cVar);
+        public d(w5c w5cVar) {
+            super(w5cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v5cVar};
+                Object[] objArr = {w5cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((v5c) newInitContext.callArgs[0]);
+                    super((w5c) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

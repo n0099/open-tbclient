@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.d1c;
-import com.baidu.tieba.x0c;
+import com.baidu.tieba.e1c;
+import com.baidu.tieba.y0c;
 /* loaded from: classes2.dex */
-public enum EmptyObservableHolder implements x0c.a<Object> {
+public enum EmptyObservableHolder implements y0c.a<Object> {
     INSTANCE;
     
-    public static final x0c<Object> EMPTY = x0c.d(INSTANCE);
+    public static final y0c<Object> EMPTY = y0c.d(INSTANCE);
 
-    public static <T> x0c<T> instance() {
-        return (x0c<T>) EMPTY;
+    public static <T> y0c<T> instance() {
+        return (y0c<T>) EMPTY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
-    public void call(d1c<? super Object> d1cVar) {
-        d1cVar.onCompleted();
+    @Override // com.baidu.tieba.y0c.a, com.baidu.tieba.m1c
+    public void call(e1c<? super Object> e1cVar) {
+        e1cVar.onCompleted();
     }
 }

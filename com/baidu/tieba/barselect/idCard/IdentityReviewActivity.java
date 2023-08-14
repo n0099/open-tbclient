@@ -26,11 +26,11 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.eg6;
 import com.baidu.tieba.fg6;
+import com.baidu.tieba.gg6;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jg6;
-import com.baidu.tieba.sg6;
+import com.baidu.tieba.kg6;
+import com.baidu.tieba.tg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,8 +40,8 @@ import java.io.File;
 public class IdentityReviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg6 a;
-    public eg6 b;
+    public gg6 a;
+    public fg6 b;
     public long c;
     public boolean d;
     public String e;
@@ -56,7 +56,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView n;
     public TextView o;
     public TextView p;
-    public sg6 q;
+    public tg6 q;
     public int r;
     public int s;
     public View.OnClickListener t;
@@ -100,9 +100,9 @@ public class IdentityReviewActivity extends BaseActivity {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090474) {
                     IdentityReviewActivity identityReviewActivity3 = this.a;
-                    new jg6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
+                    new kg6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
                     this.a.d = true;
-                    this.a.q = new sg6(this.a);
+                    this.a.q = new tg6(this.a);
                     this.a.q.setCancelable(true);
                     this.a.q.setCanceledOnTouchOutside(false);
                     this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0426));
@@ -212,7 +212,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         } else if (this.a.s == 1) {
                             if (this.a.a != null) {
                                 IdentityReviewActivity identityReviewActivity = this.a;
-                                new jg6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
+                                new kg6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
                             } else if (this.a.q != null) {
                                 jg.a(this.a.q, this.a);
                             }
@@ -232,7 +232,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         }
                         this.a.d = false;
                         IdentityReviewActivity identityReviewActivity2 = this.a;
-                        new jg6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
+                        new kg6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
                     }
                 }
             }
@@ -371,8 +371,8 @@ public class IdentityReviewActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0423);
             this.c = getIntent().getLongExtra("fid", 0L);
-            this.a = new fg6(getPageContext());
-            this.b = new eg6(getPageContext());
+            this.a = new gg6(getPageContext());
+            this.b = new fg6(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
             this.g = findViewById(R.id.obfuscated_res_0x7f09100d);
@@ -384,7 +384,7 @@ public class IdentityReviewActivity extends BaseActivity {
             this.i = textView;
             textView.setEnabled(false);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09103f);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce9);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091cef);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0918f0);
             this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09103b);
             this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091039);
@@ -405,8 +405,8 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
-            sg6 sg6Var = this.q;
-            if (sg6Var != null && sg6Var.isShowing()) {
+            tg6 tg6Var = this.q;
+            if (tg6Var != null && tg6Var.isShowing()) {
                 jg.a(this.q, this);
             }
             super.onDestroy();

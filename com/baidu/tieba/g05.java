@@ -45,7 +45,7 @@ public class g05 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ov5<Boolean> {
+    public class b implements pv5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g05 a;
@@ -75,7 +75,7 @@ public class g05 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    jka.b(true);
+                    kka.b(true);
                 }
             }
         }
@@ -99,7 +99,7 @@ public class g05 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class g05 {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends jw5<Boolean> {
+    public class a extends kw5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public class g05 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.jw5
+        @Override // com.baidu.tieba.kw5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class g05 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
                     be5.p0().b0(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    uaa.y("");
+                    vaa.y("");
                     d05.t().g(currentAccount, false);
                     BdCacheService.n().a(currentAccount);
                     SharedPrefHelper.getInstance().clearByAccount(currentAccount);
@@ -198,7 +198,7 @@ public class g05 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nw5.b(new a(this), new b(this));
+            ow5.b(new a(this), new b(this));
         }
     }
 

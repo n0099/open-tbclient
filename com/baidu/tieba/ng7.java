@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface ng7 {
-    void I(int i, int i2, xg7 xg7Var);
+    void C();
 
-    void M(rg7 rg7Var);
+    void M();
 
-    void init();
+    void g0();
 
-    void q();
+    void k0();
 }

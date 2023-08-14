@@ -32,12 +32,12 @@ public class by extends sy {
     }
 
     @Override // com.baidu.tieba.sy
-    public xt9 x() {
+    public yt9 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new au9(this.b, this.i);
+            return new bu9(this.b, this.i);
         }
-        return (xt9) invokeV.objValue;
+        return (yt9) invokeV.objValue;
     }
 }

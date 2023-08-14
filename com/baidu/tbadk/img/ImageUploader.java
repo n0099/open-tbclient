@@ -19,8 +19,8 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b05;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.nda;
-import com.baidu.tieba.pda;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.qda;
 import com.baidu.tieba.vn5;
 import com.baidu.tieba.wl5;
 import com.baidu.tieba.xl5;
@@ -328,7 +328,7 @@ public class ImageUploader {
     /* JADX WARN: Code restructure failed: missing block: B:167:0x03e3, code lost:
         r10.append("|startChunk=");
         r10.append(r9);
-        com.baidu.tieba.pda.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.baidu.tieba.qda.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:168:0x03fe, code lost:
         r15 = r3;
@@ -511,7 +511,7 @@ public class ImageUploader {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             String str5 = str;
             String str6 = "    p = ";
-            pda.a("发帖：正在上传图片 = " + str5);
+            qda.a("发帖：正在上传图片 = " + str5);
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             boolean z3 = true;
             options2.inJustDecodeBounds = true;
@@ -555,7 +555,7 @@ public class ImageUploader {
                             try {
                                 imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                                 imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
-                                pda.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                                qda.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                                 BdCloseHelper.close((Closeable) null);
                                 this.mNetwork = null;
                                 return imageUploadResult5;
@@ -570,7 +570,7 @@ public class ImageUploader {
                                 r2 = null;
                             }
                         } else {
-                            pda.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                            qda.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                             String b2 = hi.b(FileHelper.GetStreamFromFile(file));
                             sb3.append("path=");
                             sb3.append(str5);
@@ -624,11 +624,11 @@ public class ImageUploader {
                                         netWork2 = r2;
                                         str3 = str;
                                         sb4.append(str3);
-                                        pda.a(sb4.toString());
+                                        qda.a(sb4.toString());
                                         BdCloseHelper.close((Closeable) randomAccessFile3);
                                         this.mNetwork = netWork2;
                                         imageUploadResult = imageUploadResult2;
-                                        pda.a("发帖：上传图片 结束      p = " + str3);
+                                        qda.a("发帖：上传图片 结束      p = " + str3);
                                         return imageUploadResult;
                                     }
                                 } catch (Throwable th4) {
@@ -734,11 +734,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb42.append(str3);
-                                                                    pda.a(sb42.toString());
+                                                                    qda.a(sb42.toString());
                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             } else if (i10 == 0) {
@@ -784,11 +784,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb422.append(str3);
-                                                                    pda.a(sb422.toString());
+                                                                    qda.a(sb422.toString());
                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             }
@@ -832,11 +832,11 @@ public class ImageUploader {
                                                                 netWork2 = r2;
                                                                 str3 = str;
                                                                 sb4222.append(str3);
-                                                                pda.a(sb4222.toString());
+                                                                qda.a(sb4222.toString());
                                                                 BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                 this.mNetwork = netWork2;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                qda.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         }
@@ -897,11 +897,11 @@ public class ImageUploader {
                                                                     netWork2 = r2;
                                                                     str3 = str;
                                                                     sb42222.append(str3);
-                                                                    pda.a(sb42222.toString());
+                                                                    qda.a(sb42222.toString());
                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                     this.mNetwork = netWork2;
                                                                     imageUploadResult = imageUploadResult2;
-                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                     return imageUploadResult;
                                                                 }
                                                             } catch (Exception e10) {
@@ -1018,11 +1018,11 @@ public class ImageUploader {
                                                                                     netWork2 = r2;
                                                                                     str3 = str;
                                                                                     sb422222.append(str3);
-                                                                                    pda.a(sb422222.toString());
+                                                                                    qda.a(sb422222.toString());
                                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                                     this.mNetwork = netWork2;
                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                                     return imageUploadResult;
                                                                                 }
                                                                             }
@@ -1036,7 +1036,7 @@ public class ImageUploader {
                                                                         try {
                                                                             try {
                                                                                 if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                                                    pda.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
+                                                                                    qda.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
                                                                                     if (i8 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                                         break;
                                                                                     }
@@ -1102,11 +1102,11 @@ public class ImageUploader {
                                                                                                     netWork2 = r2;
                                                                                                     str3 = str;
                                                                                                     sb4222222.append(str3);
-                                                                                                    pda.a(sb4222222.toString());
+                                                                                                    qda.a(sb4222222.toString());
                                                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                                                     this.mNetwork = netWork2;
                                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                                                     return imageUploadResult;
                                                                                                 }
                                                                                             } else {
@@ -1116,7 +1116,7 @@ public class ImageUploader {
                                                                                                 if (this.imagesInfo != null) {
                                                                                                     this.imagesInfo.hasUploadFileSize += i4;
                                                                                                 }
-                                                                                                pda.a("发帖：正在上传图片 已上传 = " + j2 + str6 + str5);
+                                                                                                qda.a("发帖：正在上传图片 已上传 = " + j2 + str6 + str5);
                                                                                                 if (this.progressCallback != null) {
                                                                                                     try {
                                                                                                         RandomAccessFile randomAccessFile19 = randomAccessFile14;
@@ -1168,11 +1168,11 @@ public class ImageUploader {
                                                                                                         netWork2 = r2;
                                                                                                         str3 = str;
                                                                                                         sb42222222.append(str3);
-                                                                                                        pda.a(sb42222222.toString());
+                                                                                                        qda.a(sb42222222.toString());
                                                                                                         BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                                                         this.mNetwork = netWork2;
                                                                                                         imageUploadResult = imageUploadResult2;
-                                                                                                        pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                        qda.a("发帖：上传图片 结束      p = " + str3);
                                                                                                         return imageUploadResult;
                                                                                                     }
                                                                                                 } else {
@@ -1253,11 +1253,11 @@ public class ImageUploader {
                                                                                                     netWork2 = r2;
                                                                                                     str3 = str;
                                                                                                     sb422222222.append(str3);
-                                                                                                    pda.a(sb422222222.toString());
+                                                                                                    qda.a(sb422222222.toString());
                                                                                                     BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                                                     this.mNetwork = netWork2;
                                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                                    pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                    qda.a("发帖：上传图片 结束      p = " + str3);
                                                                                                     return imageUploadResult;
                                                                                                 }
                                                                                             } catch (Exception e17) {
@@ -1295,11 +1295,11 @@ public class ImageUploader {
                                                                                                 netWork2 = r2;
                                                                                                 str3 = str;
                                                                                                 sb4222222222.append(str3);
-                                                                                                pda.a(sb4222222222.toString());
+                                                                                                qda.a(sb4222222222.toString());
                                                                                                 BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                                                 this.mNetwork = netWork2;
                                                                                                 imageUploadResult = imageUploadResult2;
-                                                                                                pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                                                qda.a("发帖：上传图片 结束      p = " + str3);
                                                                                                 return imageUploadResult;
                                                                                             }
                                                                                         }
@@ -1351,11 +1351,11 @@ public class ImageUploader {
                                                                             netWork2 = r2;
                                                                             str3 = str;
                                                                             sb42222222222.append(str3);
-                                                                            pda.a(sb42222222222.toString());
+                                                                            qda.a(sb42222222222.toString());
                                                                             BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                             this.mNetwork = netWork2;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                            qda.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                         bArr2 = bArr;
@@ -1420,11 +1420,11 @@ public class ImageUploader {
                                                                 netWork2 = r2;
                                                                 str3 = str;
                                                                 sb422222222222.append(str3);
-                                                                pda.a(sb422222222222.toString());
+                                                                qda.a(sb422222222222.toString());
                                                                 BdCloseHelper.close((Closeable) randomAccessFile3);
                                                                 this.mNetwork = netWork2;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                pda.a("发帖：上传图片 结束      p = " + str3);
+                                                                qda.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th9) {
@@ -1476,15 +1476,15 @@ public class ImageUploader {
                             BdCloseHelper.close(randomAccessFile6);
                             this.mNetwork = null;
                             str3 = str;
-                            pda.a("发帖：上传图片 结束      p = " + str3);
+                            qda.a("发帖：上传图片 结束      p = " + str3);
                             return imageUploadResult;
                         }
                         sb422222222222.append(str3);
-                        pda.a(sb422222222222.toString());
+                        qda.a(sb422222222222.toString());
                         BdCloseHelper.close((Closeable) randomAccessFile3);
                         this.mNetwork = netWork2;
                         imageUploadResult = imageUploadResult2;
-                        pda.a("发帖：上传图片 结束      p = " + str3);
+                        qda.a("发帖：上传图片 结束      p = " + str3);
                         return imageUploadResult;
                     } catch (Throwable th12) {
                         th = th12;
@@ -1545,7 +1545,7 @@ public class ImageUploader {
                     netWork2 = r2;
                 }
             } else {
-                pda.a("发帖：正在上传图片 失败 = " + str5);
+                qda.a("发帖：正在上传图片 失败 = " + str5);
                 ImageUploadResult imageUploadResult6 = new ImageUploadResult();
                 imageUploadResult6.error_code = -1007;
                 imageUploadResult6.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
@@ -1590,7 +1590,7 @@ public class ImageUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048602, this, writeImagesInfo, z)) == null) {
             ImageUploader imageUploader = this;
-            pda.a("发帖： 上传批量图片到server");
+            qda.a("发帖： 上传批量图片到server");
             ErrorData errorData = new ErrorData();
             if (writeImagesInfo != null && writeImagesInfo.size() != 0) {
                 LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -1654,7 +1654,7 @@ public class ImageUploader {
                     LinkedList linkedList3 = linkedList2;
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) linkedList3.get(i3);
                     imageFileInfo2.setTempUploadFileName(null);
-                    pda.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
+                    qda.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
                     if (this.isCancelled) {
                         break;
                     }
@@ -1663,10 +1663,10 @@ public class ImageUploader {
                     } else {
                         isOriginalImg = writeImagesInfo.isOriginalImg();
                     }
-                    nda.m(this.writeData, imageFileInfo2);
+                    oda.m(this.writeData, imageFileInfo2);
                     int i4 = i3 + 1;
                     ImageUploadResult uploadInBackground = uploadInBackground(imageFileInfo2, isOriginalImg, z, i4, linkedList3.size());
-                    nda.d(this.writeData, imageFileInfo2, uploadInBackground);
+                    oda.d(this.writeData, imageFileInfo2, uploadInBackground);
                     if (uploadInBackground != null) {
                         UploadedImageInfo uploadedPicInfo = uploadInBackground.getUploadedPicInfo();
                         if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -1678,22 +1678,22 @@ public class ImageUploader {
                         } else {
                             errorData.setError_code(uploadInBackground.error_code);
                             errorData.setError_msg(uploadInBackground.error_msg);
-                            pda.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                            qda.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
                             return errorData;
                         }
                     } else {
                         errorData.setError_code(-52);
                         errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-                        pda.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                        qda.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
                         return errorData;
                     }
                 }
-                pda.a("发帖：发送图片 上传图片 成功返回");
+                qda.a("发帖：发送图片 上传图片 成功返回");
                 return null;
             }
             errorData.setError_code(-1002);
             errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-            pda.a("发帖：发送图片 上传图片 错误 无图");
+            qda.a("发帖：发送图片 上传图片 错误 无图");
             return errorData;
         }
         return (ErrorData) invokeLZ.objValue;

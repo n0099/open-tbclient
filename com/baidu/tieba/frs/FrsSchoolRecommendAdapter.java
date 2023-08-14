@@ -7,12 +7,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.GodUserData;
-import com.baidu.tieba.ah7;
-import com.baidu.tieba.gf7;
+import com.baidu.tieba.bh7;
+import com.baidu.tieba.hf7;
 import com.baidu.tieba.j35;
 import com.baidu.tieba.k35;
-import com.baidu.tieba.nu7;
-import com.baidu.tieba.uf7;
+import com.baidu.tieba.ou7;
+import com.baidu.tieba.vf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class FrsSchoolRecommendAdapter extends gf7<j35, FrsSchoolRecommendViewHolder> {
+public class FrsSchoolRecommendAdapter extends hf7<j35, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nu7 l;
+    public ou7 l;
 
     /* loaded from: classes5.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public nu7 a;
+        public ou7 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, nu7 nu7Var) {
-            super(nu7Var.h());
+        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, ou7 ou7Var) {
+            super(ou7Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsSchoolRecommendAdapter, nu7Var};
+                Object[] objArr = {frsSchoolRecommendAdapter, ou7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public class FrsSchoolRecommendAdapter extends gf7<j35, FrsSchoolRecommendViewHo
                     return;
                 }
             }
-            this.a = nu7Var;
+            this.a = ou7Var;
         }
     }
 
@@ -81,14 +81,14 @@ public class FrsSchoolRecommendAdapter extends gf7<j35, FrsSchoolRecommendViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            this.l = new nu7(this.c, this.mPageId);
+            this.l = new ou7(this.c, this.mPageId);
             return new FrsSchoolRecommendViewHolder(this, this.l);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    @Override // com.baidu.tieba.hf7, com.baidu.tieba.lm
     /* renamed from: H */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j35 j35Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -101,29 +101,29 @@ public class FrsSchoolRecommendAdapter extends gf7<j35, FrsSchoolRecommendViewHo
             if (c.size() <= 0) {
                 return null;
             }
-            uf7 uf7Var = new uf7();
-            uf7Var.showTopDivider = true;
-            uf7Var.mGroupTitle = j35Var.getTitle();
+            vf7 vf7Var = new vf7();
+            vf7Var.showTopDivider = true;
+            vf7Var.mGroupTitle = j35Var.getTitle();
             for (int i2 = 0; i2 != c.size(); i2++) {
                 k35 k35Var = c.get(i2);
                 if (k35Var != null) {
-                    ah7 ah7Var = new ah7();
-                    ah7Var.a.setUserId(k35Var.d());
-                    ah7Var.a.setUserName(k35Var.e());
-                    ah7Var.a.setPortrait(k35Var.c());
-                    GodUserData godUserData = ah7Var.a.getGodUserData();
+                    bh7 bh7Var = new bh7();
+                    bh7Var.a.setUserId(k35Var.d());
+                    bh7Var.a.setUserName(k35Var.e());
+                    bh7Var.a.setPortrait(k35Var.c());
+                    GodUserData godUserData = bh7Var.a.getGodUserData();
                     if (k35Var.b() == 1) {
                         z = true;
                     } else {
                         z = false;
                     }
                     godUserData.setIsLike(z);
-                    ah7Var.a.getGodUserData().setIntro(k35Var.a());
-                    uf7Var.c(ah7Var);
+                    bh7Var.a.getGodUserData().setIntro(k35Var.a());
+                    vf7Var.c(bh7Var);
                 }
             }
             this.l.j(this.c, this.f);
-            frsSchoolRecommendViewHolder.a.t(uf7Var);
+            frsSchoolRecommendViewHolder.a.t(vf7Var);
             return frsSchoolRecommendViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

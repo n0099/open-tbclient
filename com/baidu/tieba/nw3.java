@@ -16,7 +16,7 @@ public class nw3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return j86.a();
+            return k86.a();
         }
         return (ow3) invokeV.objValue;
     }

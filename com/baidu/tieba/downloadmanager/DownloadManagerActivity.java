@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aw6;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
-import com.baidu.tieba.zv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,11 +81,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zv6)) {
-                zv6 zv6Var = (zv6) customResponsedMessage.getData();
-                View a = zv6Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) zv6Var.a()).getText())) {
-                    ItemCardHelper.f(zv6Var.e(), zv6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) zv6Var.a()).getText()), zv6Var.c(), zv6Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof aw6)) {
+                aw6 aw6Var = (aw6) customResponsedMessage.getData();
+                View a = aw6Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) aw6Var.a()).getText())) {
+                    ItemCardHelper.f(aw6Var.e(), aw6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) aw6Var.a()).getText()), aw6Var.c(), aw6Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));

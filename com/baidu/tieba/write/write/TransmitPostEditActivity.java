@@ -56,13 +56,13 @@ import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.ht4;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jta;
+import com.baidu.tieba.kta;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.nc5;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.sua;
+import com.baidu.tieba.sw5;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tua;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
@@ -165,9 +165,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 jg.l(transmitPostEditActivity.K, view2, 0, BdUtilHelper.dip2px(transmitPostEditActivity.getPageContext().getPageActivity(), 1.0f));
                 this.a.S.t();
                 TransmitPostEditActivity transmitPostEditActivity2 = this.a;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.f1181T, transmitPostEditActivity2.A);
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.f1182T, transmitPostEditActivity2.A);
                 TransmitPostEditActivity transmitPostEditActivity3 = this.a;
-                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1181T, transmitPostEditActivity3.E);
+                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1182T, transmitPostEditActivity3.E);
             }
         }
     }
@@ -205,9 +205,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 jg.l(transmitPostEditActivity.K, view2, 0, BdUtilHelper.dip2px(transmitPostEditActivity.getPageContext().getPageActivity(), 1.0f));
                 this.a.S.t();
                 TransmitPostEditActivity transmitPostEditActivity2 = this.a;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.f1181T, transmitPostEditActivity2.U1());
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.f1182T, transmitPostEditActivity2.U1());
                 TransmitPostEditActivity transmitPostEditActivity3 = this.a;
-                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1181T, transmitPostEditActivity3.T1());
+                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1182T, transmitPostEditActivity3.T1());
             }
         }
     }
@@ -244,7 +244,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
                 }
-                if (rw5.a() || this.a.T2()) {
+                if (sw5.a() || this.a.T2()) {
                     return;
                 }
                 if (this.a.U2()) {
@@ -258,9 +258,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     return;
                 }
                 TransmitPostEditActivity transmitPostEditActivity3 = this.a;
-                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1181T, transmitPostEditActivity3.U1());
+                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.f1182T, transmitPostEditActivity3.U1());
                 TransmitPostEditActivity transmitPostEditActivity4 = this.a;
-                transmitPostEditActivity4.HidenSoftKeyPad(transmitPostEditActivity4.f1181T, transmitPostEditActivity4.T1());
+                transmitPostEditActivity4.HidenSoftKeyPad(transmitPostEditActivity4.f1182T, transmitPostEditActivity4.T1());
                 this.a.S.t();
                 TiebaStatic.log(new StatisticItem("c12608").param("obj_locate", 7));
                 if (this.a.x0) {
@@ -367,7 +367,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public final void R2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f092a51);
+            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f092a57);
             this.i0 = originalThreadCardView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) originalThreadCardView.getLayoutParams();
             layoutParams.topMargin -= y0;
@@ -494,7 +494,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new sua(getPageContext());
+                this.V = new tua(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -668,7 +668,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             } else {
                 this.E.setText(this.t0 + " " + this.s0);
             }
-            ShowSoftKeyPad(this.f1181T, this.A);
+            ShowSoftKeyPad(this.f1182T, this.A);
         }
     }
 
@@ -752,7 +752,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 int size = prefixs.size();
                 this.i = 1;
                 this.M.setOnClickListener(new a(this));
-                ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1a);
+                ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d20);
                 this.L = imageView;
                 if (size > 1) {
                     imageView.setVisibility(0);
@@ -794,9 +794,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             arrayList.add(5);
             this.S.d(new zh5(getActivity(), 2));
             if (this.U == null) {
-                jta jtaVar = new jta(getActivity(), this.k);
-                this.U = jtaVar;
-                jtaVar.h();
+                kta ktaVar = new kta(getActivity(), this.k);
+                this.U = ktaVar;
+                ktaVar.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);
@@ -860,7 +860,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public void j2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091d0a);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091d10);
             this.A = editText;
             editText.setOnClickListener(this.c0);
             this.A.setOnFocusChangeListener(this.d0);
@@ -911,7 +911,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public void i2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f091cec);
+            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f091cf2);
             this.E = spanGroupEditText;
             spanGroupEditText.setDrawingCacheEnabled(false);
             this.E.setOnClickListener(this.c0);
@@ -1115,7 +1115,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     EditorTools editorTools = this.S;
                     if (editorTools != null && !editorTools.x()) {
                         T1().requestFocus();
-                        this.f1181T.toggleSoftInput(0, 2);
+                        this.f1182T.toggleSoftInput(0, 2);
                     }
                     if (intent != null) {
                         arrayList = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
@@ -1161,7 +1161,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 EditorTools editorTools2 = this.S;
                 if (editorTools2 != null && !editorTools2.x()) {
                     this.E.requestFocus();
-                    this.f1181T.toggleSoftInput(0, 2);
+                    this.f1182T.toggleSoftInput(0, 2);
                 }
                 if (i != 12002) {
                     if (i != 12006) {

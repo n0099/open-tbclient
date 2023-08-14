@@ -34,17 +34,17 @@ public class nj1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-        public ArrayList<C0410a> b;
+        public ArrayList<C0408a> b;
 
         /* renamed from: com.baidu.tieba.nj1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0410a {
+        public static class C0408a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long a;
             public long b;
 
-            public C0410a(long j, long j2) {
+            public C0408a(long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class nj1 {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
-                        this.b.add(new C0410a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                        this.b.add(new C0408a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
                     }
                 }
             }
@@ -158,9 +158,9 @@ public class nj1 {
                 if (a31.l(this.b) == 0) {
                     return false;
                 }
-                Iterator<C0410a> it = this.b.iterator();
+                Iterator<C0408a> it = this.b.iterator();
                 while (it.hasNext()) {
-                    C0410a next = it.next();
+                    C0408a next = it.next();
                     if (next != null && next.a(j)) {
                         return true;
                     }

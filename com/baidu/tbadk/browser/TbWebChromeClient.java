@@ -18,10 +18,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.jca;
+import com.baidu.tieba.hca;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.nca;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.oca;
 import com.baidu.tieba.vc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gca callback;
+    public hca callback;
     public TBWebViewActivity mActivity;
 
     public TbWebChromeClient(TBWebViewActivity tBWebViewActivity) {
@@ -64,10 +64,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(gca gcaVar) {
+    public void setOnJsPromptCallback(hca hcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, gcaVar) == null) {
-            this.callback = gcaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, hcaVar) == null) {
+            this.callback = hcaVar;
         }
     }
 
@@ -148,16 +148,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        gca gcaVar;
+        hca hcaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!vc5.a(str) && str2.startsWith("tiebaapp")) {
-                jca jcaVar = new jca();
-                jcaVar.w(nca.b(str2));
-                jcaVar.y(301);
-                callJsMethod(webView, jcaVar.c(), jcaVar.d());
+                kca kcaVar = new kca();
+                kcaVar.w(oca.b(str2));
+                kcaVar.y(301);
+                callJsMethod(webView, kcaVar.c(), kcaVar.d());
             }
-            if (vc5.a(str) && (gcaVar = this.callback) != null && gcaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (vc5.a(str) && (hcaVar = this.callback) != null && hcaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

@@ -142,7 +142,7 @@ public class sj5 {
         tBAlertBuilder.setNeedTransparentBg(true).setCustomContentView(inflate).show();
         View findViewById = inflate.findViewById(R.id.pb_virtual_image_setting_guide_img);
         if (findViewById instanceof ImageView) {
-            Glide.with(findViewById).load(as6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+            Glide.with(findViewById).load(bs6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
         }
     }
 }

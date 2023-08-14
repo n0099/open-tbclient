@@ -19,11 +19,11 @@ import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
 import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs5;
 import com.baidu.tieba.de5;
+import com.baidu.tieba.ds5;
 import com.baidu.tieba.p05;
-import com.baidu.tieba.s2a;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.t2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s2a a;
+    public t2a a;
     public MsgRemindModel b;
     public final OnTimeSelectListener c;
     public MsgRemindModel.f d;
@@ -207,9 +207,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            s2a s2aVar = new s2a(this);
-            this.a = s2aVar;
-            s2aVar.T(this);
+            t2a t2aVar = new t2a(this);
+            this.a = t2aVar;
+            t2aVar.T(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -332,7 +332,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            boolean a2 = cs5.a(this);
+            boolean a2 = ds5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }

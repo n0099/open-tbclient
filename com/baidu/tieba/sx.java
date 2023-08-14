@@ -27,7 +27,7 @@ public class sx extends sy implements View.OnClickListener {
     public InterviewLiveLayout A;
     public int B;
     public TextView C;
-    public bn6<q05> D;
+    public cn6<q05> D;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sx(Context context) {
@@ -69,7 +69,7 @@ public class sx extends sy implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            xt9 x = x();
+            yt9 x = x();
             this.l = x;
             x.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -86,21 +86,21 @@ public class sx extends sy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        bn6<q05> bn6Var;
+        cn6<q05> cn6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if ((view2 == this.C || view2 == this.g) && (bn6Var = this.D) != null) {
-                bn6Var.a(view2, this.h);
+            if ((view2 == this.C || view2 == this.g) && (cn6Var = this.D) != null) {
+                cn6Var.a(view2, this.h);
             }
         }
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bn6Var) == null) {
-            this.D = bn6Var;
-            this.A.setSubClickListener(bn6Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, cn6Var) == null) {
+            this.D = cn6Var;
+            this.A.setSubClickListener(cn6Var);
         }
     }
 
@@ -115,15 +115,15 @@ public class sx extends sy implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.sy
-    public xt9 x() {
+    public yt9 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            yt9 yt9Var = new yt9(this.b, this.i);
-            yt9Var.setStageType("2003");
-            return yt9Var;
+            zt9 zt9Var = new zt9(this.b, this.i);
+            zt9Var.setStageType("2003");
+            return zt9Var;
         }
-        return (xt9) invokeV.objValue;
+        return (yt9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.sy, com.baidu.tieba.rx

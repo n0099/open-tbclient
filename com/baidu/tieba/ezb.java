@@ -3,26 +3,31 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UnownedUserData;
-import org.chromium.base.UnownedUserDataHost;
-/* compiled from: UnownedUserData.java */
+import org.chromium.base.Callback;
+/* compiled from: Callback.java */
 /* loaded from: classes5.dex */
 public final /* synthetic */ class ezb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean $default$informOnDetachmentFromHost(UnownedUserData unownedUserData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Incorrect args count in method signature: (TT;)Ljava/lang/Runnable; */
+    public static Runnable $default$bind(final Callback callback, final Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, unownedUserData)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, callback, obj)) == null) {
+            return new Runnable() { // from class: com.baidu.tieba.tyb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static void $default$onDetachedFromHost(UnownedUserData unownedUserData, UnownedUserDataHost unownedUserDataHost) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, unownedUserData, unownedUserDataHost) == null) {
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Callback.this.onResult(obj);
+                    }
+                }
+            };
         }
+        return (Runnable) invokeLL.objValue;
     }
 }

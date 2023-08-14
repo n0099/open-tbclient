@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class yfb extends qfb<TTNativeExpressAd> {
+public class yfb extends rfb<TTNativeAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yfb(TTNativeExpressAd tTNativeExpressAd) {
-        super(tTNativeExpressAd);
+    public yfb(TTNativeAd tTNativeAd) {
+        super(tTNativeAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeExpressAd};
+            Object[] objArr = {tTNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,7 +34,7 @@ public class yfb extends qfb<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.baidu.tieba.qfb
+    @Override // com.baidu.tieba.rfb
     public double a() {
         InterceptResult invokeV;
         Map<String, Object> mediaExtraInfo;
@@ -42,7 +42,7 @@ public class yfb extends qfb<TTNativeExpressAd> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTNativeExpressAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                if (a == 0 || (mediaExtraInfo = ((TTNativeAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
                     return 0.0d;
                 }
                 return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
@@ -53,28 +53,28 @@ public class yfb extends qfb<TTNativeExpressAd> {
         return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.qfb
+    @Override // com.baidu.tieba.rfb
     public void b(String str, double d, double d2, boolean z, int i) {
         A a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
             return;
         }
-        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) a;
+        TTNativeAd tTNativeAd = (TTNativeAd) a;
         if (z) {
-            tTNativeExpressAd.win(Double.valueOf(d2));
+            tTNativeAd.win(Double.valueOf(d2));
         } else {
-            tTNativeExpressAd.loss(Double.valueOf(d), str, String.valueOf(i));
+            tTNativeAd.loss(Double.valueOf(d), str, String.valueOf(i));
         }
     }
 
-    @Override // com.baidu.tieba.qfb
+    @Override // com.baidu.tieba.rfb
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTNativeExpressAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            if (this.b.isEmpty() && ((TTNativeAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
             return this.b;
         }

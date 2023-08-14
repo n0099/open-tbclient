@@ -190,8 +190,8 @@ public class w35 extends q05 implements ym {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    oba obaVar = this.t.funAdData;
-                    if (obaVar != null && obaVar.h()) {
+                    pba pbaVar = this.t.funAdData;
+                    if (pbaVar != null && pbaVar.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.H;
                         }

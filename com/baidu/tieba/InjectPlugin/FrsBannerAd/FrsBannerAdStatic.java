@@ -7,15 +7,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.an;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.n26;
+import com.baidu.tieba.j26;
 import com.baidu.tieba.o26;
 import com.baidu.tieba.p26;
 import com.baidu.tieba.q26;
 import com.baidu.tieba.r26;
 import com.baidu.tieba.s26;
-import com.baidu.tieba.v26;
+import com.baidu.tieba.t26;
 import com.baidu.tieba.w26;
+import com.baidu.tieba.x26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0232a implements i26.a {
+        public class C0232a implements j26.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,27 +55,27 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.i26.a
-            public void a(q26 q26Var, View view2) {
-                p26 a;
+            @Override // com.baidu.tieba.j26.a
+            public void a(r26 r26Var, View view2) {
+                q26 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, q26Var, view2) == null) && (a = v26.a(q26Var)) != null) {
-                    n26 n26Var = new n26();
-                    n26Var.a = 2;
-                    n26Var.b(view2);
-                    a.T(n26Var);
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, r26Var, view2) == null) && (a = w26.a(r26Var)) != null) {
+                    o26 o26Var = new o26();
+                    o26Var.a = 2;
+                    o26Var.b(view2);
+                    a.T(o26Var);
                 }
             }
 
-            @Override // com.baidu.tieba.i26.a
-            public void b(q26 q26Var, View view2) {
-                p26 a;
+            @Override // com.baidu.tieba.j26.a
+            public void b(r26 r26Var, View view2) {
+                q26 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q26Var, view2) == null) && (a = v26.a(q26Var)) != null) {
-                    n26 n26Var = new n26();
-                    n26Var.a = 3;
-                    n26Var.b(view2);
-                    a.T(n26Var);
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r26Var, view2) == null) && (a = w26.a(r26Var)) != null) {
+                    o26 o26Var = new o26();
+                    o26Var.a = 3;
+                    o26Var.b(view2);
+                    a.T(o26Var);
                 }
             }
         }
@@ -101,44 +101,44 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            w26 w26Var;
+            x26 x26Var;
             TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof w26) || (b = (w26Var = (w26) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof p26)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof x26) || (b = (x26Var = (x26) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof q26)) {
                 return;
             }
-            p26 p26Var = (p26) b.getPageActivity();
-            o26 e1 = p26Var.e1(2);
+            q26 q26Var = (q26) b.getPageActivity();
+            p26 e1 = q26Var.e1(2);
             if (e1 == null) {
-                r26 a = s26.b().a(2);
+                s26 a = t26.b().a(2);
                 if (a == null) {
                     return;
                 }
                 e1 = a.a();
-                p26Var.B0(2, e1);
-                e1.f(new q26(b), null);
-                if (!(e1 instanceof i26)) {
+                q26Var.B0(2, e1);
+                e1.f(new r26(b), null);
+                if (!(e1 instanceof j26)) {
                     return;
                 }
-                ((i26) e1).h(new C0232a(this));
+                ((j26) e1).h(new C0232a(this));
             }
-            if (!(e1 instanceof i26)) {
+            if (!(e1 instanceof j26)) {
                 return;
             }
-            i26 i26Var = (i26) e1;
-            if (w26Var.a() == 1) {
-                i26Var.b(w26Var.g());
-                i26Var.c(w26Var.d());
-                i26Var.j();
-            } else if (w26Var.a() == 2) {
-                i26Var.l(w26Var.f());
-            } else if (w26Var.a() == 3) {
-                an e = w26Var.e();
-                if (e != null && i26Var.getView() != null) {
-                    e.removeHeaderView(i26Var.getView());
+            j26 j26Var = (j26) e1;
+            if (x26Var.a() == 1) {
+                j26Var.b(x26Var.g());
+                j26Var.c(x26Var.d());
+                j26Var.j();
+            } else if (x26Var.a() == 2) {
+                j26Var.l(x26Var.f());
+            } else if (x26Var.a() == 3) {
+                an e = x26Var.e();
+                if (e != null && j26Var.getView() != null) {
+                    e.removeHeaderView(j26Var.getView());
                 }
-            } else if (w26Var.a() == 4) {
-                i26Var.a(w26Var.h());
+            } else if (x26Var.a() == 4) {
+                j26Var.a(x26Var.h());
             }
         }
     }

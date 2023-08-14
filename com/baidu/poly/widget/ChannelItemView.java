@@ -247,10 +247,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091615);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091617);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091616);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092713);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09276a);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092719);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092770);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091142);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc4);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091cca);
             setOnClickListener(this);
         }
     }
@@ -342,7 +342,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f0804c7);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08153d);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081540);
                 this.m = false;
             }
             if (1 == enable) {

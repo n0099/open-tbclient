@@ -220,7 +220,7 @@ public class yt4 {
                 if (userData.isNewGod()) {
                     TextView textView4 = new TextView(context);
                     textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + ww5.a(userData.getNewGodData()));
+                    textView4.setText(userData.getNewGodData().getFieldName() + xw5.a(userData.getNewGodData()));
                     textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                     linearLayout.addView(textView4);
                     textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));

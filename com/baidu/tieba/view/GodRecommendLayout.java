@@ -42,7 +42,7 @@ import com.baidu.tieba.mz4;
 import com.baidu.tieba.um;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.tieba.wm;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.xw5;
 import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -381,9 +381,9 @@ public class GodRecommendLayout extends LinearLayout {
                     str = metaData.getNewGodData().getFieldName();
                 }
                 if (!bi.isEmpty(str)) {
-                    c = str + ww5.c(metaData.isVideoGod());
+                    c = str + xw5.c(metaData.isVideoGod());
                 } else {
-                    c = ww5.c(metaData.isVideoGod());
+                    c = xw5.c(metaData.isVideoGod());
                 }
                 godViewHolder.c.setText(c);
             }
@@ -671,7 +671,7 @@ public class GodRecommendLayout extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_god_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0906a4);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.a);

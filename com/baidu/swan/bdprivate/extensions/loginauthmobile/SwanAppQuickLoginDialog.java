@@ -68,12 +68,12 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             if (z) {
                 SwanAppQuickLoginDialog.this.n.setClickable(true);
-                SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f081424);
+                SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f081427);
                 return;
             }
             SwanAppQuickLoginDialog.this.n.setClickable(false);
             qa3.f(SwanAppQuickLoginDialog.this.b, R.string.obfuscated_res_0x7f0f157c).H(true);
-            SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f08146a);
+            SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f08146d);
         }
     }
 
@@ -121,9 +121,9 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09282a) {
+        if (id == R.id.obfuscated_res_0x7f092830) {
             V1();
-        } else if (id == R.id.obfuscated_res_0x7f09283a) {
+        } else if (id == R.id.obfuscated_res_0x7f092840) {
             W1();
         } else if (id == R.id.obfuscated_res_0x7f09072f) {
             P1(true);
@@ -147,12 +147,12 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0916, viewGroup, false);
         this.d = linearLayout;
         this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09072f);
-        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09255a);
-        this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c60);
-        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092835);
-        this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09283a);
-        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09282a);
-        this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092848);
+        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092560);
+        this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c66);
+        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09283b);
+        this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f092840);
+        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092830);
+        this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09284e);
         Y1();
         X1();
         QuickLoginInfo quickLoginInfo = this.f;
@@ -171,7 +171,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         int i2;
         int i3;
         Resources resources = getContext().getResources();
-        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
+        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08145a));
         TextView textView = this.k;
         boolean z = this.c;
         int i4 = R.color.obfuscated_res_0x7f060444;

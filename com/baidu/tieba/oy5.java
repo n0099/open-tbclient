@@ -1,13 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes7.dex */
-public interface oy5 extends ks5 {
-    boolean goBack();
+public interface oy5 {
+    void a();
 
-    void n1(String str, boolean z);
+    void b(int i, int i2, int i3, int i4);
 
-    void onDestroy();
+    Context getContext();
 
-    void onPause();
+    boolean post(Runnable runnable);
 
-    void onResume();
+    boolean removeCallbacks(Runnable runnable);
 }

@@ -3,7 +3,7 @@ package com.kwad.components.ad.e.a;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g extends com.kwad.components.ad.e.kwai.a {
     public ImageView kc;
 

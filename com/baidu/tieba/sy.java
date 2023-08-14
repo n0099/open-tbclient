@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class sy extends ww<q05> implements bt9 {
+public abstract class sy extends ww<q05> implements ct9 {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -48,7 +48,7 @@ public abstract class sy extends ww<q05> implements bt9 {
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public xt9 l;
+    public yt9 l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -65,7 +65,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         }
     }
 
-    public abstract xt9 x();
+    public abstract yt9 x();
 
     public void z() {
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public abstract class sy extends ww<q05> implements bt9 {
                 ThreadData threadData = syVar.h.getThreadData();
                 sy syVar2 = this.a;
                 String str = syVar2.m;
-                uv5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, syVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+                vv5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, syVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
             }
         }
     }
@@ -252,26 +252,26 @@ public abstract class sy extends ww<q05> implements bt9 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     sy syVar = this.a;
-                    nm6.l(syVar.g, syVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    om6.l(syVar.g, syVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    xt9 xt9Var = this.a.l;
-                    if (xt9Var != null) {
-                        xt9Var.onScroll();
+                    yt9 yt9Var = this.a.l;
+                    if (yt9Var != null) {
+                        yt9Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    xt9 xt9Var2 = this.a.l;
-                    if (xt9Var2 != null) {
-                        xt9Var2.onVolumeUp();
+                    yt9 yt9Var2 = this.a.l;
+                    if (yt9Var2 != null) {
+                        yt9Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    xt9 xt9Var3 = this.a.l;
-                    if (xt9Var3 != null) {
-                        return xt9Var3.onBackPress();
+                    yt9 yt9Var3 = this.a.l;
+                    if (yt9Var3 != null) {
+                        return yt9Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -353,11 +353,11 @@ public abstract class sy extends ww<q05> implements bt9 {
         }
     }
 
-    public void D(st9 st9Var) {
-        xt9 xt9Var;
+    public void D(tt9 tt9Var) {
+        yt9 yt9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, st9Var) == null) && (xt9Var = this.l) != null) {
-            xt9Var.setStatistic(st9Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tt9Var) == null) && (yt9Var = this.l) != null) {
+            yt9Var.setStatistic(tt9Var);
         }
     }
 
@@ -373,9 +373,9 @@ public abstract class sy extends ww<q05> implements bt9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            xt9 xt9Var = this.l;
-            if (xt9Var != null) {
-                xt9Var.setFrom(str);
+            yt9 yt9Var = this.l;
+            if (yt9Var != null) {
+                yt9Var.setFrom(str);
             }
         }
     }
@@ -384,14 +384,14 @@ public abstract class sy extends ww<q05> implements bt9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            xt9 xt9Var = this.l;
-            if (xt9Var != null) {
-                xt9Var.setStageType(str);
+            yt9 yt9Var = this.l;
+            if (yt9Var != null) {
+                yt9Var.setStageType(str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,7 +401,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,7 +415,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -425,21 +425,21 @@ public abstract class sy extends ww<q05> implements bt9 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            xt9 xt9Var = this.l;
-            if (xt9Var == null) {
+            yt9 yt9Var = this.l;
+            if (yt9Var == null) {
                 return false;
             }
-            return xt9Var.isFullScreen();
+            return yt9Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -449,7 +449,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -459,7 +459,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -470,7 +470,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         }
     }
 
-    @Override // com.baidu.tieba.bt9
+    @Override // com.baidu.tieba.ct9
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -478,13 +478,13 @@ public abstract class sy extends ww<q05> implements bt9 {
         }
     }
 
-    public xt9 u() {
+    public yt9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.l;
         }
-        return (xt9) invokeV.objValue;
+        return (yt9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ww
@@ -501,7 +501,7 @@ public abstract class sy extends ww<q05> implements bt9 {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                xt9 x2 = x();
+                yt9 x2 = x();
                 this.l = x2;
                 x2.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -530,7 +530,7 @@ public abstract class sy extends ww<q05> implements bt9 {
         q05 q05Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i) == null) && (q05Var = this.h) != null && q05Var.getThreadData() != null) {
-            nm6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            om6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
             AbsDownloadGuide absDownloadGuide = this.k;

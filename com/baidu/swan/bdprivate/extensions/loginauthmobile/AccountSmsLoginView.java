@@ -64,7 +64,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     }
 
     public void p() {
-        ((EditText) findViewById(R.id.obfuscated_res_0x7f091c59)).requestFocus();
+        ((EditText) findViewById(R.id.obfuscated_res_0x7f091c5f)).requestFocus();
         new Handler().postDelayed(new b(), 100L);
     }
 }

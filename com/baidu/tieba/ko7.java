@@ -1,73 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.live.FrsLiveTipResponseMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ko7 {
+public class ko7 implements CustomMessageTask.CustomRunnable<ThreadData>, an6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HttpMessageListener b;
+    public rq7 a;
+    public TbPageTag b;
+    public BdUniqueId c;
+    public int d;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ko7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ko7 ko7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ko7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ko7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && this.a.a != null) {
-                this.a.a.a((FrsLiveTipResponseMessage) httpResponsedMessage);
-            }
+    @Override // com.baidu.tieba.an6
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public ko7(b bVar) {
+    @Override // com.baidu.tieba.an6
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    public ko7(rq7 rq7Var, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {rq7Var, tbPageTag, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,38 +55,140 @@ public class ko7 {
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        this.a = bVar;
-        d();
-        MessageManager.getInstance().registerListener(this.b);
+        this.a = null;
+        this.b = null;
+        this.a = rq7Var;
+        this.b = tbPageTag;
+        this.c = bdUniqueId;
     }
 
-    public void b(int i) {
+    public final void b(ThreadData threadData) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-            httpMessage.addParam("forum_id", i);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            long j = 0;
+            if (threadData.getThreadAlaInfo().user_info != null) {
+                j = threadData.getThreadAlaInfo().user_info.ala_id;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13615");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("ab_tag", threadData.mRecomAbTag);
+            if (threadData.getThreadAlaInfo().isChushou) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
+            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
+            statisticItem.param("extra", threadData.mRecomExtra);
+            statisticItem.param("source_from", threadData.mRecomSource);
+            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
+            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
+            int i2 = this.d;
+            if (i2 == 14) {
+                statisticItem.param("obj_locate", 1);
+            } else if (i2 == 13) {
+                statisticItem.param("obj_locate", 2);
+            }
+            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
+                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
+                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
+                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                } else {
+                    str = "";
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void c() {
+    public final void c(ThreadData threadData) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-            MessageManager.getInstance().unRegisterListener(this.b);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            long j = 0;
+            if (threadData.getThreadAlaInfo().user_info != null) {
+                j = threadData.getThreadAlaInfo().user_info.ala_id;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13614");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("ab_tag", threadData.mRecomAbTag);
+            if (threadData.getThreadAlaInfo().isChushou) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
+            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
+            statisticItem.param("extra", threadData.mRecomExtra);
+            statisticItem.param("source_from", threadData.mRecomSource);
+            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
+            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
+            int i2 = this.d;
+            if (i2 == 14) {
+                statisticItem.param("obj_locate", 1);
+            } else if (i2 == 13) {
+                statisticItem.param("obj_locate", 2);
+            }
+            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
+                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
+                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
+                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                } else {
+                    str = "";
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+            }
+            vm6.b().a(statisticItem);
         }
     }
 
-    public final void d() {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LIVE_TIP_CMD, TbConfig.FRS_LIVE_TIP_ADDRESS);
-            tbHttpMessageTask.setIsNeedLogin(true);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-            tbHttpMessageTask.setResponsedClass(FrsLiveTipResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d = i;
         }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ThreadData> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage.getData() instanceof ThreadData)) {
+                ThreadData data = customMessage.getData();
+                if (customMessage.getCmd() == 2921018) {
+                    b(data);
+                    sq7.k().h(this.a, data, 1);
+                    qq7.e(data, 1, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921016) {
+                    b(data);
+                    sq7.k().h(this.a, data, 2);
+                    qq7.e(data, 2, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921019) {
+                    b(data);
+                    sq7.k().h(this.a, data, 4);
+                    qq7.e(data, 1, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921017) {
+                    c(data);
+                    sq7.k().c(this.a, data);
+                    qq7.p(data, this.c, this.a, this.b);
+                }
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -47,11 +47,11 @@ public final class NormalSpriteViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f092266);
+            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f09226c);
             if (dynamicAnimView != null) {
                 return new NormalSpriteViewBinding((FrameLayout) view2, dynamicAnimView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f092266)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f09226c)));
         }
         return (NormalSpriteViewBinding) invokeL.objValue;
     }

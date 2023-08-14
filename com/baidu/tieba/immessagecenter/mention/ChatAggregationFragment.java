@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.dp8;
-import com.baidu.tieba.ho8;
+import com.baidu.tieba.ep8;
 import com.baidu.tieba.hq5;
 import com.baidu.tieba.immessagecenter.msgtab.adapt.ChatTabFragmentAdapt;
+import com.baidu.tieba.io8;
 import com.baidu.tieba.iq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public ho8 b;
+    public io8 b;
     public ViewEventCenter c;
     public CustomMessageListener d;
     public CustomMessageListener e;
@@ -217,9 +217,9 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.d);
-            ho8 ho8Var = this.b;
-            if (ho8Var != null) {
-                ho8Var.F0();
+            io8 io8Var = this.b;
+            if (io8Var != null) {
+                io8Var.F0();
             }
         }
     }
@@ -238,10 +238,10 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void k(boolean z) {
-        ho8 ho8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (ho8Var = this.b) != null) {
-            ho8Var.O0(z);
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (io8Var = this.b) != null) {
+            io8Var.O0(z);
         }
     }
 
@@ -250,16 +250,16 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            new dp8(new ChatTabFragmentAdapt(this, null)).c();
+            new ep8(new ChatTabFragmentAdapt(this, null)).c();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        ho8 ho8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (ho8Var = this.b) != null) {
-            ho8Var.J0(getPageContext(), i);
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (io8Var = this.b) != null) {
+            io8Var.J0(getPageContext(), i);
         }
     }
 
@@ -272,10 +272,10 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
     }
 
     public void C() {
-        ho8 ho8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ho8Var = this.b) != null) {
-            ho8Var.d1();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (io8Var = this.b) != null) {
+            io8Var.d1();
         }
     }
 
@@ -292,10 +292,10 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
     }
 
     public void N1() {
-        ho8 ho8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ho8Var = this.b) != null) {
-            ho8Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (io8Var = this.b) != null) {
+            io8Var.a();
         }
     }
 
@@ -304,9 +304,9 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            ho8 ho8Var = this.b;
-            if (ho8Var != null) {
-                ho8Var.G0();
+            io8 io8Var = this.b;
+            if (io8Var != null) {
+                io8Var.G0();
             }
         }
     }
@@ -316,9 +316,9 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPrimary();
-            ho8 ho8Var = this.b;
-            if (ho8Var != null) {
-                ho8Var.s0();
+            io8 io8Var = this.b;
+            if (io8Var != null) {
+                io8Var.s0();
                 this.b.u1(isPrimary());
             }
         }
@@ -329,9 +329,9 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            ho8 ho8Var = this.b;
-            if (ho8Var != null) {
-                ho8Var.H0();
+            io8 io8Var = this.b;
+            if (io8Var != null) {
+                io8Var.H0();
             }
         }
     }
@@ -363,9 +363,9 @@ public class ChatAggregationFragment extends BaseFragment implements hq5, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            ho8 ho8Var = new ho8(this);
-            this.b = ho8Var;
-            ho8Var.D0(bundle);
+            io8 io8Var = new io8(this);
+            this.b = io8Var;
+            io8Var.D0(bundle);
             View M0 = this.b.M0();
             this.b.J0(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             L1().addEventDelegate(this);

@@ -126,7 +126,7 @@ public class EmojiReplayDetailSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091ea6) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091eac) {
                 return;
             }
             this.a.e0();
@@ -220,14 +220,14 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb2);
-                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb3);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea6);
-                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea7);
-                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb5);
+                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb8);
+                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb9);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eac);
+                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ead);
+                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ebb);
                 dVar.f = tabLayout;
                 tabLayout.setSelectedTabIndicator(0);
-                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091eb7);
+                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091ebd);
                 return dVar;
             }
             return (d) invokeL.objValue;

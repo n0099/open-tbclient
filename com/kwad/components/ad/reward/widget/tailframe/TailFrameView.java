@@ -86,7 +86,7 @@ public class TailFrameView extends KSFrameLayout {
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void E(Context context) {
             super.E(context);
-            this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0928a0);
+            this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0928a6);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a

@@ -599,12 +599,12 @@ public class i95 extends nm {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.tb_pull_view, (ViewGroup) null);
             this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091da3);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.g.findViewById(R.id.continuous_loading_view);
             this.o = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             this.o.setOnClickListener(this.y);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091d98);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091d9e);
             this.i = imageView;
             imageView.setOnClickListener(this.y);
             int skinType = TbadkCoreApplication.getInst().getSkinType();

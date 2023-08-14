@@ -1,9 +1,4 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import java.util.List;
 /* loaded from: classes6.dex */
-public interface l97 {
-    @NonNull
-    List<t97<?, ?>> a();
+public interface l97 extends i97, j97, o97, zm {
 }

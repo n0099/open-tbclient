@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.u68;
+import com.baidu.tieba.v68;
 import com.baidu.tieba.wt4;
-import com.baidu.tieba.y68;
 import com.baidu.tieba.ym;
+import com.baidu.tieba.z68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements u68 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements v68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -148,7 +148,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.u68
+    @Override // com.baidu.tieba.v68
     public void F0(int i, boolean z, List<ym> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -168,7 +168,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.u68
+    @Override // com.baidu.tieba.v68
     public void b() {
         int i;
         String substring;
@@ -278,14 +278,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.u68
-    public void s(int i, y68 y68Var) {
+    @Override // com.baidu.tieba.v68
+    public void s(int i, z68 z68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, y68Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, z68Var) == null) {
             this.b.r();
-            if (i == 0 && y68Var != null && !ListUtils.isEmpty(y68Var.f)) {
+            if (i == 0 && z68Var != null && !ListUtils.isEmpty(z68Var.f)) {
                 this.b.s();
-                this.b.setData(y68Var);
+                this.b.setData(z68Var);
                 return;
             }
             this.b.D(true);

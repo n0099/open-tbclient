@@ -2,15 +2,17 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
-import android.view.Surface;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
-import com.baidu.tieba.oub;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tieba.pub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,57 +20,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.util.UriUtil;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.yy.gslbsdk.db.DelayTB;
+import com.yy.render.RenderEngine;
+import com.yy.render.view.RenderSurfaceView;
+import com.yy.render.view.RenderTextureView;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
 import com.yy.transvod.player.log.TLog;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tvb extends xsb {
+public class tvb extends rvb implements qsb, pxb {
     public static /* synthetic */ Interceptable $ic;
+    public static int V;
     public transient /* synthetic */ FieldHolder $fh;
-    public fub A;
-    public wtb B;
-    public bub C;
-    public eub D;
-    public aub E;
-    public utb F;
-    public ztb G;
-    public ytb H;
-    public hub I;
-    public oub.c J;
-    public vtb K;
-    public dub L;
-    public gub M;
-    public lub N;
-    public kub O;
-    public RelativeLayout b;
-    public final Handler c;
-    public volatile rvb d;
-    public final Object e;
+    public WeakReference<Executor> A;
+    public WeakReference<pub.d> B;
+    public WeakReference<jub> C;
+    public WeakReference<dub> D;
+    public WeakReference<gub> E;
+    public WeakReference<xtb> F;
+    public WeakReference<cub> G;
+    public WeakReference<fub> H;
+    public WeakReference<bub> I;
+    public WeakReference<ztb> J;
+    public WeakReference<iub> K;
+    public WeakReference<Executor> L;
+    public WeakReference<wtb> M;
+    public WeakReference<pub.c> N;
+    public WeakReference<eub> O;
+    public WeakReference<hub> P;
+    public WeakReference<mub> Q;
+    public WeakReference<ytb> R;
+    public WeakReference<aub> S;
+
+    /* renamed from: T  reason: collision with root package name */
+    public WeakReference<lub> f1170T;
+    public WeakReference<vtb> U;
+    public final ExecutorService c;
+    public RenderSurfaceView d;
+    public RenderTextureView e;
     public Gson f;
-    public Context g;
-    public final Object h;
-    public Surface i;
-    public final AtomicBoolean j;
-    public gxb k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public int o;
-    public int p;
-    public int q;
-    public String r;
+    public oub g;
+    public boolean h;
+    public Handler i;
+    public String j;
+    public int k;
+    public int l;
+    public String m;
+    public final AtomicInteger n;
+    public final AtomicInteger o;
+    public final AtomicInteger p;
+    public final AtomicInteger q;
+    public AtomicBoolean r;
     public int s;
-    public int t;
-    public boolean u;
-    public long v;
-    public long w;
-    public final ExecutorService x;
-    public iub y;
-    public cub z;
+    public boolean t;
+    public int u;
+    public int v;
+    public boolean w;
+    public int x;
+    public int y;
+    public boolean z;
 
     static {
         InterceptResult invokeClinit;
@@ -85,146 +113,10 @@ public class tvb extends xsb {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class s implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        /* loaded from: classes8.dex */
-        public class a implements oub.d {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ s a;
-
-            public a(s sVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {sVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = sVar;
-            }
-
-            @Override // com.baidu.tieba.oub.d
-            public void a(Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                    TLog.h("[VodPlayerServer]", this.a.a.I() + "sendBitmap2MainProcess");
-                    this.a.a.b(bitmap);
-                }
-            }
-        }
-
-        public s(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.q(this.a.x, new a(this));
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) screenShot");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class t implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ t a;
-
-            public a(t tVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {tVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = tVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.x.shutdown();
-                }
-            }
-        }
-
-        public t(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.a.e) {
-                    if (this.a.d != null) {
-                        this.a.g();
-                        this.a.d.s0();
-                        this.a.d = null;
-                    }
-                }
-                this.a.t = -1;
-                this.a.c.post(new a(this));
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) release");
-            }
+    @Override // com.baidu.tieba.qsb
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
         }
     }
 
@@ -233,122 +125,38 @@ public class tvb extends xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public a(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
+        /* renamed from: com.baidu.tieba.tvb$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0487a extends TypeToken<byte[]> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                this.b.t = this.a.optInt("taskId");
-                long optLong = this.a.optLong("apiStartTimeMs");
-                if (this.b.u && this.b.w != 0) {
-                    this.b.u = false;
-                    optLong += this.b.w;
-                    TLog.h("[VodPlayerServer]", this.b.I() + "apiStartTimeMs add " + this.b.w + "ms");
-                }
-                this.b.d.F(this.b.t, optLong);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) startPlay");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public a0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.d != null) {
-                    TLog.m("[VodPlayerServer]", this.b.I() + "Cmd.initPlay#VodPlayer has inited before.");
-                    return;
-                }
-                if (this.b.g == null) {
-                    TLog.m("[VodPlayerServer]", this.b.I() + "Cmd.initPlay#VodPlayer mContext is null.");
-                    synchronized (this.b.h) {
-                        try {
-                            this.b.h.wait(3000L);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+            public C0487a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
-                if (this.b.g != null) {
-                    nub a = nub.a(this.a.optString("opt"));
-                    a.k = new qwb();
-                    TLog.h("[VodPlayerServer]", this.b.I() + "create vodplayer server:" + a.toString());
-                    long currentTimeMillis = System.currentTimeMillis();
-                    tvb tvbVar = this.b;
-                    tvbVar.d = new rvb(tvbVar.g, a, null);
-                    this.b.w = System.currentTimeMillis() - currentTimeMillis;
-                    tvb tvbVar2 = this.b;
-                    tvbVar2.s = tvbVar2.d.o0();
-                    this.b.G();
-                    this.b.F();
-                    this.b.J();
-                    tvb tvbVar3 = this.b;
-                    tvbVar3.N(tvbVar3.s);
-                    return;
-                }
-                TLog.d("[VodPlayerServer]", this.b.I() + "initPlay,mContext is null ");
             }
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public b(tvb tvbVar) {
+        public a(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -358,262 +166,516 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.m();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlay");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public b0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
+            this.c = tvbVar;
             this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            cvb a;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.d == null || (a = cvb.a(this.a.optString(UriUtil.LOCAL_RESOURCE_SCHEME))) == null) {
-                return;
-            }
-            this.b.d.u0(a);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public c(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.G();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) stopPlay");
-                this.a.t = -1;
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ntb a;
-        public final /* synthetic */ tvb b;
-
-        public c0(tvb tvbVar, ntb ntbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, ntbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = ntbVar;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.L(this.a);
+                try {
+                    Gson gson = new Gson();
+                    String optString = this.a.optString("sei");
+                    int optInt = this.a.optInt("type");
+                    this.b.onSEIVideoOriginalData(this.c.a, (byte[]) gson.fromJson(optString, new C0487a(this).getType()), optInt);
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIVideoOriginalData) ex: " + e.getMessage());
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class d implements Runnable {
+    public class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tvb a;
 
-        public d(tvb tvbVar) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                m mVar = (m) message.obj;
+                JSONObject jSONObject = mVar.c;
+                String str = mVar.a;
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case -1893106721:
+                        if (str.equals("onPlayerDecodeBitrate")) {
+                            c = 17;
+                            break;
+                        }
+                        break;
+                    case -1122266638:
+                        if (str.equals("onPlayerExtraInfoListener")) {
+                            c = 11;
+                            break;
+                        }
+                        break;
+                    case -1105747594:
+                        if (str.equals("onPlayerCacheWriteToDiskCompleted")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                    case -726502775:
+                        if (str.equals("onPlayerAudioStalls")) {
+                            c = 21;
+                            break;
+                        }
+                        break;
+                    case -513983265:
+                        if (str.equals("onPlayerFirstVideoFrameShow")) {
+                            c = '\t';
+                            break;
+                        }
+                        break;
+                    case -125887634:
+                        if (str.equals("onPlayerVideoStalls")) {
+                            c = 20;
+                            break;
+                        }
+                        break;
+                    case -48461180:
+                        if (str.equals("onPlayerNetRequestStatus")) {
+                            c = 14;
+                            break;
+                        }
+                        break;
+                    case 54802172:
+                        if (str.equals("onPlayerDecodeOuputSize")) {
+                            c = 18;
+                            break;
+                        }
+                        break;
+                    case 76638970:
+                        if (str.equals("onPlayerStateUpdate")) {
+                            c = '\r';
+                            break;
+                        }
+                        break;
+                    case 269354233:
+                        if (str.equals("onSubProcessCrash")) {
+                            c = 24;
+                            break;
+                        }
+                        break;
+                    case 303848884:
+                        if (str.equals("onPlayerCachePositionUpdate")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 554677256:
+                        if (str.equals("onPlayerDecodeType")) {
+                            c = 19;
+                            break;
+                        }
+                        break;
+                    case 598376093:
+                        if (str.equals("onPlayerVideoPlayPaused")) {
+                            c = 22;
+                            break;
+                        }
+                        break;
+                    case 822132006:
+                        if (str.equals("onPlayerUpdatePcdnUrlResult")) {
+                            c = 23;
+                            break;
+                        }
+                        break;
+                    case 853792181:
+                        if (str.equals("onAudioFocusListener")) {
+                            c = '\n';
+                            break;
+                        }
+                        break;
+                    case 1012167752:
+                        if (str.equals("onPlayerError")) {
+                            c = '\f';
+                            break;
+                        }
+                        break;
+                    case 1055756567:
+                        if (str.equals("onPlayerRenderFramerate")) {
+                            c = 16;
+                            break;
+                        }
+                        break;
+                    case 1141144174:
+                        if (str.equals("onPlayerInfo")) {
+                            c = 5;
+                            break;
+                        }
+                        break;
+                    case 1147162650:
+                        if (str.equals("onPlayerPlayCompletionOneLoop")) {
+                            c = '\b';
+                            break;
+                        }
+                        break;
+                    case 1343087941:
+                        if (str.equals("onPlayerVideoSizeUpdate")) {
+                            c = 6;
+                            break;
+                        }
+                        break;
+                    case 1385041286:
+                        if (str.equals("onLoadingUpdate")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 1468645360:
+                        if (str.equals("onPlayerPlayCompletion")) {
+                            c = 7;
+                            break;
+                        }
+                        break;
+                    case 1482173798:
+                        if (str.equals("onPlayerPlayPositionUpdate")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 1668839139:
+                        if (str.equals("onPlayerStatistics")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 1955119023:
+                        if (str.equals("onPlayerReceiveToRenderDelay")) {
+                            c = 15;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        if (jSONObject != null) {
+                            int optInt = jSONObject.optInt("i");
+                            TLog.b("[VodPlayerClient]", this.a.M0() + "onLoadingUpdate:" + optInt);
+                            dub dubVar = (dub) this.a.D.get();
+                            if (dubVar != null) {
+                                dubVar.a(this.a.a, optInt);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 1:
+                        jub jubVar = (jub) this.a.C.get();
+                        if (jubVar == null || jSONObject == null) {
+                            return;
+                        }
+                        jubVar.onPlayerStatistics(this.a.a, jSONObject.optInt("i"), jSONObject.optString("s"));
+                        return;
+                    case 2:
+                        if (jSONObject != null) {
+                            long optLong = jSONObject.optLong("l");
+                            this.a.q.set((int) optLong);
+                            gub gubVar = (gub) this.a.E.get();
+                            if (gubVar != null) {
+                                gubVar.a(this.a.a, optLong);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 3:
+                        xtb xtbVar = (xtb) this.a.F.get();
+                        if (xtbVar == null || jSONObject == null) {
+                            return;
+                        }
+                        xtbVar.onPlayerCachePositionUpdate(this.a.a, jSONObject.optLong("l"));
+                        return;
+                    case 4:
+                        xtb xtbVar2 = (xtb) this.a.F.get();
+                        if (xtbVar2 == null || jSONObject == null) {
+                            return;
+                        }
+                        xtbVar2.onPlayerCacheWriteToDiskCompleted(this.a.a, jSONObject.optString("s"));
+                        return;
+                    case 5:
+                        if (jSONObject != null) {
+                            int optInt2 = jSONObject.optInt("i");
+                            long optLong2 = jSONObject.optLong("l");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerInfo,what:" + optInt2 + ",extra:" + optLong2);
+                            cub cubVar = (cub) this.a.G.get();
+                            if (cubVar != null) {
+                                cubVar.onPlayerInfo(this.a.a, optInt2, optLong2);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 6:
+                        if (jSONObject != null) {
+                            int optInt3 = jSONObject.optInt("i");
+                            int optInt4 = jSONObject.optInt("i1");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerVideoSizeUpdate,width:" + optInt3 + ",height:" + optInt4);
+                            cub cubVar2 = (cub) this.a.G.get();
+                            if (cubVar2 != null) {
+                                cubVar2.onPlayerVideoSizeUpdate(this.a.a, optInt3, optInt4);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 7:
+                        TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerPlayCompletion");
+                        fub fubVar = (fub) this.a.H.get();
+                        if (fubVar != null) {
+                            fubVar.onPlayerPlayCompletion(this.a.a);
+                            return;
+                        }
+                        return;
+                    case '\b':
+                        TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerPlayCompletionOneLoop");
+                        fub fubVar2 = (fub) this.a.H.get();
+                        if (fubVar2 != null) {
+                            fubVar2.onPlayerPlayCompletionOneLoop(this.a.a);
+                            return;
+                        }
+                        return;
+                    case '\t':
+                        if (jSONObject != null) {
+                            int optInt5 = jSONObject.optInt("i");
+                            int optInt6 = jSONObject.optInt("i1");
+                            int optInt7 = jSONObject.optInt("i2");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerFirstVideoFrameShow,width:" + optInt5 + ",height:" + optInt6 + ",costMs:" + optInt7);
+                            bub bubVar = (bub) this.a.I.get();
+                            if (bubVar != null) {
+                                bubVar.onPlayerFirstVideoFrameShow(this.a.a, optInt5, optInt6, optInt7);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case '\n':
+                        if (jSONObject != null) {
+                            int optInt8 = jSONObject.optInt("i");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + " onAudioFocusListener,focus status:" + optInt8);
+                            vtb vtbVar = (vtb) this.a.U.get();
+                            if (vtbVar != null) {
+                                vtbVar.onAudioFocusChange(optInt8);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 11:
+                        if (jSONObject != null) {
+                            int optInt9 = jSONObject.optInt("i");
+                            long optLong3 = jSONObject.optLong("l1");
+                            long optLong4 = jSONObject.optLong("l2");
+                            long optLong5 = jSONObject.optLong("l3");
+                            String optString = jSONObject.optString("s");
+                            JSONObject optJSONObject = jSONObject.optJSONObject("o");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + " OnPlayerExtraInfoListener,type:" + optInt9);
+                            aub aubVar = (aub) this.a.S.get();
+                            if (aubVar != null) {
+                                aubVar.a(optInt9, optLong3, optLong4, optLong5, optString, optJSONObject);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case '\f':
+                        if (jSONObject != null) {
+                            int optInt10 = jSONObject.optInt("i");
+                            int optInt11 = jSONObject.optInt("i1");
+                            String optString2 = jSONObject.optString("s");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerError,url:" + optString2 + ",what:" + optInt10 + ",extra:" + optInt11);
+                            ztb ztbVar = (ztb) this.a.J.get();
+                            if (ztbVar != null) {
+                                ztbVar.onPlayerError(this.a.a, optString2, optInt10, optInt11);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case '\r':
+                        if (jSONObject != null) {
+                            int optInt12 = jSONObject.optInt("i");
+                            int optInt13 = jSONObject.optInt("i1");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerStateUpdate,newState:" + optInt12 + ",reason:" + optInt13);
+                            iub iubVar = (iub) this.a.K.get();
+                            if (iubVar != null) {
+                                this.a.b = optInt12 == 6;
+                                TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerStateUpdate,mPlayerState:" + this.a.b);
+                                if (optInt12 == 6) {
+                                    this.a.Q0();
+                                }
+                                iubVar.onPlayerStateUpdate(this.a.a, optInt12, optInt13);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 14:
+                        eub eubVar = (eub) this.a.O.get();
+                        if (eubVar == null || jSONObject == null) {
+                            return;
+                        }
+                        eubVar.a(this.a.a, jSONObject.optInt("status"), (NetRequestStatusInfo) new Gson().fromJson(jSONObject.optString("info"), new a(this).getType()));
+                        return;
+                    case 15:
+                        hub hubVar = (hub) this.a.P.get();
+                        if (hubVar == null || jSONObject == null) {
+                            return;
+                        }
+                        hubVar.onPlayerReceiveToRenderDelay(this.a.a, jSONObject.optInt(DelayTB.DELAY));
+                        return;
+                    case 16:
+                        if (jSONObject != null) {
+                            int optInt14 = jSONObject.optInt("framerate");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerRenderFramerate:" + optInt14);
+                            hub hubVar2 = (hub) this.a.P.get();
+                            if (hubVar2 != null) {
+                                hubVar2.onPlayerRenderFramerate(this.a.a, optInt14);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 17:
+                        if (jSONObject != null) {
+                            int optInt15 = jSONObject.optInt("videoBitrate");
+                            int optInt16 = jSONObject.optInt("audioBitrate");
+                            TLog.b("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeBitrate,videoBitrate:" + optInt15 + ",audioBitrate:" + optInt16);
+                            hub hubVar3 = (hub) this.a.P.get();
+                            if (hubVar3 != null) {
+                                hubVar3.onPlayerDecodeBitrate(this.a.a, optInt15, optInt16);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 18:
+                        if (jSONObject != null) {
+                            int optInt17 = jSONObject.optInt("width");
+                            int optInt18 = jSONObject.optInt("height");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeOuputSize,width:" + optInt17 + ",height:" + optInt18);
+                            hub hubVar4 = (hub) this.a.P.get();
+                            if (hubVar4 != null) {
+                                hubVar4.onPlayerDecodeOuputSize(this.a.a, optInt17, optInt18);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 19:
+                        if (jSONObject != null) {
+                            int optInt19 = jSONObject.optInt("decodType");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeType:" + optInt19);
+                            hub hubVar5 = (hub) this.a.P.get();
+                            if (hubVar5 != null) {
+                                hubVar5.onPlayerDecodeType(this.a.a, optInt19);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 20:
+                        hub hubVar6 = (hub) this.a.P.get();
+                        if (hubVar6 == null || jSONObject == null) {
+                            return;
+                        }
+                        hubVar6.onPlayerVideoStalls(this.a.a, jSONObject.optBoolean("videoStalls"), jSONObject.optInt("type"));
+                        return;
+                    case 21:
+                        hub hubVar7 = (hub) this.a.P.get();
+                        if (hubVar7 == null || jSONObject == null) {
+                            return;
+                        }
+                        hubVar7.onPlayerAudioStalls(this.a.a, jSONObject.optBoolean("audioStalls"), jSONObject.optInt("type"));
+                        return;
+                    case 22:
+                        if (jSONObject != null) {
+                            boolean optBoolean = jSONObject.optBoolean("isPaused");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerVideoPlayPaused:" + optBoolean);
+                            mub mubVar = (mub) this.a.Q.get();
+                            if (mubVar != null) {
+                                mubVar.a(optBoolean);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 23:
+                        if (jSONObject != null) {
+                            int optInt20 = jSONObject.optInt("taskId");
+                            int optInt21 = jSONObject.optInt("result");
+                            String optString3 = jSONObject.optString("url");
+                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerUpdatePcdnUrlResult:" + optString3 + " " + optInt20 + "-->" + optInt21);
+                            lub lubVar = (lub) this.a.f1170T.get();
+                            if (lubVar != null) {
+                                lubVar.a(this.a.a, optInt20, optString3, optInt21);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 24:
+                        TLog.h("[VodPlayerClient]", this.a.M0() + "onSubProcessCrash, failOver2MainProcess:" + mVar.d);
+                        this.a.i.removeCallbacksAndMessages(null);
+                        ytb ytbVar = (ytb) this.a.R.get();
+                        if (ytbVar != null) {
+                            ytbVar.a(mVar.b, mVar.d, new HashMap<>());
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<NetRequestStatusInfo> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(tvb tvbVar, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
+                Object[] objArr = {tvbVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.o();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlay");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public d0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                this.b.d.n0(sub.a(this.a.optString(ApsCloudControlProcessor.SERVER_DPM)));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public e(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("p");
-                this.b.d.r(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) seekTo:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public e0(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.l0();
-            }
         }
     }
 
@@ -622,14 +684,37 @@ public class tvb extends xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public f(tvb tvbVar, JSONObject jSONObject) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<VideoExtraInfo>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(f fVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public f(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -639,54 +724,21 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.b = tvbVar;
+            this.c = tvbVar;
             this.a = jSONObject;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt(com.kuaishou.weapon.p0.u.A);
-                this.b.d.u(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDisplayMode:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public f0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Gson gson = new Gson();
+                    this.b.onSEIVideoExtraInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("videoExtraInfo"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIVideoExtraInfo) ex: " + e.getMessage());
                 }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                ttb a = ttb.a(this.a.optString("source"));
-                this.b.d.s(a);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDataSource:" + a.toString());
             }
         }
     }
@@ -696,14 +748,37 @@ public class tvb extends xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public g(tvb tvbVar, JSONObject jSONObject) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<MixVideoExtraInfo>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(g gVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public g(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -713,61 +788,21 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.b = tvbVar;
+            this.c = tvbVar;
             this.a = jSONObject;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                View view2 = (View) this.b.d.i();
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
-                if (layoutParams == null) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Gson gson = new Gson();
+                    this.b.onSEIMixVideoExtraInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("mixVideoExtraInfo"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIMixVideoExtraInfo) ex: " + e.getMessage());
                 }
-                layoutParams.width = this.a.optInt("w");
-                layoutParams.height = this.a.optInt("h");
-                layoutParams.addRule(this.a.optInt("r"));
-                view2.setLayoutParams(layoutParams);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setLayoutParams");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class g0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public g0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                ttb a = ttb.a(this.a.optString("source"));
-                this.b.d.t(a);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setDataSourceAndPrepare:" + a.toString());
             }
         }
     }
@@ -777,14 +812,37 @@ public class tvb extends xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public h(tvb tvbVar, JSONObject jSONObject) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<AlphaChannelData>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(h hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {hVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public h(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -794,55 +852,21 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.b = tvbVar;
+            this.c = tvbVar;
             this.a = jSONObject;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("p");
-                this.b.d.v(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setNumberOfLoops:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class h0 implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public h0(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Gson gson = new Gson();
+                    this.b.onSEIAlphaChannelInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("alphaChannelInfo"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAlphaChannelInfo) ex: " + e.getMessage());
                 }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("taskId");
-                ttb a = ttb.a(this.a.optString("source"));
-                this.b.d.K0(optInt, a);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setPcdnUrls:" + a.toString());
             }
         }
     }
@@ -851,14 +875,38 @@ public class tvb extends xsb {
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public i(tvb tvbVar) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<MixAudioExtraInfo>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(i iVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public i(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -868,15 +916,20 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.a = tvbVar;
+            this.c = tvbVar;
+            this.a = jSONObject;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.n();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlayWithAudio");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.b.onDSEMixAudioExtraInfoV1(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("mixAudioExtraInfo"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onDSEMixAudioExtraInfoV1) ex: " + e.getMessage());
+                }
             }
         }
     }
@@ -885,14 +938,38 @@ public class tvb extends xsb {
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ pub.c b;
+        public final /* synthetic */ tvb c;
 
-        public j(tvb tvbVar) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<MixAudioExtraInfo>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(j jVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {jVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public j(tvb tvbVar, JSONObject jSONObject, pub.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
+                Object[] objArr = {tvbVar, jSONObject, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -902,15 +979,20 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.a = tvbVar;
+            this.c = tvbVar;
+            this.a = jSONObject;
+            this.b = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.p();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlayWithAudio");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.b.a(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("mixAudioExtraInfo"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onDSEMixAudioExtraInfo) ex: " + e.getMessage());
+                }
             }
         }
     }
@@ -919,14 +1001,38 @@ public class tvb extends xsb {
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public k(tvb tvbVar) {
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<ArrayList<Long>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(k kVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {kVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public k(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -936,15 +1042,20 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.a = tvbVar;
+            this.c = tvbVar;
+            this.a = jSONObject;
+            this.b = wtbVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.r0();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) pausePlayWithVideo");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.b.onSEIAudioExtraInfoV0(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("uids"), new a(this).getType()));
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAudioExtraInfoV0) ex: " + e.getMessage());
+                }
             }
         }
     }
@@ -953,311 +1064,186 @@ public class tvb extends xsb {
     public class l implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public l(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.t0();
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) resumePlayWithVideo");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class m implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
+        public final /* synthetic */ wtb b;
+        public final /* synthetic */ tvb c;
 
-        public m(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
+        /* loaded from: classes8.dex */
+        public class a extends TypeToken<byte[]> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                boolean optBoolean = this.a.optBoolean("b");
-                this.b.d.I0(optBoolean);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setVideoExtrasInfoEnable:" + optBoolean);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class n implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public n(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("v");
-                this.b.d.J0(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setVolume:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class o implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public o(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                boolean optBoolean = this.a.optBoolean("al");
-                this.b.d.x0(optBoolean);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setIsSpecialMp4WithAlpha:" + optBoolean);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class p implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public p(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("rt");
-                this.b.d.E(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setRotateMode:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class q implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public q(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean optBoolean = this.a.optBoolean("af");
-                dvb.h(optBoolean);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) enableAutoControl:" + optBoolean);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class r implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tvb b;
-
-        public r(tvb tvbVar, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tvbVar;
-            this.a = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.d != null) {
-                int optInt = this.a.optInt("ot");
-                this.b.d.G0(optInt);
-                TLog.h("[VodPlayerServer]", this.b.I() + "(execCmd) setOrientateMode:" + optInt);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class u implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public u(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.a.e) {
-                    if (this.a.d != null && this.a.b != null) {
-                        try {
-                            View view2 = (View) this.a.d.i();
-                            if (this.a.b.indexOfChild(view2) < 0) {
-                                this.a.b.addView(view2);
-                                TLog.h("[VodPlayerServer]", this.a.I() + "add player view");
-                            }
-                        } catch (Exception e) {
-                            TLog.d("[VodPlayerServer]", this.a.I() + "add player view exception:" + e.getMessage());
-                            e.printStackTrace();
-                        }
+            public a(l lVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {lVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
         }
+
+        public l(tvb tvbVar, JSONObject jSONObject, wtb wtbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tvbVar, jSONObject, wtbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = tvbVar;
+            this.a = jSONObject;
+            this.b = wtbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Gson gson = new Gson();
+                    String optString = this.a.optString("sei");
+                    int optInt = this.a.optInt("type");
+                    this.b.onSEIAudioOriginalData(this.c.a, (byte[]) gson.fromJson(optString, new a(this).getType()), optInt);
+                } catch (Exception e) {
+                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAudioOriginalData) ex: " + e.getMessage());
+                }
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class v implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ tvb b;
 
-        public v(tvb tvbVar) {
+        public b(tvb tvbVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tvbVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tvbVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.h && this.b.d != null) {
+                    TLog.h("[VodPlayerClient]", this.b.M0() + "send data to sub process: " + this.a);
+                    this.b.d.q(this.a);
+                } else if (this.b.e != null) {
+                    TLog.h("[VodPlayerClient]", this.b.M0() + "send data to sub process: " + this.a);
+                    this.b.e.r(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pub.d a;
+        public final /* synthetic */ Bitmap b;
+
+        public c(tvb tvbVar, pub.d dVar, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tvbVar, dVar, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = bitmap;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(tvb tvbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tvbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "C-vodplayer-" + tvb.H());
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public JSONObject c;
+        public boolean d;
+
+        public m(tvb tvbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1272,209 +1258,385 @@ public class tvb extends xsb {
                     return;
                 }
             }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    this.a.d.e();
-                }
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) appInBackground");
-            }
+            this.c = null;
+            this.d = false;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class w implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public w(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    this.a.O(this.a.d.p0());
-                }
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) getRedirectUrl");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class x implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public x(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    this.a.d.v0(true);
-                }
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) setEnableFirstVideoFrameShow");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class y implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public y(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    this.a.d.w0(true);
-                }
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) setEnableRevDecodeOutputSize");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class z implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tvb a;
-
-        public z(tvb tvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    this.a.d.f();
-                }
-                TLog.h("[VodPlayerServer]", this.a.I() + "(execCmd) appInFrontground");
-            }
-        }
-    }
-
-    public final void M(ntb ntbVar) {
+    public tvb() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, ntbVar) != null) || ntbVar == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        K(new c0(this, ntbVar));
+        this.c = Executors.newSingleThreadExecutor(new e(this));
+        this.d = null;
+        this.e = null;
+        this.g = null;
+        this.h = true;
+        this.i = null;
+        this.k = -1;
+        this.l = -1;
+        this.m = null;
+        this.n = new AtomicInteger(0);
+        this.o = new AtomicInteger(0);
+        this.p = new AtomicInteger(0);
+        this.q = new AtomicInteger(0);
+        this.r = new AtomicBoolean(true);
+        this.s = -1;
+        this.t = false;
+        this.u = -1;
+        this.v = -1;
+        this.w = false;
+        this.x = -1;
+        this.y = -1;
+        this.z = true;
+        this.A = new WeakReference<>(null);
+        this.B = new WeakReference<>(null);
+        this.C = new WeakReference<>(null);
+        this.D = new WeakReference<>(null);
+        this.E = new WeakReference<>(null);
+        this.F = new WeakReference<>(null);
+        this.G = new WeakReference<>(null);
+        this.H = new WeakReference<>(null);
+        this.I = new WeakReference<>(null);
+        this.J = new WeakReference<>(null);
+        this.K = new WeakReference<>(null);
+        this.L = new WeakReference<>(null);
+        this.M = new WeakReference<>(null);
+        this.N = new WeakReference<>(null);
+        this.O = new WeakReference<>(null);
+        this.P = new WeakReference<>(null);
+        this.Q = new WeakReference<>(null);
+        this.R = new WeakReference<>(null);
+        this.S = new WeakReference<>(null);
+        this.f1170T = new WeakReference<>(null);
+        this.U = new WeakReference<>(null);
     }
 
-    public final void F() {
+    public tvb(Context context, oub oubVar, pub pubVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
-            TLog.h("[VodPlayerServer]", I() + "addExternalSurfaceEvent");
-            gxb a2 = ((qwb) this.d.i()).a();
-            this.k = a2;
-            if (this.l) {
-                this.l = false;
-                a2.a(this.i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, oubVar, pubVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            if (this.m) {
-                this.m = false;
-                this.k.b(this.o, this.p, this.q);
-            }
-            if (this.n) {
-                this.n = false;
-                this.k.surfaceDestroyed();
-            }
+        }
+        this.c = Executors.newSingleThreadExecutor(new e(this));
+        this.d = null;
+        this.e = null;
+        this.g = null;
+        this.h = true;
+        this.i = null;
+        this.k = -1;
+        this.l = -1;
+        this.m = null;
+        this.n = new AtomicInteger(0);
+        this.o = new AtomicInteger(0);
+        this.p = new AtomicInteger(0);
+        this.q = new AtomicInteger(0);
+        this.r = new AtomicBoolean(true);
+        this.s = -1;
+        this.t = false;
+        this.u = -1;
+        this.v = -1;
+        this.w = false;
+        this.x = -1;
+        this.y = -1;
+        this.z = true;
+        this.A = new WeakReference<>(null);
+        this.B = new WeakReference<>(null);
+        this.C = new WeakReference<>(null);
+        this.D = new WeakReference<>(null);
+        this.E = new WeakReference<>(null);
+        this.F = new WeakReference<>(null);
+        this.G = new WeakReference<>(null);
+        this.H = new WeakReference<>(null);
+        this.I = new WeakReference<>(null);
+        this.J = new WeakReference<>(null);
+        this.K = new WeakReference<>(null);
+        this.L = new WeakReference<>(null);
+        this.M = new WeakReference<>(null);
+        this.N = new WeakReference<>(null);
+        this.O = new WeakReference<>(null);
+        this.P = new WeakReference<>(null);
+        this.Q = new WeakReference<>(null);
+        this.R = new WeakReference<>(null);
+        this.S = new WeakReference<>(null);
+        this.f1170T = new WeakReference<>(null);
+        this.U = new WeakReference<>(null);
+        wxb.c().e(this);
+        this.a = pubVar;
+        this.g = oubVar;
+        this.h = oubVar.g;
+        L0(context);
+        TLog.h("[VodPlayerClient]", M0() + "create vodplayer client");
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void A(cub cubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cubVar) == null) {
+            this.G = new WeakReference<>(cubVar);
         }
     }
 
-    public final String I() {
+    @Override // com.baidu.tieba.rvb
+    public void B(hub hubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hubVar) == null) {
+            this.P = new WeakReference<>(hubVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void C(iub iubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iubVar) == null) {
+            this.K = new WeakReference<>(iubVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void D(jub jubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jubVar) == null) {
+            this.C = new WeakReference<>(jubVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void x(xtb xtbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, xtbVar) == null) {
+            this.F = new WeakReference<>(xtbVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void y(ztb ztbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, ztbVar) == null) {
+            this.J = new WeakReference<>(ztbVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void z(bub bubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, bubVar) == null) {
+            this.I = new WeakReference<>(bubVar);
+        }
+    }
+
+    public static /* synthetic */ int H() {
+        return N0();
+    }
+
+    public static synchronized int N0() {
+        InterceptResult invokeV;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            synchronized (tvb.class) {
+                i2 = V;
+                V = i2 + 1;
+            }
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.i = new d(this, Looper.getMainLooper());
+        }
+    }
+
+    public final void O0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.q.set(0);
+            this.n.set(0);
+            this.o.set(0);
+            this.p.set(0);
+            this.k = 0;
+        }
+    }
+
+    public void Q0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            otb otbVar = new otb();
+            otbVar.a = "sendRedirectUrlData";
+            P0(this.f.toJson(otbVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public Object i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.h) {
+                return this.d;
+            }
+            return this.e;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.p.get();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.o.get();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void w(Executor executor, wtb wtbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048621, this, executor, wtbVar) == null) {
+            this.L = new WeakReference<>(executor);
+            this.M = new WeakReference<>(wtbVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void E(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.x = i2;
+            TLog.h("[VodPlayerClient]", M0() + "setRotateMode:" + this.x);
+            Y0();
+        }
+    }
+
+    public void S0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.r.set(z);
+            TLog.h("[VodPlayerClient]", M0() + "setAudioFocusEnable:" + this.r.get());
+            T0();
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void u(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            this.v = i2;
+            TLog.h("[VodPlayerClient]", M0() + "setDisplayMode:" + this.v);
+            U0();
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void v(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+            this.s = i2;
+            TLog.h("[VodPlayerClient]", M0() + "setNumberOfLoops:" + this.s);
+            W0();
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void F(int i2, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            this.l = i2;
+            TLog.h("[VodPlayerClient]", M0() + "start, taskId:" + i2);
+            wxb.c().g(this, i2, this.z);
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "startPlay";
+                otbVar.b.put("taskId", Integer.valueOf(i2));
+                otbVar.b.put("apiStartTimeMs", Long.valueOf(j2));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "stop");
+            wxb.c().h(this);
+            synchronized (this) {
+                this.n.set(0);
+                this.q.set(0);
+                this.o.set(0);
+                this.p.set(0);
+                otb otbVar = new otb();
+                otbVar.a = "stopPlay";
+                P0(this.f.toJson(otbVar));
+                this.l = -1;
+            }
+        }
+    }
+
+    public final void K0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                String b2 = oub.b(this.g);
+                if (b2 != null && !b2.isEmpty()) {
+                    otb otbVar = new otb();
+                    otbVar.a = "initPlay";
+                    otbVar.b.put("opt", b2);
+                    P0(this.f.toJson(otbVar));
+                    return;
+                }
+                TLog.d("[VodPlayerClient]", M0() + "createServerVodplayer, mPlayerOptions is empty");
+            }
+        }
+    }
+
+    public final String M0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder(30);
             sb.append(PreferencesUtil.LEFT_MOUNT);
             sb.append("channel:");
-            sb.append(this.r);
-            if (this.s != -1) {
+            sb.append(this.j);
+            if (this.k != -1) {
                 sb.append(",context:");
-                sb.append(this.s);
+                sb.append(this.k);
             }
-            if (this.t != -1) {
+            if (this.l != -1) {
                 sb.append(",task:");
-                sb.append(this.t);
+                sb.append(this.l);
             }
             sb.append(PreferencesUtil.RIGHT_MOUNT);
             return sb.toString();
@@ -1482,525 +1644,785 @@ public class tvb extends xsb {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xsb
-    public void g() {
+    public final void L0(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.g();
-            int i2 = 0;
-            if (this.j.compareAndSet(true, false)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(I());
-                sb.append("surfaceDestroyed: ");
-                Surface surface = this.i;
-                if (surface != null) {
-                    i2 = surface.hashCode();
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            if (this.h) {
+                RenderSurfaceView renderSurfaceView = new RenderSurfaceView(context);
+                this.d = renderSurfaceView;
+                renderSurfaceView.setKeepScreenOn(true);
+                this.d.o(false);
+                this.d.p(false);
+                if (Build.MODEL.equals("OPPO A33t")) {
+                    this.d.setLayerType(1, null);
                 }
-                sb.append(i2);
-                TLog.h("[VodPlayerServer]", sb.toString());
-                this.i = null;
-                gxb gxbVar = this.k;
-                if (gxbVar != null) {
-                    gxbVar.surfaceDestroyed();
+                this.j = this.d.getChannelId();
+                TLog.h("[VodPlayerClient]", M0() + "create RenderSurfaceView");
+            } else {
+                RenderTextureView renderTextureView = new RenderTextureView(context);
+                this.e = renderTextureView;
+                renderTextureView.setKeepScreenOn(true);
+                this.e.p(false);
+                this.e.q(false);
+                this.e.setOpaque(false);
+                if (Build.VERSION.SDK_INT < 24) {
+                    this.e.setBackgroundColor(0);
+                }
+                if (Build.MODEL.equals("OPPO A33t")) {
+                    this.e.setLayerType(1, null);
+                }
+                this.j = this.e.getChannelId();
+                TLog.h("[VodPlayerClient]", M0() + "create RenderTextureView");
+            }
+            J0();
+            if (this.h) {
+                RenderEngine.r.a().A(this.d, uvb.class, this);
+            } else {
+                RenderEngine.r.a().B(this.e, uvb.class, this);
+            }
+            vxb.n().j(this, true);
+            this.f = new GsonBuilder().excludeFieldsWithModifiers(128, 8).serializeNulls().create();
+            K0();
+        }
+    }
+
+    public final void P0(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str)) {
+            if (this.d != null || this.e != null) {
+                try {
+                    this.c.execute(new b(this, str));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    TLog.d("[VodPlayerClient]", M0() + "(sendDataToSubProcess) ex: " + e2.getMessage());
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void r(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "seekTo:" + j2);
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "seekTo";
+                otbVar.b.put("p", Long.valueOf(j2));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void R0(Object obj, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048590, this, obj, z) == null) && this.i != null) {
+            synchronized (this) {
+                if (this.i != null) {
+                    if (z) {
+                        this.i.sendMessageAtFrontOfQueue(Message.obtain(this.i, 1, obj));
+                    } else {
+                        this.i.sendMessage(Message.obtain(this.i, 1, obj));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void T0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setAudioFocusEnable";
+                otbVar.b.put("af", Boolean.valueOf(this.r.get()));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void U0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.v >= 0) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setDisplayMode";
+                otbVar.b.put(com.kuaishou.weapon.p0.u.A, Integer.valueOf(this.v));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void V0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setIsSpecialMp4WithAlpha";
+                otbVar.b.put("al", Boolean.valueOf(this.w));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void W0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.s >= 0) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setNumberOfLoops";
+                otbVar.b.put("p", Integer.valueOf(this.s));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void X0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.y >= 0) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setOrientateMode";
+                otbVar.b.put("ot", Integer.valueOf(this.y));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void Y0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.x >= 0) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setRotateMode";
+                otbVar.b.put("rt", Integer.valueOf(this.x));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void Z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setVideoExtrasInfoEnable";
+                otbVar.b.put("b", Boolean.valueOf(this.t));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    public final void a1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.u >= 0) {
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "setVolume";
+                otbVar.b.put("v", Integer.valueOf(this.u));
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "appInBackground");
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "appInBackground";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "appInFrontground");
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "appInFrontground";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "getCurrentPosition:" + this.q.get());
+            return this.q.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "getDuration:" + this.n.get());
+            return this.n.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + DownloadStatisticConstants.UBC_TYPE_PAUSE);
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "pausePlay";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "pausePlayWithAudio");
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "pausePlayWithAudio";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + DownloadStatisticConstants.UBC_TYPE_RESUME);
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "resumePlay";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "resumePlayWithAudio");
+            synchronized (this) {
+                otb otbVar = new otb();
+                otbVar.a = "resumePlayWithAudio";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pxb
+    public void a(String str, boolean z, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, Boolean.valueOf(z), hashMap}) == null) {
+            TLog.g(this, "VodPlayerClient onCrash, recover server, failOver2MainProcess:" + z);
+            if (!z) {
+                O0();
+                K0();
+                W0();
+                Z0();
+                a1();
+                U0();
+                V0();
+                Y0();
+                X0();
+            }
+            m mVar = new m(this);
+            mVar.a = "onSubProcessCrash";
+            mVar.b = str;
+            mVar.d = z;
+            R0(mVar, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.qsb
+    public void c(Bitmap bitmap) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, bitmap) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "recv bitmap from sub process");
+            synchronized (this) {
+                Executor executor = this.A.get();
+                pub.d dVar = this.B.get();
+                if (executor != null && dVar != null) {
+                    executor.execute(new c(this, dVar, bitmap));
                 } else {
-                    this.n = true;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(M0());
+                    sb.append(" onScreenShot failed executor is null?");
+                    if (executor == null) {
+                        str = "yes";
+                    } else {
+                        str = "no";
+                    }
+                    sb.append(str);
+                    sb.append(" VodPlayerScreenShotCallback is null?");
+                    if (dVar == null) {
+                        str2 = "yes";
+                    } else {
+                        str2 = "no";
+                    }
+                    sb.append(str2);
+                    TLog.d("[VodPlayerClient]", sb.toString());
+                }
+                this.A.clear();
+                this.B.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qsb
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("cmd");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                char c2 = 65535;
+                switch (optString.hashCode()) {
+                    case -1893106721:
+                        if (optString.equals("onPlayerDecodeBitrate")) {
+                            c2 = 19;
+                            break;
+                        }
+                        break;
+                    case -1751664499:
+                        if (optString.equals("onDSEMixAudioExtraInfo")) {
+                            c2 = DecodedBitStreamParser.RS;
+                            break;
+                        }
+                        break;
+                    case -1741719303:
+                        if (optString.equals("onSEIAudioOriginalData")) {
+                            c2 = WebvttCueParser.CHAR_SPACE;
+                            break;
+                        }
+                        break;
+                    case -1122266638:
+                        if (optString.equals("onPlayerExtraInfoListener")) {
+                            c2 = 6;
+                            break;
+                        }
+                        break;
+                    case -1105747594:
+                        if (optString.equals("onPlayerCacheWriteToDiskCompleted")) {
+                            c2 = 11;
+                            break;
+                        }
+                        break;
+                    case -726502775:
+                        if (optString.equals("onPlayerAudioStalls")) {
+                            c2 = 23;
+                            break;
+                        }
+                        break;
+                    case -513983265:
+                        if (optString.equals("onPlayerFirstVideoFrameShow")) {
+                            c2 = 4;
+                            break;
+                        }
+                        break;
+                    case -441667023:
+                        if (optString.equals("setRedirectUrl")) {
+                            c2 = 1;
+                            break;
+                        }
+                        break;
+                    case -356191701:
+                        if (optString.equals("onSEIAlphaChannelInfo")) {
+                            c2 = DecodedBitStreamParser.FS;
+                            break;
+                        }
+                        break;
+                    case -332667027:
+                        if (optString.equals("setPlayerUID")) {
+                            c2 = 0;
+                            break;
+                        }
+                        break;
+                    case -125887634:
+                        if (optString.equals("onPlayerVideoStalls")) {
+                            c2 = 22;
+                            break;
+                        }
+                        break;
+                    case -48461180:
+                        if (optString.equals("onPlayerNetRequestStatus")) {
+                            c2 = 16;
+                            break;
+                        }
+                        break;
+                    case -24168773:
+                        if (optString.equals("onSEIVideoExtraInfo")) {
+                            c2 = 26;
+                            break;
+                        }
+                        break;
+                    case 42199303:
+                        if (optString.equals("onSEIMixVideoExtraInfo")) {
+                            c2 = 27;
+                            break;
+                        }
+                        break;
+                    case 54802172:
+                        if (optString.equals("onPlayerDecodeOuputSize")) {
+                            c2 = 20;
+                            break;
+                        }
+                        break;
+                    case 76638970:
+                        if (optString.equals("onPlayerStateUpdate")) {
+                            c2 = 15;
+                            break;
+                        }
+                        break;
+                    case 117071962:
+                        if (optString.equals("onSEIAudioExtraInfoV0")) {
+                            c2 = 31;
+                            break;
+                        }
+                        break;
+                    case 277599208:
+                        if (optString.equals("onDSEMixAudioExtraInfoV1")) {
+                            c2 = DecodedBitStreamParser.GS;
+                            break;
+                        }
+                        break;
+                    case 303848884:
+                        if (optString.equals("onPlayerCachePositionUpdate")) {
+                            c2 = '\n';
+                            break;
+                        }
+                        break;
+                    case 466690590:
+                        if (optString.equals("onSEIVideoOriginalData")) {
+                            c2 = '!';
+                            break;
+                        }
+                        break;
+                    case 554677256:
+                        if (optString.equals("onPlayerDecodeType")) {
+                            c2 = 21;
+                            break;
+                        }
+                        break;
+                    case 598376093:
+                        if (optString.equals("onPlayerVideoPlayPaused")) {
+                            c2 = 25;
+                            break;
+                        }
+                        break;
+                    case 822132006:
+                        if (optString.equals("onPlayerUpdatePcdnUrlResult")) {
+                            c2 = 24;
+                            break;
+                        }
+                        break;
+                    case 853792181:
+                        if (optString.equals("onAudioFocusListener")) {
+                            c2 = 5;
+                            break;
+                        }
+                        break;
+                    case 1012167752:
+                        if (optString.equals("onPlayerError")) {
+                            c2 = 14;
+                            break;
+                        }
+                        break;
+                    case 1055756567:
+                        if (optString.equals("onPlayerRenderFramerate")) {
+                            c2 = 18;
+                            break;
+                        }
+                        break;
+                    case 1141144174:
+                        if (optString.equals("onPlayerInfo")) {
+                            c2 = 2;
+                            break;
+                        }
+                        break;
+                    case 1147162650:
+                        if (optString.equals("onPlayerPlayCompletionOneLoop")) {
+                            c2 = '\r';
+                            break;
+                        }
+                        break;
+                    case 1343087941:
+                        if (optString.equals("onPlayerVideoSizeUpdate")) {
+                            c2 = 3;
+                            break;
+                        }
+                        break;
+                    case 1385041286:
+                        if (optString.equals("onLoadingUpdate")) {
+                            c2 = 7;
+                            break;
+                        }
+                        break;
+                    case 1468645360:
+                        if (optString.equals("onPlayerPlayCompletion")) {
+                            c2 = '\f';
+                            break;
+                        }
+                        break;
+                    case 1482173798:
+                        if (optString.equals("onPlayerPlayPositionUpdate")) {
+                            c2 = '\t';
+                            break;
+                        }
+                        break;
+                    case 1668839139:
+                        if (optString.equals("onPlayerStatistics")) {
+                            c2 = '\b';
+                            break;
+                        }
+                        break;
+                    case 1955119023:
+                        if (optString.equals("onPlayerReceiveToRenderDelay")) {
+                            c2 = 17;
+                            break;
+                        }
+                        break;
+                }
+                switch (c2) {
+                    case 0:
+                        this.k = jSONObject2.optInt("playerUID");
+                        TLog.h("[VodPlayerClient]", M0() + "setPlayerUID:" + this.k);
+                        return;
+                    case 1:
+                        this.m = jSONObject2.optString("redirectUrl");
+                        TLog.h("[VodPlayerClient]", M0() + "setRedirectUrl:" + this.m);
+                        return;
+                    case 2:
+                        if (jSONObject2.optInt("i") == 3) {
+                            this.n.set((int) jSONObject2.optLong("l"));
+                        }
+                        m mVar = new m(this);
+                        mVar.a = optString;
+                        mVar.c = jSONObject2;
+                        R0(mVar, false);
+                        return;
+                    case 3:
+                        int optInt = jSONObject2.optInt("i");
+                        int optInt2 = jSONObject2.optInt("i1");
+                        this.o.set(optInt);
+                        this.p.set(optInt2);
+                        m mVar2 = new m(this);
+                        mVar2.a = optString;
+                        mVar2.c = jSONObject2;
+                        R0(mVar2, false);
+                        return;
+                    case 4:
+                        m mVar3 = new m(this);
+                        mVar3.a = optString;
+                        mVar3.c = jSONObject2;
+                        R0(mVar3, true);
+                        return;
+                    case 5:
+                        if (jSONObject2 != null) {
+                            int optInt3 = jSONObject2.optInt("i");
+                            TLog.h("[VodPlayerClient]", M0() + " onAudioFocusListener,focus status:" + optInt3);
+                            vtb vtbVar = this.U.get();
+                            if (vtbVar != null) {
+                                vtbVar.onAudioFocusChange(optInt3);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 6:
+                        if (jSONObject2 != null) {
+                            int optInt4 = jSONObject2.optInt("i");
+                            long optLong = jSONObject2.optLong("l1");
+                            long optLong2 = jSONObject2.optLong("l2");
+                            long optLong3 = jSONObject2.optLong("l3");
+                            String optString2 = jSONObject2.optString("s");
+                            JSONObject optJSONObject = jSONObject2.optJSONObject("o");
+                            TLog.h("[VodPlayerClient]", M0() + " OnPlayerExtraInfoListener,type:" + optInt4);
+                            aub aubVar = this.S.get();
+                            if (aubVar != null) {
+                                aubVar.a(optInt4, optLong, optLong2, optLong3, optString2, optJSONObject);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    case 7:
+                    case '\b':
+                    case '\t':
+                    case '\n':
+                    case 11:
+                    case '\f':
+                    case '\r':
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 17:
+                    case 18:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 22:
+                    case 23:
+                    case 24:
+                    case 25:
+                        m mVar4 = new m(this);
+                        mVar4.a = optString;
+                        mVar4.c = jSONObject2;
+                        R0(mVar4, false);
+                        return;
+                    case 26:
+                        wtb wtbVar = this.M.get();
+                        Executor executor = this.L.get();
+                        if (wtbVar != null && executor != null) {
+                            executor.execute(new f(this, jSONObject2, wtbVar));
+                            return;
+                        }
+                        return;
+                    case 27:
+                        wtb wtbVar2 = this.M.get();
+                        Executor executor2 = this.L.get();
+                        if (wtbVar2 != null && executor2 != null) {
+                            executor2.execute(new g(this, jSONObject2, wtbVar2));
+                            return;
+                        }
+                        return;
+                    case 28:
+                        wtb wtbVar3 = this.M.get();
+                        Executor executor3 = this.L.get();
+                        if (wtbVar3 != null && executor3 != null) {
+                            executor3.execute(new h(this, jSONObject2, wtbVar3));
+                            return;
+                        }
+                        return;
+                    case 29:
+                        wtb wtbVar4 = this.M.get();
+                        Executor executor4 = this.L.get();
+                        if (wtbVar4 != null && executor4 != null) {
+                            executor4.execute(new i(this, jSONObject2, wtbVar4));
+                            return;
+                        }
+                        return;
+                    case 30:
+                        pub.c cVar = this.N.get();
+                        Executor executor5 = this.L.get();
+                        if (cVar != null && executor5 != null) {
+                            executor5.execute(new j(this, jSONObject2, cVar));
+                            return;
+                        }
+                        return;
+                    case 31:
+                        wtb wtbVar5 = this.M.get();
+                        Executor executor6 = this.L.get();
+                        if (wtbVar5 != null && executor6 != null) {
+                            executor6.execute(new k(this, jSONObject2, wtbVar5));
+                            return;
+                        }
+                        return;
+                    case ' ':
+                        wtb wtbVar6 = this.M.get();
+                        Executor executor7 = this.L.get();
+                        if (wtbVar6 != null && executor7 != null) {
+                            executor7.execute(new l(this, jSONObject2, wtbVar6));
+                            return;
+                        }
+                        return;
+                    case '!':
+                        wtb wtbVar7 = this.M.get();
+                        Executor executor8 = this.L.get();
+                        if (wtbVar7 != null && executor8 != null) {
+                            executor8.execute(new a(this, jSONObject2, wtbVar7));
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            } catch (Exception e2) {
+                TLog.d("[VodPlayerClient]", M0() + "(onData) ex: " + e2.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void q(Executor executor, pub.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048615, this, executor, dVar) == null) {
+            TLog.h("[VodPlayerClient]", M0() + "screenShot");
+            synchronized (this) {
+                this.A = new WeakReference<>(executor);
+                this.B = new WeakReference<>(dVar);
+                otb otbVar = new otb();
+                otbVar.a = "screenShot";
+                P0(this.f.toJson(otbVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rvb
+    public void s(utb utbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, utbVar) == null) {
+            if (utbVar != null) {
+                this.l = (int) utbVar.j();
+                TLog.h("[VodPlayerClient]", M0() + "setDataSource:" + utbVar.k());
+                synchronized (this) {
+                    String r = utb.r(utbVar);
+                    if (r != null && !r.isEmpty()) {
+                        this.z = utbVar.d();
+                        otb otbVar = new otb();
+                        otbVar.a = "setDataSource";
+                        otbVar.b.put("source", r);
+                        P0(this.f.toJson(otbVar));
+                        return;
+                    }
+                    TLog.d("[VodPlayerClient]", M0() + "setDataSource#dataSource is empty");
+                    return;
                 }
             }
+            TLog.d("[VodPlayerClient]", M0() + "setDataSource#source is null");
         }
     }
 
-    public final void G() {
+    @Override // com.baidu.tieba.rvb
+    public void t(utb utbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.postAtFrontOfQueue(new u(this));
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final void H(String str) throws Exception {
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("cmd");
-            switch (optString.hashCode()) {
-                case -2129411402:
-                    if (optString.equals("startPlay")) {
-                        c2 = 7;
-                        break;
+        if (interceptable == null || interceptable.invokeL(1048618, this, utbVar) == null) {
+            if (utbVar != null) {
+                this.l = (int) utbVar.j();
+                TLog.h("[VodPlayerClient]", M0() + "setDataSourceAndPrepare:" + utbVar.k());
+                synchronized (this) {
+                    String r = utb.r(utbVar);
+                    if (r != null && !r.isEmpty()) {
+                        this.z = utbVar.d();
+                        otb otbVar = new otb();
+                        otbVar.a = "setDataSourceAndPrepare";
+                        otbVar.b.put("source", r);
+                        P0(this.f.toJson(otbVar));
+                        return;
                     }
-                    c2 = 65535;
-                    break;
-                case -2093030610:
-                    if (optString.equals("setEnableRevDecodeOutputSize")) {
-                        c2 = DecodedBitStreamParser.RS;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1982498572:
-                    if (optString.equals("appInBackground")) {
-                        c2 = 27;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1617828140:
-                    if (optString.equals("setIsSpecialMp4WithAlpha")) {
-                        c2 = 21;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1508657702:
-                    if (optString.equals("setEnableFirstVideoFrameShow")) {
-                        c2 = DecodedBitStreamParser.GS;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1251896589:
-                    if (optString.equals("disableJoyPkPipMode")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1187347186:
-                    if (optString.equals("enableJoyPkPipMode")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -906224877:
-                    if (optString.equals("seekTo")) {
-                        c2 = 11;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -697872445:
-                    if (optString.equals("setDisplayMode")) {
-                        c2 = '\f';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -557192959:
-                    if (optString.equals("resumePlay")) {
-                        c2 = '\n';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -446053678:
-                    if (optString.equals("setEffectResources")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -417400442:
-                    if (optString.equals("screenShot")) {
-                        c2 = 25;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -336540857:
-                    if (optString.equals("setAudioFocusEnable")) {
-                        c2 = 23;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -28201491:
-                    if (optString.equals("setVideoExtrasInfoEnable")) {
-                        c2 = 19;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 16017901:
-                    if (optString.equals("setNumberOfLoops")) {
-                        c2 = 14;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 25421522:
-                    if (optString.equals("setLayoutParams")) {
-                        c2 = '\r';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 87624170:
-                    if (optString.equals("appInFrontground")) {
-                        c2 = 31;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 251281091:
-                    if (optString.equals("setPcdnUrls")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 268328036:
-                    if (optString.equals("initPlay")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 347104503:
-                    if (optString.equals("setDataSourceAndPrepare")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 397437856:
-                    if (optString.equals("setRotateMode")) {
-                        c2 = 22;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 670514716:
-                    if (optString.equals("setVolume")) {
-                        c2 = 20;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 734547631:
-                    if (optString.equals("resumePlayWithAudio")) {
-                        c2 = 16;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 753583956:
-                    if (optString.equals("resumePlayWithVideo")) {
-                        c2 = 18;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 829307466:
-                    if (optString.equals("pausePlay")) {
-                        c2 = '\b';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 960176686:
-                    if (optString.equals("setOrientateMode")) {
-                        c2 = 24;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1090594823:
-                    if (optString.equals("release")) {
-                        c2 = 26;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1598099861:
-                    if (optString.equals("sendRedirectUrlData")) {
-                        c2 = DecodedBitStreamParser.FS;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1714697814:
-                    if (optString.equals("stopPlay")) {
-                        c2 = '\t';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1748853351:
-                    if (optString.equals("setDataSource")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 2002804614:
-                    if (optString.equals("pausePlayWithAudio")) {
-                        c2 = 15;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 2021840939:
-                    if (optString.equals("pausePlayWithVideo")) {
-                        c2 = 17;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
+                    TLog.d("[VodPlayerClient]", M0() + "setDataSourceAndPrepare#dataSource is empty");
+                    return;
+                }
             }
-            switch (c2) {
-                case 0:
-                    this.v = System.currentTimeMillis();
-                    K(new a0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 1:
-                    K(new b0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 2:
-                    K(new d0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 3:
-                    K(new e0(this));
-                    return;
-                case 4:
-                    K(new f0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 5:
-                    K(new g0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 6:
-                    K(new h0(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 7:
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = this.v;
-                    if (j2 != 0 && currentTimeMillis >= j2 && currentTimeMillis - j2 < 20) {
-                        this.u = true;
-                    }
-                    K(new a(this, jSONObject.getJSONObject("data")));
-                    return;
-                case '\b':
-                    K(new b(this));
-                    return;
-                case '\t':
-                    K(new c(this));
-                    return;
-                case '\n':
-                    K(new d(this));
-                    return;
-                case 11:
-                    K(new e(this, jSONObject.getJSONObject("data")));
-                    return;
-                case '\f':
-                    K(new f(this, jSONObject.getJSONObject("data")));
-                    return;
-                case '\r':
-                    K(new g(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 14:
-                    K(new h(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 15:
-                    K(new i(this));
-                    return;
-                case 16:
-                    K(new j(this));
-                    return;
-                case 17:
-                    K(new k(this));
-                    return;
-                case 18:
-                    K(new l(this));
-                    return;
-                case 19:
-                    K(new m(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 20:
-                    K(new n(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 21:
-                    K(new o(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 22:
-                    K(new p(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 23:
-                    K(new q(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 24:
-                    K(new r(this, jSONObject.getJSONObject("data")));
-                    return;
-                case 25:
-                    K(new s(this));
-                    return;
-                case 26:
-                    K(new t(this));
-                    return;
-                case 27:
-                    K(new v(this));
-                    return;
-                case 28:
-                    K(new w(this));
-                    return;
-                case 29:
-                    K(new x(this));
-                    return;
-                case 30:
-                    K(new y(this));
-                    return;
-                case 31:
-                    K(new z(this));
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public final void J() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d != null) {
-            this.d.D(this.y);
-            this.d.A0(this.z);
-            this.d.D0(this.A);
-            this.d.x(this.B);
-            this.d.A(this.C);
-            this.d.C0(this.D);
-            this.d.z(this.E);
-            this.d.y(this.H);
-            this.d.C(this.I);
-            this.d.w(this.x, this.K);
-            this.d.B0(this.L);
-            this.d.B(this.M);
-            this.d.F0(this.N);
-            this.d.E0(this.O);
-            this.d.y0(this.F);
-            this.d.z0(this.G);
-            this.d.H0(this.J);
-        }
-    }
-
-    public final void K(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            try {
-                this.x.execute(runnable);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TLog.d("[VodPlayerServer]", I() + "(postToWorkThread) ex: " + e2.getMessage());
-            }
-        }
-    }
-
-    public final void L(ntb ntbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, ntbVar) != null) || ntbVar == null) {
-            return;
-        }
-        try {
-            c(this.f.toJson(ntbVar));
-        } catch (Exception e2) {
-            TLog.g(this, "sendData " + ntbVar.a + " exception:" + e2.toString());
-            throw e2;
-        }
-    }
-
-    public final void N(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            ntb ntbVar = new ntb();
-            ntbVar.a = "setPlayerUID";
-            ntbVar.b.put("playerUID", Integer.valueOf(i2));
-            TLog.h("[VodPlayerServer]", I() + "onSendPlayerUIDToMainProcess,playerUID=" + i2);
-            M(ntbVar);
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            ntb ntbVar = new ntb();
-            ntbVar.a = "setRedirectUrl";
-            ntbVar.b.put("redirectUrl", str);
-            TLog.h("[VodPlayerServer]", I() + "sendRedirectUrlToMainProcess,redirectUrl=" + str);
-            M(ntbVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.wsb
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            try {
-                H(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TLog.d("[VodPlayerServer]", I() + "(onDataFromMainThread) ex" + e2.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xsb
-    public void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            super.d(context);
-            this.g = context;
-            synchronized (this.h) {
-                this.h.notifyAll();
-            }
-            TLog.h("[VodPlayerServer]", I() + "setContext");
-        }
-    }
-
-    @Override // com.baidu.tieba.xsb
-    public void e(Context context, Surface surface, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, surface, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.e(context, surface, i2, i3, i4);
-            this.o = i2;
-            this.p = i3;
-            this.q = i4;
-            TLog.h("[VodPlayerServer]", I() + "surfaceChanged,format:" + i2 + ",width:" + i3 + ",height:" + i4);
-            gxb gxbVar = this.k;
-            if (gxbVar != null) {
-                gxbVar.b(i2, i3, i4);
-            } else {
-                this.m = true;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xsb
-    public void f(Context context, Surface surface) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, context, surface) == null) {
-            super.f(context, surface);
-            this.j.set(true);
-            this.g = context;
-            this.i = surface;
-            StringBuilder sb = new StringBuilder();
-            sb.append(I());
-            sb.append("surfaceCreated: ");
-            Surface surface2 = this.i;
-            if (surface2 != null) {
-                i2 = surface2.hashCode();
-            } else {
-                i2 = 0;
-            }
-            sb.append(i2);
-            TLog.h("[VodPlayerServer]", sb.toString());
-            gxb gxbVar = this.k;
-            if (gxbVar != null) {
-                gxbVar.a(surface);
-            } else {
-                this.l = true;
-            }
+            TLog.d("[VodPlayerClient]", M0() + "setDataSourceAndPrepare#source is null");
         }
     }
 }

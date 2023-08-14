@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.frs.shrinkhead.LogicField;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,59 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import java.util.Collections;
 /* loaded from: classes5.dex */
-public abstract class bq7 implements dq7 {
+public class bq7 extends yp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
-    public View.OnClickListener d;
-    public NavigationBar e;
-    public View f;
-    public ImageView g;
-    public boolean h;
-
-    @Override // com.baidu.tieba.dq7
-    @CallSuper
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dq7
-    public void d(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dq7
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    public abstract void k();
-
-    @Override // com.baidu.tieba.dq7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
+    public TBSpecificationBtn d;
+    public TBSpecificationBtn e;
+    public ImageView f;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -96,12 +47,36 @@ public abstract class bq7 implements dq7 {
             int[] iArr = new int[LogicField.values().length];
             a = iArr;
             try {
-                iArr[LogicField.BACK_BTN.ordinal()] = 1;
+                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[LogicField.BACK_IV.ordinal()] = 2;
+                a[LogicField.SIGN_BTN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[LogicField.SPEED_ICON.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.SERVICE_AREA.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.TOP_AREA.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
             }
         }
     }
@@ -116,36 +91,29 @@ public abstract class bq7 implements dq7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.h = true;
-        x9a.b();
     }
 
-    @Override // com.baidu.tieba.dq7
-    @NonNull
-    public NavigationBar e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yp7
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cw5.b(this.e);
-            return this.e;
-        }
-        return (NavigationBar) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f = addSystemImageButton;
-            addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.widget_navi_back_button);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            o();
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092251);
         }
     }
 
-    @Override // com.baidu.tieba.dq7
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.findViewById(R.id.obfuscated_res_0x7f090ccd).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f092a12).setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.yp7, com.baidu.tieba.aq7
     @Nullable
     public <T> T a(@NonNull LogicField logicField) {
         InterceptResult invokeL;
@@ -154,62 +122,80 @@ public abstract class bq7 implements dq7 {
             int i = a.a[logicField.ordinal()];
             if (i != 1) {
                 if (i != 2) {
-                    return null;
+                    if (i != 3) {
+                        return (T) super.a(logicField);
+                    }
+                    return (T) this.f;
                 }
-                return (T) this.g;
+                return (T) Collections.singletonList(this.e);
             }
-            return (T) this.f;
+            return (T) Collections.singletonList(this.d);
         }
         return (T) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dq7
-    @CallSuper
-    public void c(float f) {
+    @Override // com.baidu.tieba.yp7, com.baidu.tieba.aq7
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            if (f < 0.5f) {
-                if (!this.h) {
-                    j(true);
-                    this.h = true;
-                }
-            } else if (this.h) {
-                j(false);
-                this.h = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return 0;
+                case 8:
+                    return 8;
+                default:
+                    return super.l(logicField);
             }
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.dq7
-    @CallSuper
-    public void f(boolean z) {
-        int i;
+    @Override // com.baidu.tieba.gq7
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            FrameLayout contentLayout = this.e.getContentLayout();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                i = R.color.CAM_X0201;
-            } else {
-                i = R.color.black_alpha0;
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
+                return;
             }
-            SkinManager.setBackgroundColor(contentLayout, i);
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.dq7
-    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.gq7
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) != null) || this.c != null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
         }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        this.d = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.getBarBgView().setAlpha(1.0f);
-        i();
-        k();
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092728);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02e8));
+            this.d.setTextSize(R.dimen.T_X08);
+            x95 x95Var = new x95();
+            x95Var.s(R.color.CAM_X0901, R.color.CAM_X0105);
+            this.d.setConfig(x95Var);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092773);
+            this.e = tBSpecificationBtn2;
+            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
+            x95 x95Var2 = new x95();
+            x95Var2.x(R.color.CAM_X0105);
+            x95Var2.h(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
+            x95Var2.j(R.drawable.obfuscated_res_0x7f080b44, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.e.setConfig(x95Var2);
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f13d4));
+        }
     }
 }

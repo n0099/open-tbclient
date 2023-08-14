@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface ztb {
-    void a(int i, long j, long j2, long j3, String str, Object obj);
+    void onPlayerError(pub pubVar, String str, int i, int i2);
 }

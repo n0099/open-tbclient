@@ -135,11 +135,11 @@ public class fi1 {
         public void onOptionClick(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (i == R.id.obfuscated_res_0x7f091cb0) {
+                if (i == R.id.obfuscated_res_0x7f091cb6) {
                     gh1.h().f();
                     this.a.d0(6, "支付结果查询失败，请重试", "0");
                     this.c.d.dismiss();
-                } else if (i == R.id.obfuscated_res_0x7f091cb2) {
+                } else if (i == R.id.obfuscated_res_0x7f091cb8) {
                     oh1.e(new lh1("111"));
                     this.c.d.d(false);
                     this.c.d.h();

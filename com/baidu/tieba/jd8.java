@@ -1,36 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jd8 {
+public abstract class jd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jd8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ChatSetting> memoryCachedSettings;
+
+    public abstract ChatSetting getSetting(String str, String str2);
+
+    public abstract ne<String> getSettingCache();
+
+    public abstract void saveSetting(ChatSetting chatSetting);
+
+    public abstract void saveSettingAsync(ChatSetting chatSetting, pv5<Void> pv5Var);
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends kw5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ long d;
+        public final /* synthetic */ jd8 c;
 
-        public a(jd8 jd8Var, Long l, String str, String str2, long j) {
+        public a(jd8 jd8Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jd8Var, l, str, str2, Long.valueOf(j)};
+                Object[] objArr = {jd8Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,96 +49,25 @@ public class jd8 {
                     return;
                 }
             }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = j;
+            this.c = jd8Var;
+            this.a = str;
+            this.b = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.kw5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ob8.j().t(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-
-        public b(jd8 jd8Var, Long l, String str, String str2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jd8Var, l, str, str2, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ChatSetting setting = this.c.getSetting(this.a, this.b);
+                if (setting == null) {
+                    return Boolean.FALSE;
                 }
+                return Boolean.valueOf(setting.isAcceptNotify());
             }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ob8.j().w(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, !this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ long d;
-
-        public c(jd8 jd8Var, Long l, String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jd8Var, l, str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l;
-            this.b = str;
-            this.c = str2;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ob8.j().y(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
-            }
+            return (Boolean) invokeV.objValue;
         }
     }
 
@@ -143,85 +81,78 @@ public class jd8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.memoryCachedSettings = new HashMap<>();
+    }
+
+    public boolean isAcceptNotify(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            ChatSetting setting = getSetting(str, str2);
+            if (setting == null) {
+                return false;
+            }
+            return setting.isAcceptNotify();
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void isAcceptNotifyAsync(String str, String str2, pv5<Boolean> pv5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, pv5Var) == null) {
+            ow5.c(new a(this, str, str2), pv5Var);
         }
     }
 
-    public static jd8 b() {
-        InterceptResult invokeV;
+    public void saveAcceptNotify(String str, String str2, boolean z) {
+        ChatSetting setting;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jd8.class) {
-                    if (a == null) {
-                        a = new jd8();
+        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, str, str2, z) != null) || (setting = getSetting(str, str2)) == null) {
+            return;
+        }
+        setting.setAcceptNotify(z);
+        saveSetting(setting);
+    }
+
+    public void onAccountChangedInBackground(Class<? extends ChatSetting> cls) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+            synchronized (this.memoryCachedSettings) {
+                this.memoryCachedSettings.clear();
+            }
+            String str2 = "";
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
+            }
+            if (str2 != null && str2.length() != 0) {
+                String str3 = str2 + "@";
+                synchronized (this.memoryCachedSettings) {
+                    ne<String> settingCache = getSettingCache();
+                    List<ne.b<String>> b = gi.b(settingCache);
+                    if (b != null) {
+                        for (ne.b<String> bVar : b) {
+                            String str4 = bVar.a;
+                            if (str4 != null && str4.startsWith(str3) && (str = settingCache.get(str4)) != null) {
+                                this.memoryCachedSettings.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                            }
+                        }
                     }
                 }
             }
-            return a;
-        }
-        return (jd8) invokeV.objValue;
-    }
-
-    public long a(@NonNull Long l) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
-            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f != null) {
-                return f.getTopTime();
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    @WorkerThread
-    public boolean d(@NonNull Long l) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f == null || f.O() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @WorkerThread
-    public boolean c(@NonNull Long l, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, j)) == null) {
-            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
-            if (f != null && f.getDeleteTime() != 0 && j <= f.getDeleteTime()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void e(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
-            lg.e(new a(this, l, str, str2, j));
         }
     }
 
-    public void f(@NonNull Long l, @NonNull String str, @NonNull String str2, boolean z) {
+    public void saveAcceptNotifyAsync(String str, String str2, boolean z, pv5<Void> pv5Var) {
+        ChatSetting setting;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{l, str, str2, Boolean.valueOf(z)}) == null) {
-            lg.e(new b(this, l, str, str2, z));
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), pv5Var}) != null) || (setting = getSetting(str, str2)) == null) {
+            return;
         }
-    }
-
-    public void g(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
-            lg.e(new c(this, l, str, str2, j));
-        }
+        setting.setAcceptNotify(z);
+        saveSettingAsync(setting, pv5Var);
     }
 }

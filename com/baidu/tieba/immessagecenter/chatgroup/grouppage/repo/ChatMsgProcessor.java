@@ -25,7 +25,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.Emo
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.tieba.kn5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.ri8;
+import com.baidu.tieba.si8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1213,7 +1213,7 @@ public class ChatMsgProcessor implements kn5 {
                                 A.add(j4);
                             }
                         } catch (Exception e2) {
-                            ri8.g("parse_msg_exception", j2, e2);
+                            si8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }

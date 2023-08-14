@@ -45,8 +45,8 @@ import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.eka;
-import com.baidu.tieba.em9;
+import com.baidu.tieba.fka;
+import com.baidu.tieba.fm9;
 import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -77,7 +77,7 @@ public class PbFallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<em9> f;
+    public final List<fm9> f;
     public final Context g;
     public int h;
     public int i;
@@ -447,7 +447,7 @@ public class PbFallingView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements em9.c {
+    public class j implements fm9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -472,7 +472,7 @@ public class PbFallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.em9.c
+        @Override // com.baidu.tieba.fm9.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -520,7 +520,7 @@ public class PbFallingView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && (adverSegmentData = this.b) != null) {
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), adverSegmentData.getJumpExternalScheme(), this.b.getJumpExternalPackageName())) {
                     TbPageContext tbPageContext = this.a;
-                    eka.a(tbPageContext, uw4.a + bi.getUrlEncode(this.b.getJumpLink()));
+                    fka.a(tbPageContext, uw4.a + bi.getUrlEncode(this.b.getJumpLink()));
                 }
                 TiebaStatic.log(new StatisticItem("c14126").param("obj_type", this.c).param("obj_locate", this.d.B).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 ThirdStatisticHelper.sendReq(this.b.getClickStatisticsUrl());
@@ -788,9 +788,9 @@ public class PbFallingView extends FrameLayout {
         }
     }
 
-    public final void o(em9 em9Var, int i2) {
+    public final void o(fm9 fm9Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, em9Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, fm9Var, i2) == null) {
             if (this.h == 0) {
                 this.h = BdUtilHelper.getEquipmentWidth(this.g);
             }
@@ -799,9 +799,9 @@ public class PbFallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                em9 em9Var2 = new em9(em9Var.i, this.h, this.i);
-                em9Var2.e = (-i3) * 180;
-                this.f.add(em9Var2);
+                fm9 fm9Var2 = new fm9(fm9Var.i, this.h, this.i);
+                fm9Var2.e = (-i3) * 180;
+                this.f.add(fm9Var2);
             }
         }
     }
@@ -959,13 +959,13 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, adverSegmentData, bitmap, i2) == null) {
             Random random = new Random();
-            em9.b bVar = new em9.b(bitmap);
+            fm9.b bVar = new fm9.b(bitmap);
             bVar.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.l(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new j(this, random));
             bVar.p(true, true);
-            em9 k2 = bVar.k();
+            fm9 k2 = bVar.k();
             this.A = i2;
             o(k2, 19);
             postDelayed(this.y, 1500L);

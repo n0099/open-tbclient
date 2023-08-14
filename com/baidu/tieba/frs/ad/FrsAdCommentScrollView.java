@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.daa;
+import com.baidu.tieba.eaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<daa> g;
+    public List<eaa> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<daa> list) {
+    public void m(List<eaa> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        daa daaVar;
+        eaa eaaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            daa daaVar2 = (daa) ListUtils.getItem(this.g, this.h);
+            eaa eaaVar2 = (eaa) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                daaVar = (daa) ListUtils.getItem(this.g, 0);
+                eaaVar = (eaa) ListUtils.getItem(this.g, 0);
             } else {
-                daaVar = (daa) ListUtils.getItem(this.g, this.h + 1);
+                eaaVar = (eaa) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && daaVar2 != null) {
-                String a2 = daaVar2.a();
-                if (daaVar2.b()) {
+            if ((this.c.getTag() instanceof TextView) && eaaVar2 != null) {
+                String a2 = eaaVar2.a();
+                if (eaaVar2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0879, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && daaVar != null) {
-                String a3 = daaVar.a();
-                if (daaVar.b()) {
+            if ((this.d.getTag() instanceof TextView) && eaaVar != null) {
+                String a3 = eaaVar.a();
+                if (eaaVar.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0879, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

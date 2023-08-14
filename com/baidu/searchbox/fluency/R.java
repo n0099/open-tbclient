@@ -27,8 +27,8 @@ public final class R {
         public static final int level_middles = 0x7f0914f6;
         public static final int level_normal = 0x7f0914fa;
         public static final int level_normals = 0x7f0914fb;
-        public static final int scene_view = 0x7f0920bc;
-        public static final int top_page = 0x7f092600;
+        public static final int scene_view = 0x7f0920c2;
+        public static final int top_page = 0x7f092606;
     }
 
     /* loaded from: classes3.dex */

@@ -29,9 +29,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.card.ala.secondfloor.CommonSpaceItemDecoration;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
-import com.baidu.tieba.t5a;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.y38;
+import com.baidu.tieba.u5a;
+import com.baidu.tieba.vka;
+import com.baidu.tieba.z38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public RecommendRecentForumListAdapter e;
     public ImageView f;
     public ImageView g;
-    public y38 h;
+    public z38 h;
     public BdUniqueId i;
     public BdResourceCallback<BdImage> j;
 
@@ -159,11 +159,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     public final void e(boolean z) {
-        y38 y38Var;
+        z38 z38Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z && (y38Var = this.h) != null && y38Var.c() != null && !bi.isEmpty(uka.g(this.h.c()))) {
-                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(uka.g(this.h.c()), 45, this.j, this.i);
+            if (!z && (z38Var = this.h) != null && z38Var.c() != null && !bi.isEmpty(vka.g(this.h.c()))) {
+                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(vka.g(this.h.c()), 45, this.j, this.i);
                 if (bdImage != null) {
                     setBackground(bdImage.getAsBitmapDrawable());
                     return;
@@ -209,7 +209,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d085b, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09273c);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092742);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f00);
             this.g = (ImageView) findViewById(R.id.arrow_img);
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090beb);
@@ -227,24 +227,24 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        y38 y38Var;
+        z38 z38Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
             return;
         }
-        if ((view2 == this.c || view2 == this.g) && (y38Var = this.h) != null && !TextUtils.isEmpty(y38Var.g())) {
+        if ((view2 == this.c || view2 == this.g) && (z38Var = this.h) != null && !TextUtils.isEmpty(z38Var.g())) {
             UrlManager.getInstance().dealOneLink(this.a, new String[]{this.h.g()});
-            t5a.a().d(true);
+            u5a.a().d(true);
         }
     }
 
-    public void setData(y38 y38Var) {
+    public void setData(z38 z38Var) {
         RecommendRecentForumListAdapter recommendRecentForumListAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, y38Var) == null) {
-            if (y38Var != null && (recommendRecentForumListAdapter = this.e) != null) {
-                this.h = y38Var;
-                recommendRecentForumListAdapter.setData(y38Var.f());
+        if (interceptable == null || interceptable.invokeL(1048581, this, z38Var) == null) {
+            if (z38Var != null && (recommendRecentForumListAdapter = this.e) != null) {
+                this.h = z38Var;
+                recommendRecentForumListAdapter.setData(z38Var.f());
                 this.e.notifyDataSetChanged();
                 if (!bi.isEmpty(this.h.g())) {
                     this.c.setVisibility(8);
@@ -256,12 +256,12 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                 if (this.d.getLayoutManager() instanceof LinearLayoutManager) {
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.d.getLayoutManager();
                     if (this.h.h()) {
-                        if (y38Var.e() != Integer.MIN_VALUE && y38Var.d() != Integer.MIN_VALUE && !t5a.a().b()) {
-                            linearLayoutManager.scrollToPositionWithOffset(y38Var.e(), y38Var.d());
+                        if (z38Var.e() != Integer.MIN_VALUE && z38Var.d() != Integer.MIN_VALUE && !u5a.a().b()) {
+                            linearLayoutManager.scrollToPositionWithOffset(z38Var.e(), z38Var.d());
                         }
                     } else {
                         linearLayoutManager.scrollToPosition(0);
-                        t5a.a().e(false);
+                        u5a.a().e(false);
                     }
                 }
                 this.h.n(true);

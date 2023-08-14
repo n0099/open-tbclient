@@ -118,13 +118,13 @@ public class ze5 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return vaa.b(context, "com.sina.weibo");
+                        return waa.b(context, "com.sina.weibo");
                     }
                     return true;
                 }
-                return vaa.b(context, "com.tencent.mobileqq");
+                return waa.b(context, "com.tencent.mobileqq");
             }
-            return vaa.b(context, "com.tencent.mm");
+            return waa.b(context, "com.tencent.mm");
         }
         return invokeLI.booleanValue;
     }

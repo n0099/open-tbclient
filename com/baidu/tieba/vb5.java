@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.wx8;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vb5 implements wx8 {
+public class vb5 implements xx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -38,7 +38,7 @@ public class vb5 implements wx8 {
     public String m;
     public int n;
     public String o;
-    public wx8.a p;
+    public xx8.a p;
     public int q;
     public String r;
 
@@ -74,14 +74,14 @@ public class vb5 implements wx8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wx8
-    public wx8.a getParallelCharge() {
+    @Override // com.baidu.tieba.xx8
+    public xx8.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (wx8.a) invokeV.objValue;
+        return (xx8.a) invokeV.objValue;
     }
 
     public boolean a() {
@@ -138,7 +138,7 @@ public class vb5 implements wx8 {
         this.m = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
         this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
         this.r = jSONObject.optString("display_ad_icon");
-        wx8.a aVar = new wx8.a();
+        xx8.a aVar = new xx8.a();
         this.p = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
         this.p.c = f(d(jSONObject, "show_urls"));

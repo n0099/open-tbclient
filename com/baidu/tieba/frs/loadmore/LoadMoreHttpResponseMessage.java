@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
+import com.baidu.tieba.az9;
 import com.baidu.tieba.j25;
 import com.baidu.tieba.ym;
-import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,13 +115,13 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 this.threadList.add(j25Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = zy9.b(threadInfo);
+                                JSONObject b = az9.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        zy9.f().h("FRS", arrayList);
+                        az9.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

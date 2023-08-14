@@ -26,8 +26,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
-import com.baidu.tieba.vo8;
 import com.baidu.tieba.w05;
+import com.baidu.tieba.wo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -290,23 +290,23 @@ public class MessageCardBottomView extends LinearLayout {
         }
     }
 
-    public final AgreeData f(vo8 vo8Var, int i) {
+    public final AgreeData f(wo8 wo8Var, int i) {
         InterceptResult invokeLI;
         Agree agree;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, vo8Var, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, wo8Var, i)) == null) {
             AgreeData agreeData = new AgreeData();
-            OriginalThreadInfo l = vo8Var.l();
+            OriginalThreadInfo l = wo8Var.l();
             if (l != null && (agree = l.z) != null) {
                 agreeData.parseProtobuf(agree);
             }
             this.f.getImgAgree().cancelAnimation();
             this.f.setNeedMatchStrategy(false);
             this.f.setUseDynamicLikeResImmediately();
-            agreeData.postId = vo8Var.n();
-            agreeData.threadId = vo8Var.v();
-            agreeData.forumId = String.valueOf(vo8Var.e());
-            if (vo8Var.f()) {
+            agreeData.postId = wo8Var.n();
+            agreeData.threadId = wo8Var.v();
+            agreeData.forumId = String.valueOf(wo8Var.e());
+            if (wo8Var.f()) {
                 agreeData.hasAgree = true;
                 agreeData.agreeType = 2;
             }
@@ -378,11 +378,11 @@ public class MessageCardBottomView extends LinearLayout {
         EMManager.from(this.g).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0107);
     }
 
-    public void setAgreeData(vo8 vo8Var, int i) {
+    public void setAgreeData(wo8 wo8Var, int i) {
         AgreeData agreeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, vo8Var, i) == null) {
-            this.h = f(vo8Var, i);
+        if (interceptable == null || interceptable.invokeLI(1048586, this, wo8Var, i) == null) {
+            this.h = f(wo8Var, i);
             AgreeMessageData agreeMessageData = new AgreeMessageData();
             this.i = agreeMessageData;
             agreeMessageData.agreeData = this.h;

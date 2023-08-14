@@ -332,7 +332,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements rx {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0379, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092562);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092568);
             this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911b4);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002e);
             this.h = (EMTextView) this.a.findViewById(R.id.item_score);
@@ -358,7 +358,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements rx {
             EMManager.from(this.g).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
             EMManager.from(this.h).setTextColor(R.color.CAM_X0305);
             EMManager.from(this.e).setTextColor(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080b44, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080b46, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.f(i);
         }

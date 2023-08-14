@@ -1,102 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes6.dex */
-public class hh8 implements jh8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public hh8 e;
+public interface hh8 {
+    void a(@NonNull ci8 ci8Var);
 
-    public hh8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    @NonNull
+    HeadImageView b();
 
-    @Override // com.baidu.tieba.jh8
-    public RelativeLayout a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
+    @NonNull
+    TextView c();
 
-    @Override // com.baidu.tieba.jh8
-    public RecyclerView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
-        }
-        return (RecyclerView) invokeV.objValue;
-    }
+    TextView d();
 
-    @Override // com.baidu.tieba.jh8
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
+    @Nullable
+    TextView e();
 
-    @Override // com.baidu.tieba.jh8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
+    @NonNull
+    TextView f();
 
-    public static hh8 f(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            hh8 hh8Var = new hh8();
-            hh8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189b);
-            hh8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ea2);
-            hh8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebe);
-            hh8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090eaf);
-            hh8Var.e = hh8Var;
-            return hh8Var;
-        }
-        return (hh8) invokeL.objValue;
-    }
+    FrameLayout g();
 
-    @Override // com.baidu.tieba.jh8
-    public void b(int i, @NonNull ai8 ai8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ai8Var) == null) && !ai8Var.e()) {
-            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
-        }
-    }
+    void h(@NonNull ci8 ci8Var);
+
+    int i();
+
+    void j();
 }

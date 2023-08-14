@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax9;
-import com.baidu.tieba.ex9;
-import com.baidu.tieba.l36;
-import com.baidu.tieba.qy9;
+import com.baidu.tieba.bx9;
+import com.baidu.tieba.fx9;
+import com.baidu.tieba.m36;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.sy9;
+import com.baidu.tieba.ry9;
+import com.baidu.tieba.ty9;
 import com.baidu.tieba.v05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class AdCardVideoView extends AdCardBaseView implements ex9 {
+public class AdCardVideoView extends AdCardBaseView implements fx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView f0;
@@ -104,10 +104,10 @@ public class AdCardVideoView extends AdCardBaseView implements ex9 {
 
     public boolean B0(AdCard adCard) {
         InterceptResult invokeL;
-        qy9 qy9Var;
+        ry9 ry9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (qy9Var = adCard.verticalVideoStyle) == null || !qy9Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (ry9Var = adCard.verticalVideoStyle) == null || !ry9Var.a()) {
                 return false;
             }
             return true;
@@ -160,50 +160,50 @@ public class AdCardVideoView extends AdCardBaseView implements ex9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ex9
-    public ax9 getVideoOrVrView() {
+    @Override // com.baidu.tieba.fx9
+    public bx9 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f0;
         }
-        return (ax9) invokeV.objValue;
+        return (bx9) invokeV.objValue;
     }
 
     public final void C0(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
             if (adCard.goodsStyle == 14) {
-                if (l36.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (m36.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     int i = (this.x * 2) / 3;
                     this.h0 = i;
                     this.i0 = (i * 4) / 3;
                 } else {
                     int i2 = this.x / 2;
                     this.h0 = i2;
-                    this.i0 = sy9.b(i2);
+                    this.i0 = ty9.b(i2);
                 }
             } else {
                 int i3 = this.x;
                 this.h0 = i3;
-                this.i0 = sy9.a(i3);
+                this.i0 = ty9.a(i3);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f0.getLayoutParams();
             layoutParams.height = this.i0;
             layoutParams.width = this.h0;
             if (adCard.goodsStyle == 14 && !B0(adCard)) {
-                if (l36.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
+                if (m36.a().b("tieba_ad_mini_video_size_optimize_switch", 0) == 1) {
                     this.j0 = (this.x * 2) / 3;
                     this.r0 = (this.h0 * 4) / 3;
                 } else {
                     int i4 = this.x / 2;
                     this.j0 = i4;
-                    this.r0 = sy9.b(i4);
+                    this.r0 = ty9.b(i4);
                 }
             } else {
                 int i5 = this.x;
                 this.j0 = i5;
-                this.r0 = sy9.a(i5);
+                this.r0 = ty9.a(i5);
             }
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091840);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();

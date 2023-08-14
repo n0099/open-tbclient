@@ -1,44 +1,40 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cj8 extends hj8 {
+public class cj8 extends FastRequest.b<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatPage b;
+    @Nullable
+    public final String b;
+    @NonNull
+    public final ChatPage c;
 
-    @Override // com.baidu.tieba.hj8
-    public boolean c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: g */
+    public void e(@NonNull Void r5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hj8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "un_support" : (String) invokeV.objValue;
-    }
-
-    public cj8(ChatPage chatPage) {
+    public cj8(@Nullable String str, @NonNull ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {chatPage};
+            Object[] objArr = {str, chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,16 +44,22 @@ public final class cj8 extends hj8 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(chatPage, "chatPage");
-        this.b = chatPage;
+        this.b = str;
+        this.c = chatPage;
     }
 
-    @Override // com.baidu.tieba.hj8
-    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: f */
+    public void b(int i, @NonNull String str, @Nullable Void r7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            this.b.u1(R.string.obfuscated_res_0x7f0f0920);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
+            super.b(i, str, r7);
+            BdLog.d("error: " + i + " " + str);
+            String str2 = this.b;
+            if (str2 != null && !StringUtils.isNull(str2)) {
+                this.c.v1(this.b, false);
+            }
         }
     }
 }

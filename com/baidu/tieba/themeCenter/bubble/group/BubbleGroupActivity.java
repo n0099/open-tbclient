@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.cia;
-import com.baidu.tieba.eia;
+import com.baidu.tieba.dia;
 import com.baidu.tieba.fia;
-import com.baidu.tieba.qia;
+import com.baidu.tieba.gia;
+import com.baidu.tieba.ria;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,8 +20,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public fia b;
-    public cia c;
+    public gia b;
+    public dia c;
     public BubbleGroupModel.c d;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, qia qiaVar, List<eia> list) {
+        public void a(int i, String str, ria riaVar, List<fia> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qiaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, riaVar, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(qiaVar, list, this.a.a.U());
+                this.a.b.k(riaVar, list, this.a.a.U());
             }
         }
     }
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        fia fiaVar;
+        gia giaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (fiaVar = this.b) != null) {
-            showLoadingView(fiaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (giaVar = this.b) != null) {
+            showLoadingView(giaVar.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            fia fiaVar = this.b;
-            if (fiaVar != null) {
-                fiaVar.f();
+            gia giaVar = this.b;
+            if (giaVar != null) {
+                giaVar.f();
             }
         }
     }
@@ -140,11 +140,11 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
             bubbleGroupModel.X(this.d);
-            cia ciaVar = new cia(getPageContext());
-            this.c = ciaVar;
-            fia fiaVar = new fia(this, ciaVar);
-            this.b = fiaVar;
-            fiaVar.e();
+            dia diaVar = new dia(getPageContext());
+            this.c = diaVar;
+            gia giaVar = new gia(this, diaVar);
+            this.b = giaVar;
+            giaVar.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

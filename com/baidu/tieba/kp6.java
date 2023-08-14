@@ -4,20 +4,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compact.RecommendCollectCardView;
+import com.baidu.tieba.compact.RecommendBarCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kp6 extends d97<RecommendCollectCardView, wqa> {
+public class kp6 extends e97<RecommendBarCardView, j37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kp6() {
-        super("template_stub_head_card");
+        super("recommend_bar_layout");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,27 +33,26 @@ public class kp6 extends d97<RecommendCollectCardView, wqa> {
         }
     }
 
-    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @Override // com.baidu.tieba.e97, com.baidu.tieba.u97
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            hb7.i(a, Integer.valueOf((hb7.e() / 2) - ly.r));
+            ib7.h(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t97
+    @Override // com.baidu.tieba.u97
     /* renamed from: e */
-    public void b(@NonNull RecommendCollectCardView recommendCollectCardView, @NonNull wqa wqaVar) {
+    public void b(@NonNull RecommendBarCardView recommendBarCardView, @NonNull j37 j37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCollectCardView, wqaVar) == null) {
-            recommendCollectCardView.setData(wqaVar);
-            recommendCollectCardView.c();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBarCardView, j37Var) == null) {
+            recommendBarCardView.update(j37Var);
         }
     }
 }

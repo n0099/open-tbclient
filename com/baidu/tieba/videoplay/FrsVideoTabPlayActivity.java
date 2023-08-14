@@ -40,8 +40,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b36;
 import com.baidu.tieba.bi;
+import com.baidu.tieba.c36;
 import com.baidu.tieba.dt4;
 import com.baidu.tieba.et4;
 import com.baidu.tieba.video.VideoItemData;
@@ -75,7 +75,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment o;
     public NavigationBar p;
     public TextView q;
-    public b36 r;
+    public c36 r;
     public CustomMessageListener s;
     public CustomMessageListener t;
 
@@ -320,7 +320,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             this.o = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092918, this.o);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09291e, this.o);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.p = new NavigationBar(this);
@@ -487,7 +487,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.d = System.currentTimeMillis();
             setContentView(R.layout.obfuscated_res_0x7f0d09e4);
-            this.r = new b36(getPageContext(), "client_videomiddle");
+            this.r = new c36(getPageContext(), "client_videomiddle");
             A1();
             B1();
             addNoAdjustSoftInputHeightListener();
@@ -515,9 +515,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            b36 b36Var = this.r;
-            if (b36Var != null) {
-                b36Var.h();
+            c36 c36Var = this.r;
+            if (c36Var != null) {
+                c36Var.h();
             }
             if (!TextUtils.isEmpty(this.f)) {
                 str = "1";

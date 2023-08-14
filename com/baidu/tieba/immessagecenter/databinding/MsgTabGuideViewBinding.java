@@ -77,17 +77,17 @@ public final class MsgTabGuideViewBinding implements ViewBinding {
                     i = R.id.obfuscated_res_0x7f090ff7;
                     FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ff7);
                     if (frameLayout != null) {
-                        i = R.id.obfuscated_res_0x7f0919ef;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919ef);
+                        i = R.id.obfuscated_res_0x7f0919f5;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919f5);
                         if (relativeLayout != null) {
-                            i = R.id.obfuscated_res_0x7f0919f0;
-                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f0);
+                            i = R.id.obfuscated_res_0x7f0919f6;
+                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f6);
                             if (imageView2 != null) {
-                                i = R.id.obfuscated_res_0x7f0919f1;
-                                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919f1);
+                                i = R.id.obfuscated_res_0x7f0919f7;
+                                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919f7);
                                 if (frameLayout2 != null) {
-                                    i = R.id.obfuscated_res_0x7f092557;
-                                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092557);
+                                    i = R.id.obfuscated_res_0x7f09255d;
+                                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09255d);
                                     if (textView2 != null) {
                                         return new MsgTabGuideViewBinding((ConstraintLayout) view2, textView, imageView, frameLayout, relativeLayout, imageView2, frameLayout2, textView2);
                                     }

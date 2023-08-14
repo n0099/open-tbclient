@@ -43,7 +43,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09271f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092725);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e2);
     }
 
@@ -51,7 +51,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c46, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c49, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 

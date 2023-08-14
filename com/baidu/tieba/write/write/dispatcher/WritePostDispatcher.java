@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s1a;
+import com.baidu.tieba.t1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class WritePostDispatcher implements s1a {
+public class WritePostDispatcher implements t1a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEEK_HELP = "seek_help";
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class WritePostDispatcher implements s1a {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s1a
+    @Override // com.baidu.tieba.t1a
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;

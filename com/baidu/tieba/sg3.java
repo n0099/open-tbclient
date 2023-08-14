@@ -46,11 +46,11 @@ public class sg3 {
 
         /* renamed from: com.baidu.tieba.sg3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class RunnableC0473a implements Runnable {
+        public static class RunnableC0476a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0473a() {
+            public RunnableC0476a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class sg3 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0473a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0476a(), "V8SoCleaner", 3);
             }
         }
     }

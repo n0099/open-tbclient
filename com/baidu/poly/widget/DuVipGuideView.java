@@ -152,8 +152,8 @@ public class DuVipGuideView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09ed, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09120c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09270c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09270b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092712);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092711);
         }
     }
 }

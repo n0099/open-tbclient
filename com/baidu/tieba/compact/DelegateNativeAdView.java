@@ -7,18 +7,18 @@ import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.ky8;
+import com.baidu.tieba.bz9;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lx9;
+import com.baidu.tieba.ly8;
 import com.baidu.tieba.mx9;
-import com.baidu.tieba.n97;
+import com.baidu.tieba.nx9;
 import com.baidu.tieba.o97;
-import com.baidu.tieba.px8;
+import com.baidu.tieba.p97;
 import com.baidu.tieba.qx8;
+import com.baidu.tieba.rx8;
 import com.baidu.tieba.v05;
-import com.baidu.tieba.vp6;
-import com.baidu.tieba.xx8;
+import com.baidu.tieba.wp6;
+import com.baidu.tieba.yx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B9\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\f\u0010\u0005\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0006\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b\u0012\b\b\u0002\u0010\t\u001a\u00020\n\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\f¢\u0006\u0002\u0010\rJ\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u000e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u000fR\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0016"}, d2 = {"Lcom/baidu/tieba/compact/DelegateNativeAdView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "typeCardInfo", "Lcom/baidu/tieba/lego/card/model/ICardInfo;", "businessType", "", "formTab", "", "(Landroid/content/Context;Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/lego/card/model/ICardInfo;ILjava/lang/String;)V", "curData", "Lcom/baidu/tbadk/core/data/AdvertAppInfo;", "realView", "Landroid/view/View;", "onChangeSkin", "", "updateAdView", "data", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
-public final class DelegateNativeAdView extends FrameLayout implements n97 {
+public final class DelegateNativeAdView extends FrameLayout implements o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
@@ -37,7 +37,7 @@ public final class DelegateNativeAdView extends FrameLayout implements n97 {
     public AdvertAppInfo c;
 
     /* loaded from: classes5.dex */
-    public static final class a implements px8 {
+    public static final class a implements qx8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdvertAppInfo a;
@@ -60,18 +60,18 @@ public final class DelegateNativeAdView extends FrameLayout implements n97 {
             this.a = advertAppInfo;
         }
 
-        @Override // com.baidu.tieba.px8
+        @Override // com.baidu.tieba.qx8
         public void a(int i, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
                 return;
             }
-            if (mx9.h(i)) {
-                az9.g(this.a, 0, hashMap, i);
+            if (nx9.h(i)) {
+                bz9.g(this.a, 0, hashMap, i);
             } else {
-                az9.n(this.a, 0, "", null, hashMap);
+                bz9.n(this.a, 0, "", null, hashMap);
             }
-            xx8.c(this.a);
+            yx8.c(this.a);
         }
     }
 
@@ -104,7 +104,7 @@ public final class DelegateNativeAdView extends FrameLayout implements n97 {
             tbPageContext = (TbPageContext) context;
         }
         if (tbPageContext != null && iCardInfo != null) {
-            ky8 a2 = qx8.h().a(tbPageContext, iCardInfo, i);
+            ly8 a2 = rx8.h().a(tbPageContext, iCardInfo, i);
             if (a2 instanceof View) {
                 view2 = (View) a2;
                 view2 = view2 == null ? new View(context) : view2;
@@ -124,29 +124,29 @@ public final class DelegateNativeAdView extends FrameLayout implements n97 {
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             this.c = data;
-            if ((this.b instanceof ky8) && data.h != null) {
+            if ((this.b instanceof ly8) && data.h != null) {
                 v05.d(data);
-                ky8<?> ky8Var = (ky8) this.b;
-                ky8Var.update(data.h);
-                lx9.m().c(data, ky8Var, data.u, this.a, 1, -1);
-                ky8Var.setAfterClickSchemeListener(new a(data));
+                ly8<?> ly8Var = (ly8) this.b;
+                ly8Var.update(data.h);
+                mx9.m().c(data, ly8Var, data.u, this.a, 1, -1);
+                ly8Var.setAfterClickSchemeListener(new a(data));
                 View view2 = this.b;
-                view2.setTag(new vp6(view2));
+                view2.setTag(new wp6(view2));
             }
         }
     }
 
-    @Override // com.baidu.tieba.n97
+    @Override // com.baidu.tieba.o97
     public void c() {
         AdvertAppInfo advertAppInfo;
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || o97.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || p97.a(this)) {
             return;
         }
         View view2 = this.b;
-        if ((view2 instanceof ky8) && (advertAppInfo = this.c) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-            ((ky8) view2).update(iLegoAdvert);
+        if ((view2 instanceof ly8) && (advertAppInfo = this.c) != null && (iLegoAdvert = advertAppInfo.h) != null) {
+            ((ly8) view2).update(iLegoAdvert);
         }
     }
 }

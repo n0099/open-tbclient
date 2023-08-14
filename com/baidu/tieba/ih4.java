@@ -36,8 +36,8 @@ public class ih4 {
         a.put(37, new gh4(37, R.string.obfuscated_res_0x7f0f011d, R.drawable.obfuscated_res_0x7f0800f2, true));
         a.put(38, new gh4(38, R.string.obfuscated_res_0x7f0f0126, R.drawable.obfuscated_res_0x7f0800ee, true));
         a.put(42, new gh4(42, R.string.obfuscated_res_0x7f0f011e, R.drawable.obfuscated_res_0x7f080112, true));
-        a.put(49, new gh4(49, R.string.obfuscated_res_0x7f0f14b1, R.drawable.obfuscated_res_0x7f081409, true));
-        a.put(50, new gh4(50, R.string.obfuscated_res_0x7f0f1535, R.drawable.obfuscated_res_0x7f081408, true));
+        a.put(49, new gh4(49, R.string.obfuscated_res_0x7f0f14b1, R.drawable.obfuscated_res_0x7f08140c, true));
+        a.put(50, new gh4(50, R.string.obfuscated_res_0x7f0f1535, R.drawable.obfuscated_res_0x7f08140b, true));
         a.put(43, new gh4(43, R.string.obfuscated_res_0x7f0f011c, R.drawable.obfuscated_res_0x7f0800f3, true));
         a.put(9, new gh4(9, R.string.obfuscated_res_0x7f0f0127, R.drawable.obfuscated_res_0x7f0800ff, true));
         a.put(46, new gh4(46, R.string.obfuscated_res_0x7f0f011f, R.drawable.obfuscated_res_0x7f080104, true));

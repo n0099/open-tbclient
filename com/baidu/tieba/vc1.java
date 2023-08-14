@@ -205,10 +205,10 @@ public class vc1 extends sc1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.nad_view_safe_dialog, viewGroup, false);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa3);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa9);
             this.j = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_message));
-            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091fa4);
+            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091faa);
             this.k = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_btn_blue));
             o();

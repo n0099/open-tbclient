@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg6;
-import com.baidu.tieba.ig6;
+import com.baidu.tieba.hg6;
+import com.baidu.tieba.jg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,10 +45,10 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(gg6 gg6Var) {
+    public void setMyRecordData(hg6 hg6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, gg6Var) == null) && gg6Var != null) {
-            this.c = gg6Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, hg6Var) == null) && hg6Var != null) {
+            this.c = hg6Var;
             TextView textView = this.e;
             textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
         }
@@ -109,10 +109,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, ig6 ig6Var) {
+    public void setData(int i, jg6 jg6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ig6Var) == null) {
-            super.setData(i, ig6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, jg6Var) == null) {
+            super.setData(i, jg6Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");

@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc7;
+import com.baidu.tieba.dc7;
 import com.baidu.tieba.feed.widget.ForumAttentionView;
-import com.baidu.tieba.lb7;
+import com.baidu.tieba.mb7;
 import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -106,20 +106,20 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static /* synthetic */ void s(ForumAttentionView forumAttentionView, cc7 cc7Var, boolean z, int i, Object obj) {
+    public static /* synthetic */ void s(ForumAttentionView forumAttentionView, dc7 dc7Var, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        forumAttentionView.update(cc7Var, z);
+        forumAttentionView.update(dc7Var, z);
     }
 
-    public static final void t(final ForumAttentionView this$0, final cc7 state) {
+    public static final void t(final ForumAttentionView this$0, final dc7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            if (lb7.a(this$0, state, false)) {
-                this$0.post(new Runnable() { // from class: com.baidu.tieba.tb7
+            if (mb7.a(this$0, state, false)) {
+                this$0.post(new Runnable() { // from class: com.baidu.tieba.ub7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void u(ForumAttentionView this$0, cc7 state) {
+    public static final void u(ForumAttentionView this$0, dc7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -144,11 +144,11 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void v(cc7 state, TbPageContext pageContext, View view2) {
+    public static final void v(dc7 state, TbPageContext pageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<cc7, TbPageContext<?>, Unit> g = state.g();
+            Function2<dc7, TbPageContext<?>, Unit> g = state.g();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             g.invoke(state, pageContext);
         }
@@ -178,13 +178,13 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public final void update(final cc7 state, boolean z) {
+    public final void update(final dc7 state, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, state, z) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            lb7.b(this, state, false, 2, null);
+            mb7.b(this, state, false, 2, null);
             if (!z) {
-                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.pb7
+                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.qb7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                 Context context = getContext();
                 if (context != null) {
                     final TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ob7
+                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,7 +213,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                ForumAttentionView.v(cc7.this, pageContext, view2);
+                                ForumAttentionView.v(dc7.this, pageContext, view2);
                             }
                         }
                     });

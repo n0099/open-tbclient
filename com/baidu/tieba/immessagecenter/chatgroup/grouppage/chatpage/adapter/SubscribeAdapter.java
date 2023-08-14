@@ -53,9 +53,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092556);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922db);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e1);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092493);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder

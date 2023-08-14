@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw5;
+import com.baidu.tieba.dw5;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +90,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.U(view2, bundle);
-            cw5.b(view2);
+            dw5.b(view2);
             NavigationBar navigationBar = this.l;
             if (navigationBar != null) {
                 navigationBar.setStatusBarVisibility(8);
@@ -99,7 +99,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 if (eMTextView != null) {
                     eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca7));
                 }
-                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e3, new View.OnClickListener() { // from class: com.baidu.tieba.tq8
+                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e3, new View.OnClickListener() { // from class: com.baidu.tieba.uq8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,7 +133,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             EMManager.from(H()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
             EMManager.from(this.n).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X12);
             EMManager.from(this.m).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X04).setTextStyle(R.string.F_X02);
-            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080afe, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080b00, R.color.CAM_X0107, null);
         }
     }
 }

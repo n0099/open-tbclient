@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gga extends HttpMessageListener {
+public class gga extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public f35 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gga(MainTabActivity mainTabActivity) {
-        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+    public gga(MainTabActivity mainTabActivity, iea ieaVar) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, ieaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,37 +33,26 @@ public class gga extends HttpMessageListener {
                 return;
             }
         }
-    }
-
-    public final void a(Message<?> message, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
-            int i = Integer.MAX_VALUE;
-            if (message instanceof HttpMessage) {
-                HttpMessage httpMessage = (HttpMessage) message;
-                if (httpMessage.getParams() != null) {
-                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
-                    if (obj instanceof String) {
-                        i = m9b.b((String) obj, Integer.MAX_VALUE);
-                    }
-                }
-            }
-            xe8.a(str, z, i, 2, true);
-        }
+        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
             return;
         }
-        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
-        if (jsonHttpResponsedMessage.getError() != 0) {
-            a(httpResponsedMessage.getOrginalMessage(), hc8.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
-        } else {
-            a(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
+        if (this.b == null && !(customResponsedMessage.getData() instanceof f35)) {
+            return;
+        }
+        if (customResponsedMessage.getData() != null) {
+            this.b = (f35) customResponsedMessage.getData();
+        }
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            gea geaVar = this.a.v;
+            f35 f35Var = this.b;
+            geaVar.j(f35Var.a, f35Var.b, f35Var.c);
         }
     }
 }

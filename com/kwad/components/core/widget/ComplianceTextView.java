@@ -115,7 +115,7 @@ public class ComplianceTextView extends TextView {
         this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06078d));
         this.OK = obtainStyledAttributes.getBoolean(1, true);
         if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e1e));
+            setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e21));
         }
         obtainStyledAttributes.recycle();
     }

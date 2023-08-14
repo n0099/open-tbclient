@@ -1084,7 +1084,7 @@ public class SwanAppAdLandingFragment extends ma2 implements jz3 {
         } else {
             simpleDraweeView2.setVisibility(8);
         }
-        simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081426));
+        simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081429));
         if (this.q1.booleanValue()) {
             str = this.B1;
         } else {
@@ -1178,7 +1178,7 @@ public class SwanAppAdLandingFragment extends ma2 implements jz3 {
     public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e2, viewGroup, false);
         W1(inflate);
-        this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0922fb);
+        this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f092301);
         this.R0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bd);
         n4();
         p4();

@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes6.dex */
-public interface iac extends hac {
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface iac {
+    void attachWindow(Window window);
+
+    View getContentView();
+
+    void refreshView();
+
+    void refreshWindow(WindowParams windowParams);
 }

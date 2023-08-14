@@ -33,10 +33,10 @@ public class ve5 implements ck1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PluginCheck.a());
-            arrayList.add(new yy7());
-            arrayList.add(new eu8());
-            arrayList.add(new gk9());
-            arrayList.add(new l6a());
+            arrayList.add(new zy7());
+            arrayList.add(new fu8());
+            arrayList.add(new hk9());
+            arrayList.add(new m6a());
             return arrayList;
         }
         return invokeV.objValue;

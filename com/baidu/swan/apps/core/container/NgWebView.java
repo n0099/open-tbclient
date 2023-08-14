@@ -348,10 +348,10 @@ public class NgWebView extends BdSailorWebView implements fx1, SlideInterceptor,
         int i2 = popTopY - g2;
         if (i2 < 0) {
             g = po3.g(22.0f) + popBottomY;
-            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144b);
+            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144e);
         } else {
             g = po3.g(22.0f) + i2;
-            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144a);
+            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144d);
         }
         if (g + g2 > height) {
             g = (popBottomY - popTopY) - g2;
@@ -400,7 +400,7 @@ public class NgWebView extends BdSailorWebView implements fx1, SlideInterceptor,
             }
             getCurrentWebView().addView(this.mSelectPopWindow, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
             this.mSelectPopWindow.setEventListener(this);
-            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144a);
+            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f08144d);
             this.mSelectPopWindow.setVisibility(4);
         }
     }

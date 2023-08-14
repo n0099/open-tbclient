@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.h55;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lx5;
+import com.baidu.tieba.mx5;
 import com.baidu.tieba.v40;
 import com.baidu.tieba.zj;
 import java.io.UnsupportedEncodingException;
@@ -104,7 +104,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                lx5.e(jSONArray);
+                mx5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();

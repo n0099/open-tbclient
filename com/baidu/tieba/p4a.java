@@ -1,49 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class p4a implements ILooperNeedContext {
+public class p4a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile o4a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p4a() {
+    public static synchronized o4a a() {
+        InterceptResult invokeV;
+        o4a o4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (p4a.class) {
+                if (a == null) {
+                    a = new o4a();
+                }
+                o4aVar = a;
             }
+            return o4aVar;
         }
-    }
-
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void addLooperPrinter(Printer printer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
-            Looper.getMainLooper().setMessageLogging(printer);
-        }
-    }
-
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void removeLooperPrinter(Printer printer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
-            Looper.getMainLooper().setMessageLogging(null);
-        }
+        return (o4a) invokeV.objValue;
     }
 }

@@ -158,7 +158,7 @@ public class rj5 extends nh5 {
                                                         return;
                                                     }
                                                     return;
-                                                } else if (!nv5.c(this.a.getContext(), true, false)) {
+                                                } else if (!ov5.c(this.a.getContext(), true, false)) {
                                                     HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
                                                     if (this.c.a != null) {
                                                         hotSelectActivityConfig.setForumExtra(JavaTypesHelper.toLong(this.c.a.getId(), 0L), this.c.a.getFirst_class(), this.c.a.getSecond_class());
@@ -360,7 +360,7 @@ public class rj5 extends nh5 {
             arrayList.add(6);
             arrayList.add(9);
             b.d(new ii5(b.getContext(), 1));
-            if (mda.a() && qaa.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
+            if (nda.a() && raa.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
                 xh5Var.l = 2;
                 b.d(xh5Var);
             }

@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b36;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.cv7;
+import com.baidu.tieba.c36;
 import com.baidu.tieba.dt4;
-import com.baidu.tieba.eo6;
+import com.baidu.tieba.dv7;
 import com.baidu.tieba.et4;
+import com.baidu.tieba.fo6;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
@@ -52,7 +52,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public b36 e;
+    public c36 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -113,12 +113,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            b36 b36Var = this.e;
-            if (b36Var != null) {
-                b36Var.h();
+            c36 c36Var = this.e;
+            if (c36Var != null) {
+                c36Var.h();
             }
-            cv7.m().c(cv7.s());
-            eo6.a();
+            dv7.m().c(dv7.s());
+            fo6.a();
         }
     }
 
@@ -238,7 +238,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
             setContentView(R.layout.obfuscated_res_0x7f0d09e4);
-            this.e = new b36(getPageContext(), "client_videomiddle");
+            this.e = new c36(getPageContext(), "client_videomiddle");
             v1();
             w1();
             addNoAdjustSoftInputHeightListener();
@@ -327,7 +327,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             this.d.setArguments(getIntent().getExtras());
             this.d.a2(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092918, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09291e, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

@@ -55,14 +55,14 @@ public final class SimilarTitleViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f092209;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092209);
+            int i = R.id.obfuscated_res_0x7f09220f;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09220f);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f09220a;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09220a);
+                i = R.id.obfuscated_res_0x7f092210;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092210);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f09220b;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09220b);
+                    i = R.id.obfuscated_res_0x7f092211;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092211);
                     if (imageView != null) {
                         return new SimilarTitleViewBinding((RelativeLayout) view2, linearLayout, textView, imageView);
                     }

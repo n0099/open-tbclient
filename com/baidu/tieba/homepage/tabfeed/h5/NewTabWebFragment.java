@@ -44,13 +44,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.ng7;
 import com.baidu.tieba.py4;
-import com.baidu.tieba.qk6;
-import com.baidu.tieba.qz7;
+import com.baidu.tieba.rk6;
 import com.baidu.tieba.rz7;
+import com.baidu.tieba.sz7;
 import com.baidu.tieba.tm5;
 import com.baidu.tieba.tw4;
 import com.baidu.tieba.yw4;
@@ -65,7 +65,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
+public class NewTabWebFragment extends BaseWebViewFragment implements ng7, py4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -80,20 +80,20 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
     public boolean n;
     public boolean o;
     public boolean p;
-    public l68 q;
-    public qz7 r;
+    public m68 q;
+    public rz7 r;
     public CustomMessageListener s;
     public final CustomMessageListener t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -186,7 +186,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                qk6.a().d(this.a.j, "writePostSuccess", new HashMap<>());
+                rk6.a().d(this.a.j, "writePostSuccess", new HashMap<>());
             }
         }
     }
@@ -508,7 +508,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
         this.u = new d(this);
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -516,7 +516,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
             if (this.j != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                qk6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                rk6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
                 this.j.setWebViewSkinOverly(this.g, R.color.CAM_X0503);
             }
         }
@@ -565,10 +565,10 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
         }
     }
 
-    public void o2(qz7 qz7Var) {
+    public void o2(rz7 rz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, qz7Var) == null) {
-            this.r = qz7Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, rz7Var) == null) {
+            this.r = rz7Var;
         }
     }
 
@@ -584,7 +584,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            js5.a(getPageContext(), this.i);
+            ks5.a(getPageContext(), this.i);
         }
     }
 
@@ -617,7 +617,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
+    @Override // com.baidu.tieba.ng7
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -689,9 +689,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
             tm5.e().b();
-            l68 l68Var = this.q;
-            if (l68Var != null) {
-                l68Var.c();
+            m68 m68Var = this.q;
+            if (m68Var != null) {
+                m68Var.c();
             }
             q2();
         }
@@ -718,9 +718,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
             if (tbWebView != null) {
                 tbWebView.onPause();
             }
-            l68 l68Var = this.q;
-            if (l68Var != null) {
-                l68Var.f();
+            m68 m68Var = this.q;
+            if (m68Var != null) {
+                m68Var.f();
             }
         }
     }
@@ -793,14 +793,14 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
                     initData();
                 }
                 n2();
-                qk6.a().d(this.j, CommonTbJsBridge.RE_SHOW, null);
+                rk6.a().d(this.j, CommonTbJsBridge.RE_SHOW, null);
                 this.j.setWebViewSkinOverly(this.g, R.color.CAM_X0503);
             } else {
                 MessageManager.getInstance().unRegisterTask(2016568);
             }
-            l68 l68Var = this.q;
-            if (l68Var != null) {
-                l68Var.g();
+            m68 m68Var = this.q;
+            if (m68Var != null) {
+                m68Var.g();
             }
         }
     }
@@ -831,9 +831,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
                 this.g = bundle.getString("tab_url");
             }
             this.a = this.g;
-            l68 l68Var = new l68(this);
-            this.q = l68Var;
-            l68Var.b(bundle);
+            m68 m68Var = new m68(this);
+            this.q = m68Var;
+            m68Var.b(bundle);
             j2();
             m2();
         }
@@ -853,9 +853,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
             if (this.i == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0713, (ViewGroup) null);
                 this.i = inflate;
-                this.j = (TbWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929e4);
+                this.j = (TbWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929ea);
                 this.k = (FrameLayout) this.i.findViewById(R.id.load_state_container);
-                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f092419);
+                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f09241f);
                 k2();
             }
             TbWebView tbWebView2 = this.j;
@@ -865,14 +865,14 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mg7, py4 {
             TbWebView tbWebView3 = this.j;
             if (tbWebView3 != null) {
                 tbWebView3.m("webviewType", "tab");
-                qz7 qz7Var = this.r;
-                if (qz7Var instanceof rz7) {
-                    ((rz7) qz7Var).f(this.j);
+                rz7 rz7Var = this.r;
+                if (rz7Var instanceof sz7) {
+                    ((sz7) rz7Var).f(this.j);
                 }
             }
-            l68 l68Var = this.q;
-            if (l68Var != null && (tbWebView = this.j) != null) {
-                l68Var.h(tbWebView);
+            m68 m68Var = this.q;
+            if (m68Var != null && (tbWebView = this.j) != null) {
+                m68Var.h(tbWebView);
             }
             if (TbadkCoreApplication.getInst().isUseBottomBarDynamicStyleHeight()) {
                 this.i.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);

@@ -115,7 +115,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0357a g;
+        public static final C0358a g;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public RelativeLayout b;
@@ -137,20 +137,20 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     return;
                 }
             }
-            g = new C0357a(null);
+            g = new C0358a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.mention.base.NotificationView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0357a {
+        public static final class C0358a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0357a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0358a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0357a() {
+            public C0358a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,13 +171,13 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
                     aVar.j(root);
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919d4);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919da);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.open_notify_background)");
                     aVar.h((RelativeLayout) findViewById);
                     View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910d7);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.img_focus)");
                     aVar.g((ImageView) findViewById2);
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919d1);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919d7);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.open_desc)");
                     aVar.i((TextView) findViewById3);
                     View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904da);
@@ -337,9 +337,9 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         this.b = TbadkApplication.getInst().getCurrentPageContext(getContext());
         this.c = 3;
         View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0752, (ViewGroup) this, true);
-        a.C0357a c0357a = a.g;
+        a.C0358a c0358a = a.g;
         Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-        a a3 = c0357a.a(rootView);
+        a a3 = c0358a.a(rootView);
         this.a = a3;
         if (a3 != null && (a2 = a3.a()) != null) {
             a2.setOnClickListener(this);

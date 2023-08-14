@@ -1,64 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n4b;
-import com.baidu.tieba.q4b;
+import android.content.Context;
+import com.baidu.tieba.o4b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public final class p4b implements n4b.a {
+public final class p4b {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static o4b.a b;
+    public static o4b.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.n4b.a
-    public final void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948013483, "Lcom/baidu/tieba/p4b;")) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.n4b.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public p4b() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948013483, "Lcom/baidu/tieba/p4b;");
+        }
+    }
+
+    public static synchronized void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (p4b.class) {
+                if (!a) {
+                    b5b.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new q4b();
+                    c = new a5b();
+                    o4b.a().c();
+                    o4b.a().d(c);
+                    o4b.a().d(b);
+                    o4b.a().e(context);
+                    a = true;
+                    return;
+                }
+                b5b.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.n4b.a
-    public final void a(Activity activity) {
-        q4b q4bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            q4bVar = q4b.a.a;
-            q4bVar.c(new WeakReference<>(activity));
-        }
-    }
-
-    @Override // com.baidu.tieba.n4b.a
-    public final void onActivityDestroyed(Activity activity) {
-        q4b q4bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            q4bVar = q4b.a.a;
-            q4bVar.d(activity);
         }
     }
 }

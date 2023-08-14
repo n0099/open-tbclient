@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.bn6;
 import com.baidu.tieba.bx;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.cy;
 import com.baidu.tieba.fx;
 import com.baidu.tieba.gx;
@@ -199,10 +199,10 @@ public class ThreadCardViewHolder<T extends q05> extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void i(bn6<T> bn6Var) {
+    public void i(cn6<T> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bn6Var) == null) {
-            this.b.q(bn6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cn6Var) == null) {
+            this.b.q(cn6Var);
         }
     }
 

@@ -84,7 +84,7 @@ public final class ChatNavSlice extends Slice {
             marginLayoutParams.setMargins(BdUtilHelper.getDimens(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
             imageView.setLayoutParams(marginLayoutParams);
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_topbar_return40_svg, imageView.getContext().getResources().getColor(R.color.CAM_X0105), null));
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.nu8
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.ou8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

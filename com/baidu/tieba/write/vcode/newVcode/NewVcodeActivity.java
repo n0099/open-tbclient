@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.aua;
+import com.baidu.tieba.bua;
 import com.baidu.tieba.jd5;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.xta;
 import com.baidu.tieba.yta;
 import com.baidu.tieba.zta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public yta c;
+    public zta c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -150,22 +150,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final yta E1() {
+    public final zta E1() {
         InterceptResult invokeV;
-        yta ztaVar;
+        zta auaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                ztaVar = new xta(this.b, this.a);
+                auaVar = new yta(this.b, this.a);
             } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                ztaVar = new aua(this.b, this.a);
+                auaVar = new bua(this.b, this.a);
             } else {
-                ztaVar = new zta(this.b, this.a);
+                auaVar = new aua(this.b, this.a);
             }
-            ztaVar.c(this.f);
-            return ztaVar;
+            auaVar.c(this.f);
+            return auaVar;
         }
-        return (yta) invokeV.objValue;
+        return (zta) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -215,7 +215,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.j0(z);
             }
-            yta E1 = E1();
+            zta E1 = E1();
             this.c = E1;
             this.b.setPresenter(E1);
             this.c.a(this.g);

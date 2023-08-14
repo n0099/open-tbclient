@@ -1,62 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabRequestMessage;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabResponseMessage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
+import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class od6 implements ng7 {
+public class od6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public ch7 c;
-    public ArrayList<ym> d;
-    public rg7 e;
-    public NetMessageListener f;
-    public HttpMessageListener g;
+    public View a;
+    public RelativeLayout b;
+    public ThreadUserInfoLayout c;
+    public TextView d;
+    public ThreadCommentAndPraiseInfoLayout e;
+    public View f;
+    public AlaVideoContainer g;
+    public View h;
+    public ThreadData i;
+    public String j;
+    public sd6 k;
+    public final View.OnClickListener l;
 
     /* loaded from: classes7.dex */
-    public class a extends NetMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ od6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(od6 od6Var, int i, int i2) {
-            super(i, i2);
+        public a(od6 od6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {od6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {od6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,117 +60,21 @@ public class od6 implements ng7 {
             this.a = od6Var;
         }
 
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ThreadData threadData;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            List<Long> list = null;
-            if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
-                list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
-            }
-            if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
-                list = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
-            }
-            if (!ListUtils.isEmpty(this.a.d) && !ListUtils.isEmpty(list)) {
-                boolean z = false;
-                for (int size = this.a.d.size() - 1; size >= 0; size--) {
-                    if (this.a.d.get(size).getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && (threadData = (ThreadData) this.a.d.get(size)) != null && threadData.getThreadAlaInfo() != null && list.contains(Long.valueOf(threadData.getThreadAlaInfo().live_id))) {
-                        this.a.d.remove(size);
-                        z = true;
-                    }
-                }
-                if (z && this.a.e != null) {
-                    this.a.e.a(49, this.a.b, this.a.c, this.a.d);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k != null) {
+                this.a.k.b(view2, this.a.i);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ od6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(od6 od6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = od6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021038) {
-                if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof FrsPageAlaTabResponseMessage)) {
-                    FrsPageAlaTabResponseMessage frsPageAlaTabResponseMessage = (FrsPageAlaTabResponseMessage) httpResponsedMessage;
-                    if (frsPageAlaTabResponseMessage.errCode == 0) {
-                        ArrayList<ym> arrayList = frsPageAlaTabResponseMessage.mThreadList;
-                        ArrayList<ym> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
-                        ch7 ch7Var = frsPageAlaTabResponseMessage.pageInfo;
-                        int i = frsPageAlaTabResponseMessage.alaLiveCount;
-                        this.a.c = ch7Var;
-                        if (ch7Var.c == 1) {
-                            this.a.d.clear();
-                        }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i)));
-                        if (this.a.e != null) {
-                            if (arrayList != null && arrayList.size() > 0) {
-                                this.a.d.addAll(arrayList);
-                                this.a.e.a(49, this.a.b, ch7Var, this.a.d);
-                                return;
-                            }
-                            ThreadData threadData = new ThreadData();
-                            threadData.setThreadType(51);
-                            if (this.a.d.size() == 0 || (this.a.d.size() > 0 && ((ThreadData) this.a.d.get(0)).getThreadType() != 51)) {
-                                this.a.d.add(0, threadData);
-                            }
-                            if (arrayList2 != null && arrayList2.size() > 0) {
-                                threadData.hasRecommend = true;
-                                if (arrayList2.get(0) != null) {
-                                    ((ThreadData) arrayList2.get(0)).isFirstRecommend = true;
-                                }
-                                this.a.d.addAll(arrayList2);
-                            }
-                            this.a.e.a(49, this.a.b, ch7Var, this.a.d);
-                            return;
-                        }
-                        return;
-                    } else if (this.a.e != null) {
-                        this.a.e.a(49, this.a.b, null, null);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.a.e.a(49, this.a.b, null, null);
-            }
-        }
-    }
-
-    public od6() {
+    public od6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -185,81 +84,126 @@ public class od6 implements ng7 {
                 return;
             }
         }
-        this.d = new ArrayList<>();
-        this.f = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
-        this.g = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
+        this.l = new a(this);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0345, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.layout_root);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0905ad);
+        this.c = threadUserInfoLayout;
+        threadUserInfoLayout.setFrom(3);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092494);
+        this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f090242);
+        this.f = this.a.findViewById(R.id.divider_below_reply_number_layout);
+        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.text_bottom);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f090908);
+        this.b.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.e.getCommentContainer().setOnClickListener(this);
+        this.g.setOnVideoClickListener(this);
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void init() {
+    public void f(ThreadData threadData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, TbConfig.SERVER_ADDRESS + "c/f/frs/getFrsLiveThreads");
-            tbHttpMessageTask.setResponsedClass(FrsPageAlaTabResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            f();
-        }
-    }
-
-    @Override // com.baidu.tieba.ng7
-    public void M(rg7 rg7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rg7Var) == null) {
-            this.e = rg7Var;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, threadData, str) == null) && threadData != null && threadData.getAuthor() != null) {
+            this.i = threadData;
+            this.j = str;
+            this.b.setVisibility(0);
+            this.c.j(threadData);
+            if (this.c.getHeaderImg() != null) {
+                this.c.getHeaderImg().setData(threadData);
+            }
+            this.c.setUserAfterClickListener(this.l);
+            threadData.parserSpecTitleForFrsAndPb(false, true);
+            this.d.setText(threadData.getSpan_str());
+            this.g.getController().e(threadData, str, "", false);
+            this.g.getController().d();
+            this.e.setReplyTimeVisible(false);
+            this.e.setNeedAddReplyIcon(true);
+            this.e.setIsBarViewVisible(false);
+            this.e.setCommentNumEnable(false);
+            this.e.setOnClickListener(this);
+            this.e.setLiveShareEnable(false);
+            this.e.setShareVisible(true);
+            this.e.setShowPraiseNum(true);
+            this.e.setNeedAddPraiseIcon(true);
+            this.e.setFrom(2);
+            if (this.e.setData(threadData)) {
+                this.f.setVisibility(8);
+            } else {
+                this.f.setVisibility(0);
+            }
+            d(threadData);
         }
     }
 
     public void g(BdUniqueId bdUniqueId) {
+        ThreadUserInfoLayout threadUserInfoLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && bdUniqueId != null && this.e != null && (threadUserInfoLayout = this.c) != null) {
+            threadUserInfoLayout.setPageUniqueId(bdUniqueId);
         }
-        this.a = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void I(int i, int i2, xg7 xg7Var) {
+    public void h(sd6 sd6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, xg7Var) == null) {
-            this.b = i2;
-            if (xg7Var != null && !TextUtils.isEmpty(xg7Var.a) && !TextUtils.isEmpty(xg7Var.b)) {
-                if (xg7Var.c <= 0) {
-                    xg7Var.c = 1;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sd6Var) == null) {
+            this.k = sd6Var;
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void e() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (threadData = this.i) != null && threadData.getAuthor() != null) {
+            f(this.i, this.j);
+        }
+    }
+
+    public final void d(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+            this.e.onChangeSkinType();
+            this.c.h();
+            this.g.o(TbadkCoreApplication.getInst().getSkinType());
+            this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+            if (threadData != null && om6.k(threadData.getId())) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+            } else {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        sd6 sd6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (view2 != this.b && view2 != this.e.getCommentContainer()) {
+                if (view2.getId() == R.id.video_container && (sd6Var = this.k) != null) {
+                    sd6Var.a(view2, this.i);
+                    return;
                 }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, xg7Var.a, xg7Var.b, xg7Var.c));
                 return;
             }
-            this.e.a(49, this.b, null, null);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.g.setTag(bdUniqueId);
-                this.f.setTag(this.a);
+            ThreadData threadData = this.i;
+            if (threadData != null) {
+                om6.a(threadData.getId());
             }
-            MessageManager.getInstance().registerListener(this.f);
-            MessageManager.getInstance().registerListener(this.g);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
-    }
-
-    @Override // com.baidu.tieba.ng7
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
-            h();
+            sd6 sd6Var2 = this.k;
+            if (sd6Var2 != null) {
+                sd6Var2.a(view2, this.i);
+            }
         }
     }
 }

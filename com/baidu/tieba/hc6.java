@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes6.dex */
 public interface hc6 {
-    AlaBannerViewHolder a(ViewGroup viewGroup, int i);
+    void a(int i, String str, ThreadData threadData);
+
+    void b(ac6 ac6Var);
 }

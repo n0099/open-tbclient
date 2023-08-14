@@ -155,16 +155,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092691);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092697);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092692);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092976);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092698);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09297c);
             this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091521);
             this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091522);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09217c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092693);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092183);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092699);
             this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09072f);
         }
     }
@@ -174,18 +174,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080d01);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080d04);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080d02);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080d05);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080d03);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080d06);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080aed);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080aef);
             this.i.setSkinType(i);
         }
     }

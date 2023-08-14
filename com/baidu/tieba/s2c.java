@@ -1,33 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b1c;
-import com.baidu.tieba.x0c;
+import com.baidu.tieba.c1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.NoSuchElementException;
+import rx.exceptions.CompositeException;
 /* loaded from: classes7.dex */
-public final class s2c<T> implements b1c.c<T> {
+public final class s2c<T> implements c1c.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x0c.a<T> a;
+    public final c1c<T> a;
+    public final m1c<? super T> b;
+    public final m1c<Throwable> c;
 
     /* loaded from: classes7.dex */
     public static final class a<T> extends d1c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final c1c<? super T> e;
-        public T f;
-        public int g;
+        public final d1c<? super T> b;
+        public final m1c<? super T> c;
+        public final m1c<Throwable> d;
 
-        public a(c1c<? super T> c1cVar) {
+        public a(d1c<? super T> d1cVar, m1c<? super T> m1cVar, m1c<Throwable> m1cVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c1cVar};
+                Object[] objArr = {d1cVar, m1cVar, m1cVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,60 +38,45 @@ public final class s2c<T> implements b1c.c<T> {
                     return;
                 }
             }
-            this.e = c1cVar;
+            this.b = d1cVar;
+            this.c = m1cVar;
+            this.d = m1cVar2;
         }
 
-        @Override // com.baidu.tieba.y0c
-        public void onError(Throwable th) {
+        @Override // com.baidu.tieba.d1c
+        public void b(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g == 2) {
-                    k5c.j(th);
-                    return;
-                }
-                this.f = null;
-                this.e.b(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.y0c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.g = 1;
-                    this.f = t;
-                } else if (i == 1) {
-                    this.g = 2;
-                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                try {
+                    this.d.call(th);
+                    this.b.b(th);
+                } catch (Throwable th2) {
+                    k1c.e(th2);
+                    this.b.b(new CompositeException(th, th2));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.y0c
-        public void onCompleted() {
+        @Override // com.baidu.tieba.d1c
+        public void c(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.e.b(new NoSuchElementException());
-                } else if (i == 1) {
-                    this.g = 2;
-                    T t = this.f;
-                    this.f = null;
-                    this.e.c(t);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                try {
+                    this.c.call(t);
+                    this.b.c(t);
+                } catch (Throwable th) {
+                    k1c.h(th, this, t);
                 }
             }
         }
     }
 
-    public s2c(x0c.a<T> aVar) {
+    public s2c(c1c<T> c1cVar, m1c<? super T> m1cVar, m1c<Throwable> m1cVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {c1cVar, m1cVar, m1cVar2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,20 +86,22 @@ public final class s2c<T> implements b1c.c<T> {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = c1cVar;
+        this.b = m1cVar;
+        this.c = m1cVar2;
     }
 
-    public void call(c1c<? super T> c1cVar) {
+    public void call(d1c<? super T> d1cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c1cVar) == null) {
-            a aVar = new a(c1cVar);
-            c1cVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, d1cVar) == null) {
+            a aVar = new a(d1cVar, this.b, this.c);
+            d1cVar.a(aVar);
+            this.a.j(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.b1c.c, com.baidu.tieba.l1c
+    @Override // com.baidu.tieba.c1c.c, com.baidu.tieba.m1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((c1c) ((c1c) obj));
+        call((d1c) ((d1c) obj));
     }
 }

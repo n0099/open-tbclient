@@ -77,7 +77,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             View childAt = getChildAt(i7);
             if (childAt.getVisibility() != 8) {
                 int id = childAt.getId();
-                if (id == R.id.obfuscated_res_0x7f0925d6) {
+                if (id == R.id.obfuscated_res_0x7f0925dc) {
                     view2 = childAt;
                 } else if (id == R.id.obfuscated_res_0x7f090523) {
                     view3 = childAt;

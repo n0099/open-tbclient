@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ky<T extends q05> implements rx, z36 {
+public class ky<T extends q05> implements rx, a46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public qx<T> a;
@@ -52,7 +52,7 @@ public class ky<T extends q05> implements rx, z36 {
     public int p;
     public vy.a q;
 
-    @Override // com.baidu.tieba.z36
+    @Override // com.baidu.tieba.a46
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -308,25 +308,25 @@ public class ky<T extends q05> implements rx, z36 {
         }
     }
 
-    public void q(bn6<T> bn6Var) {
+    public void q(cn6<T> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bn6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, cn6Var) == null) {
             ww<T> wwVar = this.g;
             if (wwVar != null) {
-                wwVar.p(bn6Var);
+                wwVar.p(cn6Var);
             }
             ww<T> wwVar2 = this.h;
             if (wwVar2 != null) {
-                wwVar2.p(bn6Var);
+                wwVar2.p(cn6Var);
             }
             for (dx dxVar : this.i) {
                 if (dxVar != null) {
-                    dxVar.p(bn6Var);
+                    dxVar.p(cn6Var);
                 }
             }
             ww<T> wwVar3 = this.j;
             if (wwVar3 != null) {
-                wwVar3.p(bn6Var);
+                wwVar3.p(cn6Var);
             }
         }
     }
@@ -667,7 +667,7 @@ public class ky<T extends q05> implements rx, z36 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.onBindDataToView(t);
                 ww<T> wwVar = this.g;
-                if (wwVar instanceof jsa) {
+                if (wwVar instanceof ksa) {
                     this.d.setTag(R.id.virtual_image_user_head, wwVar);
                 }
             }

@@ -112,11 +112,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091da5);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da3);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091da6);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091da9);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dab);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dab);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da9);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091dac);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091daf);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091db1);
         this.f.setScaleType(ImageView.ScaleType.CENTER);
         this.f.setImageResource(R.drawable.obfuscated_res_0x7f08015c);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);

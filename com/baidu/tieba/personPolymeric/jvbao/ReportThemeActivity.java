@@ -28,13 +28,13 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds9;
+import com.baidu.tieba.es9;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.rp9;
-import com.baidu.tieba.rs9;
+import com.baidu.tieba.sp9;
+import com.baidu.tieba.ss9;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xr9;
 import com.baidu.tieba.ym;
+import com.baidu.tieba.yr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public rs9 a;
+    public ss9 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public xr9 g;
+    public yr9 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -490,7 +490,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(ds9.c(personPostModel.threadList));
+                this.h.threadList.addAll(es9.c(personPostModel.threadList));
             }
             this.p = D1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -507,8 +507,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     P1(this.h.threadList);
                 }
             }
-            rp9.d().l(System.currentTimeMillis() - currentTimeMillis);
-            rp9.d().p(System.currentTimeMillis() - rp9.d().g());
+            sp9.d().l(System.currentTimeMillis() - currentTimeMillis);
+            sp9.d().p(System.currentTimeMillis() - sp9.d().g());
         }
     }
 
@@ -610,15 +610,15 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             L1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091f6c);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091f72);
             this.j = findViewById(R.id.obfuscated_res_0x7f09153b);
             this.k = findViewById(R.id.obfuscated_res_0x7f091541);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0906f8);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ee0);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ee6);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a7);
-            xr9 xr9Var = new xr9(this, this.t);
-            this.g = xr9Var;
-            this.f.setAdapter((ListAdapter) xr9Var);
+            yr9 yr9Var = new yr9(this, this.t);
+            this.g = yr9Var;
+            this.f.setAdapter((ListAdapter) yr9Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
@@ -638,9 +638,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, view2, str, z) == null) {
             if (this.a == null) {
-                rs9 rs9Var = new rs9(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = rs9Var;
-                rs9Var.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                ss9 ss9Var = new ss9(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = ss9Var;
+                ss9Var.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.c(null);
                 this.a.b(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.e();

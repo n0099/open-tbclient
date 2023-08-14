@@ -32,7 +32,7 @@ import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
 import com.baidu.tieba.x95;
 import com.baidu.tieba.y95;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.zb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0348a implements View.OnClickListener {
+        public class View$OnClickListenerC0349a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0348a(a aVar) {
+            public View$OnClickListenerC0349a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
-                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f058b, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0596, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0348a(this))).setAutoClose().setCancelable(false).show();
+                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f058b, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0596, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0349a(this))).setAutoClose().setCancelable(false).show();
             }
         }
     }
@@ -883,7 +883,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return yb8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return zb8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }

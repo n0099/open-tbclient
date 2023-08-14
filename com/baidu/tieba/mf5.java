@@ -115,9 +115,9 @@ public class mf5 {
         ItemInfo x0;
         List<ItemPoint> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof kg7)) {
-            kg7 kg7Var = (kg7) context;
-            if (!kg7Var.H() || threadData == null || threadData.getItem() != null || (x0 = kg7Var.x0()) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof lg7)) {
+            lg7 lg7Var = (lg7) context;
+            if (!lg7Var.H() || threadData == null || threadData.getItem() != null || (x0 = lg7Var.x0()) == null) {
                 return;
             }
             Item.Builder builder = new Item.Builder();

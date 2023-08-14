@@ -241,7 +241,7 @@ public class PayWebActivity extends Activity {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091220);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0929dc);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0929e2);
             this.a = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.a.setHorizontalScrollBarEnabled(false);

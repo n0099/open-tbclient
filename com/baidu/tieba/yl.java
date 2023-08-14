@@ -14,7 +14,6 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.ConnectManager;
 import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
@@ -84,7 +83,7 @@ public final class yl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "BaiduIdentityManager [mUid=" + this.a + ", mEnUid=" + this.b + ", mUa=" + this.c + ", mEnUa=" + this.d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.g + ", mManufacturer=" + this.h + ", mOSVersion=" + this.i + ", mDeviceInfo=" + this.j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
+            return "BaiduIdentityManager [mUid=" + this.a + ", mEnUid=" + this.b + ", mUa=" + this.c + ", mEnUa=" + this.d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.g + ", mManufacturer=" + this.h + ", mOSVersion=" + this.i + ", mDeviceInfo=" + this.j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=]";
         }
         return (String) invokeV.objValue;
     }

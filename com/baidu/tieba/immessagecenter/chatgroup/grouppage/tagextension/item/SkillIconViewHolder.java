@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item;
 
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.tieba.gn8;
+import com.baidu.tieba.hn8;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +15,13 @@ public class SkillIconViewHolder extends BaseTagItemViewHolder {
     public LinearLayout c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkillIconViewHolder(View view2, gn8 gn8Var) {
+    public SkillIconViewHolder(View view2, hn8 hn8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, gn8Var};
+            Object[] objArr = {view2, hn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

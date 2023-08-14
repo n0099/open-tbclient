@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.bba;
+import com.baidu.tieba.cba;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
@@ -35,7 +35,7 @@ public class fx extends yw implements qx<ThreadData>, rx {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowForumDecorView a;
     public LikeModel b;
-    public bba c;
+    public cba c;
     public ThreadData d;
     public TbPageContext e;
     public u45 f;
@@ -199,7 +199,7 @@ public class fx extends yw implements qx<ThreadData>, rx {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements bba.a {
+    public class d implements cba.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fx a;
@@ -222,7 +222,7 @@ public class fx extends yw implements qx<ThreadData>, rx {
             this.a = fxVar;
         }
 
-        @Override // com.baidu.tieba.bba.a
+        @Override // com.baidu.tieba.cba.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -230,7 +230,7 @@ public class fx extends yw implements qx<ThreadData>, rx {
             }
         }
 
-        @Override // com.baidu.tieba.bba.a
+        @Override // com.baidu.tieba.cba.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -429,9 +429,9 @@ public class fx extends yw implements qx<ThreadData>, rx {
                 return;
             }
             if (this.c == null) {
-                bba bbaVar = new bba();
-                this.c = bbaVar;
-                bbaVar.b(new d(this));
+                cba cbaVar = new cba();
+                this.c = cbaVar;
+                cbaVar.b(new d(this));
             }
             this.c.c(this.d.getForumData().d(), Integer.parseInt(this.d.getForumData().b()));
         }
@@ -514,10 +514,10 @@ public class fx extends yw implements qx<ThreadData>, rx {
     public final void s(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            in6 in6Var = new in6();
-            in6Var.d(z);
-            in6Var.c(j);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, in6Var));
+            jn6 jn6Var = new jn6();
+            jn6Var.d(z);
+            jn6Var.c(j);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, jn6Var));
         }
     }
 }

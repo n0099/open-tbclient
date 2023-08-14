@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -231,7 +231,7 @@ public class BdToast {
             }
             this.mLeftIconView.k(this.mLeftIconUrl);
             this.mLeftIconView.setVisibility(0);
-            EMManager.from(this.mRootView).setCorner(R.string.J_X06).setBackGroundRealColor(x9a.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
+            EMManager.from(this.mRootView).setCorner(R.string.J_X06).setBackGroundRealColor(y9a.a(SkinManager.getColor(R.color.CAM_X0611), 0.8f));
             int dimens = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds6);
             int dimens2 = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds23);
             int dimens3 = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);

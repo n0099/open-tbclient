@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static void loadNativeAd(KsScene ksScene, @NonNull final KsLoadManager.NativeAdListener nativeAdListener) {
         boolean a = m.oF().a(ksScene, "loadNativeAd");

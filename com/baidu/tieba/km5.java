@@ -86,7 +86,7 @@ public class km5 extends im5 {
         }
         this.h = 0;
         this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0920db);
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0920e1);
         this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907b1);
         this.c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);

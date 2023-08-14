@@ -119,7 +119,7 @@ public class y95 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setStroke(dimens, x9a.a(i, w65.b(this.x)));
+                gradientDrawable.setStroke(dimens, y9a.a(i, w65.b(this.x)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

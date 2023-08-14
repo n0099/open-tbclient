@@ -20,13 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class kh5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "lottie_feed_new_agree/";
-    public static final String c = "lottie_feed_new_agree/";
-    public static final String d = "lottie_feed_new_agree/";
-    public static final String e = "lottie_feed_new_agree/";
-    public static final String f = "lottie_pb_new_double_tap_agree/";
-    public static final String g = "lottie_pb_new_double_tap_agree_2/";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeMaterial a;
 
@@ -171,9 +165,9 @@ public class kh5 {
                 i = R.raw.lottie_pb_new_double_tap_agree;
             }
             if (z) {
-                str = g;
+                str = "lottie_pb_new_double_tap_agree_2/";
             } else {
-                str = f;
+                str = "lottie_pb_new_double_tap_agree/";
             }
             jh5Var.a(i, str);
         }
@@ -292,51 +286,6 @@ public class kh5 {
         }
     }
 
-    public final void n(@NonNull jh5 jh5Var, String str) {
-        boolean z;
-        int i;
-        String str2;
-        int i2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, jh5Var, str) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if ("/feed".equals(str)) {
-                if (z) {
-                    i2 = R.raw.lottie_feed_new_agree_2;
-                } else {
-                    i2 = R.raw.lottie_feed_new_agree;
-                }
-                if (z) {
-                    str3 = d;
-                } else {
-                    str3 = b;
-                }
-                jh5Var.a(i2, str3);
-            } else if ("/duang1".equals(str)) {
-                jh5Var.a(R.raw.lottie_feed_agree_fire_duang1, "lottie_feed_firework_duang1/");
-            } else if ("/duang2".equals(str)) {
-                jh5Var.a(R.raw.lottie_feed_agree_fire_duang2, "lottie_feed_firework_duang2/");
-            } else {
-                if (z) {
-                    i = R.raw.lottie_pb_new_agree_2;
-                } else {
-                    i = R.raw.lottie_pb_new_agree;
-                }
-                if (z) {
-                    str2 = e;
-                } else {
-                    str2 = c;
-                }
-                jh5Var.a(i, str2);
-            }
-        }
-    }
-
     public final void l(ih5 ih5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, ih5Var) == null) {
@@ -352,6 +301,39 @@ public class kh5 {
             arrayList.add(decodeResource4);
             arrayList.add(decodeResource5);
             ih5Var.a(arrayList);
+        }
+    }
+
+    public final void n(@NonNull jh5 jh5Var, String str) {
+        boolean z;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, jh5Var, str) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ("/feed".equals(str)) {
+                if (z) {
+                    i2 = R.raw.lottie_feed_new_agree_2;
+                } else {
+                    i2 = R.raw.lottie_feed_new_agree;
+                }
+                jh5Var.a(i2, "lottie_feed_new_agree/");
+            } else if ("/duang1".equals(str)) {
+                jh5Var.a(R.raw.lottie_feed_agree_fire_duang1, "lottie_feed_firework_duang1/");
+            } else if ("/duang2".equals(str)) {
+                jh5Var.a(R.raw.lottie_feed_agree_fire_duang2, "lottie_feed_firework_duang2/");
+            } else {
+                if (z) {
+                    i = R.raw.lottie_pb_new_agree_2;
+                } else {
+                    i = R.raw.lottie_pb_new_agree;
+                }
+                jh5Var.a(i, "lottie_feed_new_agree/");
+            }
         }
     }
 }

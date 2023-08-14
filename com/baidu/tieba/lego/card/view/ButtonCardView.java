@@ -256,7 +256,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null);
             this.m = relativeLayout;
             this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090498);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f092436);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f09243c);
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng5 implements my5 {
+public class ng5 implements ny5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -68,7 +68,7 @@ public class ng5 implements my5 {
         }
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class ng5 implements my5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class ng5 implements my5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class ng5 implements my5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class ng5 implements my5 {
         }
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class ng5 implements my5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.my5
+    @Override // com.baidu.tieba.ny5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {

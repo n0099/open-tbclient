@@ -132,18 +132,18 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_background = 0x7f0810db;
-        public static final int notification_bg = 0x7f0810dc;
-        public static final int notification_bg_low = 0x7f0810dd;
-        public static final int notification_bg_low_normal = 0x7f0810de;
-        public static final int notification_bg_low_pressed = 0x7f0810df;
-        public static final int notification_bg_normal = 0x7f0810e0;
-        public static final int notification_bg_normal_pressed = 0x7f0810e1;
-        public static final int notification_icon_background = 0x7f0810e2;
-        public static final int notification_template_icon_bg = 0x7f0810e3;
-        public static final int notification_template_icon_low_bg = 0x7f0810e4;
-        public static final int notification_tile_bg = 0x7f0810e5;
-        public static final int notify_panel_notification_icon_bg = 0x7f0810e8;
+        public static final int notification_action_background = 0x7f0810de;
+        public static final int notification_bg = 0x7f0810df;
+        public static final int notification_bg_low = 0x7f0810e0;
+        public static final int notification_bg_low_normal = 0x7f0810e1;
+        public static final int notification_bg_low_pressed = 0x7f0810e2;
+        public static final int notification_bg_normal = 0x7f0810e3;
+        public static final int notification_bg_normal_pressed = 0x7f0810e4;
+        public static final int notification_icon_background = 0x7f0810e5;
+        public static final int notification_template_icon_bg = 0x7f0810e6;
+        public static final int notification_template_icon_low_bg = 0x7f0810e7;
+        public static final int notification_tile_bg = 0x7f0810e8;
+        public static final int notify_panel_notification_icon_bg = 0x7f0810eb;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -187,13 +187,13 @@ public final class R {
         public static final int notification_background = 0x7f09198f;
         public static final int notification_main_column = 0x7f091991;
         public static final int notification_main_column_container = 0x7f091992;
-        public static final int right_icon = 0x7f091f1e;
-        public static final int right_side = 0x7f091f26;
-        public static final int status_bar_latest_event_content = 0x7f0922b2;
-        public static final int text = 0x7f092454;
-        public static final int text2 = 0x7f092456;
-        public static final int time = 0x7f092524;
-        public static final int title = 0x7f09255a;
+        public static final int right_icon = 0x7f091f24;
+        public static final int right_side = 0x7f091f2c;
+        public static final int status_bar_latest_event_content = 0x7f0922b8;
+        public static final int text = 0x7f09245a;
+        public static final int text2 = 0x7f09245c;
+        public static final int time = 0x7f09252a;
+        public static final int title = 0x7f092560;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.NewHottopic.TimeLine;
 import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes5.dex */
 public class d78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<c78> b;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public d78() {
         Interceptable interceptable = $ic;
@@ -31,23 +30,20 @@ public class d78 {
         }
     }
 
-    public void a(long j, TimeLine timeLine) {
-        Long l;
+    public void a(TimeLineInfo timeLineInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) && timeLine != null && !ListUtils.isEmpty(timeLine.timeline_info)) {
-            this.a = timeLine.title;
-            this.b = new ArrayList();
-            int i = 0;
-            for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
-                if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
-                    c78 c78Var = new c78();
-                    c78Var.a = j;
-                    c78Var.f = i;
-                    c78Var.a(timeLineInfo);
-                    this.b.add(c78Var);
-                    i++;
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
+            return;
         }
+        this.b = timeLineInfo.tid.longValue();
+        this.c = timeLineInfo.title;
+        if (bi.isEmpty(timeLineInfo.small_title)) {
+            str = timeLineInfo.show_time;
+        } else {
+            str = timeLineInfo.small_title;
+        }
+        this.d = str;
+        this.e = timeLineInfo.bg_color;
     }
 }

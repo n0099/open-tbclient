@@ -38,7 +38,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
 
     private void b() {
         this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f5);
-        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0929dc);
+        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0929e2);
         this.b = webView;
         webView.setWebChromeClient(new WebChromeClient());
         this.b.setWebViewClient(new WebViewClient());

@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.at8;
+import com.baidu.tieba.bt8;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.rb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             if (baseFragment instanceof MessageCenterFragment) {
                 ((MessageCenterFragment) baseFragment).P1(intent);
             } else {
-                qb8.l().c();
+                rb8.l().c();
             }
         }
     }
@@ -144,7 +144,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
                 return;
             }
             TbSingleton.getInstance().setNeedJoinChatRoom(true);
-            if (at8.a()) {
+            if (bt8.a()) {
                 this.b = new MsgCenterContainerFragment();
             } else {
                 this.b = new MessageCenterFragment();

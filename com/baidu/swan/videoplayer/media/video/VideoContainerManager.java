@@ -73,9 +73,9 @@ public class VideoContainerManager extends n62<VideoHolderWrapper, sz2> {
         public final void c() {
             ImageView imageView = new ImageView(VideoContainerManager.this.i);
             this.b = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08148b);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08148e);
             this.b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081481);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081484);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
             addView(this.b, layoutParams);

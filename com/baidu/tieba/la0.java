@@ -420,7 +420,7 @@ public class la0 extends ja0 {
             }
             View inflate = LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) null);
             this.d = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091da3);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.continuous_loading_view);
             this.j = continuousAnimationView;
             continuousAnimationView.setOnClickListener(this.s);

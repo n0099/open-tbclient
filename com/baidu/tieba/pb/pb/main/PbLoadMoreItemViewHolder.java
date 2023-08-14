@@ -100,7 +100,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
         this.h = BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d5e);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d64);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);

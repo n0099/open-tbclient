@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.de5;
-import com.baidu.tieba.dv9;
+import com.baidu.tieba.ev9;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.ke5;
 import com.baidu.tieba.log.TbLog;
@@ -100,13 +100,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 ke5 ke5Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
-                    if (dv9.b()) {
+                    if (ev9.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, dv9.c());
-                        String g = dv9.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, ev9.c());
+                        String g = ev9.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, dv9.j());
+                            this.a.addPostData(g, ev9.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);

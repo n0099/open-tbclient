@@ -43,12 +43,12 @@ public class w23 extends x23 {
 
         /* renamed from: com.baidu.tieba.w23$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0511a implements v23 {
+        public class C0514a implements v23 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0511a(a aVar) {
+            public C0514a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class w23 extends x23 {
                     return;
                 }
                 y72.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                u23.g().update(new C0511a(this));
+                u23.g().update(new C0514a(this));
             }
         }
     }

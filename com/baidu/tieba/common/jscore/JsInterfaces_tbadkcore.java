@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.ly4;
 import com.baidu.tieba.my4;
 import com.baidu.tieba.ny4;
-import com.baidu.tieba.sk6;
+import com.baidu.tieba.tk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,9 +33,9 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            sk6.a().c("local_obj", ly4.class);
-            sk6.a().c(BaseWebView.TB_NA_CHANNEL, my4.class);
-            sk6.a().c("_TieBa_Native_Invoke", ny4.class);
+            tk6.a().c("_TieBa_Native_Invoke", ny4.class);
+            tk6.a().c("local_obj", ly4.class);
+            tk6.a().c(BaseWebView.TB_NA_CHANNEL, my4.class);
         }
     }
 }

@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class xr7 implements t55 {
+public class xr7 extends r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.t55
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsUpgrade" : (String) invokeV.objValue;
-    }
 
     public xr7() {
         Interceptable interceptable = $ic;
@@ -34,13 +30,18 @@ public class xr7 implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
-    public Class<? extends r55> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r55
+    public void a(@NonNull Context context, @NonNull j55 j55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return wr7.class;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, j55Var) == null) {
+            if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "FRS升级弹窗失败：当前Activity非FrsActivity");
+                YunDialogManager.unMarkShowingDialogName("frsUpgrade");
+                return;
+            }
+            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, ((FrsActivity) context).getPageContext());
+            upgradePopWindowMessage.setFromPage("frs");
+            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
         }
-        return (Class) invokeV.objValue;
     }
 }

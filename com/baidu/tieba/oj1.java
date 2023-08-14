@@ -52,7 +52,7 @@ public class oj1 {
     public long S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1139T;
+    public int f1140T;
     public float U;
     public String V;
     public String W;
@@ -159,7 +159,7 @@ public class oj1 {
                     oj1Var.W = jSONObject.optString("m_pn");
                     oj1Var.R = jSONObject.optLong("start_backup");
                     oj1Var.S = jSONObject.optLong("end_backup");
-                    oj1Var.f1139T = jSONObject.optInt("virtual", 0);
+                    oj1Var.f1140T = jSONObject.optInt("virtual", 0);
                     oj1Var.U = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
                 } catch (Exception unused) {
                 }
@@ -212,7 +212,7 @@ public class oj1 {
                     jSONObject.put("key", oj1Var.O);
                     jSONObject.put("hot_shake_sensitivity", oj1Var.P);
                     jSONObject.put("hot_background_time", oj1Var.Q);
-                    jSONObject.put("virtual", oj1Var.f1139T);
+                    jSONObject.put("virtual", oj1Var.f1140T);
                     jSONObject.put("shake_action_delay_time", oj1Var.U);
                     jSONObject.put("m_ua", oj1Var.V);
                     jSONObject.put("m_pn", oj1Var.W);
@@ -313,7 +313,7 @@ public class oj1 {
                                 oj1Var.N = optJSONObject5.optInt("shake_direction_count", 2);
                                 oj1Var.O = optJSONObject5.optString("key");
                                 oj1Var.P = (float) optJSONObject5.optDouble("hot_shake_sensitivity", 0.0d);
-                                oj1Var.f1139T = optJSONObject5.optInt("virtual", 0);
+                                oj1Var.f1140T = optJSONObject5.optInt("virtual", 0);
                                 oj1Var.U = (float) optJSONObject5.optDouble("shake_action_delay_time", -1.0d);
                             }
                             JSONArray optJSONArray6 = optJSONObject4.optJSONArray("show_urls");
@@ -635,7 +635,7 @@ public class oj1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f1139T == 1) {
+            if (this.f1140T == 1) {
                 return true;
             }
             return false;

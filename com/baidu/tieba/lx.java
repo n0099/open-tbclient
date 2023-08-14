@@ -105,7 +105,7 @@ public class lx extends dx {
                     if (ThreadCardUtils.isHeadlinesCard(this.b.i.getThreadData().getTaskInfoData()) && HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(this.b.i.getThreadData().getTaskInfoData().r())) {
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i("GodReplySegment", "头条卡，点击frs卡片神回复区域预取， url：" + this.b.i.getThreadData().getTaskInfoData().r());
-                        jk6.c(this.b.i.getThreadData().getTaskInfoData().r());
+                        kk6.c(this.b.i.getThreadData().getTaskInfoData().r());
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -144,7 +144,7 @@ public class lx extends dx {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                nm6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                om6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -239,10 +239,10 @@ public class lx extends dx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
             this.i = q05Var;
-            qba topAgreePost = q05Var.getThreadData().getTopAgreePost();
+            rba topAgreePost = q05Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.r() != null && topAgreePost.r().getUserId() != null) {
                 this.j.param("tid", q05Var.getThreadData().tid).param("post_id", topAgreePost.S()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                um6.b().a(this.j);
+                vm6.b().a(this.j);
             }
             this.h.setData(q05Var.getThreadData());
         }

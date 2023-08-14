@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.kwad.components.core.c.a.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public ViewGroup ke;
     public TextView kf;

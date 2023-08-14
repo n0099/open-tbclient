@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.av4;
 import com.baidu.tieba.image.ImageViewerActivity;
 import com.baidu.tieba.kl;
-import com.baidu.tieba.mt9;
+import com.baidu.tieba.nt9;
 import com.baidu.tieba.rl;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
-    public mt9 cyberMediaContextDef = new mt9();
+    public nt9 cyberMediaContextDef = new nt9();
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

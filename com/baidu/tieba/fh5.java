@@ -22,7 +22,7 @@ public class fh5 {
 
         /* renamed from: com.baidu.tieba.fh5$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0291a implements gh5 {
+        public class C0296a implements gh5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lf0 a;
@@ -37,7 +37,7 @@ public class fh5 {
                 return invokeL.booleanValue;
             }
 
-            public C0291a(a aVar, lf0 lf0Var) {
+            public C0296a(a aVar, lf0 lf0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class fh5 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0291a(this, lf0Var));
+                downloadData.setCallback(new C0296a(this, lf0Var));
                 hh5.k().l(downloadData);
             }
         }

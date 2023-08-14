@@ -129,7 +129,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         @Override // kotlin.jvm.functions.Function0
         public final DividerItemDecoration invoke() {
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(LiveFeedSearchActivity.this, 1);
-            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f48);
+            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f4b);
             if (drawable != null) {
                 dividerItemDecoration.setDrawable(drawable);
             }
@@ -146,7 +146,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         @Override // kotlin.jvm.functions.Function0
         public final DividerItemDecoration invoke() {
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(LiveFeedSearchActivity.this, 1);
-            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f49);
+            Drawable drawable = ContextCompat.getDrawable(LiveFeedSearchActivity.this.getApplicationContext(), R.drawable.obfuscated_res_0x7f080f4c);
             if (drawable != null) {
                 dividerItemDecoration.setDrawable(drawable);
             }
@@ -1215,20 +1215,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         if (Intrinsics.areEqual(str, "day")) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f2f);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f32);
             }
             Button button = this.f;
             if (button != null) {
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f38);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3b);
             }
         } else if (Intrinsics.areEqual(str, "night")) {
             ImageView imageView2 = this.b;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f30);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f33);
             }
             Button button2 = this.f;
             if (button2 != null) {
-                button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f39);
+                button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3c);
             }
         }
         View view3 = this.e;
@@ -1293,7 +1293,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         this.f = (Button) findViewById(R.id.obfuscated_res_0x7f09158e);
         this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09158c);
         this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091594);
-        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f0920d4);
+        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f0920da);
         this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09158a);
         this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09158b);
         this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091592);
@@ -1785,20 +1785,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         if (Intrinsics.areEqual(str, "day")) {
             ImageView imageView = this.i;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f36);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080f39);
             }
             ImageView imageView2 = this.u;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f44);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f47);
             }
         } else if (Intrinsics.areEqual(str, "night")) {
             ImageView imageView3 = this.i;
             if (imageView3 != null) {
-                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080f37);
+                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080f3a);
             }
             ImageView imageView4 = this.u;
             if (imageView4 != null) {
-                imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080f45);
+                imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080f48);
             }
         }
         TextView textView = this.j;

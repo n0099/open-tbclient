@@ -65,7 +65,7 @@ public class py extends ww<q05> {
                     this.a.h().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                nm6.a(id);
+                om6.a(id);
                 this.a.z(id);
                 this.a.a.p(new vy.a(1));
             }
@@ -135,19 +135,19 @@ public class py extends ww<q05> {
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bn6Var) == null) {
-            super.p(bn6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, cn6Var) == null) {
+            super.p(cn6Var);
         }
     }
 
     public final void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            nm6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            nm6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(nm6.k(str));
+            om6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            om6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(om6.k(str));
         }
     }
 

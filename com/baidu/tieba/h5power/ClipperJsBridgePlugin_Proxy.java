@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hca;
 import com.baidu.tieba.hx4;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.lca;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.mca;
+import com.baidu.tieba.qk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ClipperJsBridgePlugin_Proxy extends hca {
+public class ClipperJsBridgePlugin_Proxy extends ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public hx4 mJsBridge;
@@ -45,54 +45,54 @@ public class ClipperJsBridgePlugin_Proxy extends hca {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.hca
-    public jca dispatch(WebView webView, lca lcaVar, jca jcaVar) {
+    @Override // com.baidu.tieba.ica
+    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, lcaVar, jcaVar)) == null) {
-            if (jcaVar == null) {
-                jcaVar = new jca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
+            if (kcaVar == null) {
+                kcaVar = new kca();
             }
-            String b = lcaVar.b();
-            JSONObject e = lcaVar.e();
+            String b = mcaVar.b();
+            JSONObject e = mcaVar.e();
             if (b.equals("clipper/getClipperInformation")) {
-                jcaVar.s(true);
-                jca c = this.mJsBridge.c(webView);
+                kcaVar.s(true);
+                kca c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    jcaVar.y(c.f());
-                    jcaVar.u(c.b());
-                    jcaVar.o(c.a());
-                    jcaVar.x(c.e());
+                    kcaVar.y(c.f());
+                    kcaVar.u(c.b());
+                    kcaVar.o(c.a());
+                    kcaVar.x(c.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             } else if (b.equals("clipper/setClipperInformation")) {
-                jcaVar.s(true);
-                jca d = this.mJsBridge.d(webView, e.optString("txt"));
+                kcaVar.s(true);
+                kca d = this.mJsBridge.d(webView, e.optString("txt"));
                 if (d != null) {
-                    jcaVar.y(d.f());
-                    jcaVar.u(d.b());
-                    jcaVar.o(d.a());
-                    jcaVar.x(d.e());
+                    kcaVar.y(d.f());
+                    kcaVar.u(d.b());
+                    kcaVar.o(d.a());
+                    kcaVar.x(d.e());
                 }
-                jcaVar.z(0);
+                kcaVar.z(0);
             }
-            return jcaVar;
+            return kcaVar;
         }
-        return (jca) invokeLLL.objValue;
+        return (kca) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public pk6 getJsBridge() {
+    @Override // com.baidu.tieba.ica
+    public qk6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (pk6) invokeV.objValue;
+        return (qk6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hca
-    public List<jca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.ica
+    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

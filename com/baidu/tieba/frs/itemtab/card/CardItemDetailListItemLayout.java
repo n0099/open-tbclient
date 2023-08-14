@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.fo7;
+import com.baidu.tieba.go7;
 import com.baidu.tieba.l9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(fo7 fo7Var) {
+    public void setData(go7 go7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo7Var) == null) {
-            this.a.setText(fo7Var.a);
-            this.b.setText(fo7Var.b);
-            this.d = fo7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go7Var) == null) {
+            this.a.setText(go7Var.a);
+            this.b.setText(go7Var.b);
+            this.d = go7Var.c;
         }
     }
 
@@ -246,7 +246,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             }
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d045e, this);
             this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091895);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092870);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092876);
             this.c = findViewById(R.id.obfuscated_res_0x7f0908f5);
             this.b.setOnClickListener(new a(this));
         }

@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.az9;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.fq5;
-import com.baidu.tieba.iv7;
+import com.baidu.tieba.jv7;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.tu5;
-import com.baidu.tieba.yu5;
-import com.baidu.tieba.zy9;
+import com.baidu.tieba.uu5;
+import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -536,11 +536,11 @@ public class FrsRequestData extends OrmObject implements INetRequestData, fq5 {
             builder.is_selection = Integer.valueOf(this.E);
             builder.call_from = Integer.valueOf(this.F);
             builder.hot_thread_id = Long.valueOf(this.H);
-            String d = iv7.e().d("frs_feed");
+            String d = jv7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = tu5.g(d, tu5.f());
-            builder.ad_bear_sid_price = Double.valueOf(tu5.i());
-            builder.has_ad_bear = Integer.valueOf(tu5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = uu5.g(d, uu5.f());
+            builder.ad_bear_sid_price = Double.valueOf(uu5.i());
+            builder.has_ad_bear = Integer.valueOf(uu5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.B);
             builder2.load_count = Integer.valueOf(this.A);
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements INetRequestData, fq5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = zy9.f().d("FRS");
+                str = az9.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;
@@ -557,7 +557,7 @@ public class FrsRequestData extends OrmObject implements INetRequestData, fq5 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.L);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = yu5.b();
+            builder.app_transmit_data = zu5.b();
             builder.push_tid = Long.valueOf(this.M);
             NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();

@@ -372,7 +372,7 @@ public class ay3 extends UnitedSchemeBaseDispatcher {
                 if (view2 == null) {
                     view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d2, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092454);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245a);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 return view2;

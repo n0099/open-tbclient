@@ -1,125 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.dx7;
+import com.baidu.tieba.nv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import kotlin.Unit;
+import kotlin.io.CloseableKt;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__IndentKt;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class pv6 extends sk1<bx7> {
+public final class pv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements bx7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.bx7
-        public dx7 a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                List<String> k = FrsVisitedInfoManager.d.a().k(i);
-                if (k == null) {
-                    return null;
-                }
-                return b(k, FrsVisitedInfoManager.d.a().j(k));
-            }
-            return (dx7) invokeI.objValue;
-        }
-
-        public final dx7 b(List<String> list, Map<String, Map<String, q7a>> map) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map)) == null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (String str : list) {
-                    linkedHashMap.put(str, c(map.get(str)));
-                }
-                return new dx7(linkedHashMap);
-            }
-            return (dx7) invokeLL.objValue;
-        }
-
-        public final dx7.a c(Map<String, q7a> map) {
-            InterceptResult invokeL;
-            q7a q7aVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-                StringBuilder sb = new StringBuilder();
-                long j = 0;
-                for (int i = 0; i < 15; i++) {
-                    String format = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-i));
-                    if (map != null) {
-                        q7aVar = map.get(format);
-                    } else {
-                        q7aVar = null;
-                    }
-                    if (q7aVar != null) {
-                        sb.append(q7aVar.c());
-                        if (q7aVar.d() > j) {
-                            j = q7aVar.d();
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Map<String, r7a>> c(nv6.a aVar, List<String> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, list)) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String replace$default = StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(list.toString(), PreferencesUtil.LEFT_MOUNT, "(", false, 4, (Object) null), PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX, false, 4, (Object) null);
+            Cursor b = aVar.b(StringsKt__IndentKt.trimIndent("\n            SELECT * FROM forum_visited_info \n            WHERE fid IN " + replace$default + " \n            ORDER BY fid, date \n            DESC"), new String[0]);
+            try {
+                if (b.moveToFirst()) {
+                    do {
+                        String fid = b.getString(0);
+                        String date = b.getString(1);
+                        long j = b.getLong(2);
+                        long j2 = b.getLong(3);
+                        r7a r7aVar = new r7a();
+                        r7aVar.g(fid);
+                        r7aVar.f(date);
+                        r7aVar.e(j);
+                        r7aVar.h(j2);
+                        if (linkedHashMap.get(fid) == null) {
+                            Intrinsics.checkNotNullExpressionValue(fid, "fid");
+                            linkedHashMap.put(fid, new LinkedHashMap());
                         }
-                    } else {
-                        sb.append(0);
-                    }
-                    sb.append(",");
+                        Map map = (Map) linkedHashMap.get(fid);
+                        if (map != null) {
+                            Intrinsics.checkNotNullExpressionValue(date, "date");
+                            map.put(date, r7aVar);
+                        }
+                        g41.i(b, new Column[]{nv6.a.d(0), nv6.a.d(1), nv6.a.c(2), nv6.a.c(3)});
+                    } while (b.moveToNext());
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(b, null);
+                    return linkedHashMap;
                 }
-                sb.deleteCharAt(sb.length() - 1);
-                String sb2 = sb.toString();
-                Intrinsics.checkNotNullExpressionValue(sb2, "frsCustomCounts.toString()");
-                return new dx7.a(sb2, j / 1000);
+                Unit unit2 = Unit.INSTANCE;
+                CloseableKt.closeFinally(b, null);
+                return linkedHashMap;
+            } finally {
             }
-            return (dx7.a) invokeL.objValue;
+        } else {
+            return (Map) invokeLL.objValue;
         }
     }
 
-    public pv6() {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final List<String> d(nv6.a aVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
+            String curDate = FrsVisitedInfoManager.d.b().format(new Date());
+            String fifteenAgoDate = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-14));
+            Intrinsics.checkNotNullExpressionValue(fifteenAgoDate, "fifteenAgoDate");
+            Intrinsics.checkNotNullExpressionValue(curDate, "curDate");
+            Cursor b = aVar.b("SELECT fid, sum(custom_count) as sum_counts \nFROM forum_visited_info \nWHERE date BETWEEN ? AND ? \nGROUP BY fid \nORDER BY sum_counts \nDESC \nLIMIT ?", fifteenAgoDate, curDate, String.valueOf(i));
+            try {
+                ArrayList arrayList = new ArrayList();
+                if (b.moveToFirst()) {
+                    do {
+                        String fid = b.getString(0);
+                        Intrinsics.checkNotNullExpressionValue(fid, "fid");
+                        arrayList.add(fid);
+                        g41.i(b, new Column[]{nv6.a.d(0), nv6.a.b(1)});
+                    } while (b.moveToNext());
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(b, null);
+                    return arrayList;
+                }
+                Unit unit2 = Unit.INSTANCE;
+                CloseableKt.closeFinally(b, null);
+                return arrayList;
+            } finally {
             }
+        } else {
+            return (List) invokeLI.objValue;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sk1
-    /* renamed from: a */
-    public bx7 createService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
-        }
-        return (bx7) invokeV.objValue;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz6;
+import com.baidu.tieba.ez6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,16 +45,16 @@ public class RecommendThreadView extends LinearLayout {
         }
     }
 
-    public void setData(dz6 dz6Var) {
+    public void setData(ez6 ez6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dz6Var) != null) || dz6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ez6Var) != null) || ez6Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dz6Var.b())) {
-            this.a.startLoad(dz6Var.b(), 10, false);
+        if (!TextUtils.isEmpty(ez6Var.b())) {
+            this.a.startLoad(ez6Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(dz6Var.d())) {
-            this.b.setText(dz6Var.d());
+        if (!TextUtils.isEmpty(ez6Var.d())) {
+            this.b.setText(ez6Var.d());
         }
         d();
     }
@@ -123,7 +123,7 @@ public class RecommendThreadView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091e63);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091e69);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -131,7 +131,7 @@ public class RecommendThreadView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708bf));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e62);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e68);
             d();
         }
     }

@@ -4,33 +4,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.FollowUserButton;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.ky;
 import com.baidu.tieba.vy;
-import com.baidu.tieba.zw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
+public class ht5 extends ws5<w35, ThreadCardViewHolder<w35>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a g;
-    public NEGFeedBackView.NEGFeedbackEventCallback h;
-    public bn6<w35> i;
+    public cn6<w35> g;
 
     /* loaded from: classes6.dex */
-    public class a extends bn6<w35> {
+    public class a extends cn6<w35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ht5 b;
@@ -54,7 +51,7 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, w35 w35Var) {
             Interceptable interceptable = $ic;
@@ -65,48 +62,12 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements zw.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ht5 ht5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zw.b
-        public void a(q05 q05Var, View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, q05Var, view2) == null) && q05Var != null) {
-                if (view2.getId() == R.id.user_name) {
-                    q05Var.objType = 3;
-                } else if (view2.getId() == R.id.user_avatar) {
-                    q05Var.objType = 4;
-                } else {
-                    q05Var.objType = 1;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements in {
+    public class b implements in {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ht5 a;
 
-        public c(ht5 ht5Var) {
+        public b(ht5 ht5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,8 +92,8 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 w35 w35Var = (w35) ymVar;
                 w35Var.objType = 1;
-                if (this.a.i != null) {
-                    this.a.i.a(threadCardViewHolder.getView(), w35Var);
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), w35Var);
                 }
                 ThreadCardUtils.jumpToPB((q05) w35Var, view2.getContext(), this.a.C(), false, ax.a((en) viewGroup, view2, i));
                 threadCardViewHolder.b().p(new vy.a(1));
@@ -140,9 +101,46 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
         }
     }
 
+    /* loaded from: classes6.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(ht5 ht5Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ht5Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.m
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(ax.a((en) this.a, this.b, this.c));
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ht5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_USER_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_BOTTOM_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +157,7 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
                 return;
             }
         }
-        this.i = new a(this);
+        this.g = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -169,17 +167,23 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ky.b bVar = new ky.b(this.c.getPageActivity());
-            zw zwVar = new zw(this.c.getPageActivity());
-            zwVar.q(this.mPageId);
-            zwVar.z(new b(this));
-            zwVar.B(this.c);
-            bVar.o(zwVar);
-            ky k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.d);
+            ky.b bVar = new ky.b(this.c.getPageActivity(), false);
+            my myVar = new my(this.c.getPageActivity());
+            w05 w05Var = new w05();
+            w05Var.b = x();
+            w05Var.h = y();
+            myVar.C(w05Var);
+            myVar.E(A());
+            myVar.J(B());
+            myVar.K(D());
+            myVar.F(C());
+            myVar.f(32);
+            bVar.m(myVar);
+            ky k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.d);
             k.s(C());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.j(this.mPageId);
-            setOnAdapterItemClickListener(new c(this));
+            setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -188,21 +192,20 @@ public class ht5 extends vs5<w35, ThreadCardViewHolder<w35>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: Q */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w35 w35Var, ThreadCardViewHolder<w35> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w35 w35Var, ThreadCardViewHolder threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w35Var, threadCardViewHolder})) == null) {
             if (w35Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = w35Var.t) != null) {
-                boolean z = true;
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.b().r(i);
-                threadCardViewHolder.r(H(1), Align.ALIGN_RIGHT_TOP, this.h);
-                threadCardViewHolder.m((H(4) && w35Var.showFollowBtn()) ? false : false, this.g);
-                threadCardViewHolder.u(H(8), Align.ALIGN_RIGHT_TOP);
+                if (threadCardViewHolder.b().f() instanceof my) {
+                    ((my) threadCardViewHolder.b().f()).I(new c(this, viewGroup, view2, i));
+                }
                 threadCardViewHolder.f(w35Var);
                 threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.b().q(this.i);
+                threadCardViewHolder.b().q(this.g);
                 return threadCardViewHolder.getView();
             }
             return null;

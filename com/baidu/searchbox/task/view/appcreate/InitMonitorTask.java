@@ -7,7 +7,7 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.tieba.tracker.core.data.IEventNode;
-import com.baidu.tieba.via;
+import com.baidu.tieba.wia;
 import com.baidu.ubc.UBCManager;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.Iterator;
@@ -37,18 +37,17 @@ public final class InitMonitorTask extends LaunchTask {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
             a.e(inst);
-            Tracker.d.c(new via() { // from class: com.baidu.searchbox.task.view.appcreate.InitMonitorTask$execute$1
+            Tracker.d.c(new wia() { // from class: com.baidu.searchbox.task.view.appcreate.InitMonitorTask$execute$1
                 public String moduleName = "";
 
-                @Override // com.baidu.tieba.via
+                @Override // com.baidu.tieba.wia
                 public String getModuleName() {
                     return "pageMonitor";
                 }
 
-                @Override // com.baidu.tieba.via
+                @Override // com.baidu.tieba.wia
                 public void onEventReport(String tid, IEventNode event) {
                     IEventNode iEventNode;
-                    UBCManager uBCManager;
                     Intrinsics.checkNotNullParameter(tid, "tid");
                     Intrinsics.checkNotNullParameter(event, "event");
                     IEventNode next = event.getNext();
@@ -58,19 +57,17 @@ public final class InitMonitorTask extends LaunchTask {
                         } else {
                             iEventNode = null;
                         }
-                        if (iEventNode == null) {
-                            break;
+                        if (iEventNode != null) {
+                            next = next.getNext();
+                        } else {
+                            this.buildJsonString(event, next);
+                            return;
                         }
-                        next = next.getNext();
-                    }
-                    JSONObject buildJsonString = this.buildJsonString(event, next);
-                    if (buildJsonString != null && (uBCManager = objectRef.element) != null) {
-                        uBCManager.onEvent("6465", buildJsonString);
                     }
                 }
 
                 /* JADX WARN: Type inference failed for: r1v1, types: [T, java.lang.Object] */
-                @Override // com.baidu.tieba.via
+                @Override // com.baidu.tieba.wia
                 public void onInit() {
                     objectRef.element = ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                     UBCManager uBCManager = objectRef.element;
@@ -79,7 +76,7 @@ public final class InitMonitorTask extends LaunchTask {
                     }
                 }
 
-                @Override // com.baidu.tieba.via
+                @Override // com.baidu.tieba.wia
                 public void setModuleName(String value) {
                     Intrinsics.checkNotNullParameter(value, "value");
                     this.moduleName = value;

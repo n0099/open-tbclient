@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,9 +10,10 @@ import org.json.JSONObject;
 public class qy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public qy9() {
         Interceptable interceptable = $ic;
@@ -29,16 +29,7 @@ public class qy9 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static qy9 b(JSONObject jSONObject) {
+    public static qy9 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -46,11 +37,10 @@ public class qy9 {
                 return null;
             }
             qy9 qy9Var = new qy9();
-            qy9Var.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            qy9Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            qy9Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
+            qy9Var.a = jSONObject.optInt("agree_num", -1);
+            qy9Var.b = jSONObject.optInt("share_num", -1);
+            qy9Var.c = jSONObject.optInt("reply_num", -1);
+            qy9Var.d = jSONObject.optLong("time", System.currentTimeMillis());
             return qy9Var;
         }
         return (qy9) invokeL.objValue;

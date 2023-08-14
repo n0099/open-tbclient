@@ -197,12 +197,12 @@ public class d54 implements c54 {
 
         /* renamed from: com.baidu.tieba.d54$e$e  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0265e implements oh4 {
+        public class C0269e implements oh4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0265e(e eVar) {
+            public C0269e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +261,7 @@ public class d54 implements c54 {
                     this.b.a.setOnCompletionListener(this.b.e, new b(this));
                     this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
                     this.b.a.setOnErrorListener(this.b.e, new d(this));
-                    this.b.a.setOnPauseListener(this.b.e, new C0265e(this));
+                    this.b.a.setOnPauseListener(this.b.e, new C0269e(this));
                     this.b.a.prepare(this.b.e);
                 }
             }

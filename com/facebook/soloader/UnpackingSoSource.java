@@ -248,8 +248,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a6 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ora;
-import com.baidu.tieba.qra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import java.io.File;
-import java.util.List;
-import java.util.Vector;
 /* loaded from: classes8.dex */
 public class sra {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sra c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qra a;
-    public List<xra> b;
+    public String a;
+    public String b;
+    public float c;
+    public long d;
+    public Bitmap e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public qra j;
 
     /* loaded from: classes8.dex */
-    public class a implements wra {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sra a;
@@ -47,15 +44,15 @@ public class sra {
             this.a = sraVar;
         }
 
-        @Override // com.baidu.tieba.wra
-        public void a(ora.b bVar) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap bitmap;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                ora.a().c(bVar);
-                if (!n9b.e(this.a.b)) {
-                    sra sraVar = this.a;
-                    sraVar.h((xra) n9b.c(sraVar.b, 0));
-                    n9b.g(this.a.b, 0);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sra sraVar = this.a;
+                if (sraVar.j != null && (bitmap = sraVar.e) != null && !bitmap.isRecycled()) {
+                    sra sraVar2 = this.a;
+                    sraVar2.j.a(sraVar2.f, sraVar2.e);
                 }
             }
         }
@@ -71,113 +68,14 @@ public class sra {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new Vector();
-        this.a = new qra.b().d();
-    }
-
-    public void i(yra yraVar, pra praVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, yraVar, praVar) == null) {
-            List<xra> c2 = ura.c(yraVar, praVar);
-            if (!n9b.e(c2)) {
-                for (xra xraVar : c2) {
-                    h(xraVar);
-                }
             }
         }
     }
 
-    public void j(zra zraVar, pra praVar) {
-        xra b;
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, zraVar, praVar) == null) && (b = ura.b(zraVar, praVar)) != null) {
-            h(b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bab.a().post(new a(this));
         }
-    }
-
-    public static sra f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (sra.class) {
-                    if (c == null) {
-                        c = new sra();
-                    }
-                }
-            }
-            return c;
-        }
-        return (sra) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
-            return;
-        }
-        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
-    }
-
-    public vra g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (vra) invokeV.objValue;
-    }
-
-    public Bitmap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Bitmap a2 = g().a(str);
-            if (a2 != null && !a2.isRecycled()) {
-                return a2;
-            }
-            Bitmap a3 = e().a(str);
-            if (a3 == null || a3.isRecycled()) {
-                return null;
-            }
-            return a3;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public final void h(xra xraVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xraVar) == null) {
-            c();
-            ora.b b = ora.a().b();
-            if (b != null) {
-                b.m(this.a.a);
-                b.setDataSource(xraVar.a);
-                b.h(xraVar, new a(this));
-                return;
-            }
-            this.b.add(xraVar);
-        }
-    }
-
-    public lra e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
-            }
-            return this.a.c;
-        }
-        return (lra) invokeV.objValue;
     }
 }

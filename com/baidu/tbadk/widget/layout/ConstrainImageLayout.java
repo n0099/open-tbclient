@@ -31,7 +31,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.im;
-import com.baidu.tieba.iz5;
+import com.baidu.tieba.jz5;
 import com.baidu.tieba.w65;
 import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public int c;
     public int d;
     public boolean e;
-    public iz5 f;
+    public jz5 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -306,14 +306,14 @@ public class ConstrainImageLayout extends ViewGroup {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.f == null) {
                 return;
             }
-            iz5 iz5Var = this.d.f;
+            jz5 jz5Var = this.d.f;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            iz5Var.a(view2, i, z);
+            jz5Var.a(view2, i, z);
         }
     }
 
@@ -495,13 +495,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(iz5 iz5Var) {
+    public void setImageClickListener(jz5 jz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, iz5Var) == null) {
-            if (iz5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, jz5Var) == null) {
+            if (jz5Var == null) {
                 setClickable(false);
             } else {
-                this.f = iz5Var;
+                this.f = jz5Var;
             }
         }
     }

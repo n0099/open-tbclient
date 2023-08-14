@@ -1,130 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ita {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<MetaData> a;
+    public final Set<String> b;
+    public final ArrayList<MetaData> c;
+    public HashMap<String, String> d;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends jw5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jw5
-        /* renamed from: a */
-        public Integer doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                l45.e();
-                ne<String> f = l45.f("tb.write_privacy_state_space" + this.b);
-                if (f != null) {
-                    i = JavaTypesHelper.toInt(f.get(this.c), this.a);
-                }
-                return Integer.valueOf(i);
-            }
-            return (Integer) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements ov5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov5
-        /* renamed from: a */
-        public void onReturnDataInUI(Integer num) {
-            c cVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
-                cVar.a(num.intValue());
-            }
-        }
-    }
-
-    public static void a(String str, int i, c cVar) {
+    public ita() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(currentAccount)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            nw5.b(new a(i, currentAccount, str), new b(cVar));
+        }
+        this.a = new ArrayList<>();
+        this.b = new HashSet();
+        this.c = new ArrayList<>();
+        this.d = null;
+    }
+
+    public ArrayList<MetaData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public Set<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public ArrayList<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                e(new JSONObject(str), true);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 
-    public static void b(String str, int i) {
+    public void e(JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, jSONObject, z) != null) || jSONObject == null) {
             return;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
+        if (z) {
+            try {
+                if (this.d == null) {
+                    this.d = new HashMap<>();
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return;
+            }
         }
-        l45.e();
-        ne<String> f = l45.f("tb.write_privacy_state_space" + currentAccount);
-        if (f != null) {
-            f.a(str, String.valueOf(i));
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserJson(optJSONArray.getJSONObject(i));
+                if (!TextUtils.isEmpty(metaData.getName_show())) {
+                    this.a.add(metaData);
+                    if (z) {
+                        this.d.put(metaData.getName_show(), metaData.getPortrait());
+                    }
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("bot_list");
+        if (optJSONArray2 != null) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                MetaData metaData2 = new MetaData();
+                metaData2.parserJson(optJSONArray2.getJSONObject(i2));
+                if (!TextUtils.isEmpty(metaData2.getName_show())) {
+                    this.c.add(metaData2);
+                    this.b.add(metaData2.getUserId());
+                }
+            }
         }
     }
 }

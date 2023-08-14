@@ -151,7 +151,7 @@ public final class MediaGestureLayout extends FrameLayout implements ms4 {
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-            this.c.g(R.drawable.obfuscated_res_0x7f081496);
+            this.c.g(R.drawable.obfuscated_res_0x7f081499);
             this.c.h(b2);
             this.c.f();
             return true;
@@ -168,9 +168,9 @@ public final class MediaGestureLayout extends FrameLayout implements ms4 {
             this.e.h((int) (this.e.b() + (c2 / (getWidth() * 0.8f))));
             MediaFastForward mediaFastForward = this.e;
             if (x > 0.0f) {
-                i = R.drawable.obfuscated_res_0x7f081492;
+                i = R.drawable.obfuscated_res_0x7f081495;
             } else {
-                i = R.drawable.obfuscated_res_0x7f081493;
+                i = R.drawable.obfuscated_res_0x7f081496;
             }
             mediaFastForward.g(i);
             this.e.f();
@@ -184,7 +184,7 @@ public final class MediaGestureLayout extends FrameLayout implements ms4 {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
             this.d.f(a2);
-            this.d.g(R.drawable.obfuscated_res_0x7f081484);
+            this.d.g(R.drawable.obfuscated_res_0x7f081487);
             this.d.h((int) ((a2 / this.d.b()) * 100.0f));
             this.d.e();
             return true;

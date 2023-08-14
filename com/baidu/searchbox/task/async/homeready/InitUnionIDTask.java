@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.async.homeready;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gab;
+import com.baidu.tieba.hab;
 /* loaded from: classes4.dex */
 public class InitUnionIDTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -17,6 +17,6 @@ public class InitUnionIDTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        gab.c(TbadkCoreApplication.getInst()).e(null);
+        hab.c(TbadkCoreApplication.getInst()).e(null);
     }
 }

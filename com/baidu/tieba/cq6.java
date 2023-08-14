@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cq6 extends j77 {
+public class cq6 implements l77<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,38 +25,18 @@ public class cq6 extends j77 {
         }
     }
 
-    @Override // com.baidu.tieba.j77
-    @Nullable
-    public Object e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    @Override // com.baidu.tieba.l77
+    public v97<?> b(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThreadData)) {
+                return null;
             }
-            if (c != 0) {
-                return super.e(str, str2);
-            }
-            return k45.b(str2);
+            w67 w67Var = new w67();
+            w67Var.a = obj;
+            return new w97(new j37(w67Var), "fake_wall");
         }
-        return invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.j77
-    @NonNull
-    public u97<?> h(@NonNull m57<?> m57Var, @NonNull a67 a67Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m57Var, a67Var)) == null) {
-            t57 t57Var = new t57();
-            t57Var.c = m57Var;
-            t57Var.b = a67Var.a();
-            t57Var.a = a67Var.c();
-            return t57Var;
-        }
-        return (u97) invokeLL.objValue;
+        return (v97) invokeL.objValue;
     }
 }

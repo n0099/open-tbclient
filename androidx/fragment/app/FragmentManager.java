@@ -551,10 +551,10 @@ public abstract class FragmentManager {
     private void setVisibleRemovingFragment(@NonNull Fragment fragment) {
         ViewGroup fragmentContainer = getFragmentContainer(fragment);
         if (fragmentContainer != null) {
-            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f092993) == null) {
-                fragmentContainer.setTag(R.id.obfuscated_res_0x7f092993, fragment);
+            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f092999) == null) {
+                fragmentContainer.setTag(R.id.obfuscated_res_0x7f092999, fragment);
             }
-            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f092993)).setNextAnim(fragment.getNextAnim());
+            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f092999)).setNextAnim(fragment.getNextAnim());
         }
     }
 

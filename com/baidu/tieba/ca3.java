@@ -74,13 +74,13 @@ public class ca3 extends x93 {
 
         /* renamed from: com.baidu.tieba.ca3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0260a implements View.OnClickListener {
+        public class View$OnClickListenerC0261a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0260a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0261a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -425,7 +425,7 @@ public class ca3 extends x93 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0260a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0261a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -1050,18 +1050,18 @@ public class ca3 extends x93 {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092582);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ba);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cee);
             this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091904);
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f8);
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f9);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908af);
             this.q = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
-            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09211e);
+            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092124);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f7);
             this.s = (SwanAppScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091752);
             this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904dc);

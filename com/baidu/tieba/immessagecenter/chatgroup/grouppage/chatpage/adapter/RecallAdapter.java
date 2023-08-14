@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
-import com.baidu.tieba.ym8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,10 +56,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e2d);
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091038);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09282b);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092831);
         }
     }
 
@@ -155,7 +155,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                     holder.d.setText(R.string.obfuscated_res_0x7f0f0955);
                 }
             }
-            ym8.d("c15095", 3, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+            zm8.d("c15095", 3, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             return holder.getView();
         }
         return (View) invokeCommon.objValue;

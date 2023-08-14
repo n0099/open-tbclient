@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy6;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
+import com.baidu.tieba.ey6;
 import com.baidu.tieba.g35;
 import com.baidu.tieba.iq5;
 import com.baidu.tieba.q15;
@@ -189,10 +189,10 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         }
         this.a = tbPageContext;
         this.h = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091f82);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091f88);
         this.b = findViewById;
         this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091895);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e1);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e7);
         this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e6c);
         this.f = (BarImageView) this.b.findViewById(R.id.forum_avatar);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090be4);
@@ -200,12 +200,12 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    public void f(dy6 dy6Var) {
+    public void f(ey6 ey6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dy6Var) != null) || dy6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ey6Var) != null) || ey6Var == null) {
             return;
         }
-        k(dy6Var);
+        k(ey6Var);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_ba_checkedin16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
@@ -256,31 +256,31 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         this.b.setVisibility(0);
         this.c.setVisibility(0);
-        if (q15Var instanceof dy6) {
-            dy6 dy6Var = (dy6) q15Var;
-            this.c.setText(dy6Var.i());
+        if (q15Var instanceof ey6) {
+            ey6 ey6Var = (ey6) q15Var;
+            this.c.setText(ey6Var.i());
             ImageView imageView = this.d;
-            if (dy6Var.u() == 0) {
+            if (ey6Var.u() == 0) {
                 i = 8;
             } else {
                 i = 0;
             }
             imageView.setVisibility(i);
-            if (dy6Var.h() == 0) {
+            if (ey6Var.h() == 0) {
                 this.e.setVisibility(8);
             } else {
                 this.e.setVisibility(0);
-                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(dy6Var.h()));
+                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(ey6Var.h()));
             }
             this.f.setShowOval(true);
-            this.f.startLoad(dy6Var.e(), 10, false);
+            this.f.startLoad(ey6Var.e(), 10, false);
             this.f.setShowOuterBorder(false);
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a13), StringHelper.numberUniformFormatExtraWithRoundInt(dy6Var.n())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a13), StringHelper.numberUniformFormatExtraWithRoundInt(ey6Var.n())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            if (YYLiveUtil.isLiveRoom(dy6Var.i())) {
+            if (YYLiveUtil.isLiveRoom(ey6Var.i())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem);
                 TiebaStatic.log(statisticItem);

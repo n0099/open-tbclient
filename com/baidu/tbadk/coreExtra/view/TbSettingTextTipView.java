@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yda;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,8 +160,8 @@ public class TbSettingTextTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09252e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092534);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c8);
         }
     }
@@ -193,7 +193,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, yda.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, zda.TbSettingView);
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);

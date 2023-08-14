@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e09;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.quickWebView.QuickWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -325,7 +325,7 @@ public class MemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new e09("my_tab_vip_banner_bubble").i();
+            new f09("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -419,7 +419,7 @@ public class MemberCenterFragment extends BaseFragment {
             this.b = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
             L1();
             this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091712);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f0929e4);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f0929ea);
             M1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");

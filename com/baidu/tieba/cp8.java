@@ -1,97 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
-import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class cp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public View b;
-    public ImageView c;
-    public TextView d;
-    public TextView e;
-    public ImageView f;
-    public b g;
-    public RelativeLayout h;
-    public View.OnClickListener i;
+    public BdTypeRecyclerView a;
+    public ArrayList<ym> b;
+    public List<lm> c;
+    public yo8 d;
+    public yo8 e;
+    public yo8 f;
+    public ap8 g;
+    public ap8 h;
+    public ap8 i;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onClose();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cp8 a;
-
-        public a(cp8 cp8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cp8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == this.a.e.getId()) {
-                    DialogUtil.jumpSystemNotificationSetting(this.a.a);
-                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
-                } else if (view2.getId() == this.a.f.getId()) {
-                    SharedPrefHelper.getInstance().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
-                    if (this.a.g != null) {
-                        this.a.g.onClose();
-                    }
-                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
-                }
-            }
-        }
-    }
-
-    public cp8(BdPageContext bdPageContext, boolean z) {
+    public cp8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,66 +40,103 @@ public class cp8 {
                 return;
             }
         }
-        this.i = new a(this);
-        this.a = bdPageContext;
-        View inflate = LayoutInflater.from(bdPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0752, (ViewGroup) null);
-        this.b = inflate;
-        this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0919d4);
-        this.c = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d7);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919d1);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904da);
-        this.e = textView;
-        textView.setOnClickListener(this.i);
-        ImageView imageView = (ImageView) this.b.findViewById(R.id.img_close);
-        this.f = imageView;
-        imageView.setOnClickListener(this.i);
-        TiebaStatic.log("c13704");
-        g(TbadkCoreApplication.getInst().getSkinType(), z);
-        if (!z) {
-            e();
+        this.c = new LinkedList();
+        if (tbPageContext != null && bdTypeRecyclerView != null) {
+            this.a = bdTypeRecyclerView;
+            b(tbPageContext);
         }
     }
 
-    public void g(int i, boolean z) {
+    public void a(int i) {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (z) {
-                TBSelector.makeDrawableSelector().setShape(0).radius((float) R.string.J_X06).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.open_notify_start_color, R.color.open_notify_start_color, R.color.open_notify_end_color).into(this.h);
-            } else {
-                SkinManager.setBackgroundResource(this.b, R.color.CAM_X0204);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
+            bdTypeRecyclerView.removeItem(i);
+        }
+    }
+
+    public void e(in inVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, inVar) == null) {
+            for (lm lmVar : this.c) {
+                if (lmVar != null) {
+                    lmVar.setOnAdapterItemClickListener(inVar);
+                }
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0110, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            EMManager.from(this.d).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
-            EMManager.from(this.e).setTextSize(R.dimen.tbds36).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
         }
     }
 
-    public void h(b bVar) {
+    public void f(ArrayList<ym> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.g = bVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            this.a.setData(arrayList);
+            this.b = arrayList;
         }
     }
 
-    public void e() {
+    public void g(jn jnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X004);
-            this.h.setLayoutParams(layoutParams);
-            int dimens = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_W_X007);
-            this.f.setLeft(dimens);
-            this.f.setRight(dimens);
+        if (interceptable == null || interceptable.invokeL(1048582, this, jnVar) == null) {
+            for (lm lmVar : this.c) {
+                if (lmVar != null) {
+                    lmVar.setOnAdapterItemLongClickListener(jnVar);
+                }
+            }
         }
     }
 
-    public View f() {
-        InterceptResult invokeV;
+    public void h(cn6 cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cn6Var) == null) {
+            this.i.x(cn6Var);
+            this.h.x(cn6Var);
+            this.g.x(cn6Var);
         }
-        return (View) invokeV.objValue;
+    }
+
+    public final void b(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            yo8 yo8Var = new yo8(tbPageContext, wo8.D);
+            this.d = yo8Var;
+            yo8Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            yo8 yo8Var2 = new yo8(tbPageContext, wo8.E);
+            this.e = yo8Var2;
+            yo8Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            yo8 yo8Var3 = new yo8(tbPageContext, wo8.F);
+            this.f = yo8Var3;
+            yo8Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            ap8 ap8Var = new ap8(tbPageContext, wo8.I);
+            this.g = ap8Var;
+            ap8Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            ap8 ap8Var2 = new ap8(tbPageContext, wo8.H);
+            this.h = ap8Var2;
+            ap8Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            ap8 ap8Var3 = new ap8(tbPageContext, wo8.G);
+            this.i = ap8Var3;
+            ap8Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.g);
+            this.c.add(this.h);
+            this.c.add(this.i);
+            this.c.add(this.f);
+            this.a.addAdapters(this.c);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (lm lmVar : this.c) {
+            }
+        }
     }
 }

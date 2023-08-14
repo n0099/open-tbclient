@@ -51,12 +51,12 @@ public class x02 extends v02 {
 
         /* renamed from: com.baidu.tieba.x02$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0533a implements rp3<bg3<JSONObject>> {
+        public class C0535a implements rp3<bg3<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ az1.b a;
 
-            public C0533a(a aVar, az1.b bVar) {
+            public C0535a(a aVar, az1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class x02 extends v02 {
                     return new y22(10002, "network_error");
                 }
                 gg3 e = xa3.K().x().a().b().e(this.e.getContext());
-                e.o(new C0533a(this, bVar));
+                e.o(new C0535a(this, bVar));
                 e.call();
                 return new y22(0);
             }

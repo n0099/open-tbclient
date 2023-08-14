@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d15;
 import com.baidu.tieba.e75;
 import com.baidu.tieba.f25;
-import com.baidu.tieba.j58;
 import com.baidu.tieba.jz4;
-import com.baidu.tieba.k68;
+import com.baidu.tieba.k58;
+import com.baidu.tieba.l68;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.mz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                j58.c("c13751", this.a.d);
+                k58.c("c13751", this.a.d);
             }
         }
     }
@@ -149,7 +149,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void d(View view2, d15 d15Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, d15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                j58.a("c13751", d15Var, i + 1, this.a.d);
+                k58.a("c13751", d15Var, i + 1, this.a.d);
             }
         }
     }
@@ -184,7 +184,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 d15 d15Var = new d15();
                 d15Var.e(str);
-                j58.a("c13750", d15Var, i, this.a.d);
+                k58.a("c13750", d15Var, i, this.a.d);
             }
         }
 
@@ -196,7 +196,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, d15Var) != null) || d15Var == null) {
                 return;
             }
-            j58.b("c13750", d15Var, i, this.a.d);
+            k58.b("c13750", d15Var, i, this.a.d);
         }
     }
 
@@ -333,11 +333,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(k68 k68Var) {
+    public void setData(l68 l68Var) {
         int i;
         List<d15> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, k68Var) != null) || k68Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, l68Var) != null) || l68Var == null) {
             return;
         }
         setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), 0, 0);
@@ -351,7 +351,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.b);
             this.b.setIWindowChangedListener(new a(this));
         }
-        this.b.onBindDataToView(k68Var.e);
+        this.b.onBindDataToView(l68Var.e);
         if (this.c == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
             this.c = gridIconLayout;
@@ -361,7 +361,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.c, layoutParams);
             int dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_H_X002);
             int dimens2 = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds30);
-            f25 f25Var = k68Var.f;
+            f25 f25Var = l68Var.f;
             if (f25Var != null && (list = f25Var.a) != null) {
                 i = list.size();
             } else {
@@ -377,7 +377,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.c.setIWindowChangedListener(new b(this));
             this.c.setMaxItem(10);
         }
-        this.c.onBindDataToView(k68Var.f);
+        this.c.onBindDataToView(l68Var.f);
         this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

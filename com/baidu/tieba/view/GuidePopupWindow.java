@@ -36,7 +36,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ika;
+import com.baidu.tieba.jka;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.GuideScrollView;
@@ -642,7 +642,7 @@ public class GuidePopupWindow extends Dialog {
             super.onCreate(bundle);
             setContentView(this.b);
             getWindow().setLayout(-1, -1);
-            ika.b(1, getWindow().getAttributes(), getWindow());
+            jka.b(1, getWindow().getAttributes(), getWindow());
             GreyUtil.grey(this);
         }
     }

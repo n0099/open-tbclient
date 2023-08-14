@@ -25,11 +25,12 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
-    public en d;
-    public bn6<ThreadData> e;
+    public boolean d;
+    public en e;
+    public cn6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a extends bn6<ThreadData> {
+    public class a extends cn6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oz6 b;
@@ -53,13 +54,13 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn6
+        @Override // com.baidu.tieba.cn6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                um6.b().d(true);
-                sx6.a(view2, threadData, this.b.b);
+                vm6.b().d(true);
+                tx6.a(view2, threadData, this.b.b);
             }
         }
     }
@@ -95,8 +96,8 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((w35) ymVar).t;
                 threadData.objType = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((q05) threadData, view2.getContext(), 2, false);
                 threadCardViewHolder.b().p(new vy.a(1));
@@ -123,7 +124,8 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.e = new a(this);
+        this.d = true;
+        this.f = new a(this);
         this.c = tbPageContext;
         this.a = bdUniqueId2;
         this.b = str;
@@ -132,7 +134,7 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
     public void y(en enVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, enVar) == null) {
-            this.d = enVar;
+            this.e = enVar;
         }
     }
 
@@ -144,8 +146,11 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             ky.b bVar = new ky.b(this.c.getPageActivity(), false);
-            bVar.h(new hx(this.c.getPageActivity()));
-            ky k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            zx zxVar = new zx(this.c.getPageActivity());
+            zxVar.setFrom("index");
+            zxVar.y(this.d);
+            bVar.n(zxVar);
+            ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.j(this.a);
@@ -168,7 +173,8 @@ public class oz6 extends lm<w35, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.b().r(i);
                 threadCardViewHolder.f(w35Var.t);
                 threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.b().q(this.e);
+                threadCardViewHolder.b().q(this.f);
+                tx6.b(w35Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

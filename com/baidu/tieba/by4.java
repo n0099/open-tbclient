@@ -23,7 +23,7 @@ import com.baidu.tieba.m45;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public final class by4 extends ph5 {
     public String h;
     public String i;
     public final NewWriteModel.d j;
-    public uaa.g k;
+    public vaa.g k;
 
     static {
         InterceptResult invokeClinit;
@@ -101,11 +101,11 @@ public final class by4 extends ph5 {
                 }
             }
         };
-        this.k = new uaa.g() { // from class: com.baidu.tieba.vx4
+        this.k = new vaa.g() { // from class: com.baidu.tieba.vx4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.uaa.g
+            @Override // com.baidu.tieba.vaa.g
             public final void a(WriteData writeData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
@@ -232,7 +232,7 @@ public final class by4 extends ph5 {
                     ay4Var = null;
                 }
                 jSONObject.put("replyUName", ay4Var.a().get("replyUName"));
-                qk6.a().h("webviewPage.replyResult", jSONObject);
+                rk6.a().h("webviewPage.replyResult", jSONObject);
             } catch (Exception unused) {
             }
             if (z) {
@@ -345,9 +345,9 @@ public final class by4 extends ph5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                uaa.z(this.h, null);
+                vaa.z(this.h, null);
             } else if (!TextUtils.isEmpty(this.i)) {
-                uaa.B(this.i, null);
+                vaa.B(this.i, null);
             }
         }
     }
@@ -356,9 +356,9 @@ public final class by4 extends ph5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                uaa.p(this.h, this.k);
+                vaa.p(this.h, this.k);
             } else if (!TextUtils.isEmpty(this.i)) {
-                uaa.r(this.i, this.k);
+                vaa.r(this.i, this.k);
             }
         }
     }
@@ -500,7 +500,7 @@ public final class by4 extends ph5 {
             d0.setContent(this.e);
             if (!TextUtils.isEmpty(this.h)) {
                 d0.setType(1);
-                uaa.z(this.h, d0);
+                vaa.z(this.h, d0);
             } else if (!TextUtils.isEmpty(this.i)) {
                 d0.setType(2);
                 d0.setReplyId(g("replyUid"));
@@ -509,7 +509,7 @@ public final class by4 extends ph5 {
                 d0.setName(g("name"));
                 d0.setReSubPostId(g("reSubPostId"));
                 d0.setSubPbReplyPrefix(g("subPbReplyPrefix"));
-                uaa.B(this.i, d0);
+                vaa.B(this.i, d0);
             }
         }
     }

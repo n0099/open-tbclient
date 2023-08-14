@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
 import android.app.Application;
-import android.content.Context;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,19 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class eha {
     public static /* synthetic */ Interceptable $ic;
-    public static eha b;
+    public static eha c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public boolean b;
 
     /* loaded from: classes5.dex */
     public interface a {
         void a(Application application);
-
-        void b(Context context);
-
-        void c(Context context, WebView webView, WebChromeClient webChromeClient);
-
-        void d(Context context, String str, boolean z);
     }
 
     public eha() {
@@ -45,6 +36,7 @@ public class eha {
                 return;
             }
         }
+        this.b = false;
         this.a = c();
     }
 
@@ -52,16 +44,28 @@ public class eha {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+            if (c == null) {
                 synchronized (eha.class) {
-                    if (b == null) {
-                        b = new eha();
+                    if (c == null) {
+                        c = new eha();
                     }
                 }
             }
-            return b;
+            return c;
         }
         return (eha) invokeV.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (SharedPrefHelper.getInstance().getInt("pref_key_jpush_sdk_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final a c() {
@@ -69,7 +73,7 @@ public class eha {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
+            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
                 return (a) runTask.getData();
             }
             return null;
@@ -77,47 +81,12 @@ public class eha {
         return (a) invokeV.objValue;
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (SharedPrefHelper.getInstance().getInt("pref_key_stat_sdk_enable", 1) != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(Context context) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.b(context);
-        }
-    }
-
     public void d(Application application) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
             aVar.a(application);
-        }
-    }
-
-    public void f(Context context, String str, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.d(context, str, z);
-        }
-    }
-
-    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.c(context, webView, webChromeClient);
+            this.b = true;
         }
     }
 }

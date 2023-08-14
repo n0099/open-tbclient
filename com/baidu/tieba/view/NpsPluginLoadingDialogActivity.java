@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i19;
-import com.baidu.tieba.sv7;
+import com.baidu.tieba.j19;
+import com.baidu.tieba.tv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,9 +79,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.e) {
-                sv7.i().l();
+                tv7.i().l();
             } else {
-                i19.j().n();
+                j19.j().n();
             }
         }
     }
@@ -120,7 +120,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             String stringExtra = intent.getStringExtra("tag");
             this.d = stringExtra;
             this.e = (stringExtra == null || !stringExtra.equals("gameAssistTag")) ? false : false;
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091d65);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091d6b);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
@@ -133,15 +133,15 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             }
             this.b.setOnClickListener(this);
             if (this.e) {
-                if (!sv7.i().k()) {
+                if (!tv7.i().k()) {
                     finish();
                 } else {
-                    sv7.i().m(this);
+                    tv7.i().m(this);
                 }
-            } else if (!i19.j().m()) {
+            } else if (!j19.j().m()) {
                 finish();
             } else {
-                i19.j().o(this);
+                j19.j().o(this);
             }
         }
     }

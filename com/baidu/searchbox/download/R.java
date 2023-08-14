@@ -26,9 +26,9 @@ public final class R {
         /* renamed from: appIcon */
         public static final int obfuscated = 0x7f0902a0;
         public static final int description = 0x7f09088a;
-        public static final int paused_text = 0x7f091a53;
-        public static final int progress_bar = 0x7f091d65;
-        public static final int progress_text = 0x7f091d6e;
+        public static final int paused_text = 0x7f091a59;
+        public static final int progress_bar = 0x7f091d6b;
+        public static final int progress_text = 0x7f091d74;
     }
 
     /* loaded from: classes3.dex */

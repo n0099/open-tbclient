@@ -55,7 +55,7 @@ import com.baidu.tieba.ei5;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.nc5;
 import com.baidu.tieba.oc5;
-import com.baidu.tieba.ox6;
+import com.baidu.tieba.px6;
 import com.baidu.tieba.rl5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.vn5;
@@ -106,9 +106,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public int o;
     public boolean p;
     public int q;
-    public ox6 r;
+    public px6 r;
     public List<ei5> s;
-    public List<ox6> t;
+    public List<px6> t;
     public int u;
     public int v;
     public int w;
@@ -181,7 +181,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     if (iVar == null || iVar.a() == null) {
                         return false;
                     }
-                    ox6 a = iVar.a();
+                    px6 a = iVar.a();
                     if (a.c() != EmotionGroupType.BIG_EMOTION && a.c() != EmotionGroupType.USER_COLLECT && a.c() != EmotionGroupType.LOCAL && a.c() != EmotionGroupType.USER_DIY) {
                         return false;
                     }
@@ -226,7 +226,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                         nc5 nc5Var = new nc5();
                         i iVar = (i) adapterView.getAdapter();
                         if (iVar != null && iVar.a() != null) {
-                            ox6 a = iVar.a();
+                            px6 a = iVar.a();
                             int b = iVar.b();
                             ei5 j2 = a.j();
                             String b2 = a.j().b(b + i);
@@ -332,15 +332,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 }
                 gridView.setScrollbarFadingEnabled(false);
                 if (this.a.t != null && i < this.a.t.size()) {
-                    ox6 ox6Var = (ox6) this.a.t.get(i);
-                    gridView.setNumColumns(ox6Var.a());
+                    px6 px6Var = (px6) this.a.t.get(i);
+                    gridView.setNumColumns(px6Var.a());
                     gridView.setVerticalSpacing(0);
                     gridView.setHorizontalSpacing(0);
                     gridView.setSelector(R.color.common_color_10022);
                     gridView.setPadding(this.a.C.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), 0, this.a.C.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), 0);
                     gridView.setOnItemLongClickListener(new a(this));
                     gridView.setOnItemClickListener(new b(this));
-                    gridView.setAdapter((ListAdapter) new i(this.a, ox6Var));
+                    gridView.setAdapter((ListAdapter) new i(this.a, px6Var));
                 }
                 viewGroup.addView(gridView);
                 return gridView;
@@ -356,24 +356,24 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 if (this.a.t != null) {
                     int size = this.a.t.size();
                     if (i == 0 && i < size && i != this.a.w) {
-                        ox6 ox6Var = (ox6) this.a.t.get(i);
-                        if (ox6Var != null) {
+                        px6 px6Var = (px6) this.a.t.get(i);
+                        if (px6Var != null) {
                             this.a.w = i;
                             IndicatorView indicatorView = this.a.d;
-                            if (ox6Var.f() > 1) {
+                            if (px6Var.f() > 1) {
                                 i2 = 0;
                             } else {
                                 i2 = 4;
                             }
                             indicatorView.setVisibility(i2);
-                            this.a.d.setCount(ox6Var.f());
-                            this.a.d.setPosition(ox6Var.e());
-                            this.a.d.setContentDescription(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0653), Integer.valueOf(ox6Var.e() + 1)) + String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0652), Integer.valueOf(ox6Var.f())));
+                            this.a.d.setCount(px6Var.f());
+                            this.a.d.setPosition(px6Var.e());
+                            this.a.d.setContentDescription(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0653), Integer.valueOf(px6Var.e() + 1)) + String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0652), Integer.valueOf(px6Var.f())));
                         }
-                        if (ox6Var != null && ox6Var.g() != this.a.v) {
-                            this.a.v = ox6Var.g();
+                        if (px6Var != null && px6Var.g() != this.a.v) {
+                            this.a.v = px6Var.g();
                             if (this.a.x != null) {
-                                this.a.x.b(ox6Var.g());
+                                this.a.x.b(px6Var.g());
                             }
                         }
                     }
@@ -652,7 +652,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 if (this.a.b != null) {
                     if (this.a.w >= 0 && this.a.w < this.a.t.size()) {
                         EmotionTabContentView emotionTabContentView = this.a;
-                        emotionTabContentView.r = (ox6) emotionTabContentView.t.get(this.a.w);
+                        emotionTabContentView.r = (px6) emotionTabContentView.t.get(this.a.w);
                         int f = this.a.r.f();
                         this.a.d.setCount(f);
                         IndicatorView indicatorView = this.a.d;
@@ -673,7 +673,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                         i iVar = (i) gridView.getAdapter();
                                         int d = iVar.a().d();
                                         if (d >= 0 && d < this.a.t.size()) {
-                                            iVar.c((ox6) this.a.t.get(d));
+                                            iVar.c((px6) this.a.t.get(d));
                                             iVar.notifyDataSetChanged();
                                         }
                                     }
@@ -803,7 +803,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public class i extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ox6 a;
+        public px6 a;
         public final /* synthetic */ EmotionTabContentView b;
 
         @Override // android.widget.Adapter
@@ -813,12 +813,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
         }
 
-        public i(EmotionTabContentView emotionTabContentView, ox6 ox6Var) {
+        public i(EmotionTabContentView emotionTabContentView, px6 px6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {emotionTabContentView, ox6Var};
+                Object[] objArr = {emotionTabContentView, px6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -829,27 +829,27 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 }
             }
             this.b = emotionTabContentView;
-            this.a = ox6Var;
+            this.a = px6Var;
         }
 
-        public ox6 a() {
+        public px6 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a;
             }
-            return (ox6) invokeV.objValue;
+            return (px6) invokeV.objValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ox6 ox6Var = this.a;
-                if (ox6Var == null) {
+                px6 px6Var = this.a;
+                if (px6Var == null) {
                     return 0;
                 }
-                return ox6Var.i();
+                return px6Var.i();
             }
             return invokeV.intValue;
         }
@@ -859,19 +859,19 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                ox6 ox6Var = this.a;
-                if (ox6Var == null) {
+                px6 px6Var = this.a;
+                if (px6Var == null) {
                     return 0;
                 }
-                return ox6Var.b();
+                return px6Var.b();
             }
             return invokeV.intValue;
         }
 
-        public void c(ox6 ox6Var) {
+        public void c(px6 px6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ox6Var) == null) {
-                this.a = ox6Var;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, px6Var) == null) {
+                this.a = px6Var;
             }
         }
 
@@ -927,11 +927,11 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     }
                 }
                 LinearLayout linearLayout3 = linearLayout;
-                ox6 ox6Var = this.a;
-                if (ox6Var == null) {
+                px6 px6Var = this.a;
+                if (px6Var == null) {
                     return linearLayout3;
                 }
-                int i5 = ox6Var.i() + i;
+                int i5 = px6Var.i() + i;
                 TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(R.id.obfuscated_res_0x7f0909e6);
                 tbImageView.setAutoChangeStyle(false);
                 SkinManager.setBackgroundResource(tbImageView, R.drawable.btn_choose_face_selector, this.b.B);
@@ -1245,7 +1245,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     public final void I(int i2) {
-        List<ox6> list;
+        List<px6> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048579, this, i2) != null) || (list = this.t) == null) {
             return;
@@ -1253,9 +1253,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         int size = list.size();
         if (i2 >= 0 && i2 < size) {
             for (int i3 = 0; i3 < size; i3++) {
-                ox6 ox6Var = this.t.get(i3);
-                if (ox6Var != null && ox6Var.g() == i2) {
-                    this.y = ox6Var.d();
+                px6 px6Var = this.t.get(i3);
+                if (px6Var != null && px6Var.g() == i2) {
+                    this.y = px6Var.d();
                     return;
                 }
             }
@@ -1271,9 +1271,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 int i4 = 0;
                 while (true) {
                     if (i4 < size) {
-                        ox6 ox6Var = this.t.get(i4);
-                        if (ox6Var != null && ox6Var.g() == i2) {
-                            i3 = ox6Var.d();
+                        px6 px6Var = this.t.get(i4);
+                        if (px6Var != null && px6Var.g() == i2) {
+                            i3 = px6Var.d();
                             break;
                         }
                         i4++;
@@ -1309,30 +1309,30 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                             i6++;
                         }
                         for (int i7 = 0; i7 < i6; i7++) {
-                            ox6 ox6Var = new ox6();
+                            px6 px6Var = new px6();
                             int i8 = i6 - 1;
                             if (i7 < i8) {
                                 i2 = i5;
                             } else {
                                 i2 = c2 - (i8 * i5);
                             }
-                            ox6Var.u(ei5Var);
-                            ox6Var.r(i4);
-                            ox6Var.m(ei5Var.h());
-                            ox6Var.s(k);
-                            ox6Var.k(a2);
-                            ox6Var.q(i6);
-                            ox6Var.p(i7);
-                            ox6Var.l(i2);
-                            ox6Var.t(i7 * a2 * k);
-                            ox6Var.n((i3 + i2) - 1);
-                            this.t.add(ox6Var);
+                            px6Var.u(ei5Var);
+                            px6Var.r(i4);
+                            px6Var.m(ei5Var.h());
+                            px6Var.s(k);
+                            px6Var.k(a2);
+                            px6Var.q(i6);
+                            px6Var.p(i7);
+                            px6Var.l(i2);
+                            px6Var.t(i7 * a2 * k);
+                            px6Var.n((i3 + i2) - 1);
+                            this.t.add(px6Var);
                         }
                     }
                 }
                 this.u = this.t.size();
                 for (int i9 = 0; i9 < this.u; i9++) {
-                    List<ox6> list2 = this.t;
+                    List<px6> list2 = this.t;
                     if (list2 != null && list2.get(i9) != null) {
                         this.t.get(i9).o(i9);
                     }
@@ -1404,7 +1404,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             this.D = i2;
             i iVar = (i) gridView.getAdapter();
             if (iVar != null && iVar.a() != null) {
-                ox6 a2 = iVar.a();
+                px6 a2 = iVar.a();
                 String b2 = a2.j().b(iVar.b() + i2);
                 if (b2 == null) {
                     DefaultLog.getInstance().e("EmotionTabContentView", "EmotionTabContentView showFloatView getEmotionSharpText key is null, pos=" + i2);
@@ -1559,21 +1559,21 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             }
             int size = this.t.size();
             if (i2 >= 0 && i2 < size) {
-                ox6 ox6Var = this.t.get(i2);
-                this.r = ox6Var;
+                px6 px6Var = this.t.get(i2);
+                this.r = px6Var;
                 IndicatorView indicatorView = this.d;
-                if (indicatorView != null && ox6Var != null) {
+                if (indicatorView != null && px6Var != null) {
                     if (this.w != i2) {
                         this.w = i2;
-                        if (ox6Var.f() > 1) {
+                        if (px6Var.f() > 1) {
                             i4 = 0;
                         } else {
                             i4 = 4;
                         }
                         indicatorView.setVisibility(i4);
                         this.d.setCount(this.r.f());
-                        ox6 ox6Var2 = this.r;
-                        if (ox6Var2 != null && ox6Var2.g() != this.v) {
+                        px6 px6Var2 = this.r;
+                        if (px6Var2 != null && px6Var2.g() != this.v) {
                             this.v = this.r.g();
                             j jVar = this.x;
                             if (jVar != null) {

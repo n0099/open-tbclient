@@ -31,7 +31,7 @@ public class oe5 implements ck1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new f89());
+            arrayList.add(new g89());
             return arrayList;
         }
         return invokeV.objValue;

@@ -49,16 +49,16 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f37;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.EmotionPackageDetailModel;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
 import com.baidu.tieba.g37;
+import com.baidu.tieba.h37;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.NewFaceGroupShareModel;
-import com.baidu.tieba.q17;
+import com.baidu.tieba.r17;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
@@ -85,7 +85,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
     public String J;
     public View K;
     public LikeModel L;
-    public g37 M;
+    public h37 M;
     public int N;
     public final CustomMessageListener O;
     public final CustomMessageListener P;
@@ -562,25 +562,25 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 if (view2 == null) {
                     bVar = new b(this, null);
                     view3 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d075d, viewGroup, false);
-                    TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a1f);
+                    TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a25);
                     bVar.a = tbImageView;
                     ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
                     layoutParams.height = this.b;
                     bVar.a.setLayoutParams(layoutParams);
                     SkinManager.setBackgroundColor(bVar.a, R.color.CAM_X0201);
-                    TbImageView tbImageView2 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a20);
+                    TbImageView tbImageView2 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a26);
                     bVar.b = tbImageView2;
                     ViewGroup.LayoutParams layoutParams2 = tbImageView2.getLayoutParams();
                     layoutParams2.height = this.b;
                     bVar.b.setLayoutParams(layoutParams2);
                     SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0201);
-                    TbImageView tbImageView3 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a21);
+                    TbImageView tbImageView3 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a27);
                     bVar.c = tbImageView3;
                     ViewGroup.LayoutParams layoutParams3 = tbImageView3.getLayoutParams();
                     layoutParams3.height = this.b;
                     bVar.c.setLayoutParams(layoutParams3);
                     SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0201);
-                    TbImageView tbImageView4 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a22);
+                    TbImageView tbImageView4 = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a28);
                     bVar.d = tbImageView4;
                     ViewGroup.LayoutParams layoutParams4 = tbImageView4.getLayoutParams();
                     layoutParams4.height = this.b;
@@ -848,7 +848,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         }
                     }
                 }
-                if (q17.c().e("" + this.a.D)) {
+                if (r17.c().e("" + this.a.D)) {
                     this.a.w.setText(R.string.already_downloaded);
                     SkinManager.setViewTextColor(this.a.w, (int) R.color.CAM_X0109);
                     SkinManager.setImageResource(this.a.v, R.drawable.icon_bar_downloaded);
@@ -1025,9 +1025,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f37)) {
-                f37 f37Var = (f37) customResponsedMessage.getData();
-                int i = f37Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g37)) {
+                g37 g37Var = (g37) customResponsedMessage.getData();
+                int i = g37Var.a;
                 if (i == 0) {
                     BdUtilHelper.showToast(this.a.getActivity(), (int) R.string.down_state_success);
                     SkinManager.setImageResource(this.a.v, R.drawable.icon_bar_downloaded);
@@ -1042,7 +1042,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                     BdUtilHelper.showToast(this.a.getActivity(), (int) R.string.download_error);
                     this.a.u.setEnabled(true);
                 } else if (i == 2) {
-                    int i2 = f37Var.b;
+                    int i2 = g37Var.b;
                     if (i2 > 0 && i2 < 100) {
                         BdUtilHelper.showLongToast(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0f24));
                     } else if (i2 >= 100) {
@@ -1179,9 +1179,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            g37 g37Var = this.M;
-            if (g37Var != null) {
-                g37Var.s();
+            h37 h37Var = this.M;
+            if (h37Var != null) {
+                h37Var.s();
             }
         }
     }
@@ -1265,9 +1265,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            g37 g37Var = this.M;
-            if (g37Var != null) {
-                g37Var.y(i2);
+            h37 h37Var = this.M;
+            if (h37Var != null) {
+                h37Var.y(i2);
             }
         }
     }
@@ -1344,7 +1344,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 this.f.setVisibility(0);
             }
             this.f.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.g = (PackageDetailListView) findViewById(R.id.obfuscated_res_0x7f091a1e);
+            this.g = (PackageDetailListView) findViewById(R.id.obfuscated_res_0x7f091a24);
             this.q = new k(this, null);
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d02a8, (ViewGroup) null);
             this.h = inflate;
@@ -1354,34 +1354,34 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             this.j = this.h.findViewById(R.id.obfuscated_res_0x7f090908);
             this.k = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0909a9);
             this.l = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0909dd);
-            this.m = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a1d);
-            this.n = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a23);
+            this.m = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a23);
+            this.n = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a29);
             this.x = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0909b0);
-            HeadImageView headImageView = (HeadImageView) this.h.findViewById(R.id.obfuscated_res_0x7f091a19);
+            HeadImageView headImageView = (HeadImageView) this.h.findViewById(R.id.obfuscated_res_0x7f091a1f);
             this.o = headImageView;
             headImageView.setIsRound(true);
             this.o.setOnClickListener(this);
-            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a1a);
+            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f091a20);
             this.p = textView;
             textView.setOnClickListener(this);
             this.g.setAdapter((ListAdapter) this.q);
             this.r = findViewById(R.id.obfuscated_res_0x7f09002b);
-            this.s = findViewById(R.id.obfuscated_res_0x7f091a1c);
+            this.s = findViewById(R.id.obfuscated_res_0x7f091a22);
             this.B = findViewById(R.id.obfuscated_res_0x7f0907e3);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f0914da);
             this.u = findViewById;
             findViewById.setOnClickListener(this);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914de);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0914e9);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091f1d);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091f23);
             this.A = findViewById2;
             findViewById2.setOnClickListener(this);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091a24);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091a2a);
             this.t = findViewById3;
             findViewById3.setOnClickListener(this);
-            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f0929b1);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0929c2);
-            this.M = new g37(this);
+            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f0929b7);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0929c8);
+            this.M = new h37(this);
         }
     }
 

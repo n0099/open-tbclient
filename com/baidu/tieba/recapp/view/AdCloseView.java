@@ -44,10 +44,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy8;
-import com.baidu.tieba.g46;
+import com.baidu.tieba.dy8;
+import com.baidu.tieba.h46;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.m46;
+import com.baidu.tieba.n46;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.q31;
 import com.baidu.tieba.recapp.constants.PlaceId;
@@ -677,8 +677,8 @@ public class AdCloseView extends FrameLayout {
             adCloseReasonCheckBox.setTag("vipFreeGuideTag");
             adCloseReasonCheckBox.b(R.string.J_X07, UtilHelper.getDimenPixelSize(R.dimen.L_X01), R.color.CAM_X0311, R.color.CAM_X0311, false);
             SkinManager.setViewTextColor(adCloseReasonCheckBox, (int) R.color.CAM_X0311);
-            String c = g46.e().c();
-            String b = g46.e().b();
+            String c = h46.e().c();
+            String b = h46.e().b();
             if (StringUtils.isNull(c) || StringUtils.isNull(b) || (indexOf = c.indexOf(b)) == -1) {
                 return;
             }
@@ -1014,7 +1014,7 @@ public class AdCloseView extends FrameLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0107, 1);
             this.j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e1f);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e25);
             this.m = new ArrayList();
             return inflate;
         }
@@ -1151,7 +1151,7 @@ public class AdCloseView extends FrameLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && q()) {
-            m46.l().c(getContext(), new String[]{this.o.url}, null);
+            n46.l().c(getContext(), new String[]{this.o.url}, null);
         }
     }
 
@@ -1164,14 +1164,14 @@ public class AdCloseView extends FrameLayout {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            if (!cy8.e(this.m)) {
-                for (int i = 0; i < cy8.i(this.m); i++) {
-                    CheckBox checkBox = (CheckBox) cy8.d(this.m, i);
-                    if (checkBox != null && checkBox.isChecked() && cy8.i(this.p) > i) {
+            if (!dy8.e(this.m)) {
+                for (int i = 0; i < dy8.i(this.m); i++) {
+                    CheckBox checkBox = (CheckBox) dy8.d(this.m, i);
+                    if (checkBox != null && checkBox.isChecked() && dy8.i(this.p) > i) {
                         if (sb.length() != 0) {
                             sb.append(",");
                         }
-                        sb.append((String) cy8.d(this.p, i));
+                        sb.append((String) dy8.d(this.p, i));
                     }
                 }
             }
@@ -1199,9 +1199,9 @@ public class AdCloseView extends FrameLayout {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !cy8.e(this.p)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !dy8.e(this.p)) {
             o();
-            int i = cy8.i(this.p);
+            int i = dy8.i(this.p);
             this.d.setVisibility(0);
             int i2 = 0;
             for (int i3 = 0; i3 < Math.ceil(i / 2.0d); i3++) {
@@ -1218,12 +1218,12 @@ public class AdCloseView extends FrameLayout {
                     CheckBox checkBox = (CheckBox) linearLayout.getChildAt(i4);
                     checkBox.setOnClickListener(this.F);
                     checkBox.setVisibility(0);
-                    cy8.a(this.m, checkBox);
+                    dy8.a(this.m, checkBox);
                 }
             }
-            for (int i5 = 0; i5 < cy8.i(this.p); i5++) {
-                String str = (String) cy8.d(this.p, i5);
-                CheckBox checkBox2 = (CheckBox) cy8.d(this.m, i5);
+            for (int i5 = 0; i5 < dy8.i(this.p); i5++) {
+                String str = (String) dy8.d(this.p, i5);
+                CheckBox checkBox2 = (CheckBox) dy8.d(this.m, i5);
                 if (checkBox2 != null) {
                     checkBox2.setText(str);
                     w(checkBox2, str);
@@ -1235,11 +1235,11 @@ public class AdCloseView extends FrameLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && TbadkCoreApplication.isLogin()) {
-            this.B = g46.e().c();
+            this.B = h46.e().c();
             List<String> list = this.p;
-            String str = (String) cy8.d(list, cy8.i(list) - 1);
+            String str = (String) dy8.d(list, dy8.i(list) - 1);
             if (!StringUtils.isNull(this.B) && !this.B.equals(str)) {
-                cy8.a(this.p, this.B);
+                dy8.a(this.p, this.B);
             }
         }
     }
@@ -1267,12 +1267,12 @@ public class AdCloseView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (cy8.e(this.m)) {
+            if (dy8.e(this.m)) {
                 return 0;
             }
             int i = 0;
-            for (int i2 = 0; i2 < cy8.i(this.m); i2++) {
-                CheckBox checkBox = (CheckBox) cy8.d(this.m, i2);
+            for (int i2 = 0; i2 < dy8.i(this.m); i2++) {
+                CheckBox checkBox = (CheckBox) dy8.d(this.m, i2);
                 if (checkBox != null && checkBox.isChecked()) {
                     i++;
                 }
@@ -1327,11 +1327,11 @@ public class AdCloseView extends FrameLayout {
         this.n = advertAppInfo;
         this.C = advertAppInfo.u;
         this.D = advertAppInfo.v;
-        cy8.c(this.p);
+        dy8.c(this.p);
         if (adCloseInfo != null) {
             this.o = adCloseInfo.action_control;
             for (String str : adCloseInfo.reasons) {
-                cy8.a(this.p, str);
+                dy8.a(this.p, str);
             }
             String str2 = adCloseInfo.title;
             this.q = str2;

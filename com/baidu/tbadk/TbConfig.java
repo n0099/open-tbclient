@@ -833,15 +833,9 @@ public class TbConfig {
         QUESTION_THREAD_LIST = TIEBA_ADDRESS + "mo/q/wise-creative-core/ask-details";
         VIRTUAL_IMAGE_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-service/virtualAvatar?customfullscreen=1&nonavigationbar=1";
         USER_GROWTH_TASK_CENTER_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-user/taskCenter?customfullscreen=1&nonavigationbar=1";
-        StringBuilder sb = new StringBuilder();
-        sb.append(TIEBA_ADDRESS);
-        sb.append("mo/q/hybrid-main-user/growRules?fr=taskDes");
-        USER_GROWTH_GUIDE_MAIN_URL = sb.toString();
+        USER_GROWTH_GUIDE_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-user/growRules?fr=taskDes";
         URL_THEME_CENTER = TIEBA_ADDRESS + "mo/q/hybrid/pretendCenter?page_from=1&customfullscreen=1&nonavigationbar=1&skin=";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(TIEBA_ADDRESS);
-        sb2.append("c/e/alipay/alipayApplyUserInfo");
-        USER_GROWTH_APPLY_ALI_AUTH_INFO_URL = sb2.toString();
+        USER_GROWTH_APPLY_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayApplyUserInfo";
         USER_GROWTH_GET_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayGetUserInfo";
     }
 

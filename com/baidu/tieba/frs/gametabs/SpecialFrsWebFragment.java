@@ -70,17 +70,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a85;
 import com.baidu.tieba.b85;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.eca;
 import com.baidu.tieba.fca;
 import com.baidu.tieba.gca;
-import com.baidu.tieba.pg7;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.qg7;
 import com.baidu.tieba.u75;
-import com.baidu.tieba.vm7;
+import com.baidu.tieba.wm7;
 import com.baidu.tieba.x75;
-import com.baidu.tieba.xm7;
 import com.baidu.tieba.ym7;
 import com.baidu.tieba.yw4;
 import com.baidu.tieba.z75;
+import com.baidu.tieba.zm7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,12 +93,12 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
+public class SpecialFrsWebFragment extends BaseWebViewFragment implements qg7 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean A;
     public static HashMap<String, String> B;
     public transient /* synthetic */ FieldHolder $fh;
-    public xm7 e;
+    public ym7 e;
     public String f;
     public String g;
     public int h;
@@ -107,8 +107,8 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
     public NoNetworkView k;
     public FrameLayout l;
     public FrameLayout m;
-    public eca n;
-    public ym7 o;
+    public fca n;
+    public zm7 o;
     public z75 p;
     public boolean q;
     public boolean r;
@@ -116,7 +116,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
     public boolean t;
     public boolean u;
     public String v;
-    public gca w;
+    public hca w;
     public CustomMessageListener x;
     public CustomMessageListener y;
     public final View.OnClickListener z;
@@ -206,7 +206,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements gca {
+    public class c implements hca {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialFrsWebFragment a;
@@ -229,7 +229,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
             this.a = specialFrsWebFragment;
         }
 
-        @Override // com.baidu.tieba.gca
+        @Override // com.baidu.tieba.hca
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -640,18 +640,18 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.y);
-            ym7 ym7Var = this.o;
-            if (ym7Var != null) {
-                ym7Var.release();
+            zm7 zm7Var = this.o;
+            if (zm7Var != null) {
+                zm7Var.release();
                 this.o = null;
             }
-            xm7 xm7Var = this.e;
-            if (xm7Var != null) {
-                xm7Var.n();
+            ym7 ym7Var = this.e;
+            if (ym7Var != null) {
+                ym7Var.n();
             }
-            eca ecaVar = this.n;
-            if (ecaVar != null) {
-                ecaVar.h();
+            fca fcaVar = this.n;
+            if (fcaVar != null) {
+                fcaVar.h();
             }
             ScrollBridgeWebview scrollBridgeWebview = this.i;
             if (scrollBridgeWebview != null) {
@@ -731,7 +731,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onActivityCreated(bundle);
             if (this.e == null) {
-                this.e = new xm7(getPageContext());
+                this.e = new ym7(getPageContext());
             }
         }
     }
@@ -740,9 +740,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            xm7 xm7Var = this.e;
-            if (xm7Var != null) {
-                xm7Var.m(i2);
+            ym7 ym7Var = this.e;
+            if (ym7Var != null) {
+                ym7Var.m(i2);
             }
             NoNetworkView noNetworkView = this.k;
             if (noNetworkView != null) {
@@ -885,14 +885,14 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
         }
     }
 
-    @Override // com.baidu.tieba.pg7
+    @Override // com.baidu.tieba.qg7
     public NavigationBar o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            xm7 xm7Var = this.e;
-            if (xm7Var != null) {
-                return xm7Var.j();
+            ym7 ym7Var = this.e;
+            if (ym7Var != null) {
+                return ym7Var.j();
             }
             return null;
         }
@@ -904,9 +904,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onResume();
-            xm7 xm7Var = this.e;
-            if (xm7Var != null) {
-                xm7Var.m(TbadkCoreApplication.getInst().getSkinType());
+            ym7 ym7Var = this.e;
+            if (ym7Var != null) {
+                ym7Var.m(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -944,28 +944,28 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
                 this.s = true;
             }
             x2(this.a);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921047, ym7.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921047, zm7.class);
             if (runTask != null) {
-                ym7 ym7Var = (ym7) runTask.getData();
-                this.o = ym7Var;
-                if (ym7Var != null) {
-                    ym7Var.init();
+                zm7 zm7Var = (zm7) runTask.getData();
+                this.o = zm7Var;
+                if (zm7Var != null) {
+                    zm7Var.init();
                 }
             }
         }
     }
 
-    public final fca m2() {
+    public final gca m2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, fca.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gca.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (fca) runTask.getData();
+                return (gca) runTask.getData();
             }
             return null;
         }
-        return (fca) invokeV.objValue;
+        return (gca) invokeV.objValue;
     }
 
     public final SparseArray<String> r2() {
@@ -1007,9 +1007,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
                 this.f = getArguments().getString("fid");
                 this.g = getArguments().getString("fname");
             }
-            eca ecaVar = new eca();
-            this.n = ecaVar;
-            ecaVar.a(new XiubaTbJsBridge(getPageContext()));
+            fca fcaVar = new fca();
+            this.n = fcaVar;
+            fcaVar.a(new XiubaTbJsBridge(getPageContext()));
             this.n.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.n.a(m2());
             t2();
@@ -1027,10 +1027,10 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) null);
             this.j = inflate;
             this.k = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-            this.l = (FrameLayout) this.j.findViewById(R.id.obfuscated_res_0x7f0929e7);
+            this.l = (FrameLayout) this.j.findViewById(R.id.obfuscated_res_0x7f0929ed);
             this.m = (FrameLayout) this.j.findViewById(R.id.obfuscated_res_0x7f091951);
             if (this.e == null) {
-                this.e = new xm7(getPageContext());
+                this.e = new ym7(getPageContext());
             }
             this.e.l((NavigationBar) this.j.findViewById(R.id.view_navigation_bar), this);
             p2();
@@ -1073,9 +1073,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
                 this.i.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 this.i.setWebViewClient(new h(this));
                 this.i.setDownloadListener(new i(this, null));
-                vm7 vm7Var = new vm7(getPageContext());
-                vm7Var.a(this.w);
-                this.i.setWebChromeClient(vm7Var);
+                wm7 wm7Var = new wm7(getPageContext());
+                wm7Var.a(this.w);
+                this.i.setWebChromeClient(wm7Var);
                 this.i.setOnScrollChangeListener(new f(this));
                 CompatibleUtile.getInstance().removeJavascriptInterface(this.i);
                 boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
@@ -1348,9 +1348,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements pg7 {
                 int parseInt = Integer.parseInt(WebviewHelper.getMatchStringFromURL(str, "fid="));
                 int parseInt2 = Integer.parseInt(WebviewHelper.getMatchStringFromURL(str, "gameid="));
                 String matchStringFromURL = WebviewHelper.getMatchStringFromURL(str, "gamename=");
-                ym7 ym7Var = this.o;
-                if (ym7Var != null) {
-                    ym7Var.a(getPageContext(), matchStringFromURL, parseInt2, parseInt);
+                zm7 zm7Var = this.o;
+                if (zm7Var != null) {
+                    zm7Var.a(getPageContext(), matchStringFromURL, parseInt2, parseInt);
                     return true;
                 }
                 return true;

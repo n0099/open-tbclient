@@ -45,12 +45,12 @@ public class tc3 extends vc3 {
 
         /* renamed from: com.baidu.tieba.tc3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0483a implements Runnable {
+        public class RunnableC0484a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0483a(a aVar) {
+            public RunnableC0484a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class tc3 extends vc3 {
                     wf3.q(bg3Var, this.a, this.b);
                     return;
                 }
-                sn3.k(new RunnableC0483a(this), "SaveImageAction");
+                sn3.k(new RunnableC0484a(this), "SaveImageAction");
             }
         }
     }

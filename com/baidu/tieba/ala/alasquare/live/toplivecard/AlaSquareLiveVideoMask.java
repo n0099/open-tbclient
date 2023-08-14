@@ -125,14 +125,14 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             this.c.setAutoChangeStyle(false);
             View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090efd);
             this.d = findViewById;
-            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f081280);
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f081283);
             this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8d);
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8e);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8c);
             this.e.setIsRound(true);
             this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926b1);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926a8);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926b7);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926ae);
             this.j = (ImageView) this.b.findViewById(R.id.image_video_play);
             NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090230);
             this.k = noActiveStopAlaPlayAnimationView;

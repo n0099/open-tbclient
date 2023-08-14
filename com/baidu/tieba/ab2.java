@@ -70,12 +70,12 @@ public final class ab2 {
 
         /* renamed from: com.baidu.tieba.ab2$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0237b implements rp3<String> {
+        public class C0236b implements rp3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rp3 a;
 
-            public C0237b(b bVar, rp3 rp3Var) {
+            public C0236b(b bVar, rp3 rp3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class ab2 {
         public void e(@NonNull rp3<String> rp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rp3Var) == null) {
-                this.e.e(new C0237b(this, rp3Var));
+                this.e.e(new C0236b(this, rp3Var));
             }
         }
 

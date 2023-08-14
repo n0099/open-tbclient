@@ -1,27 +1,46 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.dns.IHttpDnsConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class k4a {
+public class k4a implements IHttpDnsConfig {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile j4a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized j4a a() {
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getAccountId() {
         InterceptResult invokeV;
-        j4a j4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (k4a.class) {
-                if (a == null) {
-                    a = new j4a();
-                }
-                j4aVar = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "119799" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getLabel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tbprefetch" : (String) invokeV.objValue;
+    }
+
+    public k4a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return j4aVar;
         }
-        return (j4a) invokeV.objValue;
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class mpb<TResult> implements bpb<TResult> {
+public final class mpb<TResult> implements cpb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public epb<TResult> a;
+    public epb a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class mpb<TResult> implements bpb<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fpb a;
+        public final /* synthetic */ gpb a;
         public final /* synthetic */ mpb b;
 
-        public a(mpb mpbVar, fpb fpbVar) {
+        public a(mpb mpbVar, gpb gpbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mpbVar, fpbVar};
+                Object[] objArr = {mpbVar, gpbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,25 +37,23 @@ public final class mpb<TResult> implements bpb<TResult> {
                 }
             }
             this.b = mpbVar;
-            this.a = fpbVar;
+            this.a = gpbVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.epb */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
+                        this.b.a.onFailure(this.a.d());
                     }
                 }
             }
         }
     }
 
-    public mpb(Executor executor, epb<TResult> epbVar) {
+    public mpb(Executor executor, epb epbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +73,7 @@ public final class mpb<TResult> implements bpb<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.bpb
+    @Override // com.baidu.tieba.cpb
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,11 +83,12 @@ public final class mpb<TResult> implements bpb<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.bpb
-    public final void onComplete(fpb<TResult> fpbVar) {
+    @Override // com.baidu.tieba.cpb
+    public final void onComplete(gpb<TResult> gpbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fpbVar) == null) && fpbVar.h() && !fpbVar.f()) {
-            this.b.execute(new a(this, fpbVar));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gpbVar) == null) || gpbVar.h() || gpbVar.f()) {
+            return;
         }
+        this.b.execute(new a(this, gpbVar));
     }
 }

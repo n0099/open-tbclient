@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class t45 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int n = 2131235739;
+    public static final int n = 2131235742;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public ViewGroup b;

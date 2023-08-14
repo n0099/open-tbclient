@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ay6 implements kq5 {
+public class ay6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public int b;
-    public int c;
+    public String c;
 
     public ay6() {
         Interceptable interceptable = $ic;
@@ -24,5 +28,27 @@ public class ay6 implements kq5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optString("pic");
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("server_time");
+        this.b = jSONObject.optInt("adid");
+        this.c = jSONObject.optString("big_pic");
+        jSONObject.optString("small_pic");
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.jd5;
-import com.baidu.tieba.oda;
+import com.baidu.tieba.pda;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -110,9 +110,9 @@ public class VcodeTool {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                oda.k().j(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
+                pda.k().j(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
             } else {
-                oda.k().j(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
+                pda.k().j(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
             }
             cachedCallbackData = null;
             cachedVcodeInfoData = null;

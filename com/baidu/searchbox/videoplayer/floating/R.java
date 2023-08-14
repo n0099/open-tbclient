@@ -27,7 +27,7 @@ public final class R {
     public static final class id {
         public static final int floating_click_view_id = 0x7f090b65;
         public static final int floating_click_view_tag = 0x7f090b66;
-        public static final int player_floating_replay = 0x7f091ca0;
+        public static final int player_floating_replay = 0x7f091ca6;
     }
 
     /* loaded from: classes4.dex */

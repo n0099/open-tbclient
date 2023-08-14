@@ -41,7 +41,7 @@ import com.baidu.tieba.pb.bot.BotEntranceManager;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uaa;
+import com.baidu.tieba.vaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class tj5 extends ph5 {
     public String o;
     public PbNewEditorTool p;
     public ThreadData q;
-    public uaa.g r;
+    public vaa.g r;
     public boolean s;
     public int t;
     public int u;
@@ -134,7 +134,7 @@ public class tj5 extends ph5 {
                     statisticItem.param("fid", this.a.q.getFid());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.param("obj_type", 2);
-                    ar5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.b.getPageActivity());
+                    br5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.b.getPageActivity());
                     if (currentVisiblePageExtra != null) {
                         statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, currentVisiblePageExtra.a());
                     }
@@ -160,8 +160,8 @@ public class tj5 extends ph5 {
                         if (writeData != null) {
                             str2 = writeData.getContent();
                         }
-                        if (qw5.e(str2) > 40) {
-                            str2 = qw5.m(str2, 40);
+                        if (rw5.e(str2) > 40) {
+                            str2 = rw5.m(str2, 40);
                         }
                         statisticItem.param(TiebaStatic.Params.POST_CONTENT, str2);
                     }
@@ -207,7 +207,7 @@ public class tj5 extends ph5 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !aka.d(i)) {
+                    } else if (i != 238010 && !bka.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -256,7 +256,7 @@ public class tj5 extends ph5 {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements uaa.g {
+    public class c implements vaa.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tj5 a;
@@ -279,7 +279,7 @@ public class tj5 extends ph5 {
             this.a = tj5Var;
         }
 
-        @Override // com.baidu.tieba.uaa.g
+        @Override // com.baidu.tieba.vaa.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -412,7 +412,7 @@ public class tj5 extends ph5 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.l0(this.v);
-        uaa.r(this.j.P(), new c(this));
+        vaa.r(this.j.P(), new c(this));
     }
 
     public final void M(ArrayList<AtSelectData> arrayList) {
@@ -471,7 +471,7 @@ public class tj5 extends ph5 {
         }
     }
 
-    public void U(uaa.g gVar) {
+    public void U(vaa.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, gVar) == null) {
             this.r = gVar;
@@ -653,7 +653,7 @@ public class tj5 extends ph5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            uaa.B(this.e, null);
+            vaa.B(this.e, null);
         }
     }
 
@@ -878,7 +878,7 @@ public class tj5 extends ph5 {
             writeData.onSaveDrafDataParse(this.i);
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            uaa.B(this.e, writeData);
+            vaa.B(this.e, writeData);
         }
     }
 

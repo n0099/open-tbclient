@@ -59,16 +59,16 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ar5;
 import com.baidu.tieba.av4;
+import com.baidu.tieba.br5;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.et4;
 import com.baidu.tieba.hk;
-import com.baidu.tieba.jv5;
 import com.baidu.tieba.k9;
+import com.baidu.tieba.kv5;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.om5;
 import com.baidu.tieba.rm5;
-import com.baidu.tieba.rr6;
-import com.baidu.tieba.yq5;
+import com.baidu.tieba.sr6;
 import com.baidu.tieba.zq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,7 +78,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, IPageStayDuration, k9, IVideoNeedPreload, yq5 {
+public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, IPageStayDuration, k9, IVideoNeedPreload, zq5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public static final String TAB_CODE = "tab_code";
@@ -805,17 +805,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yq5
-    public zq5 getTbFragmentExtra() {
+    @Override // com.baidu.tieba.zq5
+    public ar5 getTbFragmentExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return new zq5(this);
+            return new ar5(this);
         }
-        return (zq5) invokeV.objValue;
+        return (ar5) invokeV.objValue;
     }
 
-    public ar5 getTbPageExtra() {
+    public br5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -827,9 +827,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new ar5(getUniqueId(), currentPageKey, this.mTbPageExtraPageTabName, intent);
+            return new br5(getUniqueId(), currentPageKey, this.mTbPageExtraPageTabName, intent);
         }
-        return (ar5) invokeV.objValue;
+        return (br5) invokeV.objValue;
     }
 
     public TbPageTag getTbPageTag() {
@@ -924,7 +924,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void normalLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && getUserVisibleHint() && this.isPrepared && !jv5.a()) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && getUserVisibleHint() && this.isPrepared && !kv5.a()) {
             onLoad();
         }
     }
@@ -952,7 +952,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             n05.c().d(getUniqueId());
             BdUniqueId uniqueId = getUniqueId();
             if (uniqueId != null) {
-                rr6.a(uniqueId);
+                sr6.a(uniqueId);
             }
         }
     }

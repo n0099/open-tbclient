@@ -1,47 +1,47 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.a1c;
-import com.baidu.tieba.a6c;
-import com.baidu.tieba.e1c;
-import com.baidu.tieba.f5c;
-import com.baidu.tieba.k1c;
-import com.baidu.tieba.p1c;
-import com.baidu.tieba.v0c;
+import com.baidu.tieba.b1c;
+import com.baidu.tieba.b6c;
+import com.baidu.tieba.f1c;
+import com.baidu.tieba.g5c;
+import com.baidu.tieba.l1c;
+import com.baidu.tieba.q1c;
 import com.baidu.tieba.w0c;
 import com.baidu.tieba.x0c;
 import com.baidu.tieba.y0c;
+import com.baidu.tieba.z0c;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
-public class SchedulerWhen extends a1c implements e1c {
-    public static final e1c d = new c();
-    public static final e1c e = a6c.c();
-    public final a1c a;
-    public final y0c<x0c<v0c>> b;
-    public final e1c c;
+public class SchedulerWhen extends b1c implements f1c {
+    public static final f1c d = new c();
+    public static final f1c e = b6c.c();
+    public final b1c a;
+    public final z0c<y0c<w0c>> b;
+    public final f1c c;
 
     /* loaded from: classes2.dex */
-    public static class c implements e1c {
-        @Override // com.baidu.tieba.e1c
+    public static class c implements f1c {
+        @Override // com.baidu.tieba.f1c
         public boolean isUnsubscribed() {
             return false;
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public void unsubscribe() {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class a implements p1c<ScheduledAction, v0c> {
-        public final /* synthetic */ a1c.a a;
+    public class a implements q1c<ScheduledAction, w0c> {
+        public final /* synthetic */ b1c.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0802a implements v0c.f {
+        public class C0802a implements w0c.f {
             public final /* synthetic */ ScheduledAction a;
 
             public C0802a(ScheduledAction scheduledAction) {
@@ -49,91 +49,91 @@ public class SchedulerWhen extends a1c implements e1c {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.v0c.f, com.baidu.tieba.l1c
-            public void call(w0c w0cVar) {
-                w0cVar.onSubscribe(this.a);
-                this.a.call(a.this.a, w0cVar);
+            @Override // com.baidu.tieba.w0c.f, com.baidu.tieba.m1c
+            public void call(x0c x0cVar) {
+                x0cVar.onSubscribe(this.a);
+                this.a.call(a.this.a, x0cVar);
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, a1c.a aVar) {
+        public a(SchedulerWhen schedulerWhen, b1c.a aVar) {
             this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p1c
-        public v0c call(ScheduledAction scheduledAction) {
-            return v0c.b(new C0802a(scheduledAction));
+        @Override // com.baidu.tieba.q1c
+        public w0c call(ScheduledAction scheduledAction) {
+            return w0c.b(new C0802a(scheduledAction));
         }
     }
 
     /* loaded from: classes2.dex */
     public static class DelayedAction extends ScheduledAction {
-        public final k1c action;
+        public final l1c action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(k1c k1cVar, long j, TimeUnit timeUnit) {
-            this.action = k1cVar;
+        public DelayedAction(l1c l1cVar, long j, TimeUnit timeUnit) {
+            this.action = l1cVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public e1c callActual(a1c.a aVar, w0c w0cVar) {
-            return aVar.c(new d(this.action, w0cVar), this.delayTime, this.unit);
+        public f1c callActual(b1c.a aVar, x0c x0cVar) {
+            return aVar.c(new d(this.action, x0cVar), this.delayTime, this.unit);
         }
     }
 
     /* loaded from: classes2.dex */
     public static class ImmediateAction extends ScheduledAction {
-        public final k1c action;
+        public final l1c action;
 
-        public ImmediateAction(k1c k1cVar) {
-            this.action = k1cVar;
+        public ImmediateAction(l1c l1cVar) {
+            this.action = l1cVar;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public e1c callActual(a1c.a aVar, w0c w0cVar) {
-            return aVar.b(new d(this.action, w0cVar));
+        public f1c callActual(b1c.a aVar, x0c x0cVar) {
+            return aVar.b(new d(this.action, x0cVar));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class ScheduledAction extends AtomicReference<e1c> implements e1c {
-        public abstract e1c callActual(a1c.a aVar, w0c w0cVar);
+    public static abstract class ScheduledAction extends AtomicReference<f1c> implements f1c {
+        public abstract f1c callActual(b1c.a aVar, x0c x0cVar);
 
         public ScheduledAction() {
             super(SchedulerWhen.d);
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public boolean isUnsubscribed() {
             return get().isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public void unsubscribe() {
-            e1c e1cVar;
-            e1c e1cVar2 = SchedulerWhen.e;
+            f1c f1cVar;
+            f1c f1cVar2 = SchedulerWhen.e;
             do {
-                e1cVar = get();
-                if (e1cVar == SchedulerWhen.e) {
+                f1cVar = get();
+                if (f1cVar == SchedulerWhen.e) {
                     return;
                 }
-            } while (!compareAndSet(e1cVar, e1cVar2));
-            if (e1cVar != SchedulerWhen.d) {
-                e1cVar.unsubscribe();
+            } while (!compareAndSet(f1cVar, f1cVar2));
+            if (f1cVar != SchedulerWhen.d) {
+                f1cVar.unsubscribe();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(a1c.a aVar, w0c w0cVar) {
-            e1c e1cVar = get();
-            if (e1cVar == SchedulerWhen.e || e1cVar != SchedulerWhen.d) {
+        public void call(b1c.a aVar, x0c x0cVar) {
+            f1c f1cVar = get();
+            if (f1cVar == SchedulerWhen.e || f1cVar != SchedulerWhen.d) {
                 return;
             }
-            e1c callActual = callActual(aVar, w0cVar);
+            f1c callActual = callActual(aVar, x0cVar);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -141,36 +141,36 @@ public class SchedulerWhen extends a1c implements e1c {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends a1c.a {
+    public class b extends b1c.a {
         public final AtomicBoolean a = new AtomicBoolean();
-        public final /* synthetic */ a1c.a b;
-        public final /* synthetic */ y0c c;
+        public final /* synthetic */ b1c.a b;
+        public final /* synthetic */ z0c c;
 
-        public b(SchedulerWhen schedulerWhen, a1c.a aVar, y0c y0cVar) {
+        public b(SchedulerWhen schedulerWhen, b1c.a aVar, z0c z0cVar) {
             this.b = aVar;
-            this.c = y0cVar;
+            this.c = z0cVar;
         }
 
-        @Override // com.baidu.tieba.a1c.a
-        public e1c c(k1c k1cVar, long j, TimeUnit timeUnit) {
-            DelayedAction delayedAction = new DelayedAction(k1cVar, j, timeUnit);
+        @Override // com.baidu.tieba.b1c.a
+        public f1c c(l1c l1cVar, long j, TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(l1cVar, j, timeUnit);
             this.c.onNext(delayedAction);
             return delayedAction;
         }
 
-        @Override // com.baidu.tieba.a1c.a
-        public e1c b(k1c k1cVar) {
-            ImmediateAction immediateAction = new ImmediateAction(k1cVar);
+        @Override // com.baidu.tieba.b1c.a
+        public f1c b(l1c l1cVar) {
+            ImmediateAction immediateAction = new ImmediateAction(l1cVar);
             this.c.onNext(immediateAction);
             return immediateAction;
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public boolean isUnsubscribed() {
             return this.a.get();
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.f1c
         public void unsubscribe() {
             if (this.a.compareAndSet(false, true)) {
                 this.b.unsubscribe();
@@ -180,16 +180,16 @@ public class SchedulerWhen extends a1c implements e1c {
     }
 
     /* loaded from: classes2.dex */
-    public static class d implements k1c {
-        public w0c a;
-        public k1c b;
+    public static class d implements l1c {
+        public x0c a;
+        public l1c b;
 
-        public d(k1c k1cVar, w0c w0cVar) {
-            this.b = k1cVar;
-            this.a = w0cVar;
+        public d(l1c l1cVar, x0c x0cVar) {
+            this.b = l1cVar;
+            this.a = x0cVar;
         }
 
-        @Override // com.baidu.tieba.k1c
+        @Override // com.baidu.tieba.l1c
         public void call() {
             try {
                 this.b.call();
@@ -199,33 +199,33 @@ public class SchedulerWhen extends a1c implements e1c {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.y0c<com.baidu.tieba.x0c<com.baidu.tieba.v0c>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.z0c<com.baidu.tieba.y0c<com.baidu.tieba.w0c>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.a1c
-    public a1c.a createWorker() {
-        a1c.a createWorker = this.a.createWorker();
+    @Override // com.baidu.tieba.b1c
+    public b1c.a createWorker() {
+        b1c.a createWorker = this.a.createWorker();
         BufferUntilSubscriber Q = BufferUntilSubscriber.Q();
-        f5c f5cVar = new f5c(Q);
+        g5c g5cVar = new g5c(Q);
         Object p = Q.p(new a(this, createWorker));
-        b bVar = new b(this, createWorker, f5cVar);
+        b bVar = new b(this, createWorker, g5cVar);
         this.b.onNext(p);
         return bVar;
     }
 
-    @Override // com.baidu.tieba.e1c
+    @Override // com.baidu.tieba.f1c
     public boolean isUnsubscribed() {
         return this.c.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.e1c
+    @Override // com.baidu.tieba.f1c
     public void unsubscribe() {
         this.c.unsubscribe();
     }
 
-    public SchedulerWhen(p1c<x0c<x0c<v0c>>, v0c> p1cVar, a1c a1cVar) {
-        this.a = a1cVar;
+    public SchedulerWhen(q1c<y0c<y0c<w0c>>, w0c> q1cVar, b1c b1cVar) {
+        this.a = b1cVar;
         PublishSubject Q = PublishSubject.Q();
-        this.b = new f5c(Q);
-        this.c = p1cVar.call(Q.v()).f();
+        this.b = new g5c(Q);
+        this.c = q1cVar.call(Q.v()).f();
     }
 }

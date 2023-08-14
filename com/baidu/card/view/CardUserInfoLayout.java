@@ -68,10 +68,10 @@ import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.tieba.rx;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.vw5;
 import com.baidu.tieba.ww5;
-import com.baidu.tieba.x9a;
 import com.baidu.tieba.xw5;
+import com.baidu.tieba.y9a;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -481,8 +481,8 @@ public class CardUserInfoLayout extends RelativeLayout implements rx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ww5.d(String.valueOf(this.a.G.getFid()), this.a.G.getAuthor().getPortrait(), "7", this.a.d.getApplicationContext());
-                xw5.c("c15281", String.valueOf(this.a.G.getFid()), "7");
+                xw5.d(String.valueOf(this.a.G.getFid()), this.a.G.getAuthor().getPortrait(), "7", this.a.d.getApplicationContext());
+                yw5.c("c15281", String.valueOf(this.a.G.getFid()), "7");
             }
         }
     }
@@ -1168,13 +1168,13 @@ public class CardUserInfoLayout extends RelativeLayout implements rx {
             } else {
                 f2 = b45Var.f();
             }
-            bVar.D(x9a.f(f2));
+            bVar.D(y9a.f(f2));
             if (z) {
                 b2 = b45Var.a();
             } else {
                 b2 = b45Var.b();
             }
-            bVar.q(x9a.f(b2));
+            bVar.q(y9a.f(b2));
             bVar.A(dimenPixelSize);
             bVar.x(dimenPixelSize);
             bVar.z(dimenPixelSize);
@@ -1229,7 +1229,7 @@ public class CardUserInfoLayout extends RelativeLayout implements rx {
                 arrayList.add(this.i);
                 arrayList.add(this.k);
                 arrayList.add(this.r);
-                vw5.c(i3, string, this.h, this.l, arrayList, this.j);
+                ww5.c(i3, string, this.h, this.l, arrayList, this.j);
                 ThreadData threadData = this.G;
                 if (threadData.isFromConcern) {
                     i4 = 3;
@@ -1238,7 +1238,7 @@ public class CardUserInfoLayout extends RelativeLayout implements rx {
                 } else {
                     i4 = 2;
                 }
-                xw5.a(this.h, this.m, this.k, this.l, this.j, i4);
+                yw5.a(this.h, this.m, this.k, this.l, this.j, i4);
                 if (p(128)) {
                     int i8 = Integer.MAX_VALUE;
                     if (p(2048)) {

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class fs3 extends bz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,21 +31,21 @@ public class fs3 extends bz1 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetBdussApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends az1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fs3 d;
 
         /* renamed from: com.baidu.tieba.fs3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0302a implements rp3<bg3<dg3.e>> {
+        /* loaded from: classes6.dex */
+        public class C0307a implements rp3<bg3<dg3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ az1.b a;
             public final /* synthetic */ a b;
 
-            public C0302a(a aVar, az1.b bVar) {
+            public C0307a(a aVar, az1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class fs3 extends bz1 {
                 if (b0 == null) {
                     return new y22(1001, "null swan runtime");
                 }
-                b0.e0().g(xa3.K(), "mapp_i_get_bduss", new C0302a(this, bVar));
+                b0.e0().g(xa3.K(), "mapp_i_get_bduss", new C0307a(this, bVar));
                 return y22.f();
             }
             return (y22) invokeLL.objValue;

@@ -39,12 +39,12 @@ public class a extends Dialog {
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c4);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c7);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c3);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c2);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c5);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092707);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ca);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926cd);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c9);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926c8);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0926cb);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09270d);
         this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f0911f1);
         this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09160e);
         this.a.setText(l.a(this.l.e, "--"));
@@ -114,7 +114,7 @@ public class a extends Dialog {
         setContentView(R.layout.obfuscated_res_0x7f0d09a8);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08151d);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081520);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);

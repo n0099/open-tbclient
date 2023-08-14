@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.tieba.k9b;
-import com.baidu.tieba.w6b;
+import com.baidu.tieba.a7b;
+import com.baidu.tieba.l9b;
 import com.baidu.tieba.x6b;
 import com.baidu.tieba.y6b;
 import com.baidu.tieba.z6b;
@@ -23,7 +23,7 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_POSITION = "extra_position";
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
-    public w6b mDownloadManager;
+    public x6b mDownloadManager;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -31,33 +31,33 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes9.dex */
-    public static class a extends z6b {
+    public static class a extends a7b {
         public int a;
-        public y6b b;
+        public z6b b;
         public LocalBroadcastManager c;
         public long d;
         public int e;
 
-        public a(int i, y6b y6bVar, Context context) {
+        public a(int i, z6b z6bVar, Context context) {
             this.a = i;
-            this.b = y6bVar;
+            this.b = z6bVar;
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.baidu.tieba.z6b
+        @Override // com.baidu.tieba.a7b
         public void g(long j, long j2, int i) {
             if (this.d == 0) {
                 this.d = System.currentTimeMillis();
             }
             this.b.f(3);
             this.b.d(i);
-            this.b.c(k9b.a(j, j2));
+            this.b.c(l9b.a(j, j2));
             if (i(i)) {
                 j(this.b);
             }
         }
 
-        @Override // com.baidu.tieba.z6b
+        @Override // com.baidu.tieba.a7b
         public void a(String str) {
             this.b.f(6);
             this.b.d(100);
@@ -65,7 +65,7 @@ public class CaptureDownloadService extends Service {
             j(this.b);
         }
 
-        @Override // com.baidu.tieba.z6b
+        @Override // com.baidu.tieba.a7b
         public void f(DownloadException downloadException) {
             downloadException.printStackTrace();
             this.b.f(5);
@@ -82,15 +82,15 @@ public class CaptureDownloadService extends Service {
             return false;
         }
 
-        public final void j(y6b y6bVar) {
+        public final void j(z6b z6bVar) {
             Intent intent = new Intent();
             intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
             intent.putExtra("extra_position", this.a);
-            intent.putExtra("extra_file_info", y6bVar.g().toString());
+            intent.putExtra("extra_file_info", z6bVar.g().toString());
             this.c.sendBroadcast(intent);
         }
 
-        @Override // com.baidu.tieba.z6b
+        @Override // com.baidu.tieba.a7b
         public void d() {
             this.b.f(0);
             this.b.d(0);
@@ -98,7 +98,7 @@ public class CaptureDownloadService extends Service {
             j(this.b);
         }
 
-        @Override // com.baidu.tieba.z6b
+        @Override // com.baidu.tieba.a7b
         public void e() {
             this.b.f(4);
             j(this.b);
@@ -116,7 +116,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = w6b.h();
+        this.mDownloadManager = x6b.h();
     }
 
     @Override // android.app.Service
@@ -163,22 +163,22 @@ public class CaptureDownloadService extends Service {
         context.startService(intent);
     }
 
-    private void download(int i, y6b y6bVar, String str) {
-        x6b.b bVar = new x6b.b();
-        bVar.d(y6bVar.a());
-        this.mDownloadManager.f(bVar.a(), str, new a(i, y6bVar, getApplicationContext()));
+    private void download(int i, z6b z6bVar, String str) {
+        y6b.b bVar = new y6b.b();
+        bVar.d(z6bVar.a());
+        this.mDownloadManager.f(bVar.a(), str, new a(i, z6bVar, getApplicationContext()));
     }
 
-    public static void start(Context context, String str, y6b y6bVar) {
-        start(context, 0, str, y6bVar);
+    public static void start(Context context, String str, z6b z6bVar) {
+        start(context, 0, str, z6bVar);
     }
 
-    public static void start(Context context, int i, String str, y6b y6bVar) {
+    public static void start(Context context, int i, String str, z6b z6bVar) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
         intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
         intent.putExtra("extra_position", i);
         intent.putExtra("extra_tag", str);
-        intent.putExtra("extra_file_info", y6bVar.g().toString());
+        intent.putExtra("extra_file_info", z6bVar.g().toString());
         context.startService(intent);
     }
 
@@ -195,8 +195,8 @@ public class CaptureDownloadService extends Service {
             String action = intent.getAction();
             char c = 0;
             int intExtra = intent.getIntExtra("extra_position", 0);
-            y6b y6bVar = new y6b();
-            y6bVar.b(intent.getStringExtra("extra_file_info"));
+            z6b z6bVar = new z6b();
+            z6bVar.b(intent.getStringExtra("extra_file_info"));
             String stringExtra = intent.getStringExtra("extra_tag");
             switch (action.hashCode()) {
                 case -2000112966:
@@ -250,7 +250,7 @@ public class CaptureDownloadService extends Service {
                     pause(stringExtra);
                 }
             } else {
-                download(intExtra, y6bVar, stringExtra);
+                download(intExtra, z6bVar, stringExtra);
             }
         }
         return super.onStartCommand(intent, i, i2);

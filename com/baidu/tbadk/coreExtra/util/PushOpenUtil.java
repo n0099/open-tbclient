@@ -25,8 +25,8 @@ import com.baidu.tieba.de5;
 import com.baidu.tieba.iz4;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.m45;
-import com.baidu.tieba.sv9;
 import com.baidu.tieba.tv9;
+import com.baidu.tieba.uv9;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -323,7 +323,7 @@ public class PushOpenUtil {
                     string = c3.b();
                 }
             } else {
-                sv9 g = tv9.e().g(str);
+                tv9 g = uv9.e().g(str);
                 if (g != null && !TextUtils.isEmpty(g.f())) {
                     string2 = g.f();
                 }

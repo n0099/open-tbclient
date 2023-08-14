@@ -1,7 +1,7 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.k5c;
-import com.baidu.tieba.o1c;
+import com.baidu.tieba.l5c;
+import com.baidu.tieba.p1c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
@@ -14,7 +14,7 @@ public enum GenericScheduledExecutorServiceFactory {
     public static final RxThreadFactory THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
 
     public static ScheduledExecutorService create() {
-        o1c<? extends ScheduledExecutorService> a = k5c.a();
+        p1c<? extends ScheduledExecutorService> a = l5c.a();
         if (a == null) {
             return createDefault();
         }

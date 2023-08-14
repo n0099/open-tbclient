@@ -250,7 +250,7 @@ public class me4 extends fe4 {
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             view2.setOnClickListener(new a(this));
             this.p.n(new b(this));
-            this.k.findViewById(R.id.obfuscated_res_0x7f092327).setOnClickListener(new c(this));
+            this.k.findViewById(R.id.obfuscated_res_0x7f09232d).setOnClickListener(new c(this));
             this.m.setOnClickListener(new d(this));
         }
     }
@@ -282,9 +282,9 @@ public class me4 extends fe4 {
             this.n.setVisibility(8);
             ImageView imageView = this.m;
             if (a2) {
-                i = R.drawable.obfuscated_res_0x7f0814a5;
+                i = R.drawable.obfuscated_res_0x7f0814a8;
             } else {
-                i = R.drawable.obfuscated_res_0x7f0814a4;
+                i = R.drawable.obfuscated_res_0x7f0814a7;
             }
             imageView.setImageResource(i);
             if (a2) {
@@ -330,11 +330,11 @@ public class me4 extends fe4 {
             View i = super.i();
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d093c, (ViewGroup) null);
             this.k = inflate;
-            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f092326);
-            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f092329);
-            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f092325);
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f09232c);
+            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f09232b);
             z();
-            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f092328);
+            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f09232e);
             this.o = recyclerView;
             recyclerView.setItemAnimator(null);
             this.o.setLayoutManager(new LinearLayoutManager(this.a));

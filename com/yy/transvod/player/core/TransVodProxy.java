@@ -3,9 +3,9 @@ package com.yy.transvod.player.core;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
-import com.baidu.tieba.fvb;
-import com.baidu.tieba.nub;
-import com.baidu.tieba.xub;
+import com.baidu.tieba.gvb;
+import com.baidu.tieba.oub;
+import com.baidu.tieba.yub;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.yy.transvod.player.common.AudioSendStamp;
 import com.yy.transvod.player.log.TLog;
@@ -80,12 +80,12 @@ public class TransVodProxy {
 
     private native void native_updatePcdnUrls(int i, String str, String[] strArr);
 
-    public TransVodProxy(Context context, int i, nub nubVar) {
+    public TransVodProxy(Context context, int i, oub oubVar) {
         new WeakReference(null);
         new WeakReference(null);
         this.a = new AtomicInteger(1);
         this.b = false;
-        String str = nubVar.a;
+        String str = oubVar.a;
         nativeSetup(Build.MANUFACTURER + "_" + Build.MODEL.replace(WebvttCueParser.CHAR_SPACE, SignatureImpl.SEP), String.format("%s-%s", Build.VERSION.RELEASE, Integer.valueOf(Build.VERSION.SDK_INT)), DebugActiveUploadResult.SOURCE, i, str);
     }
 
@@ -176,8 +176,8 @@ public class TransVodProxy {
         native_seekTo(f);
     }
 
-    public void t(fvb fvbVar) {
-        new WeakReference(fvbVar);
+    public void t(gvb gvbVar) {
+        new WeakReference(gvbVar);
     }
 
     public void u(int i) {
@@ -189,13 +189,13 @@ public class TransVodProxy {
         native_stop(z);
     }
 
-    public void j(String str, int i, int i2, int i3, int i4, boolean z, boolean z2, long j, xub xubVar) {
+    public void j(String str, int i, int i2, int i3, int i4, boolean z, boolean z2, long j, yub yubVar) {
         if (this.b) {
             TLog.g(this, "TransVodProxy play is already quit");
             return;
         }
         this.a.set(6);
-        native_play(str, i, i2, i3, i4, z, z2, j, xubVar.a);
+        native_play(str, i, i2, i3, i4, z, z2, j, yubVar.a);
     }
 
     public void q(long j, long j2, long j3) {
@@ -218,14 +218,14 @@ public class TransVodProxy {
         }
     }
 
-    public void s(String str, int i, int i2, int i3, int i4, boolean z, boolean z2, long j, xub xubVar) {
+    public void s(String str, int i, int i2, int i3, int i4, boolean z, boolean z2, long j, yub yubVar) {
         if (this.b) {
             TLog.g(this, "TransVodProxy setDataSourceAndPrepare is already quit");
         } else if (this.a.get() == 9) {
             TLog.g(this, "TransVodProxy setDataSourceAndPrepare state invalid");
         } else {
             this.a.set(2);
-            native_setDataSourceAndPrepare(str, i, i2, i3, i4, z, z2, j, xubVar.a);
+            native_setDataSourceAndPrepare(str, i, i2, i3, i4, z, z2, j, yubVar.a);
         }
     }
 }

@@ -37,7 +37,7 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
             }
         }
         this.b = view2;
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928e9);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928ef);
     }
 
     public void b(Bitmap bitmap) {

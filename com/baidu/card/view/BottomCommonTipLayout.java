@@ -43,12 +43,12 @@ import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fka;
+import com.baidu.tieba.gka;
 import com.baidu.tieba.if5;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.mn;
 import com.baidu.tieba.x95;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,14 +164,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        fka.b(bottomCommonTipLayout, this.b);
+                        gka.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                fka.d(bottomCommonTipLayout2, this.b);
+                gka.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
@@ -407,7 +407,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             }
             x95 x95Var = new x95();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                x95Var.r(x9a.f(memberBroadcastData.getBtnBackgroundColor()), x9a.f(memberBroadcastData.getBtnTextColor()));
+                x95Var.r(y9a.f(memberBroadcastData.getBtnBackgroundColor()), y9a.f(memberBroadcastData.getBtnTextColor()));
             } else {
                 x95Var.x(R.color.CAM_X0108);
             }
@@ -425,7 +425,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(x9a.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(y9a.f(memberBroadcastData.getTextColor()));
             }
             n(memberBroadcastData.getTbRichText());
         }

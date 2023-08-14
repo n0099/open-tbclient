@@ -1,21 +1,9 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes5.dex */
 public interface bt9 {
-    int getCurrentPosition();
+    void b();
 
-    String getPlayUrl();
+    void c();
 
-    View getVideoContainer();
-
-    boolean isFullScreen();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void startPlay();
-
-    void stopPlay();
+    void f();
 }

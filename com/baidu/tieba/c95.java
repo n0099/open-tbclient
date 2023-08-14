@@ -39,14 +39,14 @@ public class c95 {
     public PopupWindow g;
 
     /* loaded from: classes5.dex */
-    public class a implements re9 {
+    public class a implements se9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c95 a;
 
-        @Override // com.baidu.tieba.re9
+        @Override // com.baidu.tieba.se9
         public /* synthetic */ void onStart() {
-            qe9.a(this);
+            re9.a(this);
         }
 
         public a(c95 c95Var) {
@@ -67,7 +67,7 @@ public class c95 {
             this.a = c95Var;
         }
 
-        @Override // com.baidu.tieba.re9
+        @Override // com.baidu.tieba.se9
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

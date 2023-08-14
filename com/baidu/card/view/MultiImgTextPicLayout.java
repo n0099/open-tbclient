@@ -31,9 +31,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b05;
-import com.baidu.tieba.bn6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.im;
-import com.baidu.tieba.iz5;
+import com.baidu.tieba.jz5;
 import com.baidu.tieba.ly;
 import com.baidu.tieba.q05;
 import com.baidu.tieba.qx;
@@ -64,10 +64,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
     public TbImageView i;
     public String j;
     public boolean k;
-    public bn6<q05> l;
+    public cn6<q05> l;
     public q05 m;
     public int n;
-    public iz5 o;
+    public jz5 o;
     public LinkedList<MediaData> p;
     public boolean q;
     public int r;
@@ -112,7 +112,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bn6<q05> subClickListener;
+            cn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -122,7 +122,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements iz5 {
+    public class b implements jz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiImgTextPicLayout a;
@@ -145,11 +145,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
             this.a = multiImgTextPicLayout;
         }
 
-        @Override // com.baidu.tieba.iz5
+        @Override // com.baidu.tieba.jz5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                bn6<q05> subClickListener = this.a.getSubClickListener();
+                cn6<q05> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.m.objType = 2;
@@ -358,14 +358,14 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.o == null) {
                 return;
             }
-            iz5 iz5Var = this.d.o;
+            jz5 jz5Var = this.d.o;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            iz5Var.a(view2, i, z);
+            jz5Var.a(view2, i, z);
         }
     }
 
@@ -499,10 +499,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public void setSubClickListener(bn6<q05> bn6Var) {
+    public void setSubClickListener(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bn6Var) == null) {
-            this.l = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, cn6Var) == null) {
+            this.l = cn6Var;
         }
     }
 
@@ -680,13 +680,13 @@ public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public bn6<q05> getSubClickListener() {
+    public cn6<q05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.l;
         }
-        return (bn6) invokeV.objValue;
+        return (cn6) invokeV.objValue;
     }
 
     public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {

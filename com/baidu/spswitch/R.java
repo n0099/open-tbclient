@@ -92,7 +92,7 @@ public final class R {
         public static final int max_softinput_height = 0x7f07058b;
         public static final int min_panel_height = 0x7f07058f;
         public static final int min_softinput_height = 0x7f070590;
-        public static final int window_horizontal_padding = 0x7f070b56;
+        public static final int window_horizontal_padding = 0x7f070b57;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -165,12 +165,12 @@ public final class R {
         public static final int item_img = 0x7f0911aa;
         public static final int item_text = 0x7f0911d5;
         public static final int item_text_img = 0x7f0911d6;
-        public static final int panel_root = 0x7f091a2a;
-        public static final int preview_content = 0x7f091d1f;
-        public static final int recycler_list = 0x7f091e7f;
-        public static final int send_btn = 0x7f092161;
-        public static final int text = 0x7f092454;
-        public static final int triangle = 0x7f092690;
+        public static final int panel_root = 0x7f091a30;
+        public static final int preview_content = 0x7f091d25;
+        public static final int recycler_list = 0x7f091e85;
+        public static final int send_btn = 0x7f092167;
+        public static final int text = 0x7f09245a;
+        public static final int triangle = 0x7f092696;
         public static final int vp_emotion_type = 0x7f091fad;
         public transient /* synthetic */ FieldHolder $fh;
 

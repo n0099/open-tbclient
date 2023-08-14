@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nta;
+import com.baidu.tieba.ota;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -246,18 +246,18 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             setOrientation(1);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ad, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0921bc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921be);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0921ba);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0921b6);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b9);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921bf);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f0921bd);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0921bb);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b8);
-            this.l = findViewById(R.id.obfuscated_res_0x7f0921b5);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c0);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0921c2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c4);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0921c0);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0921bc);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bd);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bf);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921c5);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f0921c3);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0921c1);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921be);
+            this.l = findViewById(R.id.obfuscated_res_0x7f0921bb);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c6);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
@@ -335,23 +335,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(nta ntaVar) {
+    public void setData(ota otaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ntaVar) == null) {
-            if (ntaVar == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, otaVar) == null) {
+            if (otaVar == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f13ac), ntaVar.f));
-            this.e.startLoad(ntaVar.d, 10, false);
-            this.f.setText(ntaVar.c);
-            if (StringUtils.isNull(ntaVar.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f13ac), otaVar.f));
+            this.e.startLoad(otaVar.d, 10, false);
+            this.f.setText(otaVar.c);
+            if (StringUtils.isNull(otaVar.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(ntaVar.h);
+                this.g.setText(otaVar.h);
             }
             this.h.setEvent(new b(this));
-            this.h.startLoad(ntaVar.i, 42, false);
+            this.h.startLoad(otaVar.i, 42, false);
         }
     }
 }

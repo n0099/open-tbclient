@@ -3,7 +3,7 @@ package com.baidu.tieba.view.headcard.viewholder;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.view.headcard.playerlist.MatchPlayerListView;
-import com.baidu.tieba.yqa;
+import com.baidu.tieba.zqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public final class MatchPlayerListViewHolder extends RecyclerView.ViewHolder {
         this.a = mView;
     }
 
-    public final void b(yqa data) {
+    public final void b(zqa data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax8;
+import com.baidu.tieba.bx8;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.ry8;
-import com.baidu.tieba.ty8;
+import com.baidu.tieba.sy8;
 import com.baidu.tieba.uy8;
-import com.baidu.tieba.wy8;
-import com.baidu.tieba.zw8;
+import com.baidu.tieba.vy8;
+import com.baidu.tieba.xy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,15 +36,15 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public CustomViewPager b;
-    public uy8 c;
+    public vy8 c;
     public NoNetworkView d;
     public ScrollFragmentAdapter e;
-    public List<ty8> f;
+    public List<uy8> f;
     public FrameLayout g;
-    public wy8 h;
+    public xy8 h;
     public BdUniqueId i;
     public View.OnClickListener j;
-    public wy8.c k;
+    public xy8.c k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -84,7 +84,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements wy8.c {
+    public class b implements xy8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollFragmentTabHost a;
@@ -107,7 +107,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
             this.a = scrollFragmentTabHost;
         }
 
-        @Override // com.baidu.tieba.wy8.c
+        @Override // com.baidu.tieba.xy8.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -151,19 +151,19 @@ public class ScrollFragmentTabHost extends LinearLayout {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a3, (ViewGroup) this, true);
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
-            uy8 uy8Var = new uy8(context, findViewById(R.id.obfuscated_res_0x7f09233e));
-            this.c = uy8Var;
-            uy8Var.h(this.j);
-            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092358);
+            vy8 vy8Var = new vy8(context, findViewById(R.id.obfuscated_res_0x7f092344));
+            this.c = vy8Var;
+            vy8Var.h(this.j);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09235e);
         }
     }
 
     public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            uy8 uy8Var = this.c;
-            if (uy8Var != null) {
-                uy8Var.g(i);
+            vy8 vy8Var = this.c;
+            if (vy8Var != null) {
+                vy8Var.g(i);
             }
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
             ScrollFragmentAdapter scrollFragmentAdapter = this.e;
@@ -173,9 +173,9 @@ public class ScrollFragmentTabHost extends LinearLayout {
             if (this.d != null) {
                 this.d.onChangeSkinType(l9.a(getContext()), i);
             }
-            wy8 wy8Var = this.h;
-            if (wy8Var != null) {
-                wy8Var.k(i);
+            xy8 xy8Var = this.h;
+            if (xy8Var != null) {
+                xy8Var.k(i);
             }
         }
     }
@@ -204,22 +204,22 @@ public class ScrollFragmentTabHost extends LinearLayout {
         g(context);
     }
 
-    public void d(List<ty8> list, int i) {
+    public void d(List<uy8> list, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (ty8 ty8Var : list) {
-                if (ty8Var != null) {
-                    arrayList.add(new ry8(ty8Var));
+            for (uy8 uy8Var : list) {
+                if (uy8Var != null) {
+                    arrayList.add(new sy8(uy8Var));
                 }
             }
             this.f = list;
             ScrollFragmentAdapter scrollFragmentAdapter = this.e;
             if (scrollFragmentAdapter != null) {
                 scrollFragmentAdapter.l(arrayList);
-                uy8 uy8Var = this.c;
-                if (uy8Var != null) {
-                    uy8Var.i(this.b, i);
+                vy8 vy8Var = this.c;
+                if (vy8Var != null) {
+                    vy8Var.i(this.b, i);
                 }
             }
         }
@@ -246,11 +246,11 @@ public class ScrollFragmentTabHost extends LinearLayout {
         }
     }
 
-    public void h(ax8 ax8Var, zw8 zw8Var) {
+    public void h(bx8 bx8Var, ax8 ax8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, ax8Var, zw8Var) == null) {
-            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f09235c);
-            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, ax8Var, zw8Var, this.i);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, bx8Var, ax8Var) == null) {
+            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092362);
+            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, bx8Var, ax8Var, this.i);
             this.e = scrollFragmentAdapter;
             this.b.setAdapter(scrollFragmentAdapter);
         }
@@ -265,10 +265,10 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void e() {
-        wy8 wy8Var;
+        xy8 xy8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wy8Var = this.h) != null) {
-            wy8Var.f(this.a);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xy8Var = this.h) != null) {
+            xy8Var.f(this.a);
         }
     }
 
@@ -289,8 +289,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            wy8 wy8Var = this.h;
-            if (wy8Var != null && wy8Var.j()) {
+            xy8 xy8Var = this.h;
+            if (xy8Var != null && xy8Var.j()) {
                 return true;
             }
             return false;
@@ -314,17 +314,17 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.h == null) {
-                wy8 wy8Var = new wy8(this.g);
-                this.h = wy8Var;
-                wy8Var.l(this.k);
+                xy8 xy8Var = new xy8(this.g);
+                this.h = xy8Var;
+                xy8Var.l(this.k);
             }
             if (this.h.j()) {
                 return;
             }
             this.h.m(this.a, this.f, this.b.getCurrentItem());
-            uy8 uy8Var = this.c;
-            if (uy8Var != null) {
-                uy8Var.j();
+            vy8 vy8Var = this.c;
+            if (vy8Var != null) {
+                vy8Var.j();
             }
         }
     }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a16;
-import com.baidu.tieba.j16;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.b16;
+import com.baidu.tieba.k16;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public View c;
     public ImageView d;
     public BdSwitchView e;
-    public j16 f;
+    public k16 f;
     public RelativeLayout g;
     public RelativeLayout h;
     public TextView i;
@@ -49,7 +49,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public OnTimeSelectListener r;
 
     /* loaded from: classes7.dex */
-    public class c implements a16 {
+    public class c implements b16 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -139,7 +139,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.a16
+        @Override // com.baidu.tieba.b16
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -313,22 +313,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                y06 y06Var = new y06(getActivity(), this.r);
-                y06Var.k(R.layout.person_birthday_select_layout, new c(this));
-                y06Var.f(18);
-                y06Var.p(new boolean[]{true, true, true, false, false, false});
-                y06Var.j("年", "月", "日", "时", "分", "秒");
-                y06Var.l(2.0f);
-                y06Var.o(0, 0, 0, 0, 0, 0);
-                y06Var.b(false);
-                y06Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                y06Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                y06Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                y06Var.d(SkinManager.getColor(R.color.black_alpha30));
-                y06Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                y06Var.c(false);
-                y06Var.h(this.h);
-                this.f = y06Var.a();
+                z06 z06Var = new z06(getActivity(), this.r);
+                z06Var.k(R.layout.person_birthday_select_layout, new c(this));
+                z06Var.f(18);
+                z06Var.p(new boolean[]{true, true, true, false, false, false});
+                z06Var.j("年", "月", "日", "时", "分", "秒");
+                z06Var.l(2.0f);
+                z06Var.o(0, 0, 0, 0, 0, 0);
+                z06Var.b(false);
+                z06Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                z06Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                z06Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                z06Var.d(SkinManager.getColor(R.color.black_alpha30));
+                z06Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                z06Var.c(false);
+                z06Var.h(this.h);
+                this.f = z06Var.a();
             }
             this.f.u();
         }
@@ -377,7 +377,7 @@ public class PersonConstellationActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d07d3);
             initData();
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bb9);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bbf);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1062)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
@@ -393,18 +393,18 @@ public class PersonConstellationActivity extends BaseActivity {
             this.d = imageView;
             imageView.setOnClickListener(this.q);
             SkinManager.setImageResource(this.d, R.drawable.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091bc0);
             this.e = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.p);
             BdUtilHelper.addToParentArea(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bb5);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.g = relativeLayout;
             relativeLayout.setOnClickListener(this.q);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0907af);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ad);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f3);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bbb);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091bbe);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc1);
             this.k = textView2;
             if (this.n == 0) {
                 textView2.setVisibility(0);

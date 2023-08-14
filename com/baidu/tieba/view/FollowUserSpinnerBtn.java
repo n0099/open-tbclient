@@ -271,8 +271,8 @@ public class FollowUserSpinnerBtn extends LinearLayout implements ya5 {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
             this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914c9);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f07);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f0d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c7);
             Paint paint = new Paint(1);
             this.e = paint;

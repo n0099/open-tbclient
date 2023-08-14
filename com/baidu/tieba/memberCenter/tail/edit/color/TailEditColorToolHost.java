@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lh5;
-import com.baidu.tieba.r59;
 import com.baidu.tieba.s59;
 import com.baidu.tieba.t59;
-import com.baidu.tieba.v59;
+import com.baidu.tieba.u59;
+import com.baidu.tieba.w59;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,9 +26,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements yh5 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public r59 b;
-    public t59 c;
-    public v59 d;
+    public s59 b;
+    public u59 c;
+    public w59 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -79,14 +79,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements yh5 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            s59 s59Var;
+            t59 t59Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (s59Var = (s59) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (t59Var = (t59) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(s59Var.b());
+            this.a.c.c(t59Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.D(new lh5(26, -1, s59Var.b()));
+            this.a.e.D(new lh5(26, -1, t59Var.b()));
         }
     }
 
@@ -168,13 +168,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements yh5 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0958, (ViewGroup) this, true);
-            this.d = new v59(this);
-            t59 t59Var = new t59(tbPageContext);
-            this.c = t59Var;
-            t59Var.c(str);
-            r59 r59Var = new r59(tbPageContext, this.c, this.f);
-            this.b = r59Var;
-            this.d.a(r59Var);
+            this.d = new w59(this);
+            u59 u59Var = new u59(tbPageContext);
+            this.c = u59Var;
+            u59Var.c(str);
+            s59 s59Var = new s59(tbPageContext, this.c, this.f);
+            this.b = s59Var;
+            this.d.a(s59Var);
         }
     }
 }

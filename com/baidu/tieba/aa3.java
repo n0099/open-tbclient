@@ -38,13 +38,13 @@ public class aa3 extends ca3 {
 
         /* renamed from: com.baidu.tieba.aa3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class DialogInterface$OnKeyListenerC0236a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0235a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0236a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0235a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,7 +249,7 @@ public class aa3 extends ca3 {
             this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fdc);
             this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fde);
             this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fdd);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081456), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081459), (Drawable) null, (Drawable) null, (Drawable) null);
             this.k.setVisibility(8);
             this.j.setVisibility(0);
             this.l.setVisibility(0);
@@ -308,7 +308,7 @@ public class aa3 extends ca3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0236a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0235a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

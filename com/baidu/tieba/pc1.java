@@ -382,7 +382,7 @@ public class pc1 {
             this.b = inflate;
             inflate.setVisibility(4);
             this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f090509);
-            this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f092184);
+            this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f09218a);
             this.h = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f090505);
             this.i = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f090502);
             this.j = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f090503);

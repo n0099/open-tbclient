@@ -39,6 +39,7 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -63,8 +64,8 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.ly4;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.py4;
-import com.baidu.tieba.qk6;
 import com.baidu.tieba.qy4;
+import com.baidu.tieba.rk6;
 import com.baidu.tieba.ww4;
 import com.baidu.tieba.yb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -582,18 +583,6 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         hideProgressBar();
     }
 
-    public boolean isHideLoadingByH5(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return "1".equals(Uri.parse(str).getQueryParameter(TbWebViewActivityConfig.PARAMS_LOADING_SIGNAL));
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
@@ -1081,6 +1070,26 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         return (String) invokeL.objValue;
     }
 
+    public boolean isHideLoadingByH5(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            try {
+                return "1".equals(Uri.parse(str).getQueryParameter(TbWebViewActivityConfig.PARAMS_LOADING_SIGNAL));
+            } catch (UnsupportedOperationException e2) {
+                e2.printStackTrace();
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.e("BaseWebViewActivity", "uri 解析失败 : " + str);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "illegalUri").param("obj_source", str));
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
@@ -1095,7 +1104,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else if (getWebView() instanceof TbWebView) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                qk6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                rk6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
             }
         }
     }
@@ -1411,7 +1420,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091f81) {
+            if (id == R.id.obfuscated_res_0x7f091f87) {
                 if (isTranslucent()) {
                     finish();
                 }

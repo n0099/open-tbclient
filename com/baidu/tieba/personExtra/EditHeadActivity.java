@@ -1106,8 +1106,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.d.setmCutHeightScale(f2);
                 }
             }
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d20);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d21);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d26);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d27);
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
             this.f.setY((int) (((screenDimensions[1] - screenDimensions[0]) * 0.4d) + screenDimensions[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416)));
             EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f09107a);
@@ -1120,7 +1120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0921d8);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0921de);
             this.l = button;
             button.setOnClickListener(new e(this));
             Button button2 = (Button) findViewById(R.id.hide_button);
@@ -1131,7 +1131,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0920ae);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0920b4);
             this.E = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f05a7);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
@@ -1141,7 +1141,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.u.setText(R.string.obfuscated_res_0x7f0f0444);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903cb);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f83);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f89);
             this.p = (RadioButton) findViewById(R.id.beautify_btn);
             this.q = (RadioButton) findViewById(R.id.rotate_btn);
             h hVar = new h(this);

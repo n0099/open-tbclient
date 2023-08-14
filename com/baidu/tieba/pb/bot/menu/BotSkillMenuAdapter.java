@@ -155,7 +155,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
                     }
                 }
             }
-            holder.b().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cd9
+            holder.b().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dd9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

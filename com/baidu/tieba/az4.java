@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.jw9;
+import com.baidu.tieba.kw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,17 +41,17 @@ public class az4 {
         return invokeL.booleanValue;
     }
 
-    public static jw9.g b(String str, String str2) {
+    public static kw9.g b(String str, String str2) {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(jw9.g + "bdtbNWCache");
+            File file = new File(kw9.g + "bdtbNWCache");
             FileInputStream fileInputStream2 = null;
             if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
-            jw9.g gVar = new jw9.g();
+            kw9.g gVar = new kw9.g();
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
             gVar.a = file.getAbsolutePath();
             gVar.c = str2;
@@ -85,25 +85,25 @@ public class az4 {
                 th = th2;
             }
         } else {
-            return (jw9.g) invokeLL.objValue;
+            return (kw9.g) invokeLL.objValue;
         }
     }
 
     public static boolean c(String str) {
         InterceptResult invokeL;
-        lw9 d;
+        mw9 d;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !jw9.s(str)) {
+            if (QuickWebViewSwitch.getInOn() && !kw9.s(str)) {
                 try {
-                    d = kw9.a().d(new URL(str).getPath());
+                    d = lw9.a().d(new URL(str).getPath());
                 } catch (MalformedURLException | Exception unused) {
                 }
                 if (d != null && d.e) {
-                    String p = jw9.n().p(d.b);
+                    String p = kw9.n().p(d.b);
                     if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = jw9.n().m() + "/" + d.b + "/" + p + "/";
+                        String str2 = kw9.n().m() + "/" + d.b + "/" + p + "/";
                         if (!d.c.endsWith(".html")) {
                             file = new File(str2, d.c + ".html");
                         } else {
@@ -143,29 +143,29 @@ public class az4 {
 
     public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !el6.a(set)) {
-            jw9.f fVar = new jw9.f();
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !fl6.a(set)) {
+            kw9.f fVar = new kw9.f();
             fVar.a = new HashMap();
             fVar.b = new HashMap<>();
             for (String str : set) {
-                jw9.g b = b(str, jw9.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !el6.b(b.b)) {
+                kw9.g b = b(str, kw9.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !fl6.b(b.b)) {
                     fVar.a.put(str, b);
                     fVar.b.putAll(b.b);
                 }
             }
-            if (!el6.b(fVar.b)) {
-                kw9.a().i(fVar.b);
+            if (!fl6.b(fVar.b)) {
+                lw9.a().i(fVar.b);
             }
         }
     }
 
-    public static HashMap<String, lw9> f(InputStream inputStream) {
+    public static HashMap<String, mw9> f(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
         BufferedReader bufferedReader;
-        HashMap<String, lw9> hashMap;
+        HashMap<String, mw9> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             InputStreamReader inputStreamReader2 = null;
@@ -238,7 +238,7 @@ public class az4 {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, lw9> hashMap) {
+    public static void e(JSONObject jSONObject, HashMap<String, mw9> hashMap) {
         String str;
         String str2;
         String str3;
@@ -284,34 +284,34 @@ public class az4 {
                             }
                             String optString = jSONObject3.optString("staticPrePath", "");
                             int optInt = jSONObject3.optInt("proxyMode");
-                            kw9.a().j(next, next);
-                            kw9.a().k(next, str2);
+                            lw9.a().j(next, next);
+                            lw9.a().k(next, str2);
                             Iterator<String> it = arrayList2.iterator();
                             while (it.hasNext()) {
                                 String next2 = it.next();
                                 if (!TextUtils.isEmpty(next2)) {
-                                    kw9 a = kw9.a();
+                                    lw9 a = lw9.a();
                                     String str6 = str5;
                                     a.j(optString + "/" + next2, next);
-                                    kw9 a2 = kw9.a();
+                                    lw9 a2 = lw9.a();
                                     a2.k(optString + "/" + next2, next2);
                                     str5 = str6;
                                 }
                             }
                             String str7 = str5;
-                            lw9 lw9Var = new lw9();
-                            lw9Var.a = arrayList;
-                            lw9Var.b = str;
-                            lw9Var.c = str2;
-                            lw9Var.d = arrayList2;
+                            mw9 mw9Var = new mw9();
+                            mw9Var.a = arrayList;
+                            mw9Var.b = str;
+                            mw9Var.c = str2;
+                            mw9Var.d = arrayList2;
                             if (optInt == 1) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            lw9Var.f = z;
-                            lw9Var.e = true;
-                            hashMap.put(next, lw9Var);
+                            mw9Var.f = z;
+                            mw9Var.e = true;
+                            hashMap.put(next, mw9Var);
                             jSONObject2 = jSONObject;
                             str4 = str3;
                             str5 = str7;

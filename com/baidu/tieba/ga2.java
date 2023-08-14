@@ -1387,7 +1387,7 @@ public class ga2 extends ea2 implements fa3.a {
             View b2 = u93.b();
             if (b2 != null) {
                 b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f092582).setVisibility(8);
+                b2.findViewById(R.id.obfuscated_res_0x7f092588).setVisibility(8);
             }
             SwanAppActionBar M1 = M1();
             if (M1 != null) {

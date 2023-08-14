@@ -8,7 +8,7 @@ import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ed6 extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment a;
+    public AlaGameFrsLiveTabFragment a;
 
     @Override // com.baidu.tbadk.mainTab.FragmentDelegate
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -43,7 +43,7 @@ public class ed6 extends FragmentDelegate {
                 return;
             }
         }
-        this.a = new AlaGameFrsLiveTabVideoFragment();
+        this.a = new AlaGameFrsLiveTabFragment();
         getFragmentTabStructure().frag = this.a;
     }
 
@@ -53,7 +53,7 @@ public class ed6 extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 3;
+            fragmentTabStructure.type = 2;
             fragmentTabStructure.textResId = R.string.ala_live;
             fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
             return fragmentTabStructure;
@@ -61,27 +61,35 @@ public class ed6 extends FragmentDelegate {
         return (FragmentTabStructure) invokeV.objValue;
     }
 
-    public void a(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void a(hg7 hg7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.K1(str);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hg7Var) != null) || hg7Var == null || !hg7Var.h(2)) {
+            return;
         }
+        hg7Var.a(this);
     }
 
     public void b(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.L1(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.S1(str);
         }
     }
 
-    public void c(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void c(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
-            alaGameFrsLiveTabVideoFragment.M1(z);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.T1(str);
+        }
+    }
+
+    public void d(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.U1(str);
         }
     }
 
@@ -89,7 +97,7 @@ public class ed6 extends FragmentDelegate {
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
             this.mIndicator = fragmentTabIndicator;
             fragmentTabIndicator.setTextSize(2.0f);

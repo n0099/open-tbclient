@@ -16,10 +16,10 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b18;
+import com.baidu.tieba.c18;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
-import com.baidu.tieba.j58;
-import com.baidu.tieba.j68;
+import com.baidu.tieba.k58;
+import com.baidu.tieba.k68;
 import com.baidu.tieba.mz4;
 import com.baidu.tieba.qx;
 import com.baidu.tieba.rx;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements rx, qx<k68>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public mz4<b18> k;
+    public mz4<c18> k;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
@@ -51,7 +51,7 @@ public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, Vie
     }
 
     /* loaded from: classes6.dex */
-    public class a implements mz4<b18> {
+    public class a implements mz4<c18> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -59,9 +59,9 @@ public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.mz4
         /* renamed from: a */
-        public void c(View view2, b18 b18Var, int i, long j) {
+        public void c(View view2, c18 c18Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, b18Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || b18Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, c18Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || c18Var == null) {
             }
         }
 
@@ -86,12 +86,12 @@ public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.mz4
         /* renamed from: b */
-        public void d(View view2, b18 b18Var, int i, long j) {
+        public void d(View view2, c18 c18Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, b18Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || b18Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, c18Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || c18Var == null) {
                 return;
             }
-            j58.a("c13753", b18Var, i + 1, this.a.j);
+            k58.a("c13753", c18Var, i + 1, this.a.j);
         }
     }
 
@@ -164,20 +164,20 @@ public class HotTopicRankLayout extends LinearLayout implements rx, qx<j68>, Vie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qx
     /* renamed from: c */
-    public void onBindDataToView(j68 j68Var) {
+    public void onBindDataToView(k68 k68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j68Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k68Var) == null) {
             TextView textView = this.d;
-            String str = j68Var.b;
+            String str = k68Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.a(j68Var);
+            this.b.a(k68Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            j58.c("c13753", this.j);
+            k58.c("c13753", this.j);
         }
     }
 

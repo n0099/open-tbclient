@@ -55,7 +55,7 @@ public class z80 {
 
         /* renamed from: com.baidu.tieba.z80$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0553a extends TimerTask {
+        public class C0554a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicBoolean a;
@@ -63,7 +63,7 @@ public class z80 {
             public final /* synthetic */ d c;
             public final /* synthetic */ a d;
 
-            public C0553a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
+            public C0554a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class z80 {
                         w90.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + str);
                     }
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    timer.schedule(new C0553a(this, atomicBoolean, str, dVar), 3000L);
+                    timer.schedule(new C0554a(this, atomicBoolean, str, dVar), 3000L);
                     DnsHelper dnsHelper = new DnsHelper(this.a);
                     dnsHelper.setHttpDnsState(false, null, false, true);
                     z80.h(dnsHelper.getIpList(str), this.a);

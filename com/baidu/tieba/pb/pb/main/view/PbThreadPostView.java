@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sd9;
+import com.baidu.tieba.td9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,9 +71,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = findViewById(R.id.obfuscated_res_0x7f091b23);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b24);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b22);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b29);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b2a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b28);
         }
     }
 
@@ -106,9 +106,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(sd9 sd9Var) {
+    public void setData(td9 td9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sd9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, td9Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

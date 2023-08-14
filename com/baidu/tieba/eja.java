@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.MainThread;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.ija;
-import com.baidu.tieba.tracker.core.data.AbsEventNode;
-import com.baidu.tieba.tracker.core.data.ErrCode;
-import com.baidu.tieba.tracker.core.data.TraceEventNode;
+import com.baidu.tieba.jja;
+import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,28 +12,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import kotlin.Pair;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class eja<R extends ija> {
+public final class eja<R extends jja> extends PageTraceMonitor<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public R a;
-    public AbsEventNode b;
-    public final Handler c;
-    public final Runnable d;
+    public final Fragment e;
+    public final Function1<R, yia> f;
 
-    @MainThread
-    public abstract AbsEventNode a(R r);
-
-    @MainThread
-    public abstract xia c(R r);
-
-    public eja() {
+    public eja(Fragment fragment, Function1<? super R, yia> traceHolderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,83 +36,70 @@ public abstract class eja<R extends ija> {
                 return;
             }
         }
-        this.c = new Handler(Looper.getMainLooper());
-        this.d = new Runnable() { // from class: com.baidu.tieba.bja
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
+        this.e = fragment;
+        this.f = traceHolderFactory;
+    }
 
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    eja.d(eja.this);
+    @Override // com.baidu.tieba.fja
+    public yia c(R thisRef) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return this.f.invoke(thisRef);
+        }
+        return (yia) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public Lifecycle g(R thisRef) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            try {
+                Lifecycle lifecycle = this.e.getLifecycle();
+                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
+                return lifecycle;
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
+            }
+        }
+        return (Lifecycle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public void i(Pair<String, String>... params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            ija.b(this.e, (Pair[]) Arrays.copyOf(params, params.length));
+        }
+    }
+
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public String h(R thisRef) {
+        InterceptResult invokeL;
+        Fragment parentFragment;
+        jja jjaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Fragment fragment = this.e;
+            if (fragment != null && (parentFragment = fragment.getParentFragment()) != null) {
+                if (parentFragment instanceof jja) {
+                    jjaVar = (jja) parentFragment;
+                } else {
+                    jjaVar = null;
+                }
+                if (jjaVar != null) {
+                    return jjaVar.getScene();
                 }
             }
-        };
-    }
-
-    public static final void d(eja this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.b(TuplesKt.to(StatConstants.KEY_EXT_ERR_CODE, ErrCode.TIME_OUT.getValue()));
+            return thisRef.getScene();
         }
-    }
-
-    @MainThread
-    public final void b(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.c.removeCallbacks(this.d);
-            R r = this.a;
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
-                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
-                c(r).c(traceEventNode);
-                gja.a(this, r.getTraceId());
-            }
-            this.a = null;
-        }
-    }
-
-    @MainThread
-    public final void f(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.c.removeCallbacks(this.d);
-            R r = this.a;
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
-                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
-                c(r).c(traceEventNode);
-                gja.a(this, r.getTraceId());
-            }
-            this.a = null;
-        }
-    }
-
-    @MainThread
-    public final AbsEventNode e(R thisRef, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, thisRef, j)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            this.a = thisRef;
-            AbsEventNode absEventNode = this.b;
-            if (absEventNode != null) {
-                return absEventNode;
-            }
-            if (j > 0) {
-                this.c.postDelayed(this.d, j);
-            }
-            AbsEventNode a = a(thisRef);
-            c(thisRef).c(a);
-            this.b = a;
-            Intrinsics.checkNotNull(a);
-            return a;
-        }
-        return (AbsEventNode) invokeLJ.objValue;
+        return (String) invokeL.objValue;
     }
 }

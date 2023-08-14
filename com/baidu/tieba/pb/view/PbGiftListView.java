@@ -225,10 +225,10 @@ public class PbGiftListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d078e, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ab4);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab5);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab6);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab7);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091aba);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091abb);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091abd);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
@@ -237,8 +237,8 @@ public class PbGiftListView extends FrameLayout {
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab2);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab3);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab8);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ab9);
             this.h = textView;
             textView.setOnClickListener(new a(this));
         }

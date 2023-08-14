@@ -13,7 +13,7 @@ import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.rx;
-import com.baidu.tieba.s68;
+import com.baidu.tieba.t68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,21 +45,21 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements r
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092651);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09262e);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f09266b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09261b);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092657);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092634);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092671);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092621);
     }
 
-    public void b(s68 s68Var) {
+    public void b(t68 t68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s68Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, t68Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.startLoad(s68Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, s68Var.a), s68Var.c);
-            if (!TextUtils.isEmpty(s68Var.b)) {
-                this.d.setText(s68Var.b);
+            this.b.startLoad(t68Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, t68Var.a), t68Var.c);
+            if (!TextUtils.isEmpty(t68Var.b)) {
+                this.d.setText(t68Var.b);
                 this.d.setVisibility(0);
                 return;
             }

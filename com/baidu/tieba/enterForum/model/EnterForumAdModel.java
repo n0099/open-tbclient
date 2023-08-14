@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.ay6;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.r9a;
-import com.baidu.tieba.t9a;
-import com.baidu.tieba.zx6;
+import com.baidu.tieba.s9a;
+import com.baidu.tieba.u9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zx6 a;
+    public ay6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,13 +111,13 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public zx6 S() {
+    public ay6 S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (zx6) invokeV.objValue;
+        return (ay6) invokeV.objValue;
     }
 
     public void T() {
@@ -128,10 +128,10 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void U(Context context) {
-        zx6 zx6Var;
+        ay6 ay6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (zx6Var = this.a) != null && zx6Var.a()) {
-            t9a.g().c(l9.a(context).getUniqueId(), r9a.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (ay6Var = this.a) != null && ay6Var.a()) {
+            u9a.g().c(l9.a(context).getUniqueId(), s9a.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

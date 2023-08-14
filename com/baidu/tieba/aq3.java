@@ -1411,15 +1411,15 @@ public class aq3 {
                 vv2.a W = xa3.K().q().W();
                 this.m.getFloatLayer().n(this.a);
                 B = true;
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a3);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a2);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f0925a1);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a9);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a8);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f0925a7);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f08013e);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f080129);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f08013a);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0925a4);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0925aa);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f0603fa);
                     this.k.post(new c(this));
@@ -1484,15 +1484,15 @@ public class aq3 {
                 s(W.getType());
                 this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09150b);
                 this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090855);
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a3);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a2);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f0925a1);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a9);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925a8);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f0925a7);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f08013e);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f080129);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f08013a);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0925a4);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0925aa);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f0603fa);
                     this.k.post(new e(this));

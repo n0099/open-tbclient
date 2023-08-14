@@ -19,8 +19,8 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.k9;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.pw7;
 import com.baidu.tieba.qa5;
+import com.baidu.tieba.qw7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -444,18 +444,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void g(List<pw7> list, List<String> list2) {
+    public void g(List<qw7> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            pw7 pw7Var = list.get(i);
+            qw7 qw7Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(pw7Var.a())) {
+            if (!this.b.p(qw7Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                p15 b = p15.b(tbLinkSpanGroup, pw7Var);
+                p15 b = p15.b(tbLinkSpanGroup, qw7Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();

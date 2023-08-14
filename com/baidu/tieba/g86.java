@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g86 extends y63 {
+public class g86 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile f86 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public g86() {
+    public static synchronized f86 a() {
+        InterceptResult invokeV;
+        f86 f86Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (g86.class) {
+                if (a == null) {
+                    a = new f86();
+                }
+                f86Var = a;
             }
+            return f86Var;
         }
-    }
-
-    @Override // com.baidu.tieba.y63
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("key_param_url");
-            if (StringUtils.isNull(string)) {
-                c();
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001447, string));
-            }
-        }
+        return (f86) invokeV.objValue;
     }
 }

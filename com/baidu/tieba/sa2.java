@@ -220,10 +220,10 @@ public class sa2 extends w93 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00d0, viewGroup, false);
             this.k = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa3);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa9);
             this.l = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060459));
-            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091fa4);
+            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091faa);
             this.m = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060458));
             q();

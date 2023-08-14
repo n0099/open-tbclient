@@ -64,8 +64,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void g() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09267a);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092333);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092680);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092339);
         this.b = button;
         button.setOnClickListener(this);
         this.d = new HashSet();
@@ -78,7 +78,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         List<wp4> list;
-        if (view2.getId() == R.id.obfuscated_res_0x7f092333 && (list = this.c) != null && list.size() > 0) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092339 && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }

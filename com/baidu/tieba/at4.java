@@ -40,12 +40,12 @@ public final class at4 implements xn4 {
 
         /* renamed from: com.baidu.tieba.at4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0244a implements Runnable {
+        public class RunnableC0242a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0244a(a aVar) {
+            public RunnableC0242a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class at4 implements xn4 {
                             z = false;
                         }
                     }
-                    if (z && xa3.M().postDelayed(new RunnableC0244a(this), 1000L)) {
+                    if (z && xa3.M().postDelayed(new RunnableC0242a(this), 1000L)) {
                         return;
                     }
                 }

@@ -13,10 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pn9 extends lm<go9, CardViewHolder<wo9>> {
+public class pn9 extends lm<lo9, CardViewHolder<ep9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public TbPageContext<?> a;
+    public ep9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pn9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -43,11 +44,12 @@ public class pn9 extends lm<go9, CardViewHolder<wo9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: s */
-    public CardViewHolder<wo9> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<ep9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new wo9(this.a));
+            this.b = new ep9(this.a, this.mType);
+            return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -55,11 +57,11 @@ public class pn9 extends lm<go9, CardViewHolder<wo9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, go9 go9Var, CardViewHolder<wo9> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lo9 lo9Var, CardViewHolder<ep9> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, go9Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(go9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lo9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(lo9Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

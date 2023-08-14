@@ -37,8 +37,8 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.of6;
-import com.baidu.tieba.qf6;
+import com.baidu.tieba.pf6;
+import com.baidu.tieba.rf6;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -59,8 +59,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView d;
     public TbImageView e;
     public BdTypeListView f;
-    public qf6 g;
-    public of6 h;
+    public rf6 g;
+    public pf6 h;
     public LoadingView i;
     public AlaNetRefreshView j;
     public TextView k;
@@ -70,11 +70,11 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView o;
     public RelativeLayout p;
     public CustomMessageListener q;
-    public of6.b r;
+    public pf6.b r;
     public CustomMessageListener s;
 
     /* loaded from: classes5.dex */
-    public class c implements of6.b {
+    public class c implements pf6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectFragment a;
@@ -132,7 +132,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a = alaEnterEffectFragment;
         }
 
-        @Override // com.baidu.tieba.of6.b
+        @Override // com.baidu.tieba.pf6.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) != null) {
@@ -339,9 +339,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             hideLoadingView();
-            of6 of6Var = this.h;
-            if (of6Var != null) {
-                of6Var.c();
+            pf6 pf6Var = this.h;
+            if (pf6Var != null) {
+                pf6Var.c();
             }
         }
     }
@@ -416,7 +416,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090a03);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
-        this.g = new qf6(getPageContext(), this.f);
+        this.g = new rf6(getPageContext(), this.f);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -498,7 +498,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) null);
             R1();
-            this.h = new of6(getPageContext(), this.r);
+            this.h = new pf6(getPageContext(), this.r);
             S1();
             this.h.d();
             return this.a;

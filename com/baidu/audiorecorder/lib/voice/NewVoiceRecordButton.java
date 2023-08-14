@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fb5;
-import com.baidu.tieba.kda;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.lda;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.m45;
 import com.baidu.tieba.oi;
@@ -340,7 +340,7 @@ public class NewVoiceRecordButton extends LinearLayout implements qi, yh5 {
         }
     }
 
-    public kda getRecorderManager() {
+    public lda getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -350,7 +350,7 @@ public class NewVoiceRecordButton extends LinearLayout implements qi, yh5 {
             }
             return null;
         }
-        return (kda) invokeV.objValue;
+        return (lda) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.yh5
@@ -387,15 +387,15 @@ public class NewVoiceRecordButton extends LinearLayout implements qi, yh5 {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ff, this);
             this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914ad);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091229);
-            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091e73);
+            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091e79);
             this.c = recordingAnimView;
             recordingAnimView.setCertainColumnCount(8);
             this.c.setColumnColor(R.color.CAM_X0111);
             this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926f0);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092782);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926f6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092788);
             this.a.setOnTouchListener(new a(this));
-            kda recorderManager = getRecorderManager();
+            lda recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(this);
                 recorderManager.d(oi.a);
@@ -433,7 +433,7 @@ public class NewVoiceRecordButton extends LinearLayout implements qi, yh5 {
             if (voiceModel != null) {
                 fb5.a(fb5.b(voiceModel.getVoiceId()));
             }
-            kda recorderManager = getRecorderManager();
+            lda recorderManager = getRecorderManager();
             if (recorderManager != null && recorderManager.f()) {
                 this.i = recorderManager.c(this, -1);
                 so5.b().l(true);
@@ -467,7 +467,7 @@ public class NewVoiceRecordButton extends LinearLayout implements qi, yh5 {
             this.c.setVisibility(4);
             this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f184c));
             this.d.setVisibility(4);
-            kda recorderManager = getRecorderManager();
+            lda recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }

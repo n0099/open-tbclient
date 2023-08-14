@@ -173,13 +173,13 @@ public class GroupChatUserReplyView extends RelativeLayout {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03e4, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092847);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092846);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec6);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09284d);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09284c);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ecc);
         this.d = textView;
         textView.setTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X08));
-        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092845);
-        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092844);
+        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09284b);
+        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09284a);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 }

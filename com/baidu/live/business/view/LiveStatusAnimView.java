@@ -169,12 +169,12 @@ public class LiveStatusAnimView extends FrameLayout {
             gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_768CAE"), fd0.f().a(this.a, this.h, "color_768CAE")});
             if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
                 if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f25);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f28);
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f24);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f27);
                 }
             } else {
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f24);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f27);
             }
             this.b.setBackgroundDrawable(gradientDrawable2);
             this.b.setVisibility(0);
@@ -183,12 +183,12 @@ public class LiveStatusAnimView extends FrameLayout {
             gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_4E6EF2"), fd0.f().a(this.a, this.h, "color_4E6EF2")});
             if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
                 if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f27);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f2a);
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f26);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f29);
                 }
             } else {
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f26);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f29);
             }
             this.b.setBackgroundDrawable(gradientDrawable2);
             this.b.setVisibility(0);
@@ -203,7 +203,7 @@ public class LiveStatusAnimView extends FrameLayout {
                 this.b.setVisibility(4);
             } else {
                 gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_FF3333"), fd0.f().a(this.a, this.h, "color_FF3333")});
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f2a);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080f2d);
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
             }

@@ -93,9 +93,9 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
         } else {
             imageView.setVisibility(0);
             if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
-                KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e22));
+                KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e25));
             } else {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e22);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e25);
                 KSImageLoader.loadWithRadius(imageView, bVar.getAppIconUrl(), adTemplate, hE);
             }
         }

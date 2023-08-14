@@ -6,11 +6,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.qia;
-import com.baidu.tieba.tha;
+import com.baidu.tieba.ria;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
 import com.baidu.tieba.uha;
 import com.baidu.tieba.vha;
+import com.baidu.tieba.wha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public uha c;
-    public vha d;
+    public vha c;
+    public wha d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, qia qiaVar, List<tha> list) {
+        public void a(int i, String str, ria riaVar, List<uha> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qiaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, riaVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(qiaVar, list, this.a.b.W());
+                this.a.c.k(riaVar, list, this.a.b.W());
             }
         }
     }
@@ -115,10 +115,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        uha uhaVar;
+        vha vhaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (uhaVar = this.c) != null) {
-            showLoadingView(uhaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (vhaVar = this.c) != null) {
+            showLoadingView(vhaVar.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            uha uhaVar = this.c;
-            if (uhaVar != null) {
-                uhaVar.f();
+            vha vhaVar = this.c;
+            if (vhaVar != null) {
+                vhaVar.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.Z(this.e);
-            vha vhaVar = new vha(this.a, this.b.getUniqueId());
-            this.d = vhaVar;
-            vhaVar.c(1);
-            uha uhaVar = new uha(this, this.d);
-            this.c = uhaVar;
-            uhaVar.e();
+            wha whaVar = new wha(this.a, this.b.getUniqueId());
+            this.d = whaVar;
+            whaVar.c(1);
+            vha vhaVar = new vha(this, this.d);
+            this.c = vhaVar;
+            vhaVar.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

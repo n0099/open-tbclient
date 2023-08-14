@@ -9,7 +9,6 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.reflect.Field;
@@ -42,57 +41,29 @@ public class ljb extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        boolean z;
         Object obj2;
-        AdResultData adResultData;
-        List<AdTemplate> adTemplateList;
         List<AdInfo> list;
         AdInfo adInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                akb akbVar = (akb) obj;
-                if (akbVar != null) {
-                    Object obj3 = akbVar.a;
-                    String[] strArr = {"BM", "Bu", "AC", "yJ"};
+                bkb bkbVar = (bkb) obj;
+                if (bkbVar != null) {
+                    Object obj3 = bkbVar.a;
+                    String[] strArr = {"mAdTemplate"};
                     Field field = null;
-                    int i = 0;
-                    while (true) {
-                        z = true;
-                        if (i >= 4) {
-                            break;
-                        }
+                    for (int i = 0; i < 1; i++) {
                         try {
                             field = obj3.getClass().getDeclaredField(strArr[i]);
                             field.setAccessible(true);
                             break;
                         } catch (NoSuchFieldException unused) {
-                            i++;
                         }
                     }
-                    if (field == null || (obj2 = field.get(obj3)) == null) {
+                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
                         return null;
                     }
-                    if (obj2 instanceof AdResultData) {
-                        adResultData = (AdResultData) obj2;
-                    } else {
-                        adResultData = null;
-                    }
-                    if (adResultData == null) {
-                        z = false;
-                    }
-                    if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
-                        AdTemplate adTemplate = adTemplateList.get(0);
-                        if (adTemplate == null) {
-                            list = null;
-                        } else {
-                            list = adTemplate.adInfoList;
-                        }
-                        if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                            return null;
-                        }
-                        return njb.a(adInfo);
-                    }
+                    return ojb.a(adInfo);
                 }
                 return null;
             } catch (Exception e) {

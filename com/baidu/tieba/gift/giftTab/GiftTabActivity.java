@@ -32,15 +32,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.e25;
 import com.baidu.tieba.e95;
-import com.baidu.tieba.ew7;
+import com.baidu.tieba.fw7;
 import com.baidu.tieba.gift.giftTab.GiftTabView;
 import com.baidu.tieba.gift.send.SendGiftModel;
-import com.baidu.tieba.gw7;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.hw7;
 import com.baidu.tieba.jw7;
+import com.baidu.tieba.kw7;
 import com.baidu.tieba.m45;
-import com.baidu.tieba.ow7;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.pw7;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,7 +53,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GiftTabView a;
-    public jw7 b;
+    public kw7 b;
     public SendGiftModel c;
     public String d;
     public boolean e;
@@ -65,7 +65,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public int k;
     public String l;
     public d25 m;
-    public ow7 n;
+    public pw7 n;
     public int o;
     public int p;
     public boolean q;
@@ -74,8 +74,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public View.OnClickListener t;
     public GiftTabView.o u;
     public GiftTabView.n v;
-    public jw7.d w;
-    public jw7.e x;
+    public kw7.d w;
+    public kw7.e x;
     public SendGiftModel.c y;
     public CustomMessageListener z;
 
@@ -392,7 +392,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class i implements jw7.d {
+    public class i implements kw7.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -415,7 +415,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.jw7.d
+        @Override // com.baidu.tieba.kw7.d
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -428,7 +428,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements jw7.e {
+    public class j implements kw7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -451,8 +451,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.jw7.e
-        public void a(int i, String str, boolean z, String str2, int i2, e25 e25Var, ArrayList<gw7> arrayList, ArrayList<ew7> arrayList2, ArrayList<iw7> arrayList3) {
+        @Override // com.baidu.tieba.kw7.e
+        public void a(int i, String str, boolean z, String str2, int i2, e25 e25Var, ArrayList<hw7> arrayList, ArrayList<fw7> arrayList2, ArrayList<jw7> arrayList3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), e25Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i != 0 && !StringUtils.isNull(str)) {
@@ -494,9 +494,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i, String str, ow7 ow7Var) {
+        public void a(int i, String str, pw7 pw7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, ow7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, pw7Var) == null) {
                 this.a.a.G();
                 if (i != 0) {
                     if (StringUtils.isNull(str)) {
@@ -504,9 +504,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     } else {
                         this.a.showToast(str);
                     }
-                } else if (ow7Var != null) {
-                    this.a.n = ow7Var;
-                    PaymentConfirmRequestData a = ow7Var.a();
+                } else if (pw7Var != null) {
+                    this.a.n = pw7Var;
+                    PaymentConfirmRequestData a = pw7Var.a();
                     a.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
                     this.a.sendMessage(new CustomMessage(2002001, new PaymentConfirmActivityConfig(this.a.getPageContext().getPageActivity(), a, this.a.r, this.a.s)));
                 }
@@ -893,12 +893,12 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        jw7 jw7Var;
+        kw7 kw7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (this.q && (jw7Var = this.b) != null) {
-                jw7Var.n(this.d);
+            if (this.q && (kw7Var = this.b) != null) {
+                kw7Var.n(this.d);
             }
         }
     }
@@ -937,9 +937,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             textView.setText(String.format(string, objArr));
             this.a.P(this.u);
             this.a.Q(this.v);
-            jw7 jw7Var = new jw7(getPageContext());
-            this.b = jw7Var;
-            jw7Var.s(this.x);
+            kw7 kw7Var = new kw7(getPageContext());
+            this.b = kw7Var;
+            kw7Var.s(this.x);
             this.b.r(this.w);
             SendGiftModel sendGiftModel = new SendGiftModel(getPageContext());
             this.c = sendGiftModel;

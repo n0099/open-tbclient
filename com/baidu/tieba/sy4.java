@@ -32,7 +32,7 @@ public class sy4 {
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
     public TbRichTextView d;
-    public j06 e;
+    public k06 e;
     public TbImageView f;
     public TextView g;
     public TextView h;
@@ -136,9 +136,9 @@ public class sy4 {
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            j06 j06Var = new j06();
-            this.e = j06Var;
-            j06Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
+            k06 k06Var = new k06();
+            this.e = k06Var;
+            k06Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
             this.e.x(BdUtilHelper.getDimens(this.a, R.dimen.tbds42));
             this.e.k(BdUtilHelper.getDimens(this.a, R.dimen.tbds23));
             this.e.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);

@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,14 +18,15 @@ public class afa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public CurrencySwitchTDouYBeanDialog b;
+    public final iea b;
+    public final tea c;
 
-    public afa(MainTabActivity mainTabActivity, hea heaVar) {
+    public afa(MainTabActivity mainTabActivity, iea ieaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, heaVar};
+            Object[] objArr = {mainTabActivity, ieaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,22 +37,62 @@ public class afa {
             }
         }
         this.a = mainTabActivity;
+        this.b = ieaVar;
+        this.c = mainTabActivity.e;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
-            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
-            this.b = currencySwitchTDouYBeanDialog;
-            currencySwitchTDouYBeanDialog.showDialog();
-        }
-    }
-
-    public void b() {
-        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (currencySwitchTDouYBeanDialog = this.b) != null) {
-            currencySwitchTDouYBeanDialog.onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            iea ieaVar = this.b;
+            if (ieaVar != null && ieaVar.x() != null && this.b.x().getAnimationView() != null && this.b.x().getAnimationView().getVisibility() != 0) {
+                this.b.x().setLottieView(false);
+            }
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                        if (sharedPrefHelper.getBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
+                            sharedPrefHelper2.putBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
+                    }
+                }
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        iea ieaVar2 = this.b;
+                        if (ieaVar2 != null) {
+                            ieaVar2.N(myTabText);
+                        }
+                    } else {
+                        iea ieaVar3 = this.b;
+                        if (ieaVar3 != null) {
+                            ieaVar3.N(null);
+                        }
+                    }
+                } else {
+                    iea ieaVar4 = this.b;
+                    if (ieaVar4 != null) {
+                        ieaVar4.N(null);
+                    }
+                }
+            } else {
+                iea ieaVar5 = this.b;
+                if (ieaVar5 != null) {
+                    ieaVar5.N(null);
+                }
+            }
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
+            }
+            l05.b().l("1", "");
+            tea teaVar = this.c;
+            if (teaVar != null && teaVar.i() != null) {
+                this.c.i().a();
+            }
         }
     }
 }

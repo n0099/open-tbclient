@@ -79,11 +79,11 @@ public final class R {
         public static final int main_duration_text = 0x7f0916a2;
         public static final int main_progress_text = 0x7f0916a8;
         public static final int main_view_seekbar = 0x7f0916b4;
-        public static final int play_error_layout_retry = 0x7f091c98;
-        public static final int progress = 0x7f091d5e;
-        public static final int right = 0x7f091f04;
-        public static final int time = 0x7f092524;
-        public static final int tv_error = 0x7f0926f5;
+        public static final int play_error_layout_retry = 0x7f091c9e;
+        public static final int progress = 0x7f091d64;
+        public static final int right = 0x7f091f0a;
+        public static final int time = 0x7f09252a;
+        public static final int tv_error = 0x7f0926fb;
     }
 
     /* loaded from: classes4.dex */

@@ -369,7 +369,7 @@ public class w45 {
             this.b = roundLinearLayout;
             EMManager.from(roundLinearLayout).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092560);
             View findViewById = this.b.findViewById(R.id.title_divide_line);
             this.f = findViewById;
             findViewById.setVisibility(8);
@@ -422,7 +422,7 @@ public class w45 {
             EMManager.from(roundLinearLayout).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
             this.d = (LinearLayout) this.b.findViewById(R.id.content_view_second);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092560);
             View findViewById = this.b.findViewById(R.id.title_divide_line);
             this.f = findViewById;
             findViewById.setVisibility(8);

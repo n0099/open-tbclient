@@ -17,7 +17,7 @@ public final class ox extends dx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public q05 h;
-    public bn6<q05> i;
+    public cn6<q05> i;
     public CustomFitFrameCard j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,9 +84,9 @@ public final class ox extends dx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            bn6<q05> bn6Var = this$0.i;
-            if (bn6Var != null) {
-                bn6Var.a(view2, this$0.h);
+            cn6<q05> cn6Var = this$0.i;
+            if (cn6Var != null) {
+                cn6Var.a(view2, this$0.h);
             }
         }
     }
@@ -130,10 +130,10 @@ public final class ox extends dx {
     }
 
     @Override // com.baidu.tieba.ww
-    public void p(bn6<q05> bn6Var) {
+    public void p(cn6<q05> cn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bn6Var) == null) {
-            this.i = bn6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cn6Var) == null) {
+            this.i = cn6Var;
         }
     }
 }
